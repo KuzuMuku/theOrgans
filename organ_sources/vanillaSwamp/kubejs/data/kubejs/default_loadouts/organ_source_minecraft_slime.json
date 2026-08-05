@@ -40,17 +40,17 @@
   "point_adjustments": [
     {
       "source": "organdefaults:balance/slime_family",
-      "point_key": "attribute:minecraft:max_health",
+      "point_key": "attribute:minecraft:generic.max_health",
       "amount": -4
     },
     {
       "source": "organdefaults:balance/slime_family",
-      "point_key": "attribute:minecraft:attack_damage",
+      "point_key": "attribute:minecraft:generic.attack_damage",
       "amount": -1
     },
     {
       "source": "organdefaults:balance/slime_family",
-      "point_key": "attribute:minecraft:movement_speed",
+      "point_key": "attribute:minecraft:generic.movement_speed",
       "amount": -1
     }
   ]

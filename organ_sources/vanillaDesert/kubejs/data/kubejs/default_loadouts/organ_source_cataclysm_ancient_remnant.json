@@ -119,12 +119,12 @@
     },
     {
       "source": "organdefaults:balance/predator_quadruped",
-      "point_key": "attribute:minecraft:armor",
+      "point_key": "attribute:minecraft:generic.armor",
       "amount": -6
     },
     {
       "source": "organdefaults:balance/predator_quadruped",
-      "point_key": "attribute:minecraft:armor_toughness",
+      "point_key": "attribute:minecraft:generic.armor_toughness",
       "amount": -2
     }
   ]

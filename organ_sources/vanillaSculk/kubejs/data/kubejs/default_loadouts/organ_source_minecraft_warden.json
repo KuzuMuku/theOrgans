@@ -129,12 +129,12 @@
     },
     {
       "source": "organdefaults:balance/warden_family",
-      "point_key": "attribute:minecraft:armor",
+      "point_key": "attribute:minecraft:generic.armor",
       "amount": -5
     },
     {
       "source": "organdefaults:balance/warden_family",
-      "point_key": "attribute:minecraft:armor_toughness",
+      "point_key": "attribute:minecraft:generic.armor_toughness",
       "amount": -2
     }
   ]

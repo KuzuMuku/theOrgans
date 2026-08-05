@@ -100,12 +100,12 @@
     },
     {
       "source": "organdefaults:balance/aquatic_mammal",
-      "point_key": "attribute:minecraft:armor",
+      "point_key": "attribute:minecraft:generic.armor",
       "amount": -4
     },
     {
       "source": "organdefaults:balance/aquatic_mammal",
-      "point_key": "attribute:minecraft:armor_toughness",
+      "point_key": "attribute:minecraft:generic.armor_toughness",
       "amount": -1
     }
   ]

@@ -1,0 +1,74 @@
+{
+  "item": "kubejs:piston_punch",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §7无0§r §9机械近战§r §7低§r"
+  ],
+  "tags": [
+    "create_level1",
+    "melee",
+    "active"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "kubejs:piston_punch",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": [
+        {
+          "type": "play_sound",
+          "point_type": "runtime",
+          "point_id": "kubejs:piston_punch_basic",
+          "hidden": true,
+          "config": {
+            "sound": "minecraft:block.piston.extend"
+          },
+          "volume": 1.0,
+          "pitch": 1.0,
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "play_sound",
+          "point_type": "runtime",
+          "point_id": "kubejs:piston_punch_heavy",
+          "hidden": true,
+          "config": {
+            "sound": "minecraft:block.anvil.land"
+          },
+          "volume": 1.0,
+          "pitch": 0.9,
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "play_sound",
+          "point_type": "runtime",
+          "point_id": "kubejs:piston_punch_brutal",
+          "hidden": true,
+          "config": {
+            "sound": "minecraft:entity.iron_golem.attack"
+          },
+          "volume": 1.2,
+          "pitch": 0.8,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "item": "kubejs:micro_waterwheel",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §7无0§r §9应力底盘§r §7低§r"
+  ],
+  "tags": [
+    "create_level1",
+    "driver",
+    "passive"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 20
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 1,
+              "source": "kubejs_level1_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

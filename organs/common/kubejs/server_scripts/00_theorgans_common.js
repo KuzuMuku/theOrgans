@@ -39,7 +39,7 @@ function getLinkCounter(player, pointId) {
 
 function addItemsToTag(event, tagId, ids) {
   for (let i = 0; i < ids.length; i++) {
-    event.add(tagId, normalizeItemId(ids[i]))
+    event.add(tagId, Common.normalizeItemId(ids[i]))
   }
 }
 

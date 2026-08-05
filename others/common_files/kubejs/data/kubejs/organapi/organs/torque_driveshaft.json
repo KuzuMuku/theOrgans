@@ -1,0 +1,98 @@
+{
+  "item": "kubejs:torque_driveshaft",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §7无0§r §9应力底盘§r §6中§r"
+  ],
+  "tags": [
+    "create_level1",
+    "driver",
+    "synergy"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "counter",
+          "id": "kubejs:torque_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [
+        {
+          "type": "attack",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:shaft_attack_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:shaft_mine_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:shaft_interrupt_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "shaft_attack_gain",
+          "point_type": "runtime",
+          "point_id": "kubejs:shaft_attack_pulse",
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "kubejs_call",
+          "callback": "shaft_mine_gain",
+          "point_type": "runtime",
+          "point_id": "kubejs:shaft_mine_pulse",
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "kubejs_call",
+          "callback": "shaft_interrupt",
+          "point_type": "runtime",
+          "point_id": "kubejs:shaft_interrupt_pulse",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

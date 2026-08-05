@@ -1,0 +1,33 @@
+{
+  "item": "kubejs:crushing_gears",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6头§r §7无0§r §9采掘收益§r §7低§r"
+  ],
+  "tags": [
+    "create_level1",
+    "resource",
+    "active"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "kubejs:crushing_gears",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

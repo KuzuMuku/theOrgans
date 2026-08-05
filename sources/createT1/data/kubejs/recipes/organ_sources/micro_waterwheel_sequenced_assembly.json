@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_micro_waterwheel"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "create:water_wheel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "create:copper_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "create:copper_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "kubejs:annealed_copper_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "item": "kubejs:sterile_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        },
+        {
+          "amount": 500,
+          "fluid": "minecraft:water"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_waterwheel"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:micro_waterwheel",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

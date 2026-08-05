@@ -1,0 +1,41 @@
+{
+  "entity_types": [
+    "minecraft:cow",
+    "minecraft:sheep",
+    "minecraft:pig",
+    "minecraft:mooshroom",
+    "minecraft:horse",
+    "minecraft:donkey",
+    "minecraft:mule",
+    "minecraft:llama",
+    "minecraft:trader_llama",
+    "minecraft:camel",
+    "minecraft:goat",
+    "minecraft:rabbit",
+    "minecraft:sniffer"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2
+    },
+    "organapi:chest": {
+      "capacity": 6
+    },
+    "organapi:abdomen": {
+      "capacity": 4
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

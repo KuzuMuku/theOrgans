@@ -1,0 +1,84 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:bat"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:light_skull"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:keen_brain"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:common_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_lungs"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:keen_spine"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:common_digestive_tract"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "kubejs:mycelium_sole"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/avian_small",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/avian_small",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -3
+    },
+    {
+      "source": "organdefaults:balance/avian_small",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/avian_small",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/avian_small",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -2
+    }
+  ]
+}

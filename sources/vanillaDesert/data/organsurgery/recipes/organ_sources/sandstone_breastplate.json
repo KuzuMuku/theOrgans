@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:rib_cage",
+      "count": 1
+    },
+    {
+      "item": "minecraft:smooth_sandstone",
+      "count": 4
+    },
+    {
+      "item": "minecraft:sandstone_stairs",
+      "count": 2
+    },
+    {
+      "item": "kubejs:cast_redsand_glass",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sunfire_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sintered_sand_core",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:sandstone_breastplate"
+  },
+  "fluid": {
+    "fluid": "create:honey",
+    "amount": 250
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_drive_chainsaw"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "create:mechanical_saw"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "create:shaft"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "create:shaft"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "kubejs:annealed_copper_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        },
+        {
+          "item": "kubejs:sterile_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_drive_chainsaw"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:drive_chainsaw",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

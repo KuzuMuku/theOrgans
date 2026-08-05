@@ -1,0 +1,135 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:common_digestive_tract"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_lubrication_reflux_gland"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "item": "create:mechanical_pump"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "item": "create:brass_funnel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        },
+        {
+          "amount": 500,
+          "fluid": "createdieselgenerators:biodiesel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_lubrication_reflux_gland"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:lubrication_reflux_gland",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

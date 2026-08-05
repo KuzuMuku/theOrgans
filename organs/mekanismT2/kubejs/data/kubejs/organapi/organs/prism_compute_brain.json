@@ -1,0 +1,58 @@
+{
+  "item": "kubejs:prism_compute_brain",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6头§r §d电4§r §9电能法增§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "crown"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT2_lock_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT2_lock_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

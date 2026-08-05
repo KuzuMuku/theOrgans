@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kubejs:pressurized_sterile_suture"
+    },
+    {
+      "item": "mekanism:hdpe_sheet"
+    },
+    {
+      "item": "mekanism:basic_control_circuit"
+    }
+  ],
+  "result": {
+    "item": "kubejs:nano_suture"
+  }
+}

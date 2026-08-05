@@ -1,0 +1,120 @@
+{
+  "item": "kubejs:deepheart_remnant",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6心§r §5暗2§r §9暗域底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "recovery"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:deepheart_remnant_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:deepheart_remnant_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 2,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:deepheart_remnant_recover",
+          "amount": 1.0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_otherdeep_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_otherdeep_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:deepheart_remnant_recover_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:deepheart_remnant_recover_pulse",
+          "effect": "minecraft:night_vision",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

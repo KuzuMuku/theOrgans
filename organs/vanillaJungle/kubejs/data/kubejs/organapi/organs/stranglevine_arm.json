@@ -1,0 +1,129 @@
+{
+  "item": "kubejs:stranglevine_arm",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §2草3§r §9藤根近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:stranglevine_arm_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 1,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:stranglevine_arm_strike",
+          "effect": "minecraft:slowness",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_snare_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_snare_ready"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:stranglevine_arm_strike_mark",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:stranglevine_arm_strike_mark",
+          "effect": "minecraft:weakness",
+          "duration_ticks": 60,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_rainforest_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

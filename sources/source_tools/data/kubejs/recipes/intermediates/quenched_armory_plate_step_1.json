@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:shield"
+  },
+  "result": "kubejs:quenched_armory_plate",
+  "experience": 0.1,
+  "cookingtime": 100
+}

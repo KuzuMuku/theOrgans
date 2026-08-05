@@ -1,0 +1,100 @@
+{
+  "item": "kubejs:otherdeep_float_membrane",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §5暗3§r §9暗壳生存§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "item": "kubejs:war_drum_cochlea",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6耳§r §5暗3§r §9回响侦测§r §7低§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_raid",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_raid"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_raid",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_raid"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 1,
+              "source": "vanillaPillager_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_spring_ram"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "create:mechanical_piston"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "minecraft:tripwire_hook"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "minecraft:tripwire_hook"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "kubejs:annealed_copper_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        },
+        {
+          "item": "kubejs:sterile_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spring_ram"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:spring_ram",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

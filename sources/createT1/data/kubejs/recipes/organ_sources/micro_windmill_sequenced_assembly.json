@@ -1,0 +1,166 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_micro_windmill"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:white_sail"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:white_sail"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:white_sail"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:white_sail"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "create:windmill_bearing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "kubejs:annealed_copper_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        },
+        {
+          "item": "kubejs:sterile_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_micro_windmill"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:micro_windmill",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

@@ -1,0 +1,113 @@
+{
+  "item": "kubejs:rainforest_water_sac",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6囊§r §2草4§r §9生态底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "mana"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_cast",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:rainforest_water_sac_spell_loop",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 2,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:rainforest_water_sac_spell_loop",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 40
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaJungle_resonance_capacity",
+          "amount": 8
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_rainforest_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

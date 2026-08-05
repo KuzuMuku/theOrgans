@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "deeperdarker:shattered"
+  ],
+  "parts": {
+    "organapi:head": {
+      "enabled": true,
+      "capacity": 2
+    },
+    "organapi:chest": {
+      "capacity": 7,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 2
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

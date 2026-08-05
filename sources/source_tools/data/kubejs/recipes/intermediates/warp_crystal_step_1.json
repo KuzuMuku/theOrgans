@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:ender_eye"
+    },
+    "B": {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    "C": {
+      "item": "kubejs:annealed_purpur_crystal_plate"
+    }
+  },
+  "result": {
+    "item": "kubejs:warp_crystal"
+  }
+}

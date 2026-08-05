@@ -1,0 +1,6 @@
+{
+  "point": "shield:kubejs:mekanismT2_barrier",
+  "sync_to_client": true,
+  "priority": 10,
+  "overflow_mode": "spill"
+}

@@ -1,0 +1,169 @@
+{
+  "item": "kubejs:snowhide_spleen",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脾§r §b冰2§r §9寒息续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSnow",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:ice_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:snowhide_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:snowhide_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:snowhide_spleen_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:snowball",
+              "count": 4,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:packed_ice",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:rabbit_hide",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSnow_frost_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSnow_frost_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:snowhide_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:snowhide_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:snowhide_spleen_bonus_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:snowball",
+              "count": 4,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:packed_ice",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:rabbit_hide",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

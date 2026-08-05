@@ -1,0 +1,135 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_stress_pick"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "item": "create:mechanical_drill"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "item": "minecraft:iron_pickaxe"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "item": "kubejs:annealed_copper_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "item": "kubejs:sterile_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        },
+        {
+          "amount": 250,
+          "fluid": "createdieselgenerators:plant_oil"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_stress_pick"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:stress_pick",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

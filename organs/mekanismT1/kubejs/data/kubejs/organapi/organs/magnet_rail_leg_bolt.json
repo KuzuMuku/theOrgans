@@ -1,0 +1,118 @@
+{
+  "item": "kubejs:magnet_rail_leg_bolt",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腿§r §d电1§r §9锁定远压§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "movement"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_rhythm_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_discharge_window",
+              "amount": 1,
+              "duration_ticks": 40
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_has_chase",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_has_chase"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:mekanismT1_rhythm_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.movement_speed",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_discharge_ready",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_discharge_ready"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:mekanismT1_pressure_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.knockback_resistance",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

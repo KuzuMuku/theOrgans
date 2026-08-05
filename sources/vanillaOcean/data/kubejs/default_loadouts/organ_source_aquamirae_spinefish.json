@@ -1,0 +1,77 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "aquamirae:spinefish"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:keen_brain"
+        }
+      ],
+      "1": [
+        {
+          "id": "kubejs:bubblewave_throat"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:common_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:fish_gills"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:common_spine"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:common_digestive_tract"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/fish",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/fish",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -5
+    },
+    {
+      "source": "organdefaults:balance/fish",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -5
+    },
+    {
+      "source": "organdefaults:balance/fish",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/fish",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -2
+    }
+  ]
+}

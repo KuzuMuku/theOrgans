@@ -1,0 +1,80 @@
+{
+  "item": "kubejs:tempo_calibration_cochlea",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6耳§r §a风3§r §9节拍侦测§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 1,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 1,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

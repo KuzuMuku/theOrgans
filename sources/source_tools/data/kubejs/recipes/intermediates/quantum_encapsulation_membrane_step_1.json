@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "kubejs:industrial_encapsulation_membrane"
+    },
+    "B": {
+      "item": "mekanism:hdpe_sheet"
+    },
+    "C": {
+      "item": "mekanism:alloy_atomic"
+    },
+    "D": {
+      "item": "mekanism:teleportation_core"
+    }
+  },
+  "result": {
+    "item": "kubejs:quantum_encapsulation_membrane"
+  }
+}

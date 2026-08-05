@@ -1,0 +1,169 @@
+{
+  "item": "kubejs:slime_mana_spleen",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脾§r §2草2§r §9菌苔续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSwamp",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:slime_mana_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSwamp_resonance",
+              "amount": 2,
+              "source": "vanillaSwamp_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:slime_mana_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSwamp_resonance",
+              "amount": 2,
+              "source": "vanillaSwamp_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:slime_mana_spleen_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:slime_ball",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:lily_pad",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:spider_eye",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSwamp_mire_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:slime_mana_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:slime_mana_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:slime_mana_spleen_bonus_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:slime_ball",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:lily_pad",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:spider_eye",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

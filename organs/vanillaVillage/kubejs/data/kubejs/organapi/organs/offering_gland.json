@@ -1,0 +1,99 @@
+{
+  "item": "kubejs:offering_gland",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腺§r §e光3§r §9秩序法增§r §7低§r"
+  ],
+  "tags": [
+    "vanillaVillage",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:light_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_trade",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 20
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_trade",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 60
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

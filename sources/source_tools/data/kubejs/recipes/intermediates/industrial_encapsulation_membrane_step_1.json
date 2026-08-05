@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:slime_ball"
+    },
+    "B": {
+      "item": "mekanism:basic_fluid_tank"
+    },
+    "C": {
+      "item": "mekanism:alloy_reinforced"
+    },
+    "D": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "kubejs:industrial_encapsulation_membrane"
+  }
+}

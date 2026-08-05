@@ -1,0 +1,29 @@
+{
+  "entity_types": [
+    "aquamirae:spinefish"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:chest": {
+      "capacity": 6
+    },
+    "organapi:abdomen": {
+      "capacity": 2
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

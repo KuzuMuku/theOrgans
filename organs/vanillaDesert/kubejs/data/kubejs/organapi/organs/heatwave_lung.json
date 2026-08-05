@@ -1,0 +1,121 @@
+{
+  "item": "kubejs:heatwave_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §c火5§r §9火法增幅§r §6中§r"
+  ],
+  "tags": [
+    "vanillaDesert",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:fire",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:heatwave_lung_spell_echo",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:heatwave_lung_spell_echo",
+          "amount": 3.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:heatwave_lung_spell_echo",
+          "effect": "minecraft:slowness",
+          "duration_ticks": 60,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 5,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_dryheat_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_dryheat_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

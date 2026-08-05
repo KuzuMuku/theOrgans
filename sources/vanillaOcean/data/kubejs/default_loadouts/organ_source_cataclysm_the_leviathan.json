@@ -1,0 +1,97 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "cataclysm:the_leviathan"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:guardian_lens"
+        }
+      ],
+      "1": [
+        {
+          "id": "kubejs:tidepressure_crown"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:strong_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:fish_gills"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:carapace_shell"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:common_spine"
+        }
+      ],
+      "4": [
+        {
+          "id": "organdefaults:titan_muscle_bundle"
+        }
+      ],
+      "5": [
+        {
+          "id": "kubejs:coraltide_tail"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:predator_digestive_tract"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -5
+    },
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -7
+    },
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "attribute:minecraft:armor",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/guardian_family",
+      "point_key": "attribute:minecraft:armor_toughness",
+      "amount": -1
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "entity_types": [
+    "minecraft:skeleton",
+    "minecraft:stray",
+    "minecraft:wither_skeleton"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 1
+    },
+    "organapi:chest": {
+      "capacity": 4,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "enabled": false
+    },
+    "organapi:left_arm": {
+      "capacity": 1
+    },
+    "organapi:right_arm": {
+      "capacity": 1
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

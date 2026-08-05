@@ -1,0 +1,99 @@
+{
+  "item": "kubejs:banner_spinewheel",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §5暗2§r §9暗域底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaPillager_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_raid",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_raid"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 3,
+              "source": "vanillaPillager_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_outpost",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_outpost"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

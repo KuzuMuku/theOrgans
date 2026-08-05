@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:rib_cage",
+      "count": 1
+    },
+    {
+      "item": "minecraft:obsidian",
+      "count": 4
+    },
+    {
+      "item": "minecraft:crying_obsidian",
+      "count": 2
+    },
+    {
+      "item": "kubejs:calcined_nether_bone_shard",
+      "count": 1
+    },
+    {
+      "item": "kubejs:fireward_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:scorch_crystal",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:obsidian_chest_cavity"
+  },
+  "fluid": {
+    "fluid": "minecraft:lava",
+    "amount": 500
+  }
+}

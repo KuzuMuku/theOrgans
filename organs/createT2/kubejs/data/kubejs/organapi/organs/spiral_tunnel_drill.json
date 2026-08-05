@@ -1,0 +1,59 @@
+{
+  "item": "kubejs:spiral_tunnel_drill",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §a风1§r §9增产采掘§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "active_resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:spiral_tunnel_drill",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_resource_online",
+            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

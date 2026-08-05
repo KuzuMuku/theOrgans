@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:common_skull"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_tempo_calibration_cochlea"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "create:rotation_speed_controller"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        },
+        {
+          "amount": 250,
+          "fluid": "createdieselgenerators:ethanol"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_tempo_calibration_cochlea"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:tempo_calibration_cochlea",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

@@ -1,0 +1,120 @@
+{
+  "item": "kubejs:bog_rot_sac",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6囊§r §2草2§r §9菌苔续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSwamp",
+    "recovery"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:bog_rot_sac_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSwamp_resonance",
+              "amount": 1,
+              "source": "vanillaSwamp_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:bog_rot_sac_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSwamp_resonance",
+              "amount": 2,
+              "source": "vanillaSwamp_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:bog_rot_sac_recover",
+          "amount": 1.0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSwamp_venom_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:bog_rot_sac_recover_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:bog_rot_sac_recover_pulse",
+          "effect": "minecraft:regeneration",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

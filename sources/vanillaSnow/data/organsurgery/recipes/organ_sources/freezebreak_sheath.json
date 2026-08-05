@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_spine",
+      "count": 1
+    },
+    {
+      "item": "minecraft:packed_ice",
+      "count": 2
+    },
+    {
+      "item": "kubejs:quenched_ice_shard",
+      "count": 1
+    },
+    {
+      "item": "kubejs:coldward_paste",
+      "count": 1
+    },
+    {
+      "item": "kubejs:frozen_fiber",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:freezebreak_sheath"
+  },
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

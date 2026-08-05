@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_digestive_tract",
+      "count": 1
+    },
+    {
+      "item": "minecraft:slime_ball",
+      "count": 3
+    },
+    {
+      "item": "minecraft:spider_eye",
+      "count": 2
+    },
+    {
+      "item": "kubejs:dried_mucosa",
+      "count": 1
+    },
+    {
+      "item": "kubejs:bogtoxin_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:humus_filter_block",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:slime_mana_spleen"
+  },
+  "fluid": {
+    "fluid": "mekanism:nutritional_paste",
+    "amount": 250
+  }
+}

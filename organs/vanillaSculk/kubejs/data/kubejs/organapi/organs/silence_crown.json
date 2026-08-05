@@ -1,0 +1,117 @@
+{
+  "item": "kubejs:silence_crown",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6头§r §5暗4§r §9暗域控场§r §6中§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "crown"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:cooldown_added",
+          "school": "irons_spellbooks:ender",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:silence_crown_cooldown_echo",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:silence_crown_cooldown_echo",
+          "amount": 3,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_mark_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:ender_magic_resist",
+          "amount": 3
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_silence_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_silence_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:glow_squid"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:common_brain"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:common_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:fish_gills"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:predator_digestive_tract"
+        }
+      ],
+      "1": [
+        {
+          "id": "kubejs:brightpod_sac"
+        }
+      ],
+      "2": [
+        {
+          "id": "kubejs:sporebed_spleen"
+        }
+      ],
+      "3": [
+        {
+          "id": "kubejs:deepsea_liver"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/squid_family",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/squid_family",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -5
+    },
+    {
+      "source": "organdefaults:balance/squid_family",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/squid_family",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/squid_family",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -3
+    }
+  ]
+}

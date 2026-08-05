@@ -1,0 +1,116 @@
+{
+  "item": "kubejs:overheat_diffusion_shoulder",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肩§r §d电2§r §9电刃近战§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_heat_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:overheat_diffusion_shoulder_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:overheat_diffusion_shoulder_strike",
+          "amount": 3.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_heat_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:overheat_diffusion_shoulder_strike_mark",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:overheat_diffusion_shoulder_strike_mark",
+          "effect": "minecraft:weakness",
+          "duration_ticks": 60,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

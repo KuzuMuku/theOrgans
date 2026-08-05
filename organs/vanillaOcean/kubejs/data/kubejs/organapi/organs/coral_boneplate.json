@@ -1,0 +1,103 @@
+{
+  "item": "kubejs:coral_boneplate",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §1水2§r §9海压生存§r §7低§r"
+  ],
+  "tags": [
+    "vanillaOcean",
+    "armor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaOcean_tide_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaOcean_tide_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaOcean_temple_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaOcean_temple_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:water_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaOcean_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

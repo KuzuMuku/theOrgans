@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:muscle_bundle",
+      "count": 1
+    },
+    {
+      "item": "minecraft:white_banner",
+      "count": 1
+    },
+    {
+      "item": "minecraft:crossbow",
+      "count": 2
+    },
+    {
+      "item": "kubejs:quenched_armory_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:raid_stimulant",
+      "count": 1
+    },
+    {
+      "item": "kubejs:captured_springworks",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:banner_spike_shoulder"
+  }
+}

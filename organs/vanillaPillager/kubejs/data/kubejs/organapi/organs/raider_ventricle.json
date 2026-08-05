@@ -1,0 +1,113 @@
+{
+  "item": "kubejs:raider_ventricle",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6心§r §5暗3§r §9暗域底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_set_major",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_set_major"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_resource_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaPillager_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

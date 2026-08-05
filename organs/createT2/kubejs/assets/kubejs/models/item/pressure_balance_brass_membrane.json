@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kubejs:item/pressure_balance_brass_membrane"
+  }
+}

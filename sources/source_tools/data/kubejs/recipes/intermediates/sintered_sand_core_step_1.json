@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:smooth_sandstone"
+  },
+  "result": "kubejs:sintered_sand_core",
+  "experience": 0.1,
+  "cookingtime": 80
+}

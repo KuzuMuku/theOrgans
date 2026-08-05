@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "iceandfire:hydra"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 3,
+      "enabled": true
+    },
+    "organapi:chest": {
+      "capacity": 6,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 4
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

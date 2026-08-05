@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:quantum_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:rib_cage",
+      "count": 1
+    },
+    {
+      "item": "mekanism:alloy_atomic",
+      "count": 2
+    },
+    {
+      "item": "mekanism:elite_control_circuit",
+      "count": 1
+    },
+    {
+      "item": "mekanism:hdpe_sheet",
+      "count": 2
+    },
+    {
+      "item": "kubejs:nano_suture",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quantum_encapsulation_membrane",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:shield_weave_membrane"
+  },
+  "fluid": {
+    "fluid": "mekanism:chlorine",
+    "amount": 250
+  }
+}

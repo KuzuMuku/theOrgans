@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:quantum_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:muscle_bundle",
+      "count": 1
+    },
+    {
+      "item": "mekanism:alloy_atomic",
+      "count": 2
+    },
+    {
+      "item": "mekanism:elite_control_circuit",
+      "count": 1
+    },
+    {
+      "item": "mekanism:energy_tablet",
+      "count": 2
+    },
+    {
+      "item": "kubejs:nano_suture",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quantum_encapsulation_membrane",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:energy_harvest_step_foot"
+  },
+  "fluid": {
+    "fluid": "mekanism:hydrogen",
+    "amount": 500
+  }
+}

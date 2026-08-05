@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:common_lungs"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_overpressure_forge_lung"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "create:encased_fan"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "create:blaze_burner"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        },
+        {
+          "amount": 500,
+          "fluid": "minecraft:lava"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_overpressure_forge_lung"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:overpressure_forge_lung",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

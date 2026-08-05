@@ -1,0 +1,115 @@
+{
+  "item": "kubejs:brass_clutch_spine",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §a风2§r §9增压底盘§r §6中§r"
+  ],
+  "tags": [
+    "createT2",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:torque_capacity",
+          "amount": 30
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 4,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 3,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_has_support",
+            "custom_display_key": "message.organkubejs.condition.createT2_has_support"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_resource_online",
+            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

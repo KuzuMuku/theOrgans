@@ -1,0 +1,127 @@
+{
+  "item": "kubejs:endleap_tendon",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腿§r §5暗1§r §9潜袭机动§r §7低§r"
+  ],
+  "tags": [
+    "vanillaEnd",
+    "movement"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "move",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "distance": 2
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_has_chase",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_has_chase"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaEnd_air_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.movement_speed",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaEnd_air_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.movement_speed",
+            "per": 2
+          }
+        },
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaEnd_air_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.knockback_resistance",
+            "per": 3
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

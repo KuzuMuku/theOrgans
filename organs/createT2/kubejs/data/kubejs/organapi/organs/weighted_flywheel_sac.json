@@ -1,0 +1,89 @@
+{
+  "item": "kubejs:weighted_flywheel_sac",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6囊§r §a风2§r §9增压底盘§r §6中§r"
+  ],
+  "tags": [
+    "createT2",
+    "driver"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:torque_capacity",
+          "amount": 40
+        }
+      ],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 20
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 2,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 1,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_has_support",
+            "custom_display_key": "message.organkubejs.condition.createT2_has_support"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

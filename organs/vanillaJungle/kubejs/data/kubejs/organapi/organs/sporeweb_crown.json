@@ -1,0 +1,103 @@
+{
+  "item": "kubejs:sporeweb_crown",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6头§r §2草4§r §9自然法增§r §6中§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "crown"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:cooldown_added",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:sporeweb_crown_cooldown_echo",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:sporeweb_crown_cooldown_echo",
+          "amount": 3,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:nature_magic_resist",
+          "amount": 3
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_canopy_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaJungle_canopy_line",
+            "target_type": "attribute",
+            "target_attribute": "irons_spellbooks:casting_movespeed",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "minecraft:glow_berries"
+  },
+  "result": "kubejs:active_sporebud",
+  "experience": 0.1,
+  "cookingtime": 100
+}

@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "minecraft:calcite",
+      "count": 4
+    },
+    {
+      "item": "minecraft:moss_block",
+      "count": 2
+    },
+    {
+      "item": "kubejs:annealed_calcite_chip",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sporeglow_paste",
+      "count": 1
+    },
+    {
+      "item": "kubejs:caveglow_mycocore",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:calcite_breastbone"
+  },
+  "fluid": {
+    "tag": "forge:milk",
+    "amount": 1000
+  }
+}

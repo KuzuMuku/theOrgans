@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "minecraft:nautilus_shell"
+  },
+  "result": "kubejs:deepwater_membrane",
+  "experience": 0.1,
+  "cookingtime": 100
+}

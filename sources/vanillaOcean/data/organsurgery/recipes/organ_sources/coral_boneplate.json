@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:rib_cage",
+      "count": 1
+    },
+    {
+      "item": "minecraft:tube_coral_block",
+      "count": 3
+    },
+    {
+      "item": "minecraft:prismarine",
+      "count": 2
+    },
+    {
+      "item": "kubejs:salted_prismarine_chip",
+      "count": 1
+    },
+    {
+      "item": "kubejs:tidal_paste",
+      "count": 1
+    },
+    {
+      "item": "kubejs:deepwater_membrane",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:coral_boneplate"
+  },
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 500
+  }
+}

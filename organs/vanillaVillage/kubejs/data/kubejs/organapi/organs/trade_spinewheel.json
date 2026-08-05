@@ -1,0 +1,158 @@
+{
+  "item": "kubejs:trade_spinewheel",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §e光2§r §9聚落底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaVillage",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:light_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaVillage_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_trade",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 3,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_trade",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:trade_spinewheel_ledgers",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:trade_spinewheel_ledgers",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:emerald",
+              "count": 1,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:paper",
+              "count": 3,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:book",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_guard",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

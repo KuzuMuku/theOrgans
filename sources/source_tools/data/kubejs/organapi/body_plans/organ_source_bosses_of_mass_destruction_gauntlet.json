@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "bosses_of_mass_destruction:gauntlet"
+  ],
+  "parts": {
+    "organapi:head": {
+      "enabled": false
+    },
+    "organapi:chest": {
+      "capacity": 3,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "enabled": false
+    },
+    "organapi:left_arm": {
+      "enabled": true,
+      "capacity": 2
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

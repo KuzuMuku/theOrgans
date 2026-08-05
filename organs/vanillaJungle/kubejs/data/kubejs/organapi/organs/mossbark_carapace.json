@@ -1,0 +1,115 @@
+{
+  "item": "kubejs:mossbark_carapace",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §2草2§r §9苔甲生存§r §7低§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "armor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_rooted_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_canopy_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaJungle_bark_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.knockback_resistance",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_rainforest_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaJungle_bark_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.knockback_resistance",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

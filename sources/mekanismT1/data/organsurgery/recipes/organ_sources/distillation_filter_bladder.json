@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_digestive_tract",
+      "count": 1
+    },
+    {
+      "item": "mekanism:ingot_steel",
+      "count": 2
+    },
+    {
+      "item": "mekanism:basic_control_circuit",
+      "count": 1
+    },
+    {
+      "item": "mekanism:chemical_oxidizer",
+      "count": 1
+    },
+    {
+      "item": "kubejs:pressurized_sterile_suture",
+      "count": 1
+    },
+    {
+      "item": "kubejs:industrial_encapsulation_membrane",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:distillation_filter_bladder"
+  },
+  "fluid": {
+    "fluid": "mekanism:oxygen",
+    "amount": 500
+  }
+}

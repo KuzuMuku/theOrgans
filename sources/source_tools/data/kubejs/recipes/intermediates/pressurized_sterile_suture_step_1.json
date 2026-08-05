@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kubejs:precision_suture"
+    },
+    {
+      "item": "mekanism:ingot_steel"
+    },
+    {
+      "item": "create:fluid_pipe"
+    }
+  ],
+  "result": {
+    "item": "kubejs:pressurized_sterile_suture"
+  }
+}

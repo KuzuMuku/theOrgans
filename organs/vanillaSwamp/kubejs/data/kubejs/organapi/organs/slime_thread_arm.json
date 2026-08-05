@@ -1,0 +1,130 @@
+{
+  "item": "kubejs:slime_thread_arm",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §2草3§r §9藤根近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSwamp",
+    "melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:slime_thread_arm_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSwamp_resonance",
+              "amount": 1,
+              "source": "vanillaSwamp_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:slime_thread_arm_strike",
+          "amount": 2.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSwamp_slime_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:slime_thread_arm_strike_mark",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:slime_thread_arm_strike_mark",
+          "effect": "minecraft:poison",
+          "duration_ticks": 60,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSwamp_venom_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

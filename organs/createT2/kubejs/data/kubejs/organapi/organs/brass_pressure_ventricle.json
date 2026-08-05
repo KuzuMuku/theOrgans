@@ -1,0 +1,88 @@
+{
+  "item": "kubejs:brass_pressure_ventricle",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6心§r §a风3§r §9增压底盘§r §e高§r"
+  ],
+  "tags": [
+    "createT2",
+    "engine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_set_major",
+            "custom_display_key": "message.organkubejs.condition.createT2_set_major"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_resource_online",
+            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:torque_capacity",
+          "amount": 120
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

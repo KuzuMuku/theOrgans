@@ -1,0 +1,167 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:common_spine"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_brass_clutch_spine"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "create:clutch"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        },
+        {
+          "amount": 250,
+          "fluid": "createdieselgenerators:biodiesel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_clutch_spine"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:brass_clutch_spine",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_spine",
+      "count": 1
+    },
+    {
+      "item": "create:brass_ingot",
+      "count": 3
+    },
+    {
+      "item": "create:precision_mechanism",
+      "count": 2
+    },
+    {
+      "item": "create:clutch",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quenched_brass_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:precision_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:brass_clutch_spine"
+  },
+  "fluid": {
+    "fluid": "createdieselgenerators:biodiesel",
+    "amount": 250
+  }
+}

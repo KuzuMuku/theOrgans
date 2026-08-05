@@ -1,0 +1,113 @@
+{
+  "item": "kubejs:netherwart_liver",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肝§r §c火4§r §9献祭底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "mana"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_cast",
+          "school": "irons_spellbooks:fire",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:netherwart_liver_spell_loop",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaNether_resonance",
+              "amount": 2,
+              "source": "vanillaNether_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:netherwart_liver_spell_loop",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 40
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaNether_resonance_capacity",
+          "amount": 8
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaNether_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 20
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

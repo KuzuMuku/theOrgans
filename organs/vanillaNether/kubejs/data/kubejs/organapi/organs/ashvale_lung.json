@@ -1,0 +1,116 @@
+{
+  "item": "kubejs:ashvale_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §c火6§r §9火法增幅§r §6中§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:fire",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:ashvale_lung_spell_echo",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaNether_resonance",
+              "amount": 2,
+              "source": "vanillaNether_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:ashvale_lung_spell_echo",
+          "amount": 2.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:ashvale_lung_spell_echo",
+          "effect": "minecraft:wither",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 6,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaNether_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "create:brass_sheet"
+  },
+  "result": "kubejs:quenched_brass_plate",
+  "experience": 0.2,
+  "cookingtime": 100
+}

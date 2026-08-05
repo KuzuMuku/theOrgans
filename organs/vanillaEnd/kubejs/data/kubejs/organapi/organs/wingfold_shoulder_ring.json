@@ -1,0 +1,109 @@
+{
+  "item": "kubejs:wingfold_shoulder_ring",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肩§r §5暗1§r §9潜袭近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaEnd",
+    "movement"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "move",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "distance": 2
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_has_chase",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_has_chase"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

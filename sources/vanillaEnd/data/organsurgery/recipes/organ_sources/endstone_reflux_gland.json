@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_digestive_tract",
+      "count": 1
+    },
+    {
+      "item": "minecraft:end_stone",
+      "count": 3
+    },
+    {
+      "item": "minecraft:purpur_block",
+      "count": 2
+    },
+    {
+      "item": "kubejs:annealed_purpur_crystal_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:terminal_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:warp_crystal",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:endstone_reflux_gland"
+  },
+  "fluid": {
+    "fluid": "irons_spellbooks:timeless_slurry",
+    "amount": 250
+  }
+}

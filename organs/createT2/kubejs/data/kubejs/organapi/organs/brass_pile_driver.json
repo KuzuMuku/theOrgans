@@ -1,0 +1,59 @@
+{
+  "item": "kubejs:brass_pile_driver",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §a风2§r §9高压近战§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "active_melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:brass_pile_driver",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_resource_online",
+            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

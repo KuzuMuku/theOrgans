@@ -1,0 +1,88 @@
+{
+  "item": "kubejs:industrial_energy_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §d电3§r §9能核底盘§r §e高§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "engine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:mek_energy_capacity",
+          "amount": 120
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_set_major",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_set_major"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_heat_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

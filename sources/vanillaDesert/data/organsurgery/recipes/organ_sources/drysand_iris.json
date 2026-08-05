@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_skull",
+      "count": 1
+    },
+    {
+      "item": "minecraft:red_sand",
+      "count": 3
+    },
+    {
+      "item": "minecraft:orange_stained_glass",
+      "count": 2
+    },
+    {
+      "item": "kubejs:cast_redsand_glass",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sunfire_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sintered_sand_core",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:drysand_iris"
+  },
+  "fluid": {
+    "fluid": "minecraft:lava",
+    "amount": 250
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:rib_cage"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "item": "create:brass_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "item": "create:brass_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "item": "create:mechanical_pump"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "item": "create:brass_casing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        },
+        {
+          "amount": 250,
+          "fluid": "create:honey"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_pressure_balance_brass_membrane"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:pressure_balance_brass_membrane",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

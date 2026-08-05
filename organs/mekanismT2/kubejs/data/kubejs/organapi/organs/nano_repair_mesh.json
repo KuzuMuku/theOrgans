@@ -1,0 +1,78 @@
+{
+  "item": "kubejs:nano_repair_mesh",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §d电3§r §9护盾生存§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t2_nano_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            },
+            {
+              "type": "shield",
+              "id": "kubejs:mekanismT2_barrier",
+              "amount": 2,
+              "source": "mekanismT2_shield"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT2_barrier_high",
+            "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_high"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

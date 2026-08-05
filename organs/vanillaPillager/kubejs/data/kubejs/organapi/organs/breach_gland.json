@@ -1,0 +1,116 @@
+{
+  "item": "kubejs:breach_gland",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腺§r §5暗2§r §9暗蚀法增§r §7低§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:evocation_spell_power",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_curse",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_curse"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:evocation_spell_power",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:evocation",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:breach_gland_curse",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 2,
+              "source": "vanillaPillager_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:breach_gland_curse",
+          "amount": 2.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:breach_gland_curse",
+          "effect": "minecraft:weakness",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

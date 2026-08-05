@@ -1,0 +1,160 @@
+{
+  "item": "kubejs:drought_liver",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肝§r §c火3§r §9献祭底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaDesert",
+    "mana"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_daylight_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_daylight_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_cast",
+          "school": "irons_spellbooks:fire",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:drought_liver_spell_loop",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:drought_liver_spell_loop",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 30
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaDesert_resonance_capacity",
+          "amount": 8
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_dryheat_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_dryheat_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 20
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:drought_liver_hunt_loop",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:drought_liver_hunt_loop",
+          "amount": 5,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 10
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

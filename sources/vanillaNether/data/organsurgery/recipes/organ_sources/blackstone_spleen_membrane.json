@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_digestive_tract",
+      "count": 1
+    },
+    {
+      "item": "minecraft:blackstone",
+      "count": 3
+    },
+    {
+      "item": "minecraft:obsidian",
+      "count": 2
+    },
+    {
+      "item": "kubejs:calcined_nether_bone_shard",
+      "count": 1
+    },
+    {
+      "item": "kubejs:fireward_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:scorch_crystal",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:blackstone_spleen_membrane"
+  },
+  "fluid": {
+    "fluid": "minecraft:lava",
+    "amount": 500
+  }
+}

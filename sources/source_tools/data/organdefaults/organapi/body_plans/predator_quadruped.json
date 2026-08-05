@@ -1,0 +1,37 @@
+{
+  "entity_types": [
+    "minecraft:wolf",
+    "minecraft:cat",
+    "minecraft:ocelot",
+    "minecraft:fox",
+    "minecraft:polar_bear",
+    "minecraft:panda",
+    "minecraft:hoglin",
+    "minecraft:zoglin",
+    "minecraft:ravager"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2
+    },
+    "organapi:chest": {
+      "capacity": 6
+    },
+    "organapi:abdomen": {
+      "capacity": 5,
+      "enabled": true
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

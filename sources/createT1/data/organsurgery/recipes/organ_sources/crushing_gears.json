@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "create:andesite_alloy",
+      "count": 2
+    },
+    {
+      "item": "create:large_cogwheel",
+      "count": 2
+    },
+    {
+      "item": "create:crushing_wheel",
+      "count": 1
+    },
+    {
+      "item": "kubejs:annealed_copper_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sterile_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:crushing_gears"
+  }
+}

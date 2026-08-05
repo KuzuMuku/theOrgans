@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_digestive_tract",
+      "count": 1
+    },
+    {
+      "item": "organdefaults:iron_plating",
+      "count": 2
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "count": 2
+    },
+    {
+      "item": "kubejs:refined_golem_plating",
+      "count": 1
+    },
+    {
+      "item": "kubejs:mending_salve",
+      "count": 1
+    },
+    {
+      "item": "kubejs:bell_chime_axle",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:repair_reflux_gland"
+  },
+  "fluid": {
+    "fluid": "create_enchantment_industry:experience",
+    "amount": 250
+  }
+}

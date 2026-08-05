@@ -1,0 +1,65 @@
+LootJS.modifiers(event => {
+  event.addLootTableModifier('ctov:chests/village/village_library')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ledger_lung'))
+    })
+  event.addLootTableModifier('ctov:chests/village/village_smith')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:order_sternum'))
+    })
+  event.addLootTableModifier('minecraft:chests/village/village_cartographer')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:village_iris'))
+    })
+  event.addLootTableModifier('minecraft:chests/village/village_fletcher')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:trade_scavenger_hand'))
+    })
+  event.addLootTableModifier('minecraft:chests/village/village_library')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ledger_lung'))
+    })
+  event.addLootTableModifier('minecraft:chests/village/village_plains_house')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:bell_ventricle'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:prestige_crown'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:watchbell_cochlea'))
+    })
+  event.addLootTableModifier('minecraft:chests/village/village_temple')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:beacon_kidneysheath'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:offering_gland'))
+    })
+  event.addLootTableModifier('minecraft:chests/village/village_toolsmith')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:order_sternum'))
+    })
+})

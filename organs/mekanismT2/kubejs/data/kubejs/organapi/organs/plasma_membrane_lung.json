@@ -1,0 +1,120 @@
+{
+  "item": "kubejs:plasma_membrane_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §d电2§r §9能核底盘§r §6中§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "driver"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:mek_energy_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "shield",
+              "id": "kubejs:mekanismT2_barrier",
+              "amount": 1,
+              "source": "mekanismT2_shield"
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t2_nano_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            },
+            {
+              "type": "shield",
+              "id": "kubejs:mekanismT2_barrier",
+              "amount": 1,
+              "source": "mekanismT2_shield"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t2_nano_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            },
+            {
+              "type": "shield",
+              "id": "kubejs:mekanismT2_barrier",
+              "amount": 2,
+              "source": "mekanismT2_shield"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT2_barrier_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

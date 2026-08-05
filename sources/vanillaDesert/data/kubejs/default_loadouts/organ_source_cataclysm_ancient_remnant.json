@@ -1,0 +1,131 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "cataclysm:ancient_remnant"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:common_skull"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:keen_brain"
+        }
+      ],
+      "2": [
+        {
+          "id": "kubejs:eclipse_crown"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:strong_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_lungs"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:reinforced_rib_cage"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:keen_spine"
+        }
+      ],
+      "4": [
+        {
+          "id": "organdefaults:strong_muscle_bundle"
+        }
+      ],
+      "5": [
+        {
+          "id": "kubejs:sun_ventricle"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:common_liver"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:strong_kidney_pair"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:predator_digestive_tract"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -3
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "organ_stat:organeffects:immune_efficiency",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -9
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "attribute:minecraft:armor",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/predator_quadruped",
+      "point_key": "attribute:minecraft:armor_toughness",
+      "amount": -2
+    }
+  ]
+}

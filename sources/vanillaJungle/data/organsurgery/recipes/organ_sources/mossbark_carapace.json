@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "minecraft:jungle_log",
+      "count": 3
+    },
+    {
+      "item": "minecraft:moss_block",
+      "count": 2
+    },
+    {
+      "item": "kubejs:charred_vine_membrane",
+      "count": 1
+    },
+    {
+      "item": "kubejs:jungle_salve",
+      "count": 1
+    },
+    {
+      "item": "kubejs:active_sporebud",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:mossbark_carapace"
+  },
+  "fluid": {
+    "fluid": "create:honey",
+    "amount": 250
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_torque_driveshaft"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "create:shaft"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "create:shaft"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "create:gearbox"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "kubejs:annealed_copper_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "item": "kubejs:sterile_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        },
+        {
+          "amount": 250,
+          "fluid": "createdieselgenerators:biodiesel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_torque_driveshaft"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:torque_driveshaft",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

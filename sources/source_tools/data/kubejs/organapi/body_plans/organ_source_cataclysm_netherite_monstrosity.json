@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "cataclysm:netherite_monstrosity"
+  ],
+  "parts": {
+    "organapi:head": {
+      "enabled": true,
+      "capacity": 1
+    },
+    "organapi:chest": {
+      "capacity": 4,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "enabled": false
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

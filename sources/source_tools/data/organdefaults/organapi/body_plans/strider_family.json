@@ -1,0 +1,29 @@
+{
+  "entity_types": [
+    "minecraft:strider"
+  ],
+  "parts": {
+    "organapi:head": {
+      "enabled": false
+    },
+    "organapi:chest": {
+      "capacity": 2
+    },
+    "organapi:abdomen": {
+      "capacity": 2
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": true,
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

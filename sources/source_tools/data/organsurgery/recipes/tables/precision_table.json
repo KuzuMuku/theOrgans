@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EFE"
+  ],
+  "key": {
+    "A": {
+      "item": "mekanism:steel_casing"
+    },
+    "B": {
+      "item": "mekanism:basic_control_circuit"
+    },
+    "C": {
+      "item": "mekanism:ingot_osmium"
+    },
+    "D": {
+      "item": "organsurgery:surgery_table"
+    },
+    "E": {
+      "item": "mekanism:energy_tablet"
+    },
+    "F": {
+      "item": "mekanism:alloy_infused"
+    }
+  },
+  "result": {
+    "item": "organsurgery:precision_surgery_table"
+  }
+}

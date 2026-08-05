@@ -1,0 +1,127 @@
+{
+  "item": "kubejs:coraltide_tail",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §1水2§r §9潮汐底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaOcean",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:water_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaOcean_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaOcean_resonance",
+              "amount": 3,
+              "source": "vanillaOcean_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaOcean_resonance",
+              "amount": 2,
+              "source": "vanillaOcean_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaOcean_wet_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaOcean_wet_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.attack_damage",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaOcean_tide_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaOcean_tide_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaOcean_tide_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.armor_toughness",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

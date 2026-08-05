@@ -1,0 +1,32 @@
+{
+  "entity_types": [
+    "minecraft:slime",
+    "minecraft:magma_cube"
+  ],
+  "parts": {
+    "organapi:head": {
+      "enabled": false
+    },
+    "organapi:chest": {
+      "capacity": 3,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "enabled": true,
+      "capacity": 1
+    },
+    "organapi:left_arm": {
+      "enabled": true,
+      "capacity": 1
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

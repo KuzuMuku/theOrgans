@@ -1,0 +1,59 @@
+{
+  "item": "kubejs:cracking_mine_sac",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6囊§r §d电1§r §9护盾生存§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "active_resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:cracking_mine_sac",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_resource_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_resource_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

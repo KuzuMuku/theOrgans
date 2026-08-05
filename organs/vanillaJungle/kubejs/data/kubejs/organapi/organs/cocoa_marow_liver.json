@@ -1,0 +1,120 @@
+{
+  "item": "kubejs:cocoa_marow_liver",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肝§r §2草2§r §9菌苔续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "recovery"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:cocoa_marow_liver_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 1,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:cocoa_marow_liver_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 2,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:cocoa_marow_liver_recover",
+          "amount": 1.0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_rainforest_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:cocoa_marow_liver_recover_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:cocoa_marow_liver_recover_pulse",
+          "effect": "minecraft:regeneration",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

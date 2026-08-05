@@ -1,0 +1,113 @@
+{
+  "item": "kubejs:mossglow_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §2草3§r §9生态底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_set_major",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_set_major"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_cave_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_cave_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaLushCaves_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_spore_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

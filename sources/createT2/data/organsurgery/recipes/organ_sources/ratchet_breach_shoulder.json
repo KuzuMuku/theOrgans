@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:muscle_bundle",
+      "count": 1
+    },
+    {
+      "item": "create:brass_ingot",
+      "count": 3
+    },
+    {
+      "item": "create:clutch",
+      "count": 1
+    },
+    {
+      "item": "create:large_cogwheel",
+      "count": 2
+    },
+    {
+      "item": "kubejs:quenched_brass_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:precision_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:ratchet_breach_shoulder"
+  },
+  "fluid": {
+    "fluid": "createdieselgenerators:biodiesel",
+    "amount": 250
+  }
+}

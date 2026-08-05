@@ -1,0 +1,37 @@
+{
+  "entity_types": [
+    "minecraft:villager",
+    "minecraft:wandering_trader",
+    "minecraft:pillager",
+    "minecraft:vindicator",
+    "minecraft:evoker",
+    "minecraft:witch",
+    "minecraft:illusioner",
+    "minecraft:piglin",
+    "minecraft:piglin_brute"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2
+    },
+    "organapi:chest": {
+      "capacity": 6
+    },
+    "organapi:abdomen": {
+      "capacity": 5,
+      "enabled": true
+    },
+    "organapi:left_arm": {
+      "capacity": 1
+    },
+    "organapi:right_arm": {
+      "capacity": 1
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

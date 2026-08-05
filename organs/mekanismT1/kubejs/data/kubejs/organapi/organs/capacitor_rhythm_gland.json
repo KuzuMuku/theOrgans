@@ -1,0 +1,107 @@
+{
+  "item": "kubejs:capacitor_rhythm_gland",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腺§r §d电2§r §9能核底盘§r §6中§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:mek_energy_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_discharge_window",
+              "amount": 1,
+              "duration_ticks": 60
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 2,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_discharge_window",
+              "amount": 1,
+              "duration_ticks": 60
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 2,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_rhythm_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_rhythm_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

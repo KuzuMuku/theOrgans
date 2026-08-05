@@ -1,0 +1,58 @@
+{
+  "item": "kubejs:flytrap_throat_sac",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6喉§r §2草2§r §9孢射远压§r §7低§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "active_ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:flytrap_throat_sac",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_snare_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaJungle_snare_ready"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

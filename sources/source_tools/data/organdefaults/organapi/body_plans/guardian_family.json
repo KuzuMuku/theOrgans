@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "minecraft:guardian",
+    "minecraft:elder_guardian"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 1
+    },
+    "organapi:chest": {
+      "capacity": 7,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 2
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

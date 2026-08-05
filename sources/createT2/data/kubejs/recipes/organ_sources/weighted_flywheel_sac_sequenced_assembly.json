@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:common_digestive_tract"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_weighted_flywheel_sac"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "create:flywheel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "create:brass_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "create:brass_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        },
+        {
+          "amount": 250,
+          "fluid": "create:honey"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_weighted_flywheel_sac"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:weighted_flywheel_sac",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

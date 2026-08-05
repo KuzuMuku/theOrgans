@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_nugget"
+    },
+    "B": {
+      "item": "minecraft:clock"
+    },
+    "C": {
+      "item": "minecraft:bell"
+    }
+  },
+  "result": {
+    "item": "kubejs:bell_chime_axle"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:blaze_powder"
+    },
+    "B": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "kubejs:fireward_distillate"
+    }
+  },
+  "result": {
+    "item": "kubejs:scorch_crystal"
+  }
+}

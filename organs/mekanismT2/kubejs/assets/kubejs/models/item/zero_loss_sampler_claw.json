@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kubejs:item/zero_loss_sampler_claw"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "item": "kubejs:shield_weave_membrane",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §d电2§r §9护盾生存§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "armor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        },
+        {
+          "type": "shield",
+          "id": "kubejs:mekanismT2_barrier",
+          "amount": 12
+        }
+      ],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "shield",
+              "id": "kubejs:mekanismT2_barrier",
+              "amount": 2,
+              "source": "mekanismT2_shield"
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 3,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT2_barrier_high",
+            "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_high"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:mekanismT2_barrier_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.knockback_resistance",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:baseline_organ"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_spiral_tunnel_drill"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "create:mechanical_drill"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "create:sequenced_gearshift"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        },
+        {
+          "amount": 500,
+          "fluid": "createdieselgenerators:plant_oil"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_spiral_tunnel_drill"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:spiral_tunnel_drill",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

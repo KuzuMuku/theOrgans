@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_heart",
+      "count": 1
+    },
+    {
+      "item": "create:brass_ingot",
+      "count": 3
+    },
+    {
+      "item": "create:encased_fan",
+      "count": 1
+    },
+    {
+      "item": "create:brass_casing",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quenched_brass_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:precision_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:brass_pressure_ventricle"
+  },
+  "fluid": {
+    "fluid": "createdieselgenerators:biodiesel",
+    "amount": 500
+  }
+}

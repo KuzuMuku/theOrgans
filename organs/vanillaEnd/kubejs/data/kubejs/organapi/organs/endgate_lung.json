@@ -1,0 +1,101 @@
+{
+  "item": "kubejs:endgate_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §5暗3§r §9暗蚀法增§r §7低§r"
+  ],
+  "tags": [
+    "vanillaEnd",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "move",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "distance": 3
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_gate_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_gate_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

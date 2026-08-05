@@ -1,0 +1,121 @@
+{
+  "item": "kubejs:resonance_spine",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §5暗2§r §9暗域底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaSculk_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [
+        {
+          "type": "move",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 2,
+              "source": "vanillaSculk_system"
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:vanillaSculk_mark_window",
+              "amount": 1,
+              "duration_ticks": 60
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_silence_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_silence_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_mark_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

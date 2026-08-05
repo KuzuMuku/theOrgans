@@ -1,0 +1,157 @@
+{
+  "item": "kubejs:field_spleen",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脾§r §e光2§r §9聚落收益§r §7低§r"
+  ],
+  "tags": [
+    "vanillaVillage",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:light_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_supply",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_supply"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:field_spleen_supply",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 2,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:field_spleen_supply",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:bread",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:wheat",
+              "count": 4,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:carrot",
+              "count": 3,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_trade",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 120
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:field_spleen_supply_bonus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:field_spleen_supply_bonus",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:bread",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:wheat",
+              "count": 4,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:carrot",
+              "count": 3,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

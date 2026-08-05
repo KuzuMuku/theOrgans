@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "minecraft:squid",
+    "minecraft:glow_squid"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 1
+    },
+    "organapi:chest": {
+      "capacity": 4
+    },
+    "organapi:abdomen": {
+      "capacity": 4,
+      "enabled": true
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "item": "kubejs:mycelium_sole",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腿§r §2草1§r §9湿地机动§r §7低§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "movement"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "move",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaLushCaves_resonance",
+              "amount": 1,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "distance": 2
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_mycelium_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_mycelium_ready"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaLushCaves_mycelium_line",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.movement_speed",
+            "per": 2
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_cave_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_cave_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

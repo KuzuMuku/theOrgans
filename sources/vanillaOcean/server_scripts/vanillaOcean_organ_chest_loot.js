@@ -1,0 +1,81 @@
+LootJS.modifiers(event => {
+  event.addLootTableModifier('aquamirae:chests/maze_common_chest')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:monument_refraction_eye'))
+    })
+  event.addLootTableModifier('dungeons_arise_seven_seas:chests/corsair_corvette/corsair_corvette_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:seacurrent_spleen'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:tidefin_leg'))
+    })
+  event.addLootTableModifier('dungeons_arise_seven_seas:chests/pirate_junk/pirate_junk_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:seacurrent_spleen'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:tidefin_leg'))
+    })
+  event.addLootTableModifier('dungeons_arise_seven_seas:chests/unicorn_galleon/unicorn_galleon_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:seacurrent_spleen'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:tidefin_leg'))
+    })
+  event.addLootTableModifier('dungeons_arise_seven_seas:chests/victory_frigate/victory_frigate_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:seacurrent_spleen'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:tidefin_leg'))
+    })
+  event.addLootTableModifier('minecraft:chests/shipwreck_map')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:farvoyage_flipper'))
+    })
+  event.addLootTableModifier('minecraft:chests/shipwreck_supply')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:countercurrent_arm'))
+    })
+  event.addLootTableModifier('minecraft:chests/shipwreck_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:deeptide_scavenger_hand'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:tidesound_fork_wrist'))
+    })
+  event.addLootTableModifier('minecraft:chests/underwater_ruin_big')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:monument_refraction_eye'))
+    })
+})

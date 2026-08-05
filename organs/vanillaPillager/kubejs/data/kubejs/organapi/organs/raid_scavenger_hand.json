@@ -1,0 +1,167 @@
+{
+  "item": "kubejs:raid_scavenger_hand",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §5暗2§r §9劫掠收益§r §7低§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_plunder",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_plunder"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:raid_scavenger_hand_plunder",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 2,
+              "source": "vanillaPillager_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:raid_scavenger_hand_plunder",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:emerald",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:arrow",
+              "count": 8,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:splash_potion",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "minecraft:white_banner",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaPillager_has_outpost",
+            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_outpost"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 120
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:raid_scavenger_hand_plunder_bonus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:raid_scavenger_hand_plunder_bonus",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:emerald",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:arrow",
+              "count": 8,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:splash_potion",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "minecraft:white_banner",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

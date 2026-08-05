@@ -1,0 +1,31 @@
+{
+  "entity_types": [
+    "minecraft:enderman",
+    "minecraft:shulker"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 1
+    },
+    "organapi:chest": {
+      "capacity": 6,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "enabled": true,
+      "capacity": 1
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

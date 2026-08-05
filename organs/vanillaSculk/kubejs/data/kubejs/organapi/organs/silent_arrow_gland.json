@@ -1,0 +1,164 @@
+{
+  "item": "kubejs:silent_arrow_gland",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腺§r §5暗3§r §9暗袭远压§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "projectile_hit",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:silent_arrow_gland_focus",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:silent_arrow_gland_focus",
+          "effect": "minecraft:glowing",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_has_crown",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_has_crown"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "projectile_hit",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:silent_arrow_gland_focus_crown",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:silent_arrow_gland_focus_crown",
+          "effect": "minecraft:darkness",
+          "duration_ticks": 120,
+          "amplifier": 1,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_mark_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:ender",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:silent_arrow_gland_spell_focus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:silent_arrow_gland_spell_focus",
+          "effect": "minecraft:darkness",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

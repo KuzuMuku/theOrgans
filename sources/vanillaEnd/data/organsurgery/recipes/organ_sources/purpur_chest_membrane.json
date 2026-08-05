@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:rib_cage",
+      "count": 1
+    },
+    {
+      "item": "minecraft:purpur_block",
+      "count": 4
+    },
+    {
+      "item": "minecraft:shulker_shell",
+      "count": 2
+    },
+    {
+      "item": "kubejs:annealed_purpur_crystal_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:terminal_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:warp_crystal",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:purpur_chest_membrane"
+  },
+  "fluid": {
+    "fluid": "irons_spellbooks:timeless_slurry",
+    "amount": 250
+  }
+}

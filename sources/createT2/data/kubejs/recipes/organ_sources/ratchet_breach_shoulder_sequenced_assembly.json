@@ -1,0 +1,167 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:muscle_bundle"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_ratchet_breach_shoulder"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "create:clutch"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "create:large_cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "create:large_cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        },
+        {
+          "amount": 250,
+          "fluid": "createdieselgenerators:biodiesel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_ratchet_breach_shoulder"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:ratchet_breach_shoulder",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

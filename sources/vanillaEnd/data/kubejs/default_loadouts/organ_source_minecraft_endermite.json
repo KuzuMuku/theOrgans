@@ -1,0 +1,50 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:endermite"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:void_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "kubejs:endleap_tendon"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/tiny_endermite",
+      "point_key": "attribute:minecraft:max_health",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/tiny_endermite",
+      "point_key": "attribute:minecraft:movement_speed",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/tiny_endermite",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/tiny_endermite",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -2
+    }
+  ]
+}

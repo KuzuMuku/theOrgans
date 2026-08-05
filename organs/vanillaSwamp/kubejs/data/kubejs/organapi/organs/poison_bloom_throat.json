@@ -1,0 +1,58 @@
+{
+  "item": "kubejs:poison_bloom_throat",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6喉§r §2草2§r §9孢射远压§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSwamp",
+    "active_ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:poison_bloom_throat",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSwamp_venom_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

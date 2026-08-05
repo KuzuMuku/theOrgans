@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "create:brass_ingot",
+      "count": 3
+    },
+    {
+      "item": "create:mechanical_piston",
+      "count": 1
+    },
+    {
+      "item": "create:sequenced_gearshift",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quenched_brass_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:precision_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:brass_pile_driver"
+  },
+  "fluid": {
+    "fluid": "createdieselgenerators:biodiesel",
+    "amount": 500
+  }
+}

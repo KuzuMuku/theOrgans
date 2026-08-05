@@ -1,0 +1,86 @@
+{
+  "item": "kubejs:energy_harvest_step_foot",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腿§r §d电1§r §9工业收益§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "movement"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t2_nano_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            },
+            {
+              "type": "shield",
+              "id": "kubejs:mekanismT2_barrier",
+              "amount": 1,
+              "source": "mekanismT2_shield"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT2_barrier_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

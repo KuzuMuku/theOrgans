@@ -1,0 +1,94 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:stray"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:light_skull"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:undead_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:reinforced_rib_cage",
+          "weight": 1
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:rotten_spine"
+        }
+      ],
+      "3": [
+        {
+          "id": "kubejs:icecrystal_lung"
+        }
+      ]
+    },
+    "organapi:left_arm": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_arm": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/skeleton_family",
+      "point_key": "attribute:minecraft:max_health",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/skeleton_family",
+      "point_key": "attribute:minecraft:attack_damage",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/skeleton_family",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -8
+    },
+    {
+      "source": "organdefaults:balance/skeleton_family",
+      "point_key": "attribute:minecraft:armor",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/skeleton_family",
+      "point_key": "attribute:minecraft:armor_toughness",
+      "amount": -2
+    }
+  ]
+}

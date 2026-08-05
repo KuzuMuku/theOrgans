@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:bone_block"
+  },
+  "result": "kubejs:calcined_nether_bone_shard",
+  "experience": 0.1,
+  "cookingtime": 100
+}

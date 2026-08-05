@@ -1,0 +1,96 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "iceandfire:myrmex_queen_jungle"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:keen_brain"
+        }
+      ],
+      "1": [
+        {
+          "id": "kubejs:sporeweb_crown"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:carapace_shell"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ],
+      "2": [
+        {
+          "id": "kubejs:orchid_spellbud_lung"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:toxic_liver"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:predator_digestive_tract"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/arthropod",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -3
+    },
+    {
+      "source": "organdefaults:balance/arthropod",
+      "point_key": "organ_stat:organeffects:immune_efficiency",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/arthropod",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/arthropod",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -7
+    },
+    {
+      "source": "organdefaults:balance/arthropod",
+      "point_key": "attribute:minecraft:armor",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/arthropod",
+      "point_key": "attribute:minecraft:armor_toughness",
+      "amount": -1
+    }
+  ]
+}

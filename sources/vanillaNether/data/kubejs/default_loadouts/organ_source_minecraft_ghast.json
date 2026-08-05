@@ -1,0 +1,38 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:ghast"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:void_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "kubejs:soulsand_lung_sac"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/ghast_family",
+      "point_key": "attribute:minecraft:max_health",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/ghast_family",
+      "point_key": "attribute:minecraft:movement_speed",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/ghast_family",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -2
+    }
+  ]
+}

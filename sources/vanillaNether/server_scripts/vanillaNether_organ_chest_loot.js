@@ -1,0 +1,230 @@
+LootJS.modifiers(event => {
+  event.addLootTableModifier('betterfortresses:chests/beacon')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ancient_relic_hand'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ashvale_lung'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:blackflame_throat_pipe'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:emberstride_ankle'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:fortress_bone_key'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnace_kneering'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnaceslag_kidneysheath'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:scorch_throat_sac'))
+    })
+  event.addLootTableModifier('betterfortresses:chests/keep')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ancient_relic_hand'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ashvale_lung'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:blackflame_throat_pipe'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:emberstride_ankle'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:fortress_bone_key'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnace_kneering'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnaceslag_kidneysheath'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:scorch_throat_sac'))
+    })
+  event.addLootTableModifier('betterfortresses:chests/obsidian')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ancient_relic_hand'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ashvale_lung'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:blackflame_throat_pipe'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:emberstride_ankle'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:fortress_bone_key'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnace_kneering'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnaceslag_kidneysheath'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:scorch_throat_sac'))
+    })
+  event.addLootTableModifier('betterfortresses:chests/storage')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ancient_relic_hand'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:ashvale_lung'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:blackflame_throat_pipe'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:emberstride_ankle'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:fortress_bone_key'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnace_kneering'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:furnaceslag_kidneysheath'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:scorch_throat_sac'))
+    })
+  event.addLootTableModifier('minecraft:chests/bastion_bridge')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:bastion_hoof_lock'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:gilded_recovery_claw'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:piglin_contract_liver'))
+    })
+  event.addLootTableModifier('minecraft:chests/bastion_hoglin_stable')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:bastion_hoof_lock'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:gilded_recovery_claw'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:piglin_contract_liver'))
+    })
+  event.addLootTableModifier('minecraft:chests/bastion_other')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:bastion_hoof_lock'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:gilded_recovery_claw'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:piglin_contract_liver'))
+    })
+  event.addLootTableModifier('minecraft:chests/bastion_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:bastion_hoof_lock'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:gilded_recovery_claw'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:piglin_contract_liver'))
+    })
+})

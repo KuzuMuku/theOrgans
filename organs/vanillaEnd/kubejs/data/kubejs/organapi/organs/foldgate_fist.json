@@ -1,0 +1,59 @@
+{
+  "item": "kubejs:foldgate_fist",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §5暗2§r §9潜袭近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaEnd",
+    "active_melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:foldgate_fist",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_fold_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

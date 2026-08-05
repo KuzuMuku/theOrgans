@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_spine",
+      "count": 1
+    },
+    {
+      "item": "minecraft:emerald",
+      "count": 2
+    },
+    {
+      "item": "minecraft:clock",
+      "count": 2
+    },
+    {
+      "item": "minecraft:cartography_table",
+      "count": 1
+    },
+    {
+      "item": "kubejs:refined_golem_plating",
+      "count": 1
+    },
+    {
+      "item": "kubejs:mending_salve",
+      "count": 1
+    },
+    {
+      "item": "kubejs:bell_chime_axle",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:trade_spinewheel"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EFE"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_nugget"
+    },
+    "B": {
+      "item": "minecraft:shears"
+    },
+    "C": {
+      "item": "minecraft:stripped_oak_log"
+    },
+    "D": {
+      "item": "minecraft:white_wool"
+    },
+    "E": {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "F": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "organsurgery:surgery_table"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "item": "kubejs:brightpod_sac",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6囊§r §2草4§r §9生态底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "mana"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_cast",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:brightpod_sac_spell_loop",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:brightpod_sac_spell_loop",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 40
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaLushCaves_resonance_capacity",
+          "amount": 8
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_glow_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

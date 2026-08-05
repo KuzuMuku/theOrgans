@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:quantum_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_heart",
+      "count": 1
+    },
+    {
+      "item": "mekanism:alloy_atomic",
+      "count": 2
+    },
+    {
+      "item": "mekanism:elite_control_circuit",
+      "count": 1
+    },
+    {
+      "item": "mekanism:basic_induction_cell",
+      "count": 1
+    },
+    {
+      "item": "kubejs:nano_suture",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quantum_encapsulation_membrane",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:quantum_shield_core"
+  },
+  "fluid": {
+    "fluid": "mekanism:hydrogen",
+    "amount": 500
+  }
+}

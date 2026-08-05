@@ -1,0 +1,99 @@
+{
+  "item": "kubejs:high_frequency_phase_cochlea",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6耳§r §d电3§r §9棱镜侦测§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_rhythm_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_rhythm_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:mek_t1_rhythm_cycle",
+              "amount": 1,
+              "duration_ticks": 80
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_discharge_ready",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_discharge_ready"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "item": "kubejs:return_spine_furnace",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脊§r §5暗2§r §9暗域底盘§r §6中§r"
+  ],
+  "tags": [
+    "vanillaEnd",
+    "spine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaEnd_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [
+        {
+          "type": "move",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 2,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "distance": 3
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 2,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_fold_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_gate_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_gate_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

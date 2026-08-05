@@ -1,0 +1,69 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:strider"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:blaze_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:common_digestive_tract"
+        }
+      ]
+    },
+    "organapi:right_leg": {
+      "0": [
+        {
+          "id": "organdefaults:agile_muscle_bundle"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "kubejs:lava_tendon"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/strider_family",
+      "point_key": "attribute:minecraft:attack_damage",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/strider_family",
+      "point_key": "attribute:minecraft:movement_speed",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/strider_family",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/strider_family",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/strider_family",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -2
+    }
+  ]
+}

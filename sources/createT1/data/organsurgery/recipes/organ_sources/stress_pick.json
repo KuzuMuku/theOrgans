@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "create:andesite_alloy",
+      "count": 2
+    },
+    {
+      "item": "create:mechanical_drill",
+      "count": 1
+    },
+    {
+      "item": "minecraft:iron_pickaxe",
+      "count": 1
+    },
+    {
+      "item": "kubejs:annealed_copper_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:sterile_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:stress_pick"
+  },
+  "fluid": {
+    "fluid": "createdieselgenerators:plant_oil",
+    "amount": 250
+  }
+}

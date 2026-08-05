@@ -1,0 +1,120 @@
+{
+  "item": "kubejs:foam_kidney",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肾§r §1水2§r §9深潮续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaOcean",
+    "recovery"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:water_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:foam_kidney_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaOcean_resonance",
+              "amount": 1,
+              "source": "vanillaOcean_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:foam_kidney_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaOcean_resonance",
+              "amount": 2,
+              "source": "vanillaOcean_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:foam_kidney_recover",
+          "amount": 1.0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaOcean_wet_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:foam_kidney_recover_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:foam_kidney_recover_pulse",
+          "effect": "minecraft:dolphins_grace",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

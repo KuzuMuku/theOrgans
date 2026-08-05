@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EFE"
+  ],
+  "key": {
+    "A": {
+      "item": "mekanism:alloy_atomic"
+    },
+    "B": {
+      "item": "mekanism:elite_control_circuit"
+    },
+    "C": {
+      "item": "mekanism:hdpe_sheet"
+    },
+    "D": {
+      "item": "organsurgery:precision_surgery_table"
+    },
+    "E": {
+      "item": "mekanism:laser_focus_matrix"
+    },
+    "F": {
+      "item": "mekanism:basic_induction_cell"
+    }
+  },
+  "result": {
+    "item": "organsurgery:quantum_surgery_table"
+  }
+}

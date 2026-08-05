@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:muscle_bundle",
+      "count": 1
+    },
+    {
+      "item": "minecraft:leather_boots",
+      "count": 2
+    },
+    {
+      "item": "minecraft:map",
+      "count": 1
+    },
+    {
+      "item": "minecraft:emerald",
+      "count": 2
+    },
+    {
+      "item": "kubejs:refined_golem_plating",
+      "count": 1
+    },
+    {
+      "item": "kubejs:mending_salve",
+      "count": 1
+    },
+    {
+      "item": "kubejs:bell_chime_axle",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:travel_legplate"
+  }
+}

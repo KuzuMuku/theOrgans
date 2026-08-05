@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "organdefaults:iron_plating"
+  },
+  "result": "kubejs:refined_golem_plating",
+  "experience": 0.2,
+  "cookingtime": 100
+}

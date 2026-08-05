@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:rooted_dirt"
+    },
+    "B": {
+      "item": "minecraft:glow_berries"
+    },
+    "C": {
+      "item": "kubejs:annealed_calcite_chip"
+    }
+  },
+  "result": {
+    "item": "kubejs:caveglow_mycocore"
+  }
+}

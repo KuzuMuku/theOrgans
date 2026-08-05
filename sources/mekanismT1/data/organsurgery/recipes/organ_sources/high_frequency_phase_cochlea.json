@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_skull",
+      "count": 1
+    },
+    {
+      "item": "mekanism:alloy_infused",
+      "count": 2
+    },
+    {
+      "item": "mekanism:basic_control_circuit",
+      "count": 1
+    },
+    {
+      "item": "mekanism:seismic_vibrator",
+      "count": 1
+    },
+    {
+      "item": "kubejs:pressurized_sterile_suture",
+      "count": 1
+    },
+    {
+      "item": "kubejs:industrial_encapsulation_membrane",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:high_frequency_phase_cochlea"
+  },
+  "fluid": {
+    "fluid": "mekanism:lithium",
+    "amount": 250
+  }
+}

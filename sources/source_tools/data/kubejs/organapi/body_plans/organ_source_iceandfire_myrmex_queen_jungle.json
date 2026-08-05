@@ -1,0 +1,30 @@
+{
+  "entity_types": [
+    "iceandfire:myrmex_queen_jungle"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:chest": {
+      "capacity": 4,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 2
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

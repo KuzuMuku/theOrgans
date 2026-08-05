@@ -1,0 +1,34 @@
+{
+  "entity_types": [
+    "minecraft:zombie",
+    "minecraft:zombie_villager",
+    "minecraft:husk",
+    "minecraft:drowned",
+    "minecraft:zombified_piglin"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2
+    },
+    "organapi:chest": {
+      "capacity": 6
+    },
+    "organapi:abdomen": {
+      "capacity": 2
+    },
+    "organapi:left_arm": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:right_arm": {
+      "capacity": 1
+    },
+    "organapi:left_leg": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

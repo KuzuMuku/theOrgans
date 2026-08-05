@@ -1,0 +1,126 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:camel"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:common_skull"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_brain"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:common_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_lungs"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:rib_cage"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:common_spine"
+        }
+      ],
+      "4": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:common_liver"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_kidney_pair"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:herbivore_digestive_tract"
+        }
+      ],
+      "3": [
+        {
+          "id": "kubejs:drought_liver"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_leg": {
+      "0": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -3
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "organ_stat:organeffects:immune_efficiency",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "organ_stat:organeffects:digestive_absorption",
+      "amount": -3
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "attribute:minecraft:armor",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/herbivore_quadruped",
+      "point_key": "attribute:minecraft:armor_toughness",
+      "amount": -1
+    }
+  ]
+}

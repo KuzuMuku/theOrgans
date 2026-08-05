@@ -1,0 +1,169 @@
+{
+  "item": "kubejs:gloomshell_spleen",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脾§r §5暗2§r §9暗域控场§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:gloomshell_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 2,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:gloomshell_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 2,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:gloomshell_spleen_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:echo_shard",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:sculk_vein",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:experience_bottle",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_otherdeep_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_otherdeep_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:gloomshell_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:gloomshell_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:gloomshell_spleen_bonus_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:echo_shard",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:sculk_vein",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:experience_bottle",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

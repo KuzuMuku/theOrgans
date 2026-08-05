@@ -1,0 +1,45 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:magma_cube"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:slime_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "minecraft:slime_ball"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "kubejs:ash_spleen"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/slime_family",
+      "point_key": "attribute:minecraft:max_health",
+      "amount": -4
+    },
+    {
+      "source": "organdefaults:balance/slime_family",
+      "point_key": "attribute:minecraft:attack_damage",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/slime_family",
+      "point_key": "attribute:minecraft:movement_speed",
+      "amount": -1
+    }
+  ]
+}

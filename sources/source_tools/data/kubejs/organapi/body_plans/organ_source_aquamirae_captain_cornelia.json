@@ -1,0 +1,31 @@
+{
+  "entity_types": [
+    "aquamirae:captain_cornelia"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 3,
+      "enabled": true
+    },
+    "organapi:chest": {
+      "capacity": 6,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 4
+    },
+    "organapi:left_arm": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:right_arm": {
+      "capacity": 1
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

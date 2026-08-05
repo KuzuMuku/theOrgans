@@ -1,0 +1,33 @@
+{
+  "item": "kubejs:overpressure_forge_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §a风6§r §9节拍压制§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 6,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

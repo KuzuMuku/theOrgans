@@ -1,0 +1,31 @@
+{
+  "entity_types": [
+    "minecraft:warden"
+  ],
+  "parts": {
+    "organapi:head": {
+      "enabled": true,
+      "capacity": 1
+    },
+    "organapi:chest": {
+      "capacity": 9,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 6,
+      "enabled": true
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

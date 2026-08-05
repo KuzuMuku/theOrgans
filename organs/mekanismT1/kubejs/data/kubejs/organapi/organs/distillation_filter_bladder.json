@@ -1,0 +1,169 @@
+{
+  "item": "kubejs:distillation_filter_bladder",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肾§r §d电2§r §9工业收益§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:distillation_filter_bladder_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 2,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:distillation_filter_bladder_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 2,
+              "source": "kubejs_mek_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:distillation_filter_bladder_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:redstone",
+              "count": 6,
+              "weight": 3
+            },
+            {
+              "item": "mekanism:ingot_osmium",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:iron_nugget",
+              "count": 6,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_has_support",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_has_support"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:distillation_filter_bladder_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:distillation_filter_bladder_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:distillation_filter_bladder_bonus_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:redstone",
+              "count": 6,
+              "weight": 3
+            },
+            {
+              "item": "mekanism:ingot_osmium",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:iron_nugget",
+              "count": 6,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

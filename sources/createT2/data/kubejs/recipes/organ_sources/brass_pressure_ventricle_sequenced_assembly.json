@@ -1,0 +1,151 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "organdefaults:common_heart"
+  },
+  "transitionalItem": {
+    "item": "kubejs:incomplete_brass_pressure_ventricle"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "create:brass_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "create:encased_fan"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "create:brass_casing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "kubejs:quenched_brass_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "item": "kubejs:precision_suture"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        },
+        {
+          "amount": 500,
+          "fluid": "createdieselgenerators:biodiesel"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:incomplete_brass_pressure_ventricle"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:brass_pressure_ventricle",
+      "chance": 70.0
+    },
+    {
+      "item": "kubejs:failed_surgical_mass",
+      "chance": 30.0
+    }
+  ],
+  "loops": 1
+}

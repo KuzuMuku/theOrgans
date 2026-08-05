@@ -1,0 +1,52 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:blaze"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:blaze_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "minecraft:blaze_rod"
+        }
+      ]
+    },
+    "organapi:head": {
+      "0": [
+        {
+          "id": "kubejs:ash_iris"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "kubejs:ember_liver"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/blaze_family",
+      "point_key": "attribute:minecraft:attack_damage",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/blaze_family",
+      "point_key": "attribute:minecraft:movement_speed",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/blaze_family",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -2
+    }
+  ]
+}

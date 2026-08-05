@@ -1,0 +1,84 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "minecraft:ender_dragon"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:void_core"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:reinforced_rib_cage"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:end_crystal_resonator"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:dragon_breath_gland"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "kubejs:dragonbreath_liver"
+        }
+      ]
+    },
+    "organapi:left_arm": {
+      "0": [
+        {
+          "id": "kubejs:foldgate_fist"
+        }
+      ]
+    },
+    "organapi:head": {
+      "0": [
+        {
+          "id": "kubejs:gategap_crown"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/ender_dragon",
+      "point_key": "attribute:minecraft:max_health",
+      "amount": -8
+    },
+    {
+      "source": "organdefaults:balance/ender_dragon",
+      "point_key": "attribute:minecraft:attack_damage",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/ender_dragon",
+      "point_key": "attribute:minecraft:movement_speed",
+      "amount": -1
+    },
+    {
+      "source": "organdefaults:balance/ender_dragon",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/ender_dragon",
+      "point_key": "attribute:minecraft:armor",
+      "amount": -5
+    },
+    {
+      "source": "organdefaults:balance/ender_dragon",
+      "point_key": "attribute:minecraft:armor_toughness",
+      "amount": -2
+    }
+  ]
+}

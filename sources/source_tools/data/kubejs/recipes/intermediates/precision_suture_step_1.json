@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kubejs:sterile_suture"
+    },
+    {
+      "item": "create:brass_sheet"
+    },
+    {
+      "item": "create:electron_tube"
+    }
+  ],
+  "result": {
+    "item": "kubejs:precision_suture"
+  }
+}

@@ -83,10 +83,9 @@
           "type": "deal_damage",
           "add_points": [
             {
-              "type": "runtime",
-              "id": "kubejs:blazefire_arm_strike_mark",
-              "amount": 1,
-              "duration_ticks": 2
+              "type": "counter",
+              "id": "kubejs:vanillaNether_mark",
+              "amount": 1
             }
           ],
           "consume_points": [],
@@ -95,9 +94,12 @@
       ],
       "executions": [
         {
-          "type": "apply_target_mob_effect",
-          "point_type": "runtime",
-          "point_id": "kubejs:blazefire_arm_strike_mark",
+          "type": "kubejs_target_call",
+          "config": {
+            "callback": "common_apply_target_mark_effect"
+          },
+          "point_type": "counter",
+          "point_id": "kubejs:vanillaNether_mark",
           "effect": "minecraft:weakness",
           "duration_ticks": 60,
           "amplifier": 0,

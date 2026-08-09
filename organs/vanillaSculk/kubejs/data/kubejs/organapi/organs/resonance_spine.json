@@ -63,12 +63,6 @@
               "id": "kubejs:vanillaSculk_resonance",
               "amount": 2,
               "source": "vanillaSculk_system"
-            },
-            {
-              "type": "runtime",
-              "id": "kubejs:vanillaSculk_mark_window",
-              "amount": 1,
-              "duration_ticks": 60
             }
           ],
           "consume_points": [],

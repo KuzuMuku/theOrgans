@@ -586,7 +586,7 @@ OrganKubejsEvents.predicate('vanillaSculk_silence_online', event => {
 })
 
 OrganKubejsEvents.predicate('vanillaSculk_mark_online', event => {
-  return vanillaSculkPredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:vanillaSculk_mark_window') > 0)
+  return vanillaSculkPredicateResult(event, !!event.player && Common.hasNearbyMarkedTarget(event.player, 8.0))
 })
 
 OrganKubejsEvents.predicate('vanillaSculk_echo_online', event => {
@@ -609,7 +609,6 @@ PlayerEvents.tick(event => {
   if (capacity <= 0) {
     setCounter(player, RESOURCE.current, 0)
     setRuntimePoint(player, 'kubejs:vanillaSculk_silence_cycle', 0)
-    setRuntimePoint(player, 'kubejs:vanillaSculk_mark_window', 0)
     applyLinearLinks(player)
     return
   }

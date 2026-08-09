@@ -25,7 +25,7 @@ for source in organs organ_sources others; do
 done
 
 #copy regular file > correct dir
-for source_dir in organs/*/kubejs organ_sources/*/kubejs others/kubejs/*; do
+for source_dir in organs/*/kubejs organ_sources/*/kubejs others/*/kubejs; do
   for subdir in data assets config; do
     if [ -d "$source_dir/$subdir" ]; then
       mkdir -p "$target_kubejs/$subdir"
@@ -35,7 +35,7 @@ for source_dir in organs/*/kubejs organ_sources/*/kubejs others/kubejs/*; do
 done
 
 #merge lang file > lang dir
-for lang_file in organs/*/kubejs/assets/kubejs/lang/*.json others/assets/kubejs/lang/*.json; do
+for lang_file in organs/*/kubejs/assets/kubejs/lang/*.json others/*/kubejs/assets/kubejs/lang/*.json; do
   [ -f "$lang_file" ] || continue
 
   target_file="$target_kubejs/assets/kubejs/lang/$(basename "$lang_file")"

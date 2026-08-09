@@ -24,12 +24,6 @@
           "type": "attacked",
           "add_points": [
             {
-              "type": "runtime",
-              "id": "kubejs:vanillaSculk_mark_window",
-              "amount": 1,
-              "duration_ticks": 80
-            },
-            {
               "type": "counter",
               "id": "kubejs:vanillaSculk_resonance",
               "amount": 1,
@@ -42,12 +36,6 @@
         {
           "type": "deal_damage",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:vanillaSculk_mark_window",
-              "amount": 1,
-              "duration_ticks": 80
-            },
             {
               "type": "counter",
               "id": "kubejs:vanillaSculk_resonance",

@@ -95,6 +95,59 @@ function addEffect(entity, effect, duration, amplifier) {
   entity.addEffect(new MobEffectInstance(effect, duration, amplifier, false, false, true))
 }
 
+Common.findNearbyEntitiesWithPointSuffix = function (player, radius, suffix) {
+  let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
+  let entity = entityOf(player)
+  let area = entity.getBoundingBox().inflate(radius)
+  let radiusSq = radius * radius
+  let targets = entity.level().getEntitiesOfClass(LivingEntityClass, area, target => target !== entity && target.isAlive() && target.distanceToSqr(entity) <= radiusSq)
+  let found = []
+  let iterator = targets.iterator()
+  while (iterator.hasNext()) {
+    let target = iterator.next()
+    let points = OrganKubeJS.getPoints(target)
+    let pointIterator = points.entrySet().iterator()
+    while (pointIterator.hasNext()) {
+      let entry = pointIterator.next()
+      if (String(entry.getKey()).endsWith(suffix) && Number(entry.getValue()) > 0) {
+        found.push(target)
+        break
+      }
+    }
+  }
+  return found
+}
+
+Common.hasNearbyMarkedTarget = function (player, radius) {
+  return Common.findNearbyEntitiesWithPointSuffix(player, radius, '_mark').length > 0
+}
+
+OrganKubejsEvents.targetAction('common_apply_target_mark_effect', event => {
+  let target = entityOf(event.target)
+  if (!target) {
+    return 0
+  }
+
+  if (event.pointType && event.pointId) {
+    OrganKubeJS.addTypedSourcePoint(target, 'target_mark', event.pointType, event.pointId, 1)
+  }
+
+  let effectId = event.effectId
+  if (effectId) {
+    let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
+    let ResourceLocation = Java.loadClass('net.minecraft.resources.ResourceLocation')
+    let parsed = ResourceLocation.tryParse(String(effectId))
+    if (parsed) {
+      let effect = BuiltInRegistries.MOB_EFFECT.get(parsed)
+      if (effect) {
+        addEffect(target, effect, Math.max(2, Number(event.durationTicks || 40)), Math.max(0, Number(event.amplifier || 0)))
+      }
+    }
+  }
+
+  return event.pointsConsume ? 1 : 0
+})
+
 function vecX(vec) {
   if (!vec) {
     return 0

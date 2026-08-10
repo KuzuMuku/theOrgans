@@ -1,26 +1,5 @@
 ;(function () {
-let CREATE_INCOMPLETE_ITEMS = [
-  "incomplete_andesite_alloy_heart",
-  "incomplete_crushing_gears",
-  "incomplete_drive_chainsaw",
-  "incomplete_micro_waterwheel",
-  "incomplete_micro_windmill",
-  "incomplete_piston_punch",
-  "incomplete_power_hammer",
-  "incomplete_spring_ram",
-  "incomplete_stress_pick",
-  "incomplete_torque_driveshaft",
-  "incomplete_brass_clutch_spine",
-  "incomplete_brass_pile_driver",
-  "incomplete_brass_pressure_ventricle",
-  "incomplete_lubrication_reflux_gland",
-  "incomplete_overpressure_forge_lung",
-  "incomplete_pressure_balance_brass_membrane",
-  "incomplete_ratchet_breach_shoulder",
-  "incomplete_spiral_tunnel_drill",
-  "incomplete_tempo_calibration_cochlea",
-  "incomplete_weighted_flywheel_sac"
-]
+
 let CUSTOM_INTERMEDIATES = {
   "annealed_copper_plate": {
     "name": "退火铜板",
@@ -177,19 +156,10 @@ let CUSTOM_INTERMEDIATES = {
 }
 
 StartupEvents.registry('item', event => {
-  event.create('failed_surgical_mass')
-    .displayName('Failed Surgical Mass')
-    .texture('minecraft:item/slime_ball')
   Object.entries(CUSTOM_INTERMEDIATES).forEach(([id, def]) => {
     event.create(id)
       .displayName(def.name)
       .texture(def.texture)
-  })
-  CREATE_INCOMPLETE_ITEMS.forEach(id => {
-    event.create(id)
-      .displayName(id)
-      .texture('minecraft:item/barrier')
-      .maxStackSize(1)
   })
 })
 })()

@@ -25,7 +25,8 @@ let VANILLASCULK_ORGAN_IDS = [
   "conduction_fork_joint",
   "deepheart_remnant",
   "ancient_jar_hand",
-  "abyss_hunter_membrane"
+  "abyss_hunter_membrane",
+  "warden_core"
 ]
 
 StartupEvents.registry('item', event => {
@@ -33,6 +34,14 @@ StartupEvents.registry('item', event => {
 })
 
 Common.registerSkills([
+  {
+    id: 'kubejs:warden_core',
+    nameKey: 'point.organeffects.skill.kubejs.warden_core',
+    descKey: 'point.organeffects.skill.kubejs.warden_core.desc',
+    cooldown: 200,
+    level: 1,
+    castEvent: 'warden_core_cast'
+  },
   {
     id: 'kubejs:sensor_throat_sac',
     nameKey: 'point.organeffects.skill.kubejs.sensor_throat_sac',

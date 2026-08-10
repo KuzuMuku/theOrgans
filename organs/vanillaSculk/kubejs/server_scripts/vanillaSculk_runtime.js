@@ -590,7 +590,7 @@ OrganKubejsEvents.predicate('vanillaSculk_mark_online', event => {
 })
 
 OrganKubejsEvents.predicate('vanillaSculk_echo_online', event => {
-  return vanillaSculkPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) >= 8)
+  return vanillaSculkPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) >= 1)
 })
 
 OrganKubejsEvents.predicate('vanillaSculk_otherdeep_online', event => {
@@ -630,6 +630,30 @@ OrganKubejsEvents.skillCast('sensor_throat_sac_cast', event => {
   for (let i = 0; i < targets.length; i++) {
     addEffect(targets[i], MobEffects.DARKNESS, scaledDuration, 0)
   }
+  return true
+})
+
+
+
+OrganKubejsEvents.skillCast('warden_core_cast', event => {
+  let player = event.player
+  if (!player) {
+    return false
+  }
+  let currentResonance = getCounter(player, RESOURCE.current)
+  if (currentResonance <= 1) {
+    return false
+  }
+  let spendAmount = Math.floor(currentResonance / 2)
+  if (spendAmount <= 0) {
+    return false
+  }
+  spendResource(player, spendAmount)
+  let spellLevel = Math.floor(spendAmount / 5)
+  if (spellLevel < 1) {
+    spellLevel = 1
+  }
+  Common.castSpell("irons_spellbooks:sonic_boom",spellLevel,player)
   return true
 })
 

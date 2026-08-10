@@ -1,0 +1,77 @@
+{
+  "item": "kubejs:warden_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §5暗4§r §9监守核心§r §e高§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 6
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 2
+        }
+      ],
+      "events": [
+        {
+          "type": "attack",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_echo_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_echo_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "kubejs:warden_core",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

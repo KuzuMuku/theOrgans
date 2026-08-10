@@ -1,0 +1,29 @@
+{
+  "entity_types": [
+    "minecraft:player"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 4
+    },
+    "organapi:chest": {
+      "capacity": 9
+    },
+    "organapi:abdomen": {
+      "capacity": 6,
+      "enabled": true
+    },
+    "organapi:left_arm": {
+      "capacity": 3
+    },
+    "organapi:right_arm": {
+      "capacity": 3
+    },
+    "organapi:left_leg": {
+      "capacity": 3
+    },
+    "organapi:right_leg": {
+      "capacity": 3
+    }
+  }
+}

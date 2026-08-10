@@ -29,6 +29,12 @@
               "id": "kubejs:wavefront_forehead_cooldown_echo",
               "amount": 1,
               "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 3,
+              "source": "vanillaSculk_system"
             }
           ],
           "consume_points": [],

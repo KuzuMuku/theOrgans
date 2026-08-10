@@ -100,7 +100,7 @@ Common.findNearbyEntitiesWithPointSuffix = function (player, radius, suffix) {
   let entity = entityOf(player)
   let area = entity.getBoundingBox().inflate(radius)
   let radiusSq = radius * radius
-  let targets = entity.level().getEntitiesOfClass(LivingEntityClass, area, target => target !== entity && target.isAlive() && target.distanceToSqr(entity) <= radiusSq)
+  let targets = entity.level.getEntitiesOfClass(LivingEntityClass, area, target => target !== entity && target.isAlive() && target.distanceToSqr(entity) <= radiusSq)
   let found = []
   let iterator = targets.iterator()
   while (iterator.hasNext()) {

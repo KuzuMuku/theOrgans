@@ -1,7 +1,7 @@
 
 
 if [ "$1" == "" ];then
-export target_dir="/media/kuzuanpa/data/Software/Games/Minecraft/game/packs/TFRU/versions/PrismFolder/NoFleshInChest-Reborn/minecraft"
+export target_dir="/home/kuzuanpa/library/links/minecraft-packs-local/CuiGu/versions/No Flesh Within Chest Reborn/"
 else 
 export target_dir="$1"
 fi

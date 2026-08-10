@@ -58,7 +58,7 @@
             {
               "type": "counter",
               "id": "kubejs:vanillaSculk_resonance",
-              "amount": 2,
+              "amount": 3,
               "source": "vanillaSculk_system"
             }
           ],

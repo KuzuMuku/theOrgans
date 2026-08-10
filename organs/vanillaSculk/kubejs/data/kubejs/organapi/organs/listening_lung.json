@@ -101,6 +101,11 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:cast_time_reduction",
           "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
         }
       ],
       "events": [],

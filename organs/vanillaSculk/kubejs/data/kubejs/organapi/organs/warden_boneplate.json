@@ -68,7 +68,7 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.armor",
-          "amount": 3
+          "amount": 8
         },
         {
           "type": "attribute",

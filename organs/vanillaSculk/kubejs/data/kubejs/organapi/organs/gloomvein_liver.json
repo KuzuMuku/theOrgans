@@ -104,6 +104,11 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:mana_regen",
           "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
         }
       ],
       "events": [],

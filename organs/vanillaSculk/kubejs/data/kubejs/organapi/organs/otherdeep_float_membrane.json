@@ -91,6 +91,16 @@
           "type": "attribute",
           "attribute": "minecraft:generic.max_health",
           "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 2
         }
       ],
       "events": [],

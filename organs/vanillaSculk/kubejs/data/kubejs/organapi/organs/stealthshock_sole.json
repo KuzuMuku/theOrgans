@@ -74,7 +74,7 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
+          "amount": 2
         }
       ],
       "events": [],

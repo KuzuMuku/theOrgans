@@ -44,7 +44,7 @@
             {
               "type": "counter",
               "id": "kubejs:vanillaSculk_resonance",
-              "amount": 1,
+              "amount": 3,
               "source": "vanillaSculk_system"
             }
           ],
@@ -118,7 +118,7 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
+          "amount": 2
         }
       ],
       "events": [],

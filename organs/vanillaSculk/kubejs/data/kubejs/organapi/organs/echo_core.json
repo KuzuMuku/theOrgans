@@ -3,7 +3,7 @@
   "valid_parts": [
     "organapi:chest"
   ],
-  "size": 2,
+  "size": 1,
   "tooltips": [
     "§6核§r §5暗3§r §9暗域底盘§r §e高§r"
   ],
@@ -12,26 +12,6 @@
     "core"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_set_major"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -66,44 +46,14 @@
           "hidden": true
         },
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 4
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
+          "type": "organ_stat",
+          "id": "organeffects:cardiac_output",
           "amount": 1
         },
         {
           "type": "counter",
           "id": "kubejs:vanillaSculk_resonance_capacity",
           "amount": 50
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 1
         }
       ],
       "events": [],

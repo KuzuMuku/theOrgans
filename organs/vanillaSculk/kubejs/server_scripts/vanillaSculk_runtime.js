@@ -447,7 +447,7 @@ function homeState(player) {
 function homeMatch(player) {
   let state = homeState(player)
   let entity = entityOf(player)
-  return state.final || entity.isShiftKeyDown() || lightLevel(entity) <= 7
+  return state.final || lightLevel(entity) <= 2
 }
 
 function sqDistanceBetween(a, b) {

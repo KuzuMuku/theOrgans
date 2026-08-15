@@ -21,23 +21,19 @@
       "grants": [],
       "events": [
         {
-          "type": "organironspell:spell_cast",
-          "school": "irons_spellbooks:ender",
+          "type": "move",
+          "distance": 5,
+          "sneaking": true,
           "add_points": [
             {
               "type": "runtime",
               "id": "kubejs:gloomvein_liver_spell_loop",
               "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 2,
               "source": "vanillaSculk_system"
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+          ],
           "actions": []
         }
       ],
@@ -46,7 +42,7 @@
           "type": "organironspell:restore_mana",
           "point_type": "runtime",
           "point_id": "kubejs:gloomvein_liver_spell_loop",
-          "amount": 4,
+          "amount": 20,
           "consume_points": true,
           "max_consume": 1
         }
@@ -68,12 +64,12 @@
         {
           "type": "attribute",
           "attribute": "irons_spellbooks:max_mana",
-          "amount": 40
+          "amount": 100
         },
         {
           "type": "attribute",
           "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
+          "amount": 2
         },
         {
           "type": "counter",
@@ -98,12 +94,7 @@
         {
           "type": "attribute",
           "attribute": "irons_spellbooks:max_mana",
-          "amount": 20
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
+          "amount": 50
         },
         {
           "type": "attribute",

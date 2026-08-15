@@ -188,7 +188,7 @@
   "point.organeffects.skill.kubejs.sensor_throat_sac": "感器喉囊",
   "point.organeffects.skill.kubejs.sensor_throat_sac.desc": "放出一圈短促回响，扰乱近处感知效果随施法织度线性提升",
   "point.organeffects.counter.kubejs.abyss_hunter_membrane_effect": "每点 回响储能 提供 1 点生命上限",
-  "point.organeffects.counter.kubejs.ancient_city_step_leg_effect": "潜行站起后 根据回响储能 获得 1-3 秒静默窗口",
+  "point.organeffects.counter.kubejs.ancient_city_step_leg_effect": "潜行站起后 根据回响储能 获得 3-9 秒静默窗口",
   "point.organeffects.counter.kubejs.ancient_jar_hand_effect": "每点回响储能提供 1 点幸运",
   "point.organeffects.counter.kubejs.conduction_fork_joint_effect": "当 回响储能超过 10 时 缓慢恢复魔力",
   "point.organeffects.counter.kubejs.darkvision_iris_effect": "持续夜视",
@@ -205,7 +205,7 @@
   "point.organeffects.counter.kubejs.sensor_throat_sac_effect": "近身发声目标有概率被标记、减速并陷入黑暗",
   "point.organeffects.counter.kubejs.silence_crown_effect": "主场时有概率标记附近发声目标",
   "point.organeffects.counter.kubejs.silent_arrow_gland_effect": "远程命中消耗回响储能，对标记目标造成额外伤害",
-  "point.organeffects.counter.kubejs.stealthshock_sole_effect": "概率抑制自身振动",
+  "point.organeffects.counter.kubejs.slient_shulk": "概率抑制自身振动",
   "point.organeffects.counter.kubejs.tremor_tail_effect": "受到攻击后短时间获得加速",
   "point.organeffects.counter.kubejs.wavefront_forehead_effect": "施法时按消耗魔力恢复回响储能"
 }

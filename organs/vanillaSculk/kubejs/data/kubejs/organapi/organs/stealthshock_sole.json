@@ -28,7 +28,7 @@
         },
         {
           "type": "counter",
-          "id": "kubejs:stealthshock_sole_effect",
+          "id": "kubejs:slient_shulk",
           "amount": 1
         }
       ],

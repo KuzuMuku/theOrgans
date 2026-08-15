@@ -98,25 +98,6 @@ let SUPPORT_IDS = new Set([
   'kubejs:tremor_tail',
   'kubejs:abyss_hunter_membrane'
 ])
-let SILENCE_IDS = new Set([
-  'kubejs:echo_core',
-  'kubejs:listening_lung',
-  'kubejs:stealthshock_sole',
-  'kubejs:ancient_city_step_leg'
-])
-let MARK_IDS = new Set([
-  'kubejs:echo_cochlea',
-  'kubejs:darkvision_iris',
-  'kubejs:silent_arrow_gland',
-  'kubejs:wavefront_forehead',
-  'kubejs:conduction_fork_joint'
-])
-let OTHERDEEP_IDS = new Set([
-  'kubejs:otherdeep_float_membrane',
-  'kubejs:deepheart_remnant',
-  'kubejs:abyss_hunter_membrane',
-  'kubejs:deepchamber_sac'
-])
 let MANA_IDS = new Set([
   'kubejs:gloomvein_liver',
   'kubejs:deepchamber_sac'
@@ -332,14 +313,10 @@ PlayerEvents.tick(event => {
     quietTicks--
   }
 
-  if ( getCounter(player, 'kubejs:stealthshock_sole_effect') > 0) {
-    quietTicks = 10;
-  }
-
   let prevSneak = getRuntimePoint(player, 'kubejs:vanillaSculk_prev_sneak') > 0
   if (prevSneak && !sneaking && getCounter(player, 'kubejs:ancient_city_step_leg_effect') > 0 && resonance > 0) {
     let seconds = Math.min(3, Math.max(1, Math.floor(resonance / 25)))
-    quietTicks = Math.max(quietTicks, seconds * 20)
+    quietTicks = Math.max(quietTicks, seconds * 60)
   }
   setRuntimePoint(player, 'kubejs:vanillaSculk_prev_sneak', sneaking ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaSculk_quiet_window', quietTicks)

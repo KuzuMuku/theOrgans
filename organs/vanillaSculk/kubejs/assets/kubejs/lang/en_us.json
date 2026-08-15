@@ -208,7 +208,7 @@
   "point.organeffects.counter.kubejs.sensor_throat_sac_effect": "Nearby vibration sources may be marked, slowed, and blinded by darkness.",
   "point.organeffects.counter.kubejs.silence_crown_effect": "In home biomes, marks nearby vibration sources.",
   "point.organeffects.counter.kubejs.silent_arrow_gland_effect": "Ranged hits consume resonance and deal bonus damage to marked targets.",
-  "point.organeffects.counter.kubejs.stealthshock_sole_effect": "While sneaking, suppresses player vibrations.",
+  "point.organeffects.counter.kubejs.slient_shulk": "May suppresses player vibrations.",
   "point.organeffects.counter.kubejs.tremor_tail_effect": "Being hit grants a short burst of speed.",
   "point.organeffects.counter.kubejs.wavefront_forehead_effect": "Casting restores echo reserve equal to 1% of mana spent."
 }

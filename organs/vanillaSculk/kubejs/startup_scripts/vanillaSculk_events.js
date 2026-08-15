@@ -131,17 +131,17 @@ ForgeEvents.onEvent('net.minecraftforge.event.VanillaGameEvent', event => {
   let level = event.getLevel()
   let cause = event.getCause()
 
+  if (!event.getVanillaEvent().is(GameEventTags.VIBRATIONS)) {
+    return
+  }
+
   if (cause instanceof PlayerClass) {
-    let quietBySole = getCounter(cause, 'kubejs:stealthshock_sole_effect') > 0
-    if (isQuiet(cause) || quietBySole) {
+    if (isQuiet(cause) || Math.random() < (0.34 * getCounter(cause, 'kubejs:slient_shulk'))) {
       event.setCanceled(true)
     }
     return
   }
 
-  if (!event.getVanillaEvent().is(GameEventTags.VIBRATIONS)) {
-    return
-  }
   if (!(cause instanceof LivingEntityClass) || !(level instanceof ServerLevelClass)) {
     return
   }
@@ -210,7 +210,7 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
   if (!source) {
     return
   }
-  let caster = source.getEntity()
+  let caster = (source).getEntity()
   if (!(caster instanceof PlayerClass)) {
     return
   }

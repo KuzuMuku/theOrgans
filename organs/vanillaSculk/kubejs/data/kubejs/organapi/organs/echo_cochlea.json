@@ -18,43 +18,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 1,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "deal_damage",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 1,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -71,25 +34,10 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:cooldown_reduction",
           "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
+        },
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_mark_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
+          "type": "counter",
+          "id": "kubejs:echo_cochlea_effect",
           "amount": 1
         }
       ],

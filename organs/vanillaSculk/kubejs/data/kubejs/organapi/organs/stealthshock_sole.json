@@ -19,51 +19,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 1,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": [],
-          "distance": 2
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_has_chase",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_has_chase"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -72,9 +27,9 @@
           "hidden": true
         },
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 2
+          "type": "counter",
+          "id": "kubejs:stealthshock_sole_effect",
+          "amount": 1
         }
       ],
       "events": [],
@@ -83,22 +38,14 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          }
+          "type": "movement_state",
+          "state": "sneaking"
         }
       ],
       "grants": [
         {
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
           "amount": 1
         }
       ],

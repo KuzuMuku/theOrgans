@@ -25,7 +25,8 @@ let VANILLASCULK_ORGAN_IDS = [
   "kubejs:conduction_fork_joint",
   "kubejs:deepheart_remnant",
   "kubejs:ancient_jar_hand",
-  "kubejs:abyss_hunter_membrane"
+  "kubejs:abyss_hunter_membrane",
+  "kubejs:warden_core"
 ]
 
 ServerEvents.tags('item', event => {

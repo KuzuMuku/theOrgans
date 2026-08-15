@@ -39,72 +39,10 @@
           "type": "counter",
           "id": "kubejs:vanillaSculk_resonance_capacity",
           "amount": 20
-        }
-      ],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 1,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
         },
         {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 5,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_silence_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_silence_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:cast_time_reduction",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_mark_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
+          "type": "counter",
+          "id": "kubejs:resonance_spine_effect",
           "amount": 1
         }
       ],

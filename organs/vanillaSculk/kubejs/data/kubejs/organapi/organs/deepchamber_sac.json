@@ -18,46 +18,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "organironspell:spell_cast",
-          "school": "irons_spellbooks:ender",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:deepchamber_sac_spell_loop",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 2,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "organironspell:restore_mana",
-          "point_type": "runtime",
-          "point_id": "kubejs:deepchamber_sac_spell_loop",
-          "amount": 4,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -79,30 +39,10 @@
           "type": "counter",
           "id": "kubejs:vanillaSculk_resonance_capacity",
           "amount": 8
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:max_mana",
-          "amount": 20
         },
         {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
+          "type": "counter",
+          "id": "kubejs:deepchamber_sac_effect",
           "amount": 1
         }
       ],

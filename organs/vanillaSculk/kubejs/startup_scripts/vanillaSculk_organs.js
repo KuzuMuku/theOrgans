@@ -41,14 +41,6 @@ Common.registerSkills([
     cooldown: 200,
     level: 1,
     castEvent: 'warden_core_cast'
-  },
-  {
-    id: 'kubejs:sensor_throat_sac',
-    nameKey: 'point.organeffects.skill.kubejs.sensor_throat_sac',
-    descKey: 'point.organeffects.skill.kubejs.sensor_throat_sac.desc',
-    cooldown: 110,
-    level: 1,
-    castEvent: 'sensor_throat_sac_cast'
   }
 ])
 

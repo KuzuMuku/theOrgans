@@ -18,46 +18,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "organironspell:cooldown_added",
-          "school": "irons_spellbooks:ender",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:wavefront_forehead_cooldown_echo",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 3,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "organironspell:restore_mana",
-          "point_type": "runtime",
-          "point_id": "kubejs:wavefront_forehead_cooldown_echo",
-          "amount": 3,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -74,25 +34,10 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:ender_magic_resist",
           "amount": 3
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
+        },
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:casting_movespeed",
+          "type": "counter",
+          "id": "kubejs:wavefront_forehead_effect",
           "amount": 1
         }
       ],

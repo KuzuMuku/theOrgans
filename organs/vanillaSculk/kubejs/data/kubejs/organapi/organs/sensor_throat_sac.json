@@ -26,28 +26,8 @@
           "hidden": true
         },
         {
-          "type": "skill",
-          "skill_name": "kubejs:sensor_throat_sac",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_mark_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
+          "type": "counter",
+          "id": "kubejs:sensor_throat_sac_effect",
           "amount": 1
         }
       ],

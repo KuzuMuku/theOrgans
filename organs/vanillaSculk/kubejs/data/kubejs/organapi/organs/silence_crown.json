@@ -18,46 +18,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-      ],
-      "executions": [
-        {
-          "type": "organironspell:restore_mana",
-          "point_type": "runtime",
-          "point_id": "kubejs:silence_crown_cooldown_echo",
-          "amount": 3,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_mark_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_mark_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:cast_time_reduction",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -74,25 +34,10 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:ender_magic_resist",
           "amount": 3
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
+        },
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_silence_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_silence_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:casting_movespeed",
+          "type": "counter",
+          "id": "kubejs:silence_crown_effect",
           "amount": 1
         }
       ],

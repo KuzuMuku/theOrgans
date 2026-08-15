@@ -15,46 +15,6 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_silence_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_silence_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_otherdeep_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_otherdeep_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "static"
         }
       ],
@@ -74,26 +34,11 @@
           "type": "attribute",
           "attribute": "minecraft:generic.armor_toughness",
           "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
+        },
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
+          "type": "counter",
+          "id": "kubejs:darkness_reduce",
+          "amount": 3
         }
       ],
       "events": [],

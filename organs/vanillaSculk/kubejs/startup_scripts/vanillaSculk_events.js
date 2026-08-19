@@ -33,7 +33,7 @@ function entityOf(player) {
 function pointKey(pointType, pointId) {
   return OrganKubeJS.pointKey(pointType, pointId)
 }
-let MARK_POINT_KEY = pointKey('counter', 'kubejs:vanillaSculk_mark')
+let MARK_POINT_KEY = pointKey('mark', 'kubejs:vanillaSculk_mark')
 
 function getCounter(player, pointId) {
   return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'counter', pointId))
@@ -92,13 +92,14 @@ function applyMark(player, target, slow) {
   if (!target || !(target instanceof LivingEntityClass) || !target.isAlive()) {
     return
   }
-  OrganKubeJS.addTypedSourcePoint(target, 'target_mark', 'counter', 'kubejs:vanillaSculk_mark', 1)
+  OrganKubeJS.addMarkPoint(target, 'kubejs:vanillaSculk_mark', 1)
   addEffect(target, MobEffects.DARKNESS, 80, 0)
   if (slow) {
     addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
   }
-  if (getCounter(player, 'kubejs:echo_marrow_effect') > 0) {
-    addMana(player, 4)
+  let mana = getCounter(player, 'kubejs:echo_marrow_effect')
+  if (mana > 0) {
+    addMana(player, mana)
   }
 }
 
@@ -116,14 +117,6 @@ function tryMarkVibrationSource(player, source, chance, slow) {
   }
   if (Math.random() < chance) {
     applyMark(player, source, slow)
-  }
-}
-
-function entityTypeId(entity) {
-  try {
-    return String(BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()))
-  } catch (ignored) {
-    return ''
   }
 }
 
@@ -155,11 +148,11 @@ ForgeEvents.onEvent('net.minecraftforge.event.VanillaGameEvent', event => {
     let dz = Number(cause.getZ()) - Number(player.getZ())
     let distanceSq = dx * dx + dy * dy + dz * dz
 
-    if (getCounter(player, 'kubejs:silence_crown_effect') > 0 && isHome(player) && distanceSq <= 64.0) {
-      let chance = 0.1 + 0.08 * getCounter(player, 'kubejs:echo_cochlea_effect')
+    if (getCounter(player, 'kubejs:silence_crown_effect') > 0 && distanceSq <= 256.0) {
+      let chance = 0.2 + 0.08 * getCounter(player, 'kubejs:echo_cochlea_effect')
       tryMarkVibrationSource(player, cause, chance, false)
     }
-    if (getCounter(player, 'kubejs:sensor_throat_sac_effect') > 0 && distanceSq <= 20.25) {
+    if (getCounter(player, 'kubejs:sensor_throat_sac_effect') > 0 && distanceSq <= 64) {
       tryMarkVibrationSource(player, cause, 0.22, true)
     }
   }
@@ -173,11 +166,12 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', ev
 
   let source = event.getSource()
   let direct = source && source.getDirectEntity ? source.getDirectEntity() : null
-  let attacker = source && source.getEntity ? source.getEntity() : null
+  let attacker = source && source.actual ? source.actual : null
 
   if (target instanceof PlayerClass) {
-    if (getCounter(target, 'kubejs:resonance_spine_effect') > 0) {
-      addResource(target, 5)
+    let resource = getCounter(target, 'kubejs:resonance_spine_effect')
+    if (resource > 0) {
+      addResource(target, resource)
     }
     if (getCounter(target, 'kubejs:tremor_tail_effect') > 0) {
       addEffect(target, MobEffects.MOVEMENT_SPEED, 80, 1)
@@ -188,8 +182,9 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', ev
     return
   }
 
-  let melee = direct === attacker
-  if (getCounter(attacker, 'kubejs:latentwave_arm_effect') > 0 && melee && Math.random() < 0.3) {
+  let melee = source.type().msgId() === 'player'
+  let arms = getCounter(attacker, 'kubejs:latentwave_arm_effect');
+  if (arms > 0 && melee && Math.random() < arms * 0.25) {
     applyMark(attacker, target, false)
     addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
   }
@@ -210,7 +205,7 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
   if (!source) {
     return
   }
-  let caster = (source).getEntity()
+  let caster = source.actual
   if (!(caster instanceof PlayerClass)) {
     return
   }
@@ -218,7 +213,7 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
     return
   }
   let spell = source.spell()
-  if (!spell || !spell.getSchoolType() || String(spell.getSchoolType().getId()) !== 'irons_spellbooks:ender') {
+  if (!spell || !spell.getSchoolType() || String(spell.getSchoolType().getId()) !== 'irons_spellbooks:eldritch') {
     return
   }
   let target = event.getEntity()
@@ -229,8 +224,8 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
   if (resonance < 5) {
     return
   }
-  spendResource(caster, 5)
-  event.setAmount(Number(event.getAmount()) * (1 + resonance * 0.1))
+  event.setAmount(Number(event.getAmount()) * resonance * 0.2)
+  spendResource(caster, resonance/2)
 })
 
 ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellOnCastEvent', event => {
@@ -250,18 +245,18 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellOnCastEvent', e
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', event => {
   let dead = event.getEntity()
   let source = event.getSource()
-  let attacker = source && source.getEntity ? source.getEntity() : null
+  let attacker = source && source.actual ? source.actual : null
   if (!(attacker instanceof PlayerClass)) {
     return
   }
   if (getCounter(attacker, 'kubejs:gloomshell_spleen_effect') <= 0) {
     return
   }
-  if (SCULK_MOBS.indexOf(entityTypeId(dead)) < 0) {
+  if (SCULK_MOBS.indexOf(dead.getType()) < 0) {
     return
   }
   attacker.addItem(new ItemStack(Items.ECHO_SHARD, 1))
-  addResource(attacker, 3)
+  addResource(attacker, 4)
 })
 
 })()

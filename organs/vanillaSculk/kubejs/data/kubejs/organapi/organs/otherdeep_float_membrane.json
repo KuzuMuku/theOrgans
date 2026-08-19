@@ -38,7 +38,7 @@
         {
           "type": "counter",
           "id": "kubejs:otherdeep_float_membrane_effect",
-          "amount": 1
+          "amount": 10
         }
       ],
       "events": [],

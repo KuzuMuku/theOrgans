@@ -41,7 +41,7 @@ let LINK_SOURCE = DIR_KEY + '_links'
 let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE.current)
 let entityOf = Common.entityOf
 let pointKey = Common.pointKey
-let MARK_POINT_KEY = pointKey('counter', 'kubejs:vanillaSculk_mark')
+let MARK_POINT_KEY = pointKey('mark', 'kubejs:vanillaSculk_mark')
 let getCounter = Runtime.getCounter
 let getRuntimePoint = Runtime.getRuntimePoint
 let getLinkCounter = Runtime.getLinkCounter
@@ -334,14 +334,17 @@ PlayerEvents.tick(event => {
     }
     shortenDarkness(player, installed)
 
-    if (getCounter(player, 'kubejs:otherdeep_float_membrane_effect') > 0 && home) {
-      addMana(player, 1)
+    let mana_recover_home = getCounter(player, 'kubejs:otherdeep_float_membrane_effect')
+    if (mana_recover_home > 0 && home) {
+      addMana(player, mana_recover_home)
     }
-    if (getCounter(player, 'kubejs:conduction_fork_joint_effect') > 0 && resonance > 10) {
-      addMana(player, 1)
+    let mana_recover = getCounter(player, 'kubejs:conduction_fork_joint_effect')
+    if (mana_recover > 0 && resonance > 10) {
+      addMana(player, mana_recover)
     }
-    if (getCounter(player, 'kubejs:deepheart_remnant_effect') > 0 && resonance > 10) {
-      entity.heal(0.5)
+    let hp_recover = getCounter(player, 'kubejs:deepheart_remnant_effect')
+    if (hp_recover > 0 && resonance > 10) {
+      entity.heal(hp_recover * 0.5)
     }
     if (getCounter(player, 'kubejs:deepchamber_sac_effect') > 0 && home) {
       addResource(player, 1)

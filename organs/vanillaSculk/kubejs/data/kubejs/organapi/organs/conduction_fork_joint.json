@@ -34,7 +34,7 @@
         {
           "type": "counter",
           "id": "kubejs:conduction_fork_joint_effect",
-          "amount": 1
+          "amount": 5
         }
       ],
       "events": [],

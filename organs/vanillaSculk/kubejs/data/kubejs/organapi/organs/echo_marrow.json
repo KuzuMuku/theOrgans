@@ -28,7 +28,7 @@
         {
           "type": "counter",
           "id": "kubejs:echo_marrow_effect",
-          "amount": 1
+          "amount": 40
         }
       ],
       "events": [],

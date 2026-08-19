@@ -43,7 +43,7 @@
         {
           "type": "counter",
           "id": "kubejs:resonance_spine_effect",
-          "amount": 1
+          "amount": 5
         }
       ],
       "events": [],

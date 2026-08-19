@@ -1,0 +1,10 @@
+{
+  "point": "mark:kubejs:vanillaLushCaves_mark",
+  "display_name_key": "point.organeffects.mark.kubejs.vanillaLushCaves_mark",
+  "priority": 10,
+  "sync_to_client": true,
+  "mark_icon": "kubejs:mark/vanilla_lush_caves_mark",
+  "mark_render_scale": 0.3,
+  "mark_render_offset": 0.0,
+  "mark_tint": "#FFFFFFFF"
+}

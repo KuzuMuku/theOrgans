@@ -89,7 +89,7 @@
           "type": "attacked",
           "add_points": [
             {
-              "type": "counter",
+              "type": "mark",
               "id": "kubejs:mekanismT1_mark",
               "amount": 1
             }
@@ -104,7 +104,7 @@
           "config": {
             "callback": "common_apply_target_mark_effect"
           },
-          "point_type": "counter",
+          "point_type": "mark",
           "point_id": "kubejs:mekanismT1_mark",
           "effect": "minecraft:weakness",
           "duration_ticks": 60,

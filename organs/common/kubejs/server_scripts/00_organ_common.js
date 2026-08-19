@@ -118,8 +118,31 @@ Common.findNearbyEntitiesWithPointSuffix = function (player, radius, suffix) {
   return found
 }
 
+Common.findNearbyMarkedEntities = function (player, radius) {
+  let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
+  let entity = entityOf(player)
+  let area = entity.getBoundingBox().inflate(radius)
+  let radiusSq = radius * radius
+  let targets = entity.level.getEntitiesOfClass(LivingEntityClass, area, target => target !== entity && target.isAlive() && target.distanceToSqr(entity) <= radiusSq)
+  let found = []
+  let iterator = targets.iterator()
+  while (iterator.hasNext()) {
+    let target = iterator.next()
+    let points = OrganKubeJS.getPoints(target)
+    let pointIterator = points.entrySet().iterator()
+    while (pointIterator.hasNext()) {
+      let entry = pointIterator.next()
+      if (String(entry.getKey()).startsWith('mark:') && Number(entry.getValue()) > 0) {
+        found.push(target)
+        break
+      }
+    }
+  }
+  return found
+}
+
 Common.hasNearbyMarkedTarget = function (player, radius) {
-  return Common.findNearbyEntitiesWithPointSuffix(player, radius, '_mark').length > 0
+  return Common.findNearbyMarkedEntities(player, radius).length > 0
 }
 
 OrganKubejsEvents.targetAction('common_apply_target_mark_effect', event => {
@@ -129,7 +152,7 @@ OrganKubejsEvents.targetAction('common_apply_target_mark_effect', event => {
   }
 
   if (event.pointType && event.pointId) {
-    OrganKubeJS.addTypedSourcePoint(target, 'target_mark', event.pointType, event.pointId, 1)
+    OrganKubeJS.addMarkPoint(target, event.pointId, 1)
   }
 
   let effectId = event.effectId

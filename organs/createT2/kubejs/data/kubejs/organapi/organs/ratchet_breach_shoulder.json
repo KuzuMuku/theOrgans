@@ -83,7 +83,7 @@
           "type": "deal_damage",
           "add_points": [
             {
-              "type": "counter",
+              "type": "mark",
               "id": "kubejs:createT2_mark",
               "amount": 1
             }
@@ -98,7 +98,7 @@
           "config": {
             "callback": "common_apply_target_mark_effect"
           },
-          "point_type": "counter",
+          "point_type": "mark",
           "point_id": "kubejs:createT2_mark",
           "effect": "minecraft:mining_fatigue",
           "duration_ticks": 60,

@@ -1,0 +1,10 @@
+{
+  "point": "mark:kubejs:createT2_mark",
+  "display_name_key": "point.organeffects.mark.kubejs.createT2_mark",
+  "priority": 10,
+  "sync_to_client": true,
+  "mark_icon": "kubejs:mark/create_t2_mark",
+  "mark_render_scale": 0.3,
+  "mark_render_offset": 0.0,
+  "mark_tint": "#FFFFFFFF"
+}

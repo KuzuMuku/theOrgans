@@ -83,7 +83,7 @@
           "type": "deal_damage",
           "add_points": [
             {
-              "type": "counter",
+              "type": "mark",
               "id": "kubejs:vanillaSwamp_mark",
               "amount": 1
             }
@@ -98,7 +98,7 @@
           "config": {
             "callback": "common_apply_target_mark_effect"
           },
-          "point_type": "counter",
+          "point_type": "mark",
           "point_id": "kubejs:vanillaSwamp_mark",
           "effect": "minecraft:poison",
           "duration_ticks": 60,

@@ -149,11 +149,11 @@ ForgeEvents.onEvent('net.minecraftforge.event.VanillaGameEvent', event => {
     let distanceSq = dx * dx + dy * dy + dz * dz
 
     if (getCounter(player, 'kubejs:silence_crown_effect') > 0 && distanceSq <= 256.0) {
-      let chance = 0.2 + 0.08 * getCounter(player, 'kubejs:echo_cochlea_effect')
+      let chance = 0.1 + 0.08 * getCounter(player, 'kubejs:echo_cochlea_effect')
       tryMarkVibrationSource(player, cause, chance, false)
     }
     if (getCounter(player, 'kubejs:sensor_throat_sac_effect') > 0 && distanceSq <= 64) {
-      tryMarkVibrationSource(player, cause, 0.22, true)
+      tryMarkVibrationSource(player, cause, 1.0, true)
     }
   }
 })
@@ -189,13 +189,12 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', ev
     addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
   }
 
-  if (getCounter(attacker, 'kubejs:silent_arrow_gland_effect') > 0 && !melee && direct instanceof ProjectileClass) {
+  let silent_arrow_gland_effect = getCounter(attacker, 'kubejs:silent_arrow_gland_effect')
+  if (silent_arrow_gland_effect > 0 && source.type().msgId() === 'arrow') {
     let resonance = getCounter(attacker, RESOURCE.current)
-    if (resonance >= 2) {
-      spendResource(attacker, 2)
-      if (isMarked(target)) {
-        event.setAmount(Number(event.getAmount()) * 1.5)
-      }
+    if (resonance >= 2 && isMarked(target)) {
+      spendResource(attacker, 2*silent_arrow_gland_effect)
+      event.setAmount(Number(event.getAmount()) * (1 + 0.5 * silent_arrow_gland_effect))
     }
   }
 })
@@ -233,12 +232,16 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellOnCastEvent', e
   if (!(player instanceof PlayerClass)) {
     return
   }
-  if (getCounter(player, 'kubejs:wavefront_forehead_effect') <= 0) {
+  let wavefront_forehead_effect = getCounter(player, 'kubejs:wavefront_forehead_effect')
+  if (wavefront_forehead_effect <= 0) {
     return
   }
   let manaCost = Number(event.getManaCost())
+  if(manaCost < 50){
+    return
+  }
   if (manaCost > 0) {
-    addResource(player, Math.max(1, Math.floor(manaCost * 0.01)))
+    addResource(player, Math.max(1, Math.floor(manaCost * 0.02 * wavefront_forehead_effect)))
   }
 })
 

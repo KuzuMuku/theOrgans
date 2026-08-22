@@ -276,10 +276,6 @@ OrganKubejsEvents.predicate('vanillaSculk_mark_online', event => {
   return vanillaSculkPredicateResult(event, !!event.player && hasNearbyMarkedTarget(event.player, 8.0))
 })
 
-OrganKubejsEvents.predicate('vanillaSculk_echo_online', event => {
-  return vanillaSculkPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) >= 1)
-})
-
 OrganKubejsEvents.predicate('vanillaSculk_otherdeep_online', event => {
   return vanillaSculkPredicateResult(event, !!event.player && homeMatch(event.player))
 })
@@ -315,17 +311,16 @@ PlayerEvents.tick(event => {
 
   let prevSneak = getRuntimePoint(player, 'kubejs:vanillaSculk_prev_sneak') > 0
   if (prevSneak && !sneaking && getCounter(player, 'kubejs:ancient_city_step_leg_effect') > 0 && resonance > 0) {
-    let seconds = Math.min(3, Math.max(1, Math.floor(resonance / 25)))
-    quietTicks = Math.max(quietTicks, seconds * 60)
+    let seconds = Math.min(180, Math.max(60, Math.floor(resonance *2)))
+    quietTicks = Math.max(quietTicks, seconds)
   }
   setRuntimePoint(player, 'kubejs:vanillaSculk_prev_sneak', sneaking ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaSculk_quiet_window', quietTicks)
   setRuntimePoint(player, 'kubejs:vanillaSculk_silence_online', quietTicks > 0 ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaSculk_home_online', home ? 1 : 0)
 
-  setLinkAttribute(player, 'minecraft:generic.luck', getCounter(player, 'kubejs:ancient_jar_hand_effect') * resonance)
-  setLinkAttribute(player, 'minecraft:generic.max_health', getCounter(player, 'kubejs:abyss_hunter_membrane_effect') * resonance)
-  setLinkAttribute(player, 'irons_spellbooks:casting_movespeed', home && getCounter(player, 'kubejs:otherdeep_float_membrane_effect') > 0 ? 2 : 0)
+  setLinkAttribute(player, 'minecraft:generic.luck', getCounter(player, 'kubejs:ancient_jar_hand_effect') * 0.25 * resonance)
+  setLinkAttribute(player, 'minecraft:generic.max_health', getCounter(player, 'kubejs:abyss_hunter_membrane_effect') * 0.5 * resonance)
 
   let tick = entity.age
   if (tick % 20 === 0) {
@@ -346,11 +341,11 @@ PlayerEvents.tick(event => {
     if (hp_recover > 0 && resonance > 10) {
       entity.heal(hp_recover * 0.5)
     }
-    if (getCounter(player, 'kubejs:deepchamber_sac_effect') > 0 && home) {
-      addResource(player, 1)
-      try {
-        entity.getFoodData().eat(1, 0.5)
-      } catch (ignored) {
+
+    if (tick % 60 === 0) {
+      let deepchamber_sac_effect = getCounter(player, 'kubejs:deepchamber_sac_effect')
+      if (deepchamber_sac_effect > 0 && home) {
+        addResource(player, deepchamber_sac_effect)
       }
     }
   }

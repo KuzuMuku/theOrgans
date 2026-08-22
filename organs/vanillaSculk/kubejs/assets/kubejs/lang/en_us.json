@@ -195,7 +195,7 @@
   "point.organeffects.counter.kubejs.ancient_jar_hand_effect": "Each point grants luck equal to current echo reserve.",
   "point.organeffects.counter.kubejs.conduction_fork_joint_effect": "While echo reserve exceeds 10, slowly restores mana.",
   "point.organeffects.counter.kubejs.darkvision_iris_effect": "Provides night vision.",
-  "point.organeffects.counter.kubejs.deepchamber_sac_effect": "In home biomes, slowly restores echo reserve and hunger.",
+  "point.organeffects.counter.kubejs.deepchamber_sac_effect": "In home biomes, slowly restores echo reserve.",
   "point.organeffects.counter.kubejs.deepheart_remnant_effect": "While echo reserve exceeds 10, slowly heals.",
   "point.organeffects.counter.kubejs.echo_cochlea_effect": "Increases the crown chance to mark vibration sources.",
   "point.organeffects.counter.kubejs.echo_marrow_effect": "Marking a target restores mana.",

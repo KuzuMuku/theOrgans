@@ -56,11 +56,7 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_echo_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_echo_online"
-          }
+          "type": "static"
         }
       ],
       "grants": [

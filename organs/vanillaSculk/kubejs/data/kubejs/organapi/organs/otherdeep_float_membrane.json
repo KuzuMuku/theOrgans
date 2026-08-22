@@ -43,6 +43,26 @@
       ],
       "events": [],
       "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "id": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
     }
   ]
 }

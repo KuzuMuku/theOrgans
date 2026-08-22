@@ -32,7 +32,7 @@
         },
         {
           "type": "attribute",
-          "attribute": "irons_spellbooks:ender_magic_resist",
+          "attribute": "irons_spellbooks:eldritch_magic_resist",
           "amount": 3
         },
         {

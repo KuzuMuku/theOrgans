@@ -42,7 +42,7 @@
         },
         {
           "type": "attribute",
-          "attribute": "irons_spellbooks:ender_spell_power",
+          "attribute": "irons_spellbooks:eldritch_spell_power",
           "amount": 4
         },
         {

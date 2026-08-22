@@ -1,7 +1,8 @@
 {
   "item": "kubejs:ancient_jar_hand",
   "valid_parts": [
-    "organapi:abdomen"
+    "organapi:left_arm",
+    "organapi:right_arm"
   ],
   "size": 1,
   "tooltips": [

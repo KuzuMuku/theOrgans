@@ -36,21 +36,7 @@
           "amount": 2
         }
       ],
-      "events": [
-        {
-          "type": "attack",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSculk_resonance",
-              "amount": 1,
-              "source": "vanillaSculk_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
+      "events": [],
       "executions": []
     },
     {

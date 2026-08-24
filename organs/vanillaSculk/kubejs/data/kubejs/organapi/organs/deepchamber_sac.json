@@ -39,14 +39,41 @@
           "type": "counter",
           "id": "kubejs:vanillaSculk_resonance_capacity",
           "amount": 8
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:deepchamber_sac_effect",
-          "amount": 1
         }
       ],
       "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaSculk_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 60
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 1,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
       "executions": []
     }
   ]

@@ -37,6 +37,7 @@
   "message.organkubejs.condition.vanillaSculk_has_spell": "Sculk organ synergy is established",
   "message.organkubejs.condition.vanillaSculk_has_support": "Sculk organ synergy is established",
   "message.organkubejs.condition.vanillaSculk_home": "in a sculk or deep dark environment, or while sneaking or in low light",
+  "message.organkubejs.condition.vanillaSculk_high_resonance": "while the echo reserve exceeds 10",
   "message.organkubejs.condition.vanillaSculk_mark_online": "while a marked target is nearby",
   "message.organkubejs.condition.vanillaSculk_otherdeep_online": "in a sculk or deep dark environment, or while sneaking or in low light",
   "message.organkubejs.condition.vanillaSculk_resource_online": "Echo reserve is available",

@@ -39,14 +39,23 @@
           "type": "counter",
           "id": "kubejs:vanillaSculk_resonance_capacity",
           "amount": 20
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:resonance_spine_effect",
-          "amount": 5
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "health_loss",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaSculk_resonance",
+              "amount": 5,
+              "source": "vanillaSculk_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
       "executions": []
     }
   ]

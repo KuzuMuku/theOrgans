@@ -30,15 +30,33 @@
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
           "amount": 1
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:ancient_city_step_leg_effect",
-          "amount": 1
         }
       ],
-      "events": [],
-      "executions": []
+      "events": [
+        {
+          "type": "sneak_stop",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:ancient_city_step_quiet_request",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSculk_ancient_step_quiet",
+          "point_type": "runtime",
+          "point_id": "kubejs:ancient_city_step_quiet_request",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

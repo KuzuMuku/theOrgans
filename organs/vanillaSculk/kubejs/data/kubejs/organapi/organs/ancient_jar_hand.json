@@ -27,9 +27,16 @@
           "hidden": true
         },
         {
-          "type": "counter",
-          "id": "kubejs:ancient_jar_hand_effect",
-          "amount": 1
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaSculk_resonance",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.luck",
+            "per": 4,
+            "source": "vanillaSculk_system"
+          }
         }
       ],
       "events": [],

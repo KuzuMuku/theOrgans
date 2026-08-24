@@ -37,6 +37,7 @@
   "message.organkubejs.condition.vanillaSculk_has_spell": "幽匿器官联动已建立",
   "message.organkubejs.condition.vanillaSculk_has_support": "幽匿器官联动已建立",
   "message.organkubejs.condition.vanillaSculk_home": "位于幽匿环境，或处于潜行状态",
+  "message.organkubejs.condition.vanillaSculk_high_resonance": "回响储能超过 10 时",
   "message.organkubejs.condition.vanillaSculk_mark_online": "附近存在带标记目标时",
   "message.organkubejs.condition.vanillaSculk_resource_online": "回响储能储备可用",
   "point.organeffects.attribute.irons_spellbooks.cast_time_reduction": "施法时间缩减",

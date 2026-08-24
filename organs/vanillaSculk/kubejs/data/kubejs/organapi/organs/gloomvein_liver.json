@@ -15,25 +15,26 @@
     {
       "conditions": [
         {
-          "type": "static"
+          "type": "movement_state",
+          "state": "sneaking"
         }
       ],
       "grants": [],
       "events": [
         {
-          "type": "move",
-          "distance": 5,
-          "sneaking": true,
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
           "add_points": [
             {
               "type": "runtime",
               "id": "kubejs:gloomvein_liver_spell_loop",
               "amount": 1,
-              "source": "vanillaSculk_system"
+              "duration_ticks": 2
             }
           ],
-          "consume_points": [
-          ],
+          "consume_points": [],
           "actions": []
         }
       ],
@@ -87,7 +88,8 @@
           "config": {
             "callback": "vanillaSculk_home",
             "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          }
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
         }
       ],
       "grants": [

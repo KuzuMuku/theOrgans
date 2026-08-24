@@ -24,15 +24,33 @@
           "id": "organsynergia:dark_affinity",
           "amount": 2,
           "hidden": true
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:echo_marrow_effect",
-          "amount": 40
         }
       ],
-      "events": [],
-      "executions": []
+      "events": [
+        {
+          "type": "vanillaSculk:mark_applied",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:echo_marrow_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:echo_marrow_recover",
+          "amount": 40,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

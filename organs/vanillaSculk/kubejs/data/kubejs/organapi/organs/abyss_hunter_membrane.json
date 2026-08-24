@@ -36,9 +36,16 @@
           "amount": 1
         },
         {
-          "type": "counter",
-          "id": "kubejs:abyss_hunter_membrane_effect",
-          "amount": 1
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaSculk_resonance",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.max_health",
+            "per": 2,
+            "source": "vanillaSculk_system"
+          }
         }
       ],
       "events": [],

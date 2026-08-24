@@ -1,23 +1,20 @@
 ;(function () {
 let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
 let PlayerClass = Java.loadClass('net.minecraft.world.entity.player.Player')
-let ProjectileClass = Java.loadClass('net.minecraft.world.entity.projectile.Projectile')
 let ServerLevelClass = Java.loadClass('net.minecraft.server.level.ServerLevel')
-let MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
-let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
-let MagicData = Java.loadClass('io.redspace.ironsspellbooks.api.magic.MagicData')
-let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
-let OrganQueryService = Java.loadClass('cn.kuzuanpa.organapi.api.query.OrganQueryService')
+let GameEventTags = Java.loadClass('net.minecraft.tags.GameEventTags')
+let RuntimeEffectService = Java.loadClass('cn.kuzuanpa.organeffects.common.effect.RuntimeEffectService')
+let RuntimeEvent = Java.loadClass('cn.kuzuanpa.organeffects.api.extension.OrganEffectsRuntimeEvent')
 let ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
 let Items = Java.loadClass('net.minecraft.world.item.Items')
-let GameEventTags = Java.loadClass('net.minecraft.tags.GameEventTags')
+let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
 
 let RESOURCE = {
   system: 'vanillaSculk_system',
   current: 'kubejs:vanillaSculk_resonance'
 }
 let SYSTEM_SOURCE = RESOURCE.system
-
+let MARK_POINT_KEY = OrganKubeJS.pointKey('mark', 'kubejs:vanillaSculk_mark')
 let SCULK_MOBS = [
   'minecraft:warden',
   'deeperdarker:sculk_leech',
@@ -33,14 +30,9 @@ function entityOf(player) {
 function pointKey(pointType, pointId) {
   return OrganKubeJS.pointKey(pointType, pointId)
 }
-let MARK_POINT_KEY = pointKey('mark', 'kubejs:vanillaSculk_mark')
 
 function getCounter(player, pointId) {
   return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'counter', pointId))
-}
-
-function getRuntimePoint(player, pointId) {
-  return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'runtime', pointId))
 }
 
 function setCounter(player, pointId, value) {
@@ -51,73 +43,47 @@ function consumeCounter(player, pointId, amount) {
   return Number(OrganKubeJS.consumeSourcePoint(entityOf(player), SYSTEM_SOURCE, pointKey('counter', pointId), Math.floor(amount)))
 }
 
-function addResource(player, amount) {
-  if (!amount || amount <= 0) {
-    return
-  }
-  setCounter(player, RESOURCE.current, getCounter(player, RESOURCE.current) + amount)
+function getRuntimePoint(player, pointId) {
+  return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'runtime', pointId))
 }
 
-function spendResource(player, amount) {
-  if (!amount || amount <= 0) {
-    return 0
-  }
-  return consumeCounter(player, RESOURCE.current, amount)
-}
-
-function addEffect(entity, effect, duration, amplifier) {
-  entity.addEffect(new MobEffectInstance(effect, duration, amplifier, false, false, true))
-}
-
-function addMana(player, amount) {
-  MagicData.getPlayerMagicData(entityOf(player)).addMana(amount)
+function entityTypeId(entity) {
+  return String(BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()))
 }
 
 function isMarked(target) {
   if (!target) {
     return false
   }
-  let points = OrganKubeJS.getPoints(target)
-  let iterator = points.entrySet().iterator()
-  while (iterator.hasNext()) {
-    let entry = iterator.next()
-    if (String(entry.getKey()) === MARK_POINT_KEY && Number(entry.getValue()) > 0) {
-      return true
+  try {
+    let points = OrganKubeJS.getPoints(target)
+    let iterator = points.entrySet().iterator()
+    while (iterator.hasNext()) {
+      let entry = iterator.next()
+      if (String(entry.getKey()) === MARK_POINT_KEY && Number(entry.getValue()) > 0) {
+        return true
+      }
     }
+  } catch (ignored) {
   }
   return false
-}
-
-function applyMark(player, target, slow) {
-  if (!target || !(target instanceof LivingEntityClass) || !target.isAlive()) {
-    return
-  }
-  OrganKubeJS.addMarkPoint(target, 'kubejs:vanillaSculk_mark', 1)
-  addEffect(target, MobEffects.DARKNESS, 80, 0)
-  if (slow) {
-    addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
-  }
-  let mana = getCounter(player, 'kubejs:echo_marrow_effect')
-  if (mana > 0) {
-    addMana(player, mana)
-  }
 }
 
 function isQuiet(player) {
   return getRuntimePoint(player, 'kubejs:vanillaSculk_quiet_window') > 0
 }
 
-function isHome(player) {
-  return getRuntimePoint(player, 'kubejs:vanillaSculk_home_online') > 0
+function sqDistanceBetween(a, b) {
+  let dx = Number(a.getX()) - Number(b.getX())
+  let dy = Number(a.getY()) - Number(b.getY())
+  let dz = Number(a.getZ()) - Number(b.getZ())
+  return dx * dx + dy * dy + dz * dz
 }
 
-function tryMarkVibrationSource(player, source, chance, slow) {
-  if (chance <= 0 || !source || !(source instanceof LivingEntityClass) || !source.isAlive()) {
-    return
-  }
-  if (Math.random() < chance) {
-    applyMark(player, source, slow)
-  }
+function fireSculkEventWithAmount(player, type, target, amount) {
+  let entity = entityOf(player)
+  let builder = RuntimeEvent.builder(type, entity).target(target || entity).amount(Number(amount))
+  RuntimeEffectService.fireEvent(entity, builder.build())
 }
 
 ForgeEvents.onEvent('net.minecraftforge.event.VanillaGameEvent', event => {
@@ -129,7 +95,8 @@ ForgeEvents.onEvent('net.minecraftforge.event.VanillaGameEvent', event => {
   }
 
   if (cause instanceof PlayerClass) {
-    if (isQuiet(cause) || Math.random() < (0.34 * getCounter(cause, 'kubejs:slient_shulk'))) {
+    let soleCount = getCounter(cause, 'kubejs:slient_shulk')
+    if (isQuiet(cause) || (soleCount > 0 && Math.random() < 0.34 * soleCount)) {
       event.setCanceled(true)
     }
     return
@@ -143,60 +110,35 @@ ForgeEvents.onEvent('net.minecraftforge.event.VanillaGameEvent', event => {
   let iterator = players.iterator()
   while (iterator.hasNext()) {
     let player = iterator.next()
-    let dx = Number(cause.getX()) - Number(player.getX())
-    let dy = Number(cause.getY()) - Number(player.getY())
-    let dz = Number(cause.getZ()) - Number(player.getZ())
-    let distanceSq = dx * dx + dy * dy + dz * dz
-
-    if (getCounter(player, 'kubejs:silence_crown_effect') > 0 && distanceSq <= 256.0) {
-      let chance = 0.1 + 0.08 * getCounter(player, 'kubejs:echo_cochlea_effect')
-      tryMarkVibrationSource(player, cause, chance, false)
+    let distanceSq = sqDistanceBetween(entityOf(player), cause)
+    if (distanceSq > 256.0) {
+      continue
     }
-    if (getCounter(player, 'kubejs:sensor_throat_sac_effect') > 0 && distanceSq <= 64) {
-      tryMarkVibrationSource(player, cause, 1.0, true)
-    }
+    fireSculkEventWithAmount(player, 'vanillaSculk:vibration', cause, Math.sqrt(distanceSq))
   }
 })
 
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', event => {
   let target = event.getEntity()
-  if (!(target instanceof LivingEntityClass)) {
-    return
-  }
-
   let source = event.getSource()
-  let direct = source && source.getDirectEntity ? source.getDirectEntity() : null
   let attacker = source && source.actual ? source.actual : null
-
-  if (target instanceof PlayerClass) {
-    let resource = getCounter(target, 'kubejs:resonance_spine_effect')
-    if (resource > 0) {
-      addResource(target, resource)
-    }
-    if (getCounter(target, 'kubejs:tremor_tail_effect') > 0) {
-      addEffect(target, MobEffects.MOVEMENT_SPEED, 80, 1)
-    }
-  }
 
   if (!(attacker instanceof PlayerClass)) {
     return
   }
 
-  let melee = source.type().msgId() === 'player'
-  let arms = getCounter(attacker, 'kubejs:latentwave_arm_effect');
-  if (arms > 0 && melee && Math.random() < arms * 0.25) {
-    applyMark(attacker, target, false)
-    addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
+  let glands = getCounter(attacker, 'kubejs:silent_arrow_gland_effect')
+  if (glands <= 0 || source.type().msgId() !== 'arrow') {
+    return
   }
 
-  let silent_arrow_gland_effect = getCounter(attacker, 'kubejs:silent_arrow_gland_effect')
-  if (silent_arrow_gland_effect > 0 && source.type().msgId() === 'arrow') {
-    let resonance = getCounter(attacker, RESOURCE.current)
-    if (resonance >= 2 && isMarked(target)) {
-      spendResource(attacker, 2*silent_arrow_gland_effect)
-      event.setAmount(Number(event.getAmount()) * (1 + 0.5 * silent_arrow_gland_effect))
-    }
+  let resonance = getCounter(attacker, RESOURCE.current)
+  let need = 2 * glands
+  if (!isMarked(target) || resonance < need) {
+    return
   }
+  event.setAmount(Number(event.getAmount()) * (1 + 0.5 * glands))
+  consumeCounter(attacker, RESOURCE.current, need)
 })
 
 ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', event => {
@@ -216,15 +158,12 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
     return
   }
   let target = event.getEntity()
-  if (!isMarked(target)) {
-    return
-  }
   let resonance = getCounter(caster, RESOURCE.current)
-  if (resonance < 5) {
+  if (!isMarked(target) || resonance < 5) {
     return
   }
   event.setAmount(Number(event.getAmount()) * resonance * 0.2)
-  spendResource(caster, resonance/2)
+  consumeCounter(caster, RESOURCE.current, Math.floor(resonance / 2))
 })
 
 ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellOnCastEvent', event => {
@@ -236,17 +175,11 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellOnCastEvent', e
   if (wavefront_forehead_effect <= 0) {
     return
   }
-  let manaCost = Number(event.getManaCost())
-  if(manaCost < 50){
-    return
-  }
-  if (manaCost > 0) {
-    addResource(player, Math.max(1, Math.floor(manaCost * 0.02 * wavefront_forehead_effect)))
-  }
+  let resonance = getCounter(player, RESOURCE.current) + Number(event.getManaCost()) * 0.02 * wavefront_forehead_effect
+  setCounter(player, RESOURCE.current, resonance)
 })
 
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', event => {
-  let dead = event.getEntity()
   let source = event.getSource()
   let attacker = source && source.actual ? source.actual : null
   if (!(attacker instanceof PlayerClass)) {
@@ -255,11 +188,12 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', e
   if (getCounter(attacker, 'kubejs:gloomshell_spleen_effect') <= 0) {
     return
   }
-  if (SCULK_MOBS.indexOf(dead.getType()) < 0) {
+  let dead = event.getEntity()
+  if (SCULK_MOBS.indexOf(entityTypeId(dead)) < 0) {
     return
   }
-  attacker.addItem(new ItemStack(Items.ECHO_SHARD, 1))
-  addResource(attacker, 4)
+  entityOf(attacker).addItem(new ItemStack(Items.ECHO_SHARD, 1))
+  setCounter(attacker, RESOURCE.current, getCounter(attacker, RESOURCE.current) + 4)
 })
 
 })()

@@ -39,10 +39,7 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_high_resonance",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_high_resonance"
-          },
+          "callback": "vanillaSculk_high_resonance",
           "custom_display_key": "message.organkubejs.condition.vanillaSculk_high_resonance"
         }
       ],

@@ -34,50 +34,15 @@
           "type": "attribute",
           "attribute": "minecraft:generic.armor_toughness",
           "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:darkness_reduce",
+          "amount": 3
         }
       ],
       "events": [],
       "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "status_effect",
-          "effect": "minecraft:darkness"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "tick",
-          "config": {
-            "interval_ticks": 20
-          },
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:resonant_kidneysheath_shorten_darkness",
-              "amount": 1,
-              "duration_ticks": 2
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "kubejs_call",
-          "callback": "vanillaSculk_shorten_darkness",
-          "config": {
-            "reduction": 0.3
-          },
-          "point_type": "runtime",
-          "point_id": "kubejs:resonant_kidneysheath_shorten_darkness",
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
     }
   ]
 }

@@ -48,10 +48,7 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSculk_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
-          },
+          "callback": "vanillaSculk_home",
           "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
         }
       ],

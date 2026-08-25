@@ -23,6 +23,7 @@ let HOME = {
   structure_cache: HOME_STRUCTURE_CACHE
 }
 let HOME_CALLBACK = 'vanillaSculk_home'
+let DARKNESS_REDUCE_KEY = 'kubejs:darkness_reduce'
 let RESOURCE = {
   system: 'vanillaSculk_system',
   capacity: 'kubejs:vanillaSculk_resonance_capacity',
@@ -97,40 +98,38 @@ function applyMark(player, target, slow) {
 }
 
 function vanillaSculkPredicateResult(event, value) {
-  return event.success(!!value)
+  event.success(!!value)
 }
 
 OrganKubejsEvents.predicate(HOME_CALLBACK, event => {
-  return vanillaSculkPredicateResult(event, !!event.player && homeMatch(event.player))
+  vanillaSculkPredicateResult(event, !!event.player && homeMatch(event.player))
 })
 
 OrganKubejsEvents.predicate('vanillaSculk_high_resonance', event => {
-  return vanillaSculkPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) > 10)
+  vanillaSculkPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) > 10)
 })
 
-
-OrganKubejsEvents.pointAction('vanillaSculk_shorten_darkness', event => {
-  let player = event.player
-  if (!player) {
-    return 0
+function shortenDarkness(player) {
+  let reduction = 0.1 * getCounter(player, DARKNESS_REDUCE_KEY)
+  if (reduction <= 0) {
+    return
   }
-  let reduction = Number(event.configDouble('reduction') || 0.1)
   let entity = entityOf(player)
   let current = entity.getEffect(MobEffects.DARKNESS)
-  if (current) {
-    if (reduction >= 1) {
-      entity.removeEffect(MobEffects.DARKNESS)
-    } else {
-      let duration = Math.floor(Number(current.getDuration()) * Math.max(0, 1 - reduction))
-      let amplifier = Number(current.getAmplifier())
-      entity.removeEffect(MobEffects.DARKNESS)
-      if (duration > 0) {
-        addEffect(entity, MobEffects.DARKNESS, duration, amplifier)
-      }
-    }
+  if (!current) {
+    return
   }
-  return event.pointsConsume ? 1 : 0
-})
+  if (reduction >= 1) {
+    entity.removeEffect(MobEffects.DARKNESS)
+    return
+  }
+  let duration = Math.floor(Number(current.getDuration()) * Math.max(0, 1 - reduction))
+  let amplifier = Number(current.getAmplifier())
+  entity.removeEffect(MobEffects.DARKNESS)
+  if (duration > 0) {
+    addEffect(entity, MobEffects.DARKNESS, duration, amplifier)
+  }
+}
 
 OrganKubejsEvents.pointAction('vanillaSculk_ancient_step_quiet', event => {
   let player = event.player
@@ -209,6 +208,13 @@ PlayerEvents.tick(event => {
   let clamped = Math.min(capacity, current)
   if (clamped !== current) {
     setCounter(player, RESOURCE.current, clamped)
+  }
+})
+
+PlayerEvents.tick(event => {
+  let player = event.player
+  if (entityOf(player).tickCount % 20 === 0) {
+    shortenDarkness(player)
   }
 })
 

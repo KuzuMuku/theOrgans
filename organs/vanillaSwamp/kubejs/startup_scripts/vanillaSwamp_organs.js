@@ -10,7 +10,12 @@ let VANILLASWAMP_ORGAN_IDS = [
   "frogfin_sneak_leg",
   "sporebog_lung",
   "slime_mana_spleen",
-  "witchbog_crown"
+  "witchbog_crown",
+  "hydra_venom_core",
+  "mud_vein_conduit",
+  "rot_hyphae",
+  "swamp_gas_bladder",
+  "rot_pump"
 ]
 
 StartupEvents.registry('item', event => {
@@ -25,6 +30,22 @@ Common.registerSkills([
     cooldown: 120,
     level: 1,
     castEvent: 'poison_bloom_throat_cast'
+  },
+  {
+    id: 'kubejs:hydra_venom_core',
+    nameKey: 'point.organeffects.skill.kubejs.hydra_venom_core',
+    descKey: 'point.organeffects.skill.kubejs.hydra_venom_core.desc',
+    cooldown: 200,
+    level: 1,
+    castEvent: 'hydra_venom_core_cast'
+  },
+  {
+    id: 'kubejs:swamp_gas_bladder',
+    nameKey: 'point.organeffects.skill.kubejs.swamp_gas_bladder',
+    descKey: 'point.organeffects.skill.kubejs.swamp_gas_bladder.desc',
+    cooldown: 80,
+    level: 1,
+    castEvent: 'swamp_gas_bladder_cast'
   }
 ])
 

@@ -43,15 +43,16 @@
               "id": "kubejs:mekanismT2_barrier",
               "amount": 1,
               "source": "mekanismT2_shield"
-            },
+            }
+          ],
+          "consume_points": [
             {
               "type": "counter",
               "id": "kubejs:mek_energy",
-              "amount": 1,
+              "amount": 2,
               "source": "kubejs_mek_system"
             }
           ],
-          "consume_points": [],
           "actions": []
         },
         {
@@ -71,7 +72,14 @@
               "source": "mekanismT2_shield"
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            }
+          ],
           "actions": []
         },
         {
@@ -90,7 +98,14 @@
               "source": "mekanismT2_shield"
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 2,
+              "source": "kubejs_mek_system"
+            }
+          ],
           "actions": []
         }
       ],

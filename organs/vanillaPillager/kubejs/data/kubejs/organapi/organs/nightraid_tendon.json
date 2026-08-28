@@ -6,58 +6,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6腿§r §5暗1§r §9潜袭机动§r §7低§r"
+    "§6腿§r §5暗1§r §9夜袭机动§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
     "movement"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 1,
-              "source": "vanillaPillager_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": [],
-          "distance": 2
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_chase",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_chase"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -84,21 +39,13 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
-          }
+          "callback": "vanillaPillager_nightraid_online"
         }
       ],
       "grants": [
         {
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
           "amount": 1
         }
       ],

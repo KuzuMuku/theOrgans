@@ -1,0 +1,69 @@
+{
+  "item": "kubejs:village_bell_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §e光4§r §9村钟主核§r §e高§r"
+  ],
+  "tags": [
+    "vanillaVillage",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:light_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:holy_spell_power",
+          "amount": 2
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaVillage_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "kubejs:village_bell_core",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

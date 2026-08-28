@@ -6,11 +6,12 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6囊§r §d电1§r §9护盾生存§r §7低§r"
+    "§6囊§r §d电1§r §9裂解矿囊§r §7低§r"
   ],
   "tags": [
     "mekanismT1",
-    "active_resource"
+    "active_resource",
+    "refinery"
   ],
   "effects": [
     {
@@ -29,26 +30,6 @@
         {
           "type": "skill",
           "skill_name": "kubejs:cracking_mine_sac",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "mekanismT1_resource_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_resource_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
           "amount": 1
         }
       ],

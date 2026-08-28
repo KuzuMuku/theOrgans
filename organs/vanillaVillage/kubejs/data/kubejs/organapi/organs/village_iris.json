@@ -15,7 +15,11 @@
     {
       "conditions": [
         {
-          "type": "static"
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_iris_no_crown",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_iris_no_crown"
+          }
         }
       ],
       "grants": [
@@ -85,44 +89,32 @@
               "id": "kubejs:village_iris_focus_crown",
               "amount": 1,
               "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
             }
           ],
           "consume_points": [],
-          "actions": []
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaVillage_iris_crown"
         }
       ],
       "executions": [
         {
-          "type": "apply_target_mob_effect",
+          "type": "kubejs_target_call",
+          "config": {
+            "callback": "vanillaVillage_iris_crown_mark"
+          },
           "point_type": "runtime",
           "point_id": "kubejs:village_iris_focus_crown",
-          "effect": "minecraft:glowing",
-          "duration_ticks": 120,
-          "amplifier": 1,
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaVillage_iris_crown"
         }
       ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaVillage_has_support",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_support"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
     },
     {
       "conditions": [

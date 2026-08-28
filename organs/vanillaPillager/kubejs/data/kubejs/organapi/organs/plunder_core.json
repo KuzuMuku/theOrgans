@@ -1,0 +1,124 @@
+{
+  "item": "kubejs:plunder_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §5暗5§r §9掠夺狂潮§r §e高§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 5,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaPillager_resonance_capacity",
+          "amount": 25
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "kubejs:plunder_core",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_surge_active"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:plunder_core_extra_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:emerald",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:arrow",
+              "count": 8,
+              "weight": 2
+            },
+            {
+              "item": "irons_spellbooks:arcane_essence",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "minecraft:crossbow",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

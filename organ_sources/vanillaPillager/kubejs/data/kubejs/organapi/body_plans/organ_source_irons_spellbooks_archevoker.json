@@ -1,0 +1,29 @@
+{
+  "entity_types": [
+    "irons_spellbooks:archevoker"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 4
+    },
+    "organapi:chest": {
+      "capacity": 8,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 4
+    },
+    "organapi:left_arm": {
+      "capacity": 1
+    },
+    "organapi:right_arm": {
+      "capacity": 1
+    },
+    "organapi:left_leg": {
+      "capacity": 1
+    },
+    "organapi:right_leg": {
+      "capacity": 1
+    }
+  }
+}

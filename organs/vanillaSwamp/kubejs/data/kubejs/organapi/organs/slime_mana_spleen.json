@@ -122,7 +122,7 @@
           "actions": []
         },
         {
-          "type": "attacked",
+          "type": "mine",
           "add_points": [
             {
               "type": "runtime",
@@ -137,31 +137,14 @@
       ],
       "executions": [
         {
-          "type": "grant_items",
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaSwamp_spend_bonus_loot"
+          },
           "point_type": "runtime",
           "point_id": "kubejs:slime_mana_spleen_bonus_loot",
           "consume_points": true,
-          "max_consume": 1,
-          "rolls": 2,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:slime_ball",
-              "count": 2,
-              "weight": 3
-            },
-            {
-              "item": "minecraft:lily_pad",
-              "count": 1,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:spider_eye",
-              "count": 1,
-              "weight": 1
-            }
-          ]
+          "max_consume": 1
         }
       ]
     }

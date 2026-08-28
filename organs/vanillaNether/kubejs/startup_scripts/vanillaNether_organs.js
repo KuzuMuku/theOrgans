@@ -33,8 +33,16 @@ let VANILLANETHER_ORGAN_IDS = [
   "ashvale_lung"
 ]
 
+let VANILLANETHER_AUX_ITEM_IDS = [
+  "ash_conduit",
+  "slag_pump",
+  "soulfire_rhythm",
+  "gilded_recovery_belt"
+]
+
 StartupEvents.registry('item', event => {
   Common.registerItems(event, VANILLANETHER_ORGAN_IDS)
+  Common.registerItems(event, VANILLANETHER_AUX_ITEM_IDS)
 })
 
 Common.registerSkills([
@@ -61,6 +69,22 @@ Common.registerSkills([
     cooldown: 140,
     level: 1,
     castEvent: 'blackflame_throat_pipe_cast'
+  },
+  {
+    id: 'kubejs:cataclysm_magma_burst',
+    nameKey: 'point.organeffects.skill.kubejs.cataclysm_magma_burst',
+    descKey: 'point.organeffects.skill.kubejs.cataclysm_magma_burst.desc',
+    cooldown: 180,
+    level: 1,
+    castEvent: 'cataclysm_magma_burst_cast'
+  },
+  {
+    id: 'kubejs:cataclysm_magma_upkeep',
+    nameKey: 'point.organeffects.skill.kubejs.cataclysm_magma_upkeep',
+    descKey: 'point.organeffects.skill.kubejs.cataclysm_magma_upkeep.desc',
+    cooldown: 200,
+    level: 1,
+    castEvent: 'cataclysm_magma_upkeep_cast'
   }
 ])
 

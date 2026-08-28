@@ -14,53 +14,25 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "static"
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 2,
-          "hidden": true
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 2, "hidden": true }
       ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        { "type": "static" }
+      ],
+      "grants": [],
       "events": [
         {
-          "type": "mine",
+          "type": "vanillaNether:nether_kill",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:ash_spleen_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 2,
-              "source": "vanillaNether_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "kill",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:ash_spleen_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 2,
-              "source": "vanillaNether_system"
-            }
+            { "type": "runtime", "id": "kubejs:ash_spleen_loot_request", "amount": 1, "duration_ticks": 2 },
+            { "type": "counter", "id": "kubejs:vanillaNether_resonance", "amount": 1, "source": "vanillaNether_system" }
           ],
           "consume_points": [],
           "actions": []
@@ -68,31 +40,12 @@
       ],
       "executions": [
         {
-          "type": "grant_items",
+          "type": "kubejs_call",
+          "config": { "callback": "vanillaNether_grant_ash_spleen_loot" },
           "point_type": "runtime",
-          "point_id": "kubejs:ash_spleen_loot",
+          "point_id": "kubejs:ash_spleen_loot_request",
           "consume_points": true,
-          "max_consume": 1,
-          "rolls": 1,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:quartz",
-              "count": 4,
-              "weight": 3
-            },
-            {
-              "item": "minecraft:blaze_powder",
-              "count": 1,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:gold_nugget",
-              "count": 5,
-              "weight": 1
-            }
-          ]
+          "max_consume": 1
         }
       ]
     },
@@ -100,36 +53,35 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_ember_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_ember_online"
-          }
+          "config": { "callback": "vanillaNether_gilded_belt_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online" }
         }
       ],
       "grants": [],
       "events": [
         {
-          "type": "mine",
+          "type": "vanillaNether:nether_kill",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:ash_spleen_bonus_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            }
+            { "type": "counter", "id": "kubejs:vanillaNether_resonance", "amount": 1, "source": "vanillaNether_system" }
           ],
           "consume_points": [],
           "actions": []
-        },
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
         {
-          "type": "kill",
+          "type": "kubejs_predicate",
+          "config": { "callback": "vanillaNether_crimson_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_crimson_online" }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaNether:nether_kill",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:ash_spleen_bonus_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            }
+            { "type": "runtime", "id": "kubejs:ash_spleen_crimson_bonus_request", "amount": 1, "duration_ticks": 2 }
           ],
           "consume_points": [],
           "actions": []
@@ -137,31 +89,12 @@
       ],
       "executions": [
         {
-          "type": "grant_items",
+          "type": "kubejs_call",
+          "config": { "callback": "vanillaNether_grant_ash_spleen_loot" },
           "point_type": "runtime",
-          "point_id": "kubejs:ash_spleen_bonus_loot",
+          "point_id": "kubejs:ash_spleen_crimson_bonus_request",
           "consume_points": true,
-          "max_consume": 1,
-          "rolls": 2,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:quartz",
-              "count": 4,
-              "weight": 3
-            },
-            {
-              "item": "minecraft:blaze_powder",
-              "count": 1,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:gold_nugget",
-              "count": 5,
-              "weight": 1
-            }
-          ]
+          "max_consume": 1
         }
       ]
     }

@@ -41,9 +41,23 @@
           "amount": 30
         }
       ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_high_load"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+        }
+      ],
+      "grants": [],
       "events": [
         {
-          "type": "deal_damage",
+          "type": "createT2:stress_spent",
           "add_points": [
             {
               "type": "counter",
@@ -54,61 +68,8 @@
           ],
           "consume_points": [],
           "actions": []
-        },
-        {
-          "type": "mine",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:torque",
-              "amount": 3,
-              "source": "kubejs_level2_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
         }
       ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "createT2_has_support",
-            "custom_display_key": "message.organkubejs.condition.createT2_has_support"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "createT2_resource_online",
-            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
-      ],
-      "events": [],
       "executions": []
     }
   ]

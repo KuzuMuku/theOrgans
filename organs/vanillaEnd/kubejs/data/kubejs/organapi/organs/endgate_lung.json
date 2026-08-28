@@ -53,6 +53,100 @@
     {
       "conditions": [
         {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_void_conduit_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_conduit_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaEnd:displacement",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "vanillaEnd:end_kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_gate_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_gate_online"
+          }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_void_conduit_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_conduit_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:endgate_lung_mana_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:endgate_lung_mana_pulse",
+          "amount": 2,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
           "type": "static"
         }
       ],
@@ -90,8 +184,8 @@
       "grants": [
         {
           "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
         }
       ],
       "events": [],

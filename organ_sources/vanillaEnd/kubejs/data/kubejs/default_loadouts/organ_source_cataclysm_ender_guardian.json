@@ -13,12 +13,7 @@
       ],
       "1": [
         {
-          "id": "organdefaults:reinforced_rib_cage"
-        }
-      ],
-      "2": [
-        {
-          "id": "kubejs:void_ventricle"
+          "id": "kubejs:void_guard_core"
         }
       ]
     },

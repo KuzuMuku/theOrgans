@@ -50,7 +50,9 @@
               "id": "kubejs:mek_t2_overload_window",
               "amount": 1,
               "duration_ticks": 80
-            },
+            }
+          ],
+          "consume_points": [
             {
               "type": "counter",
               "id": "kubejs:mek_energy",
@@ -58,7 +60,6 @@
               "source": "kubejs_mek_system"
             }
           ],
-          "consume_points": [],
           "actions": []
         },
         {

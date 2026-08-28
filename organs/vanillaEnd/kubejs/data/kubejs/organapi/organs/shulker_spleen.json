@@ -28,7 +28,7 @@
       ],
       "events": [
         {
-          "type": "kill",
+          "type": "vanillaEnd:end_kill",
           "add_points": [
             {
               "type": "runtime",
@@ -47,13 +47,38 @@
           "actions": []
         },
         {
-          "type": "mine",
+          "type": "vanillaEnd:end_mine",
           "add_points": [
             {
               "type": "runtime",
               "id": "kubejs:shulker_spleen_loot",
               "amount": 1,
               "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 2,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "vanillaEnd:city_chest",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:shulker_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 2,
+              "source": "vanillaEnd_system"
             }
           ],
           "consume_points": [],
@@ -103,7 +128,20 @@
       "grants": [],
       "events": [
         {
-          "type": "kill",
+          "type": "vanillaEnd:end_kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:shulker_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "vanillaEnd:city_chest",
           "add_points": [
             {
               "type": "runtime",

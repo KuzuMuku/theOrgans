@@ -9,7 +9,7 @@
   ],
   "tags": [
     "createT2",
-    "spell"
+    "melee"
   ],
   "effects": [
     {
@@ -28,6 +28,46 @@
       ],
       "events": [],
       "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_high_load"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:forge_lung_bonus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "modify_damage",
+          "point_type": "runtime",
+          "point_id": "kubejs:forge_lung_bonus",
+          "amount": 4,
+          "config": {
+            "mode": "add"
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

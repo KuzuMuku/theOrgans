@@ -82,8 +82,8 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_spore_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_online"
+            "callback": "vanillaLushCaves_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
           }
         }
       ],

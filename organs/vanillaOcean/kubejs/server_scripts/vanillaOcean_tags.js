@@ -20,7 +20,9 @@ let VANILLAOCEAN_ORGAN_IDS = [
   "kubejs:monument_refraction_eye",
   "kubejs:tidesound_fork_wrist",
   "kubejs:deeptide_scavenger_hand",
-  "kubejs:coraltide_tail"
+  "kubejs:coraltide_tail",
+  "kubejs:dragonfrost_sac",
+  "kubejs:frostabyss_core"
 ]
 
 ServerEvents.tags('item', event => {

@@ -48,7 +48,14 @@
               "source": "mekanismT2_shield"
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 2,
+              "source": "kubejs_mek_system"
+            }
+          ],
           "actions": []
         }
       ],

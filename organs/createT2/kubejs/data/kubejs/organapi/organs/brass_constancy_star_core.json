@@ -1,0 +1,58 @@
+{
+  "item": "kubejs:brass_constancy_star_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §a风4§r §9稳定驱动§r §e高§r"
+  ],
+  "tags": [
+    "createT2",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "kubejs:brass_constancy_star_core",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_cruise_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_cruise_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 4
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "minecraft:glowstone",
+      "count": 1
+    },
+    {
+      "item": "minecraft:moss_block",
+      "count": 1
+    },
+    {
+      "item": "kubejs:caveglow_mycocore",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:glow_bed"
+  }
+}

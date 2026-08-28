@@ -5,53 +5,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6心§r §5暗3§r §9暗域底盘§r §e高§r"
+    "§6心§r §5暗3§r §9掠夺主场§r §e高§r"
   ],
   "tags": [
     "vanillaPillager",
     "core"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_set_major"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -88,10 +48,7 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
-          }
+          "callback": "vanillaPillager_home"
         }
       ],
       "grants": [
@@ -103,6 +60,27 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_home"
+        },
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_aux_banner_sash"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
           "amount": 1
         }
       ],

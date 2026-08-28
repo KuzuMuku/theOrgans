@@ -3,6 +3,11 @@ let BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
 let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
 let MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
 let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
+let ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
+let Items = Java.loadClass('net.minecraft.world.item.Items')
+let Attributes = Java.loadClass('net.minecraft.world.entity.ai.attributes.Attributes')
+let AttributeModifier = Java.loadClass('net.minecraft.world.entity.ai.attributes.AttributeModifier')
+let UUID = Java.loadClass('java.util.UUID')
 let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
 let Registries = Java.loadClass('net.minecraft.core.registries.Registries')
 let HolderSet = Java.loadClass('net.minecraft.core.HolderSet')
@@ -20,7 +25,17 @@ let HOME = {
     "beach"
   ],
   "structures": [
-    "minecraft:ocean_monument"
+    "minecraft:ocean_monument",
+    "minecraft:shipwreck",
+    "minecraft:buried_treasure",
+    "minecraft:underwater_ruin_big",
+    "minecraft:underwater_ruin_small",
+    "aquamirae:ice_maze/common",
+    "aquamirae:ice_maze/arch",
+    "aquamirae:ice_maze/spiral",
+    "aquamirae:ship",
+    "aquamirae:outpost",
+    "aquamirae:shelter"
   ],
   "structure_radius": 10
 }
@@ -63,12 +78,15 @@ let SOURCE_IDS = new Set([
   "kubejs:monument_refraction_eye",
   "kubejs:tidesound_fork_wrist",
   "kubejs:deeptide_scavenger_hand",
-  "kubejs:coraltide_tail"
+  "kubejs:coraltide_tail",
+  "kubejs:dragonfrost_sac",
+  "kubejs:frostabyss_core"
 ])
 let CORELINE_IDS = new Set([
   "kubejs:tidal_ventricle",
   "kubejs:kelp_spinal_cord",
-  "kubejs:coraltide_tail"
+  "kubejs:coraltide_tail",
+  "kubejs:frostabyss_core"
 ])
 let SUPPORT_IDS = new Set([
   "kubejs:wetgill_jowl",
@@ -124,6 +142,51 @@ let RESOURCE_IDS = new Set([
   "kubejs:seacurrent_spleen",
   "kubejs:deeptide_scavenger_hand"
 ])
+let AUX_ITEM_IDS = [
+  "kubejs:current_conduit",
+  "kubejs:salt_exchange_valve",
+  "kubejs:tidal_buoy"
+]
+let COLD_STRUCTURES = [
+  "aquamirae:ice_maze/common",
+  "aquamirae:ice_maze/arch",
+  "aquamirae:ice_maze/spiral"
+]
+let COLD_BLOCKS = [
+  "minecraft:ice",
+  "minecraft:packed_ice",
+  "minecraft:blue_ice",
+  "minecraft:powder_snow"
+]
+let FISH_ENTITY_IDS = [
+  "minecraft:cod",
+  "minecraft:salmon",
+  "minecraft:pufferfish",
+  "minecraft:tropical_fish",
+  "minecraft:glow_squid",
+  "minecraft:squid",
+  "minecraft:dolphin",
+  "minecraft:turtle"
+]
+let OCEAN_FISH_LOOT = [
+  { item: 'minecraft:kelp', count: 4, weight: 3 },
+  { item: 'minecraft:prismarine_shard', count: 2, weight: 2 },
+  { item: 'minecraft:nautilus_shell', count: 1, weight: 1 }
+]
+let SALVAGE_LOOT = [
+  { item: 'minecraft:kelp', count: 4, weight: 3 },
+  { item: 'minecraft:prismarine_shard', count: 2, weight: 2 },
+  { item: 'minecraft:nautilus_shell', count: 1, weight: 2 },
+  { item: 'minecraft:heart_of_the_sea', count: 1, weight: 1 }
+]
+let COLD_SALVAGE_LOOT = [
+  { item: 'minecraft:ice', count: 4, weight: 3 },
+  { item: 'minecraft:blue_ice', count: 1, weight: 2 },
+  { item: 'minecraft:packed_ice', count: 2, weight: 2 },
+  { item: 'aquamirae:ship_graveyard_echo', count: 1, weight: 2 },
+  { item: 'aquamirae:sharp_bones', count: 2, weight: 2 },
+  { item: 'aquamirae:fin', count: 2, weight: 2 }
+]
 
 function entityOf(player) {
   return player && player.minecraftEntity ? player.minecraftEntity : player
@@ -190,8 +253,53 @@ function addResource(player, amount) {
   setCounter(player, RESOURCE.current, getCounter(player, RESOURCE.current) + amount)
 }
 
+function pressurize(player, amount) {
+  if (!player || !RESOURCE || amount <= 0) {
+    return
+  }
+  let bonus = conduitOnline(player) && oceanMajor(player) ? 1 : 0
+  addResource(player, amount + bonus)
+}
+
+function conduitRefund(player) {
+  if (!player || !conduitOnline(player)) {
+    return
+  }
+  addResource(player, 1)
+}
+
+function auxOnline(player, itemId) {
+  if (!player) {
+    return false
+  }
+  return inventoryCount(player, [itemId]) > 0
+}
+
+function conduitOnline(player) {
+  return auxOnline(player, "kubejs:current_conduit")
+}
+
+function saltValveOnline(player) {
+  return !!player && auxOnline(player, "kubejs:salt_exchange_valve") && getCounter(player, RESOURCE.current) >= 35
+}
+
+function buoyOnline(player) {
+  return auxOnline(player, "kubejs:tidal_buoy")
+}
+
+function oceanMajor(player) {
+  return !!player && countMatching(installedSourceIds(player), SOURCE_IDS) >= 4
+}
+
 function addEffect(entity, effect, duration, amplifier) {
   entity.addEffect(new MobEffectInstance(effect, duration, amplifier, false, false, true))
+}
+
+function isMarked(target) {
+  if (!target) {
+    return false
+  }
+  return OrganKubeJS.getMark(target, "kubejs:vanillaOcean_mark") > 0
 }
 
 function installedSourceIds(player) {
@@ -463,12 +571,36 @@ function isTempleZone(player) {
 function isSalvageZone(player) {
   let entity = entityOf(player)
   let biome = biomeId(entity)
-  return (biome.indexOf('ocean') >= 0 || biome.indexOf('beach') >= 0) && hasNearbyBlock(entity, [
+  let biomeMatch = biome.indexOf('ocean') >= 0 || biome.indexOf('beach') >= 0
+  let blockMatch = hasNearbyBlock(entity, [
     'minecraft:chest',
     'minecraft:barrel',
     'minecraft:sand',
     'minecraft:gravel'
   ], 4)
+  return biomeMatch && blockMatch
+}
+
+function isColdZone(player) {
+  if (!player) {
+    return false
+  }
+  let entity = entityOf(player)
+  let biome = biomeId(entity)
+  return biome.indexOf('frozen_ocean') >= 0
+    || hasNearbyStructure(entity, COLD_STRUCTURES, 4)
+    || hasNearbyBlock(entity, COLD_BLOCKS, 6)
+}
+
+function coldOnline(player) {
+  return !!player && isColdZone(player)
+}
+
+function isBuoyZone(player) {
+  if (!player) {
+    return false
+  }
+  return homeMatch(player) || isSalvageZone(player) || coldOnline(player)
 }
 
 function homeState(player) {
@@ -529,6 +661,110 @@ function damageTarget(player, target, amount, knockbackStrength) {
     target.knockback(knockbackStrength, entity.getX() - target.getX(), entity.getZ() - target.getZ())
   }
   return Number(target.getHealth()) < before
+}
+
+function itemExists(itemId) {
+  let location = ResourceLocation.tryParse(itemId)
+  if (!location) {
+    return false
+  }
+  let item = BuiltInRegistries.ITEM.get(location)
+  return item != null && item !== Items.AIR
+}
+
+function grantWeighted(entity, entries) {
+  if (!entity) {
+    return
+  }
+  let totalWeight = 0
+  for (let i = 0; i < entries.length; i++) {
+    if (itemExists(entries[i].item)) {
+      totalWeight += Number(entries[i].weight)
+    }
+  }
+  if (totalWeight <= 0) {
+    return
+  }
+  let roll = Math.floor(Math.random() * totalWeight)
+  for (let i = 0; i < entries.length; i++) {
+    let entry = entries[i]
+    if (!itemExists(entry.item)) {
+      continue
+    }
+    roll -= Number(entry.weight)
+    if (roll < 0) {
+      let item = BuiltInRegistries.ITEM.get(ResourceLocation.tryParse(entry.item))
+      let stack = new ItemStack(item, Number(entry.count))
+      if (!entity.addItem(stack)) {
+        entity.spawnAtLocation(stack)
+      }
+      return
+    }
+  }
+}
+
+function shortenColdEffects(player) {
+  let entity = entityOf(player)
+  if (getCounter(player, 'kubejs:dragonfrost_sac_effect') <= 0 || !coldOnline(player)) {
+    return
+  }
+  let effectIds = [
+    'minecraft:slowness',
+    'iceandfire:frost',
+    'aquamirae:freeze'
+  ]
+  for (let i = 0; i < effectIds.length; i++) {
+    let location = ResourceLocation.tryParse(effectIds[i])
+    if (!location) {
+      continue
+    }
+    let effect = BuiltInRegistries.MOB_EFFECT.get(location)
+    if (!effect) {
+      continue
+    }
+    let current = entity.getEffect(effect)
+    if (!current) {
+      continue
+    }
+    let duration = Math.floor(Number(current.getDuration()) * 0.5)
+    let amplifier = Number(current.getAmplifier())
+    entity.removeEffect(effect)
+    if (duration > 0) {
+      addEffect(entity, effect, duration, amplifier)
+    }
+  }
+}
+
+let SALT_VALVE_MODIFIER = '8f4b6b42-b821-4d74-8a92-2a96dc58ec72'
+let SALT_VALVE_EXPIRES = new Map()
+
+function clearSaltValve(player) {
+  if (!player) {
+    return
+  }
+  let entity = entityOf(player)
+  SALT_VALVE_EXPIRES.delete(player.uuid)
+  setRuntimePoint(player, 'kubejs:vanillaOcean_salt_reinforce', 0)
+  refreshSaltValve(player)
+}
+
+function refreshSaltValve(player) {
+  if (!player) {
+    return
+  }
+  let entity = entityOf(player)
+  let attribute = entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE)
+  if (!attribute) {
+    return
+  }
+  let modifierId = UUID.fromString(SALT_VALVE_MODIFIER)
+  let existing = attribute.getModifier(modifierId)
+  if (existing) {
+    attribute.removeModifier(modifierId)
+  }
+  if (getRuntimePoint(player, 'kubejs:vanillaOcean_salt_reinforce') > 0) {
+    attribute.addTransientModifier(new AttributeModifier(modifierId, 'vanillaOcean_salt_valve', 0.2, AttributeModifier.Operation.ADDITION))
+  }
 }
 
 let vanillaOceanPredicateResult = Common.predicateResult
@@ -598,7 +834,7 @@ OrganKubejsEvents.predicate('vanillaOcean_tide_online', event => {
 })
 
 OrganKubejsEvents.predicate('vanillaOcean_temple_online', event => {
-  return vanillaOceanPredicateResult(event, !!event.player && homeMatch(event.player))
+  return vanillaOceanPredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:vanillaOcean_temple_window') > 0)
 })
 
 OrganKubejsEvents.predicate('vanillaOcean_salvage_online', event => {
@@ -607,6 +843,97 @@ OrganKubejsEvents.predicate('vanillaOcean_salvage_online', event => {
 
 OrganKubejsEvents.predicate('vanillaOcean_wet_online', event => {
   return vanillaOceanPredicateResult(event, !!event.player && homeMatch(event.player))
+})
+
+OrganKubejsEvents.predicate('vanillaOcean_cold_online', event => {
+  return vanillaOceanPredicateResult(event, coldOnline(event.player))
+})
+
+OrganKubejsEvents.predicate('vanillaOcean_conduit_online', event => {
+  return vanillaOceanPredicateResult(event, !!event.player && conduitOnline(event.player) && oceanMajor(event.player))
+})
+
+OrganKubejsEvents.predicate('vanillaOcean_saltvalve_online', event => {
+  return vanillaOceanPredicateResult(event, saltValveOnline(event.player))
+})
+
+OrganKubejsEvents.predicate('vanillaOcean_buoy_online', event => {
+  return vanillaOceanPredicateResult(event, !!event.player && buoyOnline(event.player) && isBuoyZone(event.player))
+})
+
+OrganKubejsEvents.pointAction('vanillaOcean_pressurize', event => {
+  if (!event.player) {
+    return 0
+  }
+  pressurize(event.player, Number(event.configLong('amount') || 1))
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.targetAction('vanillaOcean_fish_kill_pressure', event => {
+  let target = entityOf(event.target)
+  if (!event.player || !target || FISH_ENTITY_IDS.indexOf(entityTypeId(target)) < 0) {
+    return event.pointsConsume ? 1 : 0
+  }
+  pressurize(event.player, Number(event.configLong('amount') || 1))
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.targetAction('vanillaOcean_seamirror_mark_consume', event => {
+  let target = entityOf(event.target)
+  if (!event.player || !target || !isMarked(target)) {
+    return event.pointsConsume ? 1 : 0
+  }
+  if (spendResource(event.player, 2) <= 0) {
+    return event.pointsConsume ? 1 : 0
+  }
+  addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 80, 0)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.targetAction('vanillaOcean_mark_and_slow', event => {
+  let target = entityOf(event.target)
+  if (!event.player || !target) {
+    return event.pointsConsume ? 1 : 0
+  }
+  OrganKubeJS.addMarkPoint(target, 'kubejs:vanillaOcean_mark', 1)
+  addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.targetAction('vanillaOcean_push_target', event => {
+  let target = entityOf(event.target)
+  if (!event.player || !target) {
+    return event.pointsConsume ? 1 : 0
+  }
+  let entity = entityOf(event.player)
+  target.knockback(3.0, entity.getX() - target.getX(), entity.getZ() - target.getZ())
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.pointAction('vanillaOcean_grant_fish_loot', event => {
+  if (!event.player) {
+    return 0
+  }
+  grantWeighted(entityOf(event.player), OCEAN_FISH_LOOT)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.pointAction('vanillaOcean_salvage_bonus', event => {
+  if (!event.player) {
+    return 0
+  }
+  if (getRuntimePoint(event.player, 'kubejs:vanillaOcean_salvage_window') <= 0) {
+    return event.pointsConsume ? 1 : 0
+  }
+  if (spendResource(event.player, 3) <= 0) {
+    return event.pointsConsume ? 1 : 0
+  }
+  if (coldOnline(event.player)) {
+    grantWeighted(entityOf(event.player), COLD_SALVAGE_LOOT)
+  } else {
+    grantWeighted(entityOf(event.player), SALVAGE_LOOT)
+  }
+  return event.pointsConsume ? 1 : 0
 })
 
 
@@ -621,6 +948,11 @@ PlayerEvents.tick(event => {
     setRuntimePoint(player, 'kubejs:vanillaOcean_temple_window', 0)
     setRuntimePoint(player, 'kubejs:vanillaOcean_salvage_window', 0)
     setRuntimePoint(player, 'kubejs:vanillaOcean_wet_window', 0)
+    setRuntimePoint(player, 'kubejs:vanillaOcean_cold_window', 0)
+    setRuntimePoint(player, 'kubejs:vanillaOcean_buoy_window', 0)
+    setRuntimePoint(player, 'kubejs:vanillaOcean_salt_reinforce', 0)
+    clearSaltValve(player)
+    refreshSaltValve(player)
     applyLinearLinks(player)
     return
   }
@@ -629,10 +961,31 @@ PlayerEvents.tick(event => {
   let wet = isWet(player) || isRainingHere(player)
   let temple = isTempleZone(player)
   let salvage = isSalvageZone(player)
+  let cold = coldOnline(player)
+  let buoy = buoyOnline(player) && isBuoyZone(player)
   setRuntimePoint(player, 'kubejs:vanillaOcean_tide_window', wet ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaOcean_temple_window', temple ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaOcean_salvage_window', salvage ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaOcean_wet_window', wet ? 1 : 0)
+  setRuntimePoint(player, 'kubejs:vanillaOcean_cold_window', cold ? 1 : 0)
+  setRuntimePoint(player, 'kubejs:vanillaOcean_buoy_window', buoy ? 1 : 0)
+  let now = Number(entityOf(player).tickCount)
+  let saltExpire = SALT_VALVE_EXPIRES.get(player.uuid)
+  if (saltExpire != null && now >= saltExpire) {
+    clearSaltValve(player)
+  }
+  if (now % 100 === 0 && saltValveOnline(player)) {
+    if (spendResource(player, 2) > 0) {
+      setRuntimePoint(player, 'kubejs:vanillaOcean_salt_reinforce', 1)
+      SALT_VALVE_EXPIRES.set(player.uuid, now + 100)
+    }
+  } else if (!saltValveOnline(player)) {
+    clearSaltValve(player)
+  }
+  if (entityOf(player).tickCount % 20 === 0) {
+    shortenColdEffects(player)
+  }
+  refreshSaltValve(player)
   applyLinearLinks(player)
 })
 
@@ -644,6 +997,7 @@ OrganKubejsEvents.skillCast('bubblewave_throat_cast', event => {
   }
   let scaledDuration = 80 + getLinkCounter(player, 'kubejs:vanillaOcean_tide_line') * 20
   spendResource(player, 12)
+  conduitRefund(player)
   let targets = targetsSortedByDistance(player, 4.5)
   for (let i = 0; i < targets.length; i++) {
     addEffect(targets[i], MobEffects.MOVEMENT_SLOWDOWN, scaledDuration, 0)
@@ -663,6 +1017,39 @@ OrganKubejsEvents.skillCast('tidesound_fork_wrist_cast', event => {
   let scaledDamage = 10 + getLinkCounter(player, 'kubejs:vanillaOcean_wet_line') + getLinkCounter(player, 'kubejs:vanillaOcean_temple_line')
   spendResource(player, 12)
   damageTarget(player, target, scaledDamage, 1.0)
+  if (isMarked(target)) {
+    OrganKubeJS.consumeMarkPoint(target, 'kubejs:vanillaOcean_mark', 1)
+    addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 40, 0)
+    let entity = entityOf(player)
+    target.knockback(3.0, entity.getX() - target.getX(), entity.getZ() - target.getZ())
+  }
+  conduitRefund(player)
+  return true
+})
+
+OrganKubejsEvents.skillCast('frostabyss_core_cast', event => {
+  let player = event.player
+  if (!player) {
+    return false
+  }
+  let current = getCounter(player, RESOURCE.current)
+  if (current < 20) {
+    return false
+  }
+  let spendAmount = Math.min(20 + Math.floor(current * 0.2), Math.floor(current * 0.5), Math.max(0, current - 5))
+  if (spendAmount <= 0) {
+    return false
+  }
+  spendResource(player, spendAmount)
+  let spellLevel = Math.max(1, Math.min(5, Math.floor(spendAmount / 8)))
+  Common.castSpell('irons_spellbooks:frostwave', spellLevel, player)
+  conduitRefund(player)
+  if (coldOnline(player)) {
+    let targets = targetsSortedByDistance(player, 5.0)
+    for (let i = 0; i < targets.length; i++) {
+      addEffect(targets[i], MobEffects.MOVEMENT_SLOWDOWN, 20, 0)
+    }
+  }
   return true
 })
 

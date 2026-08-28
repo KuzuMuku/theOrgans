@@ -5,53 +5,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6胸§r §c火2§r §9灼壳生存§r §7低§r"
+    "§6胸§r §c火2§r §9遗迹站场§r §7低§r"
   ],
   "tags": [
     "vanillaDesert",
     "armor"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaDesert_temple_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaDesert_dryheat_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_dryheat_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -84,8 +44,8 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
+            "callback": "vanillaDesert_temple_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
           }
         }
       ],
@@ -93,11 +53,71 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
+          "amount": 2
         }
       ],
       "events": [],
       "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_temple_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
+          }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_heat_ge_2",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_2"
+          }
+        },
+        {
+          "type": "status_effect",
+          "effect": "cataclysm:curse_of_desert"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 200
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:sandstone_breastplate_curse_clear",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_curse_clear"
+        }
+      ],
+      "executions": [
+        {
+          "type": "remove_effect",
+          "effect": "cataclysm:curse_of_desert",
+          "point_type": "runtime",
+          "point_id": "kubejs:sandstone_breastplate_curse_clear",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaDesert_curse_clear"
+        }
+      ]
     }
   ]
 }

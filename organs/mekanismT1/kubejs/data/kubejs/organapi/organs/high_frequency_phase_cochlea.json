@@ -5,11 +5,12 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6耳§r §d电3§r §9棱镜侦测§r §7低§r"
+    "§6耳§r §d电3§r §9工业节拍§r §7低§r"
   ],
   "tags": [
     "mekanismT1",
-    "support"
+    "support",
+    "rhythm"
   ],
   "effects": [
     {
@@ -24,11 +25,6 @@
           "id": "organsynergia:electric_affinity",
           "amount": 3,
           "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:cooldown_reduction",
-          "amount": 1
         }
       ],
       "events": [
@@ -37,9 +33,9 @@
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:mek_t1_rhythm_cycle",
+              "id": "kubejs:mekanismT1_rhythm_actions",
               "amount": 1,
-              "duration_ticks": 80
+              "duration_ticks": 60
             }
           ],
           "consume_points": [],
@@ -50,9 +46,9 @@
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:mek_t1_rhythm_cycle",
+              "id": "kubejs:mekanismT1_rhythm_actions",
               "amount": 1,
-              "duration_ticks": 80
+              "duration_ticks": 60
             }
           ],
           "consume_points": [],
@@ -64,32 +60,43 @@
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:mek_t1_rhythm_cycle",
+              "id": "kubejs:mekanismT1_rhythm_actions",
               "amount": 1,
-              "duration_ticks": 80
+              "duration_ticks": 60
             }
           ],
           "consume_points": [],
           "actions": []
         }
       ],
-      "executions": []
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "mekanismT1_rhythm_loop"
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:mekanismT1_rhythm_actions",
+          "consume_points": false,
+          "max_consume": 1
+        }
+      ]
     },
     {
       "conditions": [
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_discharge_ready",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_discharge_ready"
+            "callback": "mekanismT1_rhythm_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_rhythm_online"
           }
         }
       ],
       "grants": [
         {
           "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
+          "attribute": "minecraft:generic.luck",
+          "amount": 2
         }
       ],
       "events": [],

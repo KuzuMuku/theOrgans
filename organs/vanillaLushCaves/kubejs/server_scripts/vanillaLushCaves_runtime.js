@@ -1,526 +1,361 @@
 ;(function () {
-let BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
 let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
-let MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
+let PlayerClass = Java.loadClass('net.minecraft.world.entity.player.Player')
 let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
-let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
-let Registries = Java.loadClass('net.minecraft.core.registries.Registries')
-let HolderSet = Java.loadClass('net.minecraft.core.HolderSet')
-let ResourceKey = Java.loadClass('net.minecraft.resources.ResourceKey')
-let ResourceLocation = Java.loadClass('net.minecraft.resources.ResourceLocation')
-let OrganQueryService = Java.loadClass('cn.kuzuanpa.organapi.api.query.OrganQueryService')
+let AABB = Java.loadClass('net.minecraft.world.phys.AABB')
+let RuntimeEffectService = Java.loadClass('cn.kuzuanpa.organeffects.common.effect.RuntimeEffectService')
+let RuntimeEvent = Java.loadClass('cn.kuzuanpa.organeffects.api.extension.OrganEffectsRuntimeEvent')
 
 let DIR_KEY = 'vanillaLushCaves'
 let HOME = {
-  "dimensions": [
-    "minecraft:overworld"
+  dimensions: [
+    'minecraft:overworld'
   ],
-  "biome_keywords": [
-    "lush_caves",
-    "mushroom",
-    "fungal"
-  ]
+  dimension_home: true,
+  biome_keywords: [
+    'lush_caves',
+    'fungal_fen',
+    'bioshroom'
+  ],
+  structures: [
+    'betterdungeons:skeleton_dungeon',
+    'betterdungeons:zombie_dungeon'
+  ],
+  structure_radius: 8,
+  structure_cache: new Map()
 }
-let HOME_CALLBACK = 'vanillaLushCaves_home'
-let HOME_STRUCTURE_CACHE = new Map()
-let RESOURCE = {
-  "system": "vanillaLushCaves_system",
-  "capacity": "kubejs:vanillaLushCaves_resonance_capacity",
-  "current": "kubejs:vanillaLushCaves_resonance",
-  "capacity_en": "Spore Resonance Capacity",
-  "capacity_desc_en": "Maximum shared reserve for spore resonance.",
-  "current_en": "Spore Resonance",
-  "current_desc_en": "Shared lush cave spore resonance gathered by growth and cave motion.",
-  "capacity_zh": "孢光共振上限",
-  "capacity_desc_zh": "孢光共振可积累的最大上限。",
-  "current_zh": "孢光共振",
-  "current_desc_zh": "由繁茂洞穴的生长与洞穴活动共同积累的孢光共振。",
-  "generated": true
-}
-let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'vanillaLushCaves_system'
-let LINK_SOURCE = DIR_KEY + '_links'
-let SCHOOL_POWER_ATTRIBUTE = "irons_spellbooks:nature_spell_power"
-let SOURCE_IDS = new Set([
-  "kubejs:mossglow_core",
-  "kubejs:calcite_breastbone",
-  "kubejs:sporeglow_lung",
-  "kubejs:mossheal_liver",
-  "kubejs:sporebud_gland",
-  "kubejs:hangingroot_arm",
-  "kubejs:mycelium_sole",
-  "kubejs:brightpod_sac",
-  "kubejs:sporebed_spleen",
-  "kubejs:gloommoss_crown"
-])
-let CORELINE_IDS = new Set([
-  "kubejs:mossglow_core"
-])
-let SUPPORT_IDS = new Set([
-  "kubejs:sporebud_gland"
-])
-let SPORE_IDS = new Set([
-  "kubejs:sporebud_gland",
-  "kubejs:sporeglow_lung",
-  "kubejs:sporebed_spleen"
-])
-let CAVE_IDS = new Set([
-  "kubejs:mossglow_core",
-  "kubejs:calcite_breastbone",
-  "kubejs:mycelium_sole"
-])
-let GLOW_IDS = new Set([
-  "kubejs:brightpod_sac",
-  "kubejs:gloommoss_crown",
-  "kubejs:mossheal_liver"
-])
-let MYCELIUM_IDS = new Set([
-  "kubejs:mycelium_sole",
-  "kubejs:hangingroot_arm",
-  "kubejs:sporebud_gland"
-])
-let MANA_IDS = new Set([
-  "kubejs:brightpod_sac"
-])
-let SPELL_IDS = new Set([
-  "kubejs:sporeglow_lung"
-])
-let CROWN_IDS = new Set([
-  "kubejs:gloommoss_crown"
-])
-let ARMOR_IDS = new Set([
-  "kubejs:calcite_breastbone"
-])
-let MOVEMENT_IDS = new Set([
-  "kubejs:mycelium_sole"
-])
-let MELEE_IDS = new Set([
-  "kubejs:hangingroot_arm"
-])
-let RANGED_IDS = new Set([])
-let RESOURCE_IDS = new Set([
-  "kubejs:sporebed_spleen"
-])
 
-let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE ? RESOURCE.current : null)
+let RESOURCE = {
+  system: 'vanillaLushCaves_system',
+  capacity: 'kubejs:vanillaLushCaves_resonance_capacity',
+  current: 'kubejs:vanillaLushCaves_resonance'
+}
+let SYSTEM_SOURCE = RESOURCE.system
+let LINK_SOURCE = DIR_KEY + '_links'
+let FLOWER_FIELD_SOURCE = DIR_KEY + '_flower_field'
+let SPORE_BLOOM_RUNTIME_KEY = Common.pointKey('runtime', 'kubejs:vanillaLushCaves_spore_bloom')
+let FLOWER_PULSE_TYPE = 'vanillaLushCaves:spore_bloom_pulse'
+
+let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE.current)
 let entityOf = Common.entityOf
 let pointKey = Common.pointKey
-let setSourcePointValue = Common.setSourcePointValue
 let getCounter = Runtime.getCounter
 let getRuntimePoint = Runtime.getRuntimePoint
-let getLinkCounter = Runtime.getLinkCounter
 let setCounter = Runtime.setCounter
 let setRuntimePoint = Runtime.setRuntimePoint
-let setLinkCounter = Runtime.setLinkCounter
-let setLinkAttribute = Runtime.setLinkAttribute
-let consumeCounter = Runtime.consumeCounter
-let resourceReady = Runtime.resourceReady
-let spendResource = Runtime.spendResource
 let addResource = Runtime.addResource
-let addEffect = Common.addEffect
 let installedSourceIds = Common.installedSourceIds
 let countMatching = Common.countMatching
 let hasMatching = Common.hasMatching
+let addEffect = Common.addEffect
 
-function applyLinearLinks(player) {
-  if (!player) {
-    return
-  }
-  let installed = installedSourceIds(player)
-  let corelineCount = countMatching(installed, CORELINE_IDS)
-  let supportCount = countMatching(installed, SUPPORT_IDS)
-  let manaCount = countMatching(installed, MANA_IDS)
-  let spellCount = countMatching(installed, SPELL_IDS)
-  let crownCount = countMatching(installed, CROWN_IDS)
-  let armorCount = countMatching(installed, ARMOR_IDS)
-  let movementCount = countMatching(installed, MOVEMENT_IDS)
-  let resourceCount = countMatching(installed, RESOURCE_IDS)
-  let huntCount = countMatching(installed, MELEE_IDS) + countMatching(installed, RANGED_IDS)
-  let sporeCount = countMatching(installed, SPORE_IDS)
-  let caveCount = countMatching(installed, CAVE_IDS)
-  let glowCount = countMatching(installed, GLOW_IDS)
-  let myceliumCount = countMatching(installed, MYCELIUM_IDS)
-  let framePoint = armorCount > 0 ? corelineCount : 0
-  let weavePoint = spellCount > 0 ? manaCount : 0
-  let cadencePoint = crownCount > 0 ? spellCount : 0
-  let huntPoint = supportCount > 0 ? huntCount : 0
-  let chasePoint = movementCount > 0 ? huntCount : 0
-  let resourcePoint = resourceCount
-  let sporePoint = sporeCount > 0 ? spellCount + resourceCount : 0
-  let cavePoint = caveCount > 0 ? corelineCount + armorCount + movementCount : 0
-  let glowPoint = glowCount > 0 ? manaCount + crownCount + spellCount : 0
-  let myceliumPoint = myceliumCount > 0 ? movementCount + huntCount : 0
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_frame_link', framePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_spell_weave', weavePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_crown_cadence', cadencePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_hunt_link', huntPoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_chase_link', chasePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_resource_link', resourcePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_spore_line', sporePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_cave_line', cavePoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_glow_line', glowPoint)
-  setLinkCounter(player, 'kubejs:vanillaLushCaves_mycelium_line', myceliumPoint)
-  setLinkAttribute(player, 'minecraft:armor_toughness', framePoint)
-  setLinkAttribute(player, 'minecraft:attack_damage', huntPoint)
-  setLinkAttribute(player, 'irons_spellbooks:cooldown_reduction', cadencePoint)
-  setLinkAttribute(player, 'irons_spellbooks:max_mana', weavePoint * 10)
-  if (SCHOOL_POWER_ATTRIBUTE) {
-    setLinkAttribute(player, SCHOOL_POWER_ATTRIBUTE, weavePoint)
-  }
-}
+let SOURCE_IDS = new Set([
+  'kubejs:mossglow_core',
+  'kubejs:calcite_breastbone',
+  'kubejs:sporeglow_lung',
+  'kubejs:mossheal_liver',
+  'kubejs:sporebud_gland',
+  'kubejs:hangingroot_arm',
+  'kubejs:mycelium_sole',
+  'kubejs:brightpod_sac',
+  'kubejs:sporebed_spleen',
+  'kubejs:gloommoss_crown',
+  'kubejs:sporebloom_core'
+])
+let BRIDGE_IDS = new Set([
+  'kubejs:mycelium_bridge'
+])
+let CONDUIT_IDS = new Set([
+  'kubejs:spore_conduit'
+])
+let GLOW_BED_IDS = new Set([
+  'kubejs:glow_bed'
+])
+let ROOT_NETWORK_IDS = new Set([
+  'kubejs:root_network'
+])
+let MOVEMENT_IDS = new Set([
+  'kubejs:mycelium_sole'
+])
+let CROWN_IDS = new Set([
+  'kubejs:gloommoss_crown'
+])
+let MANA_IDS = new Set([
+  'kubejs:brightpod_sac'
+])
+let SPELL_IDS = new Set([
+  'kubejs:sporeglow_lung'
+])
+let RECOVERY_IDS = new Set([
+  'kubejs:mossheal_liver'
+])
 
-function biomeId(entity) {
-  try {
-    let holder = entity.level.getBiome(entity.blockPosition())
-    let key = holder.unwrapKey()
-    if (key.isPresent()) {
-      return String(key.get().location())
-    }
-  } catch (ignored) {
-  }
-  return String(entity.level.getBiome(entity.blockPosition()))
-}
-
-function cleanDimensionId(value) {
-  if (value == null) {
-    return ''
-  }
-  let text = String(value)
-  let matches = text.match(/[a-z0-9_.-]+:[a-z0-9_./-]+/g)
-  return matches && matches.length > 0 ? matches[matches.length - 1] : text
-}
-
-function dimensionId(entity) {
-  try {
-    let id = cleanDimensionId(entity.level.dimension().location())
-    if (id) {
-      return id
-    }
-  } catch (ignored) {
-  }
-  try {
-    let id = cleanDimensionId(entity.level.dimension)
-    if (id) {
-      return id
-    }
-  } catch (ignored) {
-  }
-  try {
-    let id = cleanDimensionId(entity.level.dimensionKey)
-    if (id) {
-      return id
-    }
-  } catch (ignored) {
-  }
-  try {
-    let id = cleanDimensionId(entity.level.getDimension())
-    if (id) {
-      return id
-    }
-  } catch (ignored) {
-  }
-  return ''
-}
-
-function structureCacheKey(entity, structureIds, radiusChunks) {
-  let pos = entity.blockPosition()
-  return dimensionId(entity) + '@' + (pos.getX() >> 4) + ',' + (pos.getZ() >> 4) + '/' + structureIds.join('|') + '/' + radiusChunks
-}
-
-function hasNearbyStructure(entity, structureIds, radiusChunks) {
-  if (!structureIds || structureIds.length === 0) {
-    return false
-  }
-  let tick = Number(entity.tickCount)
-  let cacheKey = structureCacheKey(entity, structureIds, radiusChunks)
-  let cached = HOME_STRUCTURE_CACHE.get(cacheKey)
-  if (cached && cached.expireAt > tick) {
-    return cached.value
-  }
-  let matched = false
-  try {
-    let registry = entity.level.registryAccess().registryOrThrow(Registries.STRUCTURE)
-    for (let i = 0; i < structureIds.length; i++) {
-      let location = ResourceLocation.tryParse(structureIds[i])
-      if (!location) {
-        continue
-      }
-      let key = ResourceKey.create(Registries.STRUCTURE, location)
-      let holder = registry.getHolder(key)
-      if (!holder.isPresent()) {
-        continue
-      }
-      let pair = entity.level.getChunkSource().getGenerator().findNearestMapStructure(entity.level, HolderSet.direct(holder.get()), entity.blockPosition(), radiusChunks, false)
-      if (pair != null) {
-        matched = true
-        break
-      }
-    }
-  } catch (ignored) {
-  }
-  HOME_STRUCTURE_CACHE.set(cacheKey, { expireAt: tick + 100, value: matched })
-  return matched
-}
-
-function entityTypeId(entity) {
-  try {
-    return String(BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()))
-  } catch (ignored) {
-    return ''
-  }
-}
-
-function hasNearbyBlock(entity, ids, radius) {
-  if (!ids || ids.length === 0) {
-    return false
-  }
-  let pos = entity.blockPosition()
-  for (let x = -radius; x <= radius; x++) {
-    for (let y = -1; y <= 1; y++) {
-      for (let z = -radius; z <= radius; z++) {
-        let state = entity.level.getBlockState(new BlockPos(pos.getX() + x, pos.getY() + y, pos.getZ() + z))
-        let blockId = String(BuiltInRegistries.BLOCK.getKey(state.getBlock()))
-        if (ids.indexOf(blockId) >= 0) {
-          return true
-        }
-      }
-    }
-  }
-  return false
-}
-
-function countNearbyEntityTypes(entity, ids, radius) {
-  if (!ids || ids.length === 0) {
-    return 0
-  }
-  let total = 0
-  let list = entity.level.getEntities(entity, entity.getBoundingBox().inflate(radius))
-  let iterator = list.iterator()
-  while (iterator.hasNext()) {
-    let target = iterator.next()
-    if (!target || target === entity) {
-      continue
-    }
-    if (ids.indexOf(entityTypeId(target)) >= 0) {
-      total++
-    }
-  }
-  return total
-}
-
-function inventoryCount(player, ids) {
-  if (!ids || ids.length === 0) {
-    return 0
-  }
-  let total = 0
-  let inventory = entityOf(player).getInventory()
-  for (let slot = 0; slot < inventory.getContainerSize(); slot++) {
-    let stack = inventory.getItem(slot)
-    if (!stack || stack.isEmpty()) {
-      continue
-    }
-    let itemId = String(BuiltInRegistries.ITEM.getKey(stack.getItem()))
-    if (ids.indexOf(itemId) >= 0) {
-      total += Number(stack.getCount())
-    }
-  }
-  return total
-}
-
-function lowLight(player) {
-  let entity = entityOf(player)
-  try {
-    return Number(entity.level.getMaxLocalRawBrightness(entity.blockPosition())) <= 8
-  } catch (ignored) {
-  }
-  return false
-}
-
-function hasCaveGrowth(player) {
-  let entity = entityOf(player)
-  return hasNearbyBlock(entity, [
-    'minecraft:moss_block',
-    'minecraft:glow_berries',
-    'minecraft:spore_blossom',
-    'minecraft:clay',
-    'minecraft:big_dripleaf',
-    'minecraft:rooted_dirt'
-  ], 5)
-}
-
-function glowNearby(player) {
-  let entity = entityOf(player)
-  return hasNearbyBlock(entity, [
-    'minecraft:glow_berries',
-    'minecraft:spore_blossom',
-    'minecraft:shroomlight'
-  ], 5)
-}
-
-function homeState(player) {
-  return Common.homeState(player, HOME)
-}
+let FLOWERS = global.vanillaLushCavesFlowers || (global.vanillaLushCavesFlowers = {})
 
 function homeMatch(player) {
-  return Common.homeMatch(player, HOME, function (player) {
-    return lowLight(player) || hasCaveGrowth(player)
-  })
+  return !!player && Common.homeMatch(player, HOME)
 }
 
-let sqDistanceBetween = Common.sqDistanceBetween
-
-function targetsSortedByDistance(player, radius) {
-  let entity = entityOf(player)
-  let targets = []
-  let list = entity.level.getEntities(entity, entity.getBoundingBox().inflate(radius))
-  let iterator = list.iterator()
-  while (iterator.hasNext()) {
-    let target = iterator.next()
-    if (!target || !(target instanceof LivingEntityClass) || target === entity || !target.isAlive()) {
-      continue
-    }
-    targets.push(target)
-  }
-  return targets.sort((a, b) => sqDistanceBetween(entity, a) - sqDistanceBetween(entity, b))
+function sameDimensionEntity(entityA, entityB) {
+  return Common.dimensionId(entityA) === Common.dimensionId(entityB)
 }
 
-function targetInFront(player, radius) {
+function distanceSqFromState(state, entity) {
+  let dx = Number(entity.getX()) - Number(state.x)
+  let dy = Number(entity.getY()) - Number(state.y)
+  let dz = Number(entity.getZ()) - Number(state.z)
+  return dx * dx + dy * dy + dz * dz
+}
+
+function getFlowerState(player) {
   let entity = entityOf(player)
-  let look = entity.getLookAngle()
-  let targets = targetsSortedByDistance(player, radius)
-  let best = null
-  let score = -1000
-  for (let i = 0; i < targets.length; i++) {
-    let target = targets[i]
-    let dx = Number(target.getX()) - Number(entity.getX())
-    let dz = Number(target.getZ()) - Number(entity.getZ())
-    let length = Math.max(0.01, Math.sqrt(dx * dx + dz * dz))
-    let dot = dx / length * Number(look.x()) + dz / length * Number(look.z())
-    if (dot > score) {
-      score = dot
-      best = target
+  return FLOWERS[String(entity.getUUID())]
+}
+
+function findFlowerForPlayer(player) {
+  let entity = entityOf(player)
+  for (let key in FLOWERS) {
+    let state = FLOWERS[key]
+    if (sameDimensionEntity(entity, entityOf(state.ownerEntity)) && distanceSqFromState(state, entity) <= state.radius * state.radius) {
+      return state
     }
   }
-  return score > -0.15 ? best : null
+  return null
 }
 
-function damageTarget(player, target, amount, knockbackStrength) {
+function clearFlower(player) {
   let entity = entityOf(player)
-  if (!target || !(target instanceof LivingEntityClass) || !target.isAlive()) {
+  delete FLOWERS[String(entity.getUUID())]
+  OrganKubeJS.setRuntimePoint(entity, SPORE_BLOOM_RUNTIME_KEY, 0, 0)
+}
+
+function refreshFlowerState(player, state) {
+  let installed = installedSourceIds(player)
+  if (installed.indexOf('kubejs:sporebloom_core') < 0) {
     return false
   }
-  let before = Number(target.getHealth())
-  target.setHealth(Math.max(0, before - amount))
-  if (target.isAlive() && knockbackStrength > 0) {
-    target.knockback(knockbackStrength, entity.getX() - target.getX(), entity.getZ() - target.getZ())
-  }
-  return Number(target.getHealth()) < before
+  let bridges = countMatching(installed, BRIDGE_IDS)
+  state.radius = 3 + bridges
+  state.expiresAt = state.startedAt + 200 + bridges * 40
+  return true
 }
 
-let vanillaLushCavesPredicateResult = Common.predicateResult
+function fireFlowerPulse(player) {
+  let entity = entityOf(player)
+  RuntimeEffectService.fireEvent(entity, RuntimeEvent.builder(FLOWER_PULSE_TYPE, entity).build())
+}
 
-OrganKubejsEvents.predicate(HOME_CALLBACK, event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && homeMatch(event.player))
+function clampResource(player) {
+  let capacity = getCounter(player, RESOURCE.capacity)
+  let current = Math.max(0, getCounter(player, RESOURCE.current))
+  if (capacity <= 0) {
+    current = 0
+  } else {
+    current = Math.min(capacity, current)
+  }
+  setCounter(player, RESOURCE.current, current)
+  return current
+}
+
+function applyFieldBuffs(player) {
+  let entity = entityOf(player)
+  let state = findFlowerForPlayer(player)
+  let insideAlly = state != null && String(entity.getUUID()) !== state.ownerId
+  let powerKey = pointKey('attribute', 'irons_spellbooks:nature_spell_power')
+  let knockbackKey = pointKey('attribute', 'minecraft:generic.knockback_resistance')
+  OrganKubeJS.setSourcePoint(entity, FLOWER_FIELD_SOURCE, powerKey, insideAlly ? 2 : 0)
+  OrganKubeJS.setSourcePoint(entity, FLOWER_FIELD_SOURCE, knockbackKey, insideAlly ? 1 : 0)
+}
+
+function applyFlowerPulse(player) {
+  let ownerEntity = entityOf(player)
+  let state = FLOWERS[String(ownerEntity.getUUID())]
+  if (!state || !refreshFlowerState(player, state)) {
+    return
+  }
+  let radius = state.radius
+  let box = new AABB(
+    state.x - radius,
+    state.y - radius,
+    state.z - radius,
+    state.x + radius,
+    state.y + radius,
+    state.z + radius
+  )
+  let list = ownerEntity.level.getEntitiesOfClass(LivingEntityClass, box, target => target.isAlive() && sameDimensionEntity(target, ownerEntity) && distanceSqFromState(state, target) <= radius * radius)
+  let iterator = list.iterator()
+  let hasRootNetwork = hasMatching(installedSourceIds(player), ROOT_NETWORK_IDS)
+  let hasGlowBed = hasMatching(installedSourceIds(player), GLOW_BED_IDS)
+  while (iterator.hasNext()) {
+    let target = iterator.next()
+    if (target instanceof PlayerClass) {
+      target.heal(1)
+      if (hasGlowBed) {
+        target.heal(1)
+      }
+      if (hasRootNetwork && String(target.getUUID()) !== state.ownerId) {
+        target.heal(1)
+      }
+    } else {
+      addEffect(target, MobEffects.GLOWING, 80, 0)
+      addEffect(target, MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
+    }
+  }
+}
+
+function lushPredicateResult(event, value) {
+  return event.success(!!value)
+}
+
+OrganKubejsEvents.predicate('vanillaLushCaves_home', event => {
+  return lushPredicateResult(event, !!event.player && homeMatch(event.player))
 })
 
-OrganKubejsEvents.predicate('vanillaLushCaves_set_major', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && countMatching(installedSourceIds(event.player), SOURCE_IDS) >= 4)
+OrganKubejsEvents.predicate('vanillaLushCaves_major_set', event => {
+  return lushPredicateResult(event, !!event.player && countMatching(installedSourceIds(event.player), SOURCE_IDS) >= 4)
 })
 
 OrganKubejsEvents.predicate('vanillaLushCaves_resource_online', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && (!RESOURCE || getCounter(event.player, RESOURCE.current) >= 8))
+  return lushPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) >= 8)
 })
 
-OrganKubejsEvents.predicate('vanillaLushCaves_has_coreline', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), CORELINE_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_support', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), SUPPORT_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_mana', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), MANA_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_spell', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), SPELL_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_crown', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), CROWN_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_armor', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), ARMOR_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_movement', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), MOVEMENT_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_resource', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), RESOURCE_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_hunt', event => {
-  if (!event.player) {
-    return vanillaLushCavesPredicateResult(event, false)
-  }
-  let installed = installedSourceIds(event.player)
-  return vanillaLushCavesPredicateResult(event, hasMatching(installed, MELEE_IDS) || hasMatching(installed, RANGED_IDS))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_has_chase', event => {
-  if (!event.player) {
-    return vanillaLushCavesPredicateResult(event, false)
-  }
-  let installed = installedSourceIds(event.player)
-  return vanillaLushCavesPredicateResult(event, hasMatching(installed, MOVEMENT_IDS) && (hasMatching(installed, MELEE_IDS) || hasMatching(installed, RANGED_IDS)))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_cave_online', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && homeMatch(event.player))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_spore_online', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && homeMatch(event.player))
-})
-
-OrganKubejsEvents.predicate('vanillaLushCaves_glow_online', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && homeMatch(event.player))
+OrganKubejsEvents.predicate('vanillaLushCaves_resource_cost_ready', event => {
+  return lushPredicateResult(event, !!event.player && getCounter(event.player, RESOURCE.current) >= 2)
 })
 
 OrganKubejsEvents.predicate('vanillaLushCaves_mycelium_ready', event => {
-  return vanillaLushCavesPredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:vanillaLushCaves_mycelium_window') > 0)
+  return lushPredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:vanillaLushCaves_mycelium_window') > 0)
 })
 
+OrganKubejsEvents.predicate('vanillaLushCaves_spore_bloom_online', event => {
+  return lushPredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:vanillaLushCaves_spore_bloom') > 0)
+})
 
+OrganKubejsEvents.predicate('vanillaLushCaves_glow_synergy', event => {
+  if (!event.player) {
+    return lushPredicateResult(event, false)
+  }
+  let installed = installedSourceIds(event.player)
+  return lushPredicateResult(event, hasMatching(installed, CROWN_IDS) && (hasMatching(installed, MANA_IDS) || hasMatching(installed, SPELL_IDS) || hasMatching(installed, RECOVERY_IDS)))
+})
 
+OrganKubejsEvents.predicate('vanillaLushCaves_glow_online', event => {
+  if (!event.player) {
+    return lushPredicateResult(event, false)
+  }
+  let online = homeMatch(event.player) && (getRuntimePoint(event.player, 'kubejs:vanillaLushCaves_spore_bloom') > 0 || installedSourceIds(event.player).indexOf('kubejs:gloommoss_crown') >= 0)
+  return lushPredicateResult(event, online)
+})
+
+OrganKubejsEvents.pointAction('vanillaLushCaves_spore_bloom_pulse', event => {
+  let player = event.player
+  if (!player) {
+    return 0
+  }
+  applyFlowerPulse(player)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.skillCast('sporebloom_core_cast', event => {
+  let player = event.player
+  if (!player) {
+    return false
+  }
+  if (getCounter(player, RESOURCE.current) < 16) {
+    return false
+  }
+  let entity = entityOf(player)
+  let installed = installedSourceIds(player)
+  if (installed.indexOf('kubejs:sporebloom_core') < 0) {
+    return false
+  }
+  let bridges = countMatching(installed, BRIDGE_IDS)
+  let duration = 200 + bridges * 40
+  let pos = entity.blockPosition()
+  let state = {
+    ownerId: String(entity.getUUID()),
+    ownerEntity: entity,
+    dimension: Common.dimensionId(entity),
+    x: Number(pos.getX()) + 0.5,
+    y: Number(entity.getY()),
+    z: Number(pos.getZ()) + 0.5,
+    startedAt: Number(entity.level().getGameTime()),
+    radius: 3 + bridges
+  }
+  FLOWERS[state.ownerId] = state
+  OrganKubeJS.setRuntimePoint(entity, SPORE_BLOOM_RUNTIME_KEY, 1, duration)
+  Common.castSpell('irons_spellbooks:stomp', 1, player)
+  return true
+})
+
+ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', event => {
+  let source = event.getSpellDamageSource()
+  if (!source) {
+    return
+  }
+  let caster = source.actual
+  if (!(caster instanceof PlayerClass) || !hasMatching(installedSourceIds(caster), GLOW_BED_IDS)) {
+    return
+  }
+  let spell = source.spell()
+  if (!spell || !spell.getSchoolType() || String(spell.getSchoolType().getId()) !== 'irons_spellbooks:nature') {
+    return
+  }
+  let player = caster
+  let state = FLOWERS[String(entityOf(player).getUUID())]
+  if (!state) {
+    return
+  }
+  let target = event.getEntity()
+  if (!target || !sameDimensionEntity(target, entityOf(player)) || distanceSqFromState(state, target) > state.radius * state.radius) {
+    return
+  }
+  event.setAmount(Number(event.getAmount()) + 2)
+})
 
 PlayerEvents.tick(event => {
   let player = event.player
-  let capacity = getCounter(player, RESOURCE.capacity)
-  if (capacity <= 0) {
-    setCounter(player, RESOURCE.current, 0)
-    setRuntimePoint(player, 'kubejs:vanillaLushCaves_cave_window', 0)
-    setRuntimePoint(player, 'kubejs:vanillaLushCaves_spore_window', 0)
-    setRuntimePoint(player, 'kubejs:vanillaLushCaves_glow_window', 0)
-    setRuntimePoint(player, 'kubejs:vanillaLushCaves_mycelium_window', 0)
-    applyLinearLinks(player)
+  let entity = entityOf(player)
+  clampResource(player)
+  applyFieldBuffs(player)
+
+  let mycelium = homeMatch(player) && hasMatching(installedSourceIds(player), MOVEMENT_IDS)
+  setRuntimePoint(player, 'kubejs:vanillaLushCaves_mycelium_window', mycelium ? 1 : 0)
+
+  let state = FLOWERS[String(entity.getUUID())]
+  if (!state) {
+    if (getRuntimePoint(player, 'kubejs:vanillaLushCaves_spore_bloom') > 0) {
+      clearFlower(player)
+    }
     return
   }
-  let current = Math.min(capacity, getCounter(player, RESOURCE.current))
-  setCounter(player, RESOURCE.current, current)
-  let cave = homeMatch(player) && lowLight(player)
-  let spore = hasCaveGrowth(player) && lowLight(player)
-  let glow = glowNearby(player)
-  let mycelium = hasCaveGrowth(player) || homeMatch(player)
-  setRuntimePoint(player, 'kubejs:vanillaLushCaves_cave_window', cave ? 1 : 0)
-  setRuntimePoint(player, 'kubejs:vanillaLushCaves_spore_window', spore ? 1 : 0)
-  setRuntimePoint(player, 'kubejs:vanillaLushCaves_glow_window', glow ? 1 : 0)
-  setRuntimePoint(player, 'kubejs:vanillaLushCaves_mycelium_window', mycelium ? 1 : 0)
-  applyLinearLinks(player)
+
+  if (!refreshFlowerState(player, state)) {
+    clearFlower(player)
+    return
+  }
+  if (Number(entity.level().getGameTime()) >= state.expiresAt) {
+    clearFlower(player)
+    return
+  }
+  if (getCounter(player, RESOURCE.current) <= 0) {
+    clearFlower(player)
+    return
+  }
+
+  if (entity.tickCount % 20 === 0) {
+    let conduitCount = countMatching(installedSourceIds(player), CONDUIT_IDS)
+    if (conduitCount > 0) {
+      addResource(player, conduitCount)
+    }
+  }
+  if (entity.tickCount % 40 === 0) {
+    fireFlowerPulse(player)
+  }
 })
 
+PlayerEvents.loggedOut(event => {
+  clearFlower(event.player)
+})
 
 })()

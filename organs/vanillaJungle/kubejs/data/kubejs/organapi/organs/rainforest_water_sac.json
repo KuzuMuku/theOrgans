@@ -18,7 +18,29 @@
           "type": "static"
         }
       ],
-      "grants": [],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 40
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:vanillaJungle_resonance_capacity",
+          "amount": 8
+        }
+      ],
       "events": [
         {
           "type": "organironspell:spell_cast",
@@ -55,43 +77,11 @@
     {
       "conditions": [
         {
-          "type": "static"
-        }
-      ],
-      "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:grass_affinity",
-          "amount": 4,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:max_mana",
-          "amount": 40
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:vanillaJungle_resonance_capacity",
-          "amount": 8
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rainforest_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
-          }
+            "callback": "vanillaJungle_rainforest_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
         }
       ],
       "grants": [

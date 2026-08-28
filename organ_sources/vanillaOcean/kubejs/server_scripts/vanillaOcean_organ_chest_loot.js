@@ -5,6 +5,34 @@ LootJS.modifiers(event => {
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:monument_refraction_eye'))
     })
+  event.addLootTableModifier('aquamirae:chests/maze_common_chest')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.1)
+      pool.addLoot(LootEntry.of('kubejs:dragonfrost_sac'))
+    })
+  event.addLootTableModifier('aquamirae:chests/maze_common_chest')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.05)
+      pool.addLoot(LootEntry.of('kubejs:frostabyss_core'))
+    })
+  event.addLootTableModifier('aquamirae:chests/maze_common_chest')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.08)
+      pool.addLoot(LootEntry.of('kubejs:current_conduit'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.08)
+      pool.addLoot(LootEntry.of('kubejs:salt_exchange_valve'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.08)
+      pool.addLoot(LootEntry.of('kubejs:tidal_buoy'))
+    })
   event.addLootTableModifier('dungeons_arise_seven_seas:chests/corsair_corvette/corsair_corvette_treasure')
     .pool(pool => {
       pool.rolls(1)
@@ -71,6 +99,17 @@ LootJS.modifiers(event => {
       pool.rolls(1)
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:tidesound_fork_wrist'))
+    })
+  event.addLootTableModifier('minecraft:chests/shipwreck_treasure')
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.08)
+      pool.addLoot(LootEntry.of('kubejs:current_conduit'))
+    })
+    .pool(pool => {
+      pool.rolls(1)
+      pool.randomChance(0.08)
+      pool.addLoot(LootEntry.of('kubejs:tidal_buoy'))
     })
   event.addLootTableModifier('minecraft:chests/underwater_ruin_big')
     .pool(pool => {

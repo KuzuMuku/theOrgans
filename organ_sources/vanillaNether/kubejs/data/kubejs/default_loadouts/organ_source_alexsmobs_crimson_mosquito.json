@@ -1,0 +1,30 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "alexsmobs:crimson_mosquito"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "kubejs:ash_iris"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "kubejs:ash_spleen"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "kubejs:soulsand_lung_sac"
+        }
+      ]
+    }
+  }
+}

@@ -115,6 +115,43 @@
           "max_consume": 1
         }
       ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "item_repair",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:repair_reflux_gland_repair",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaVillage_repair"
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaVillage_repair_item_extra"
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:repair_reflux_gland_repair",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaVillage_repair"
+        }
+      ]
     }
   ]
 }

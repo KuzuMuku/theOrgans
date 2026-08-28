@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6脾§r §2草2§r §9菌苔续航§r §7低§r"
+    "§6脾§r §2草2§r §9洞穴采集补给§r §7低§r"
   ],
   "tags": [
     "vanillaLushCaves",
@@ -102,8 +102,15 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_spore_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_online"
+            "callback": "vanillaLushCaves_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+          }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_resource_cost_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_resource_cost_ready"
           }
         }
       ],
@@ -111,6 +118,14 @@
       "events": [
         {
           "type": "mine",
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
           "add_points": [
             {
               "type": "runtime",
@@ -119,12 +134,19 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
           "actions": []
         },
         {
           "type": "organironspell:spell_hit",
           "school": "irons_spellbooks:nature",
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
           "add_points": [
             {
               "type": "runtime",
@@ -133,7 +155,6 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
           "actions": []
         }
       ],

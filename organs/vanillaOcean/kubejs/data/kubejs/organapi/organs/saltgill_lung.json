@@ -26,15 +26,9 @@
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:saltgill_lung_spell_echo",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
+              "id": "kubejs:saltgill_lung_pressure_request",
               "amount": 2,
-              "source": "vanillaOcean_system"
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -43,23 +37,13 @@
       ],
       "executions": [
         {
-          "type": "damage_target",
-          "point_type": "runtime",
-          "point_id": "kubejs:saltgill_lung_spell_echo",
-          "amount": 2.0,
+          "type": "kubejs_call",
           "config": {
-            "radius": 4.0
+            "callback": "vanillaOcean_pressurize",
+            "amount": 2
           },
-          "consume_points": true,
-          "max_consume": 1
-        },
-        {
-          "type": "apply_target_mob_effect",
           "point_type": "runtime",
-          "point_id": "kubejs:saltgill_lung_spell_echo",
-          "effect": "minecraft:movement_slowdown",
-          "duration_ticks": 80,
-          "amplifier": 0,
+          "point_id": "kubejs:saltgill_lung_pressure_request",
           "consume_points": true,
           "max_consume": 1
         }

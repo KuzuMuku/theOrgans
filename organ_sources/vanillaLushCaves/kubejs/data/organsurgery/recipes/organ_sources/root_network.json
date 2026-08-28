@@ -1,0 +1,25 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "minecraft:rooted_dirt",
+      "count": 2
+    },
+    {
+      "item": "minecraft:moss_block",
+      "count": 2
+    },
+    {
+      "item": "kubejs:sporeglow_paste",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:root_network"
+  }
+}

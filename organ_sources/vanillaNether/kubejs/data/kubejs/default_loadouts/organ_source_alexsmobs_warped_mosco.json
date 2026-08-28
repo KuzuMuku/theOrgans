@@ -1,0 +1,30 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "alexsmobs:warped_mosco"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "kubejs:ashvale_lung"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "kubejs:netherwart_liver"
+        }
+      ]
+    },
+    "organapi:head": {
+      "0": [
+        {
+          "id": "kubejs:ash_iris"
+        }
+      ]
+    }
+  }
+}

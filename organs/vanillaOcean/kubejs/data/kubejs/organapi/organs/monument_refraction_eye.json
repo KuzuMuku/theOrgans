@@ -40,12 +40,6 @@
               "id": "kubejs:monument_refraction_eye_focus",
               "amount": 1,
               "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
-              "amount": 1,
-              "source": "vanillaOcean_system"
             }
           ],
           "consume_points": [],

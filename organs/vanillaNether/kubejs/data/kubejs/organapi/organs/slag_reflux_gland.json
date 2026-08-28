@@ -14,53 +14,16 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "static"
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 2,
-          "hidden": true
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 2, "hidden": true }
       ],
       "events": [
         {
           "type": "attacked",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:slag_reflux_gland_recover",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 1,
-              "source": "vanillaNether_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "kill",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:slag_reflux_gland_recover",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 2,
-              "source": "vanillaNether_system"
-            }
+            { "type": "runtime", "id": "kubejs:slag_reflux_recover_request", "amount": 1, "duration_ticks": 2 }
           ],
           "consume_points": [],
           "actions": []
@@ -68,10 +31,37 @@
       ],
       "executions": [
         {
-          "type": "heal",
+          "type": "kubejs_call",
+          "config": { "callback": "vanillaNether_slag_reflux_recover" },
           "point_type": "runtime",
-          "point_id": "kubejs:slag_reflux_gland_recover",
-          "amount": 1.0,
+          "point_id": "kubejs:slag_reflux_recover_request",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        { "type": "environment_state", "state": "on_fire" }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": { "interval_ticks": 40 },
+          "add_points": [
+            { "type": "runtime", "id": "kubejs:slag_reflux_burn_request", "amount": 1, "duration_ticks": 2 }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": { "callback": "vanillaNether_slag_reflux_recover" },
+          "point_type": "runtime",
+          "point_id": "kubejs:slag_reflux_burn_request",
           "consume_points": true,
           "max_consume": 1
         }
@@ -81,40 +71,27 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_ember_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_ember_online"
-          }
+          "config": { "callback": "vanillaNether_slag_pump_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online" }
         }
       ],
-      "grants": [],
-      "events": [
+      "grants": [
+        { "type": "counter", "id": "kubejs:slag_pump_effect", "amount": 1, "hidden": true }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
         {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:slag_reflux_gland_recover_pulse",
-              "amount": 1,
-              "duration_ticks": 2
-            }
-          ],
-          "consume_points": [],
-          "actions": []
+          "type": "kubejs_predicate",
+          "config": { "callback": "vanillaNether_inferno_upkeep_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online" }
         }
       ],
-      "executions": [
-        {
-          "type": "apply_mob_effect",
-          "point_type": "runtime",
-          "point_id": "kubejs:slag_reflux_gland_recover_pulse",
-          "effect": "minecraft:fire_resistance",
-          "duration_ticks": 80,
-          "amplifier": 0,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
+      "grants": [
+        { "type": "counter", "id": "kubejs:inferno_upkeep_reflux", "amount": 1, "hidden": true }
+      ],
+      "events": [],
+      "executions": []
     }
   ]
 }

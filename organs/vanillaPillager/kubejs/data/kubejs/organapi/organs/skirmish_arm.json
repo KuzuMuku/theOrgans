@@ -6,7 +6,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6臂§r §5暗3§r §9潜袭近战§r §7低§r"
+    "§6臂§r §5暗3§r §9近战标记§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -32,49 +32,14 @@
           "amount": 1
         }
       ],
-      "events": [
-        {
-          "type": "deal_damage",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:skirmish_arm_strike",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 1,
-              "source": "vanillaPillager_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "damage_target",
-          "point_type": "runtime",
-          "point_id": "kubejs:skirmish_arm_strike",
-          "amount": 2.0,
-          "config": {
-            "radius": 4.0
-          },
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
+      "events": [],
+      "executions": []
     },
     {
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_movement",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_movement"
-          }
+          "callback": "vanillaPillager_no_crossbow_winder"
         }
       ],
       "grants": [],
@@ -83,9 +48,14 @@
           "type": "deal_damage",
           "add_points": [
             {
-              "type": "mark",
-              "id": "kubejs:vanillaPillager_mark",
-              "amount": 1
+              "type": "runtime",
+              "id": "kubejs:skirmish_arm_mark_request",
+              "amount": 1,
+              "duration_ticks": 2,
+              "chance": {
+                "base": 0.35,
+                "max": 0.65
+              }
             }
           ],
           "consume_points": [],
@@ -95,14 +65,9 @@
       "executions": [
         {
           "type": "kubejs_target_call",
-          "config": {
-            "callback": "common_apply_target_mark_effect"
-          },
-          "point_type": "mark",
-          "point_id": "kubejs:vanillaPillager_mark",
-          "effect": "minecraft:weakness",
-          "duration_ticks": 60,
-          "amplifier": 0,
+          "callback": "common_apply_target_mark_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:skirmish_arm_mark_request",
           "consume_points": true,
           "max_consume": 1
         }
@@ -112,21 +77,39 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_online"
-          }
+          "callback": "vanillaPillager_aux_crossbow_winder"
         }
       ],
-      "grants": [
+      "grants": [],
+      "events": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:skirmish_arm_mark_request_winder",
+              "amount": 1,
+              "duration_ticks": 2,
+              "chance": {
+                "base": 0.65,
+                "max": 0.9
+              }
+            }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
-      "events": [],
-      "executions": []
+      "executions": [
+        {
+          "type": "kubejs_target_call",
+          "callback": "common_apply_target_mark_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:skirmish_arm_mark_request_winder",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

@@ -43,6 +43,36 @@
         {
           "type": "kubejs_predicate",
           "config": {
+            "callback": "vanillaVillage_has_mending_suture",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_mending_suture"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaVillage_suture_travel"
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
             "callback": "vanillaVillage_has_chase",
             "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_chase"
           }
@@ -52,6 +82,11 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
           "amount": 1
         }
       ],

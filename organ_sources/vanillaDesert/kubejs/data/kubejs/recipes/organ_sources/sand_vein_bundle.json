@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "SXS",
+    " W "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:red_sand"
+    },
+    "X": {
+      "item": "kubejs:cast_redsand_glass"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "item": "kubejs:sand_vein_bundle"
+  }
+}

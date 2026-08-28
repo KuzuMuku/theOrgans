@@ -14,20 +14,12 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_heat_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
-          }
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 2, "hidden": true },
+        { "type": "attribute", "attribute": "minecraft:generic.armor", "amount": 3 },
+        { "type": "attribute", "attribute": "minecraft:generic.armor_toughness", "amount": 1 }
       ],
       "events": [],
       "executions": []
@@ -36,45 +28,11 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_sacrifice_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_sacrifice_ready"
-          }
+          "config": { "callback": "vanillaNether_heat_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online" }
         }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 2,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 3
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
+        { "type": "attribute", "attribute": "minecraft:generic.knockback_resistance", "amount": 2 }
       ],
       "events": [],
       "executions": []
@@ -83,18 +41,25 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
-          }
+          "config": { "callback": "vanillaNether_slag_pump_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online" }
         }
       ],
       "grants": [
+        { "type": "counter", "id": "kubejs:obsidian_slag_pump", "amount": 1, "hidden": true },
+        { "type": "attribute", "attribute": "minecraft:generic.knockback_resistance", "amount": 1 }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
+          "type": "kubejs_predicate",
+          "config": { "callback": "vanillaNether_inferno_upkeep_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online" }
         }
+      ],
+      "grants": [
+        { "type": "attribute", "attribute": "minecraft:generic.knockback_resistance", "amount": 1 }
       ],
       "events": [],
       "executions": []

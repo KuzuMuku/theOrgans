@@ -57,6 +57,7 @@
         },
         {
           "type": "mine",
+          "block_tag": "kubejs:jungle_sap_mineables",
           "add_points": [
             {
               "type": "counter",
@@ -76,16 +77,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rooted_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
-          }
+            "callback": "vanillaJungle_rooted_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
         }
       ],
       "grants": [
         {
           "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 2
         }
       ],
       "events": [],
@@ -96,9 +97,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_canopy_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
-          }
+            "callback": "vanillaJungle_canopy_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
         }
       ],
       "grants": [

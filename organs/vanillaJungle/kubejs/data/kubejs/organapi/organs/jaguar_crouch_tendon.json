@@ -19,10 +19,23 @@
           "type": "static"
         }
       ],
-      "grants": [],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
       "events": [
         {
           "type": "move",
+          "distance": 2,
           "add_points": [
             {
               "type": "counter",
@@ -32,8 +45,7 @@
             }
           ],
           "consume_points": [],
-          "actions": [],
-          "distance": 2
+          "actions": []
         }
       ],
       "executions": []
@@ -43,40 +55,12 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_canopy_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
-          }
+            "callback": "vanillaJungle_canopy_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
         }
       ],
       "grants": [
-        {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaJungle_snare_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.movement_speed",
-            "per": 2
-          }
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:grass_affinity",
-          "amount": 1,
-          "hidden": true
-        },
         {
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
@@ -91,9 +75,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rainforest_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
-          }
+            "callback": "vanillaJungle_rainforest_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
         }
       ],
       "grants": [

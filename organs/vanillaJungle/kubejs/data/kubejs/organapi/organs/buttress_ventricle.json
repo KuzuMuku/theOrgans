@@ -17,9 +17,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_set_major"
-          }
+            "callback": "vanillaJungle_set_major"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_set_major"
         }
       ],
       "grants": [
@@ -37,9 +37,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rooted_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
-          }
+            "callback": "vanillaJungle_rooted_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
         }
       ],
       "grants": [
@@ -89,16 +89,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rainforest_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
-          }
+            "callback": "vanillaJungle_rainforest_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
         }
       ],
       "grants": [
         {
           "type": "attribute",
           "attribute": "minecraft:generic.max_health",
-          "amount": 2
+          "amount": 1
         },
         {
           "type": "attribute",

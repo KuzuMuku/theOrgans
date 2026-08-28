@@ -20,11 +20,20 @@ let VANILLAOCEAN_ORGAN_IDS = [
   "monument_refraction_eye",
   "tidesound_fork_wrist",
   "deeptide_scavenger_hand",
-  "coraltide_tail"
+  "coraltide_tail",
+  "dragonfrost_sac",
+  "frostabyss_core"
+]
+
+let VANILLAOCEAN_AUX_ITEM_IDS = [
+  "current_conduit",
+  "salt_exchange_valve",
+  "tidal_buoy"
 ]
 
 StartupEvents.registry('item', event => {
   Common.registerItems(event, VANILLAOCEAN_ORGAN_IDS)
+  Common.registerItems(event, VANILLAOCEAN_AUX_ITEM_IDS)
 })
 
 Common.registerSkills([
@@ -43,6 +52,14 @@ Common.registerSkills([
     cooldown: 90,
     level: 1,
     castEvent: 'tidesound_fork_wrist_cast'
+  },
+  {
+    id: 'kubejs:frostabyss_core',
+    nameKey: 'point.organeffects.skill.kubejs.frostabyss_core',
+    descKey: 'point.organeffects.skill.kubejs.frostabyss_core.desc',
+    cooldown: 200,
+    level: 1,
+    castEvent: 'frostabyss_core_cast'
   }
 ])
 

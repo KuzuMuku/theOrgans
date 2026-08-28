@@ -32,6 +32,11 @@
         {
           "id": "kubejs:orchid_spellbud_lung"
         }
+      ],
+      "3": [
+        {
+          "id": "kubejs:ancient_resonance_core"
+        }
       ]
     },
     "organapi:abdomen": {

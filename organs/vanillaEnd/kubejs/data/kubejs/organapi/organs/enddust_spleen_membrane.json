@@ -28,7 +28,7 @@
       ],
       "events": [
         {
-          "type": "mine",
+          "type": "vanillaEnd:end_mine",
           "add_points": [
             {
               "type": "runtime",
@@ -47,7 +47,26 @@
           "actions": []
         },
         {
-          "type": "kill",
+          "type": "vanillaEnd:end_kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:enddust_spleen_membrane_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 2,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "vanillaEnd:city_chest",
           "add_points": [
             {
               "type": "runtime",
@@ -162,6 +181,52 @@
               "weight": 1
             }
           ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_city_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_city_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 60
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:enddust_spleen_membrane_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:enddust_spleen_membrane_recover",
+          "amount": 1,
+          "consume_points": true,
+          "max_consume": 1
         }
       ]
     }

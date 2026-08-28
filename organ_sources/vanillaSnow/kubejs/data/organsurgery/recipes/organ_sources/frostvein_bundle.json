@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "kubejs:frozen_fiber",
+      "count": 2
+    },
+    {
+      "item": "minecraft:rabbit_hide",
+      "count": 2
+    },
+    {
+      "item": "aquamirae:sharp_bones",
+      "count": 2
+    },
+    {
+      "item": "aquamirae:esca",
+      "count": 1
+    },
+    {
+      "item": "minecraft:blue_ice",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:frostvein_bundle"
+  },
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

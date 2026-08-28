@@ -60,17 +60,29 @@
           "type": "attacked",
           "add_points": [
             {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
+              "type": "runtime",
+              "id": "kubejs:kelp_spinal_cord_attacked_pressure",
               "amount": 2,
-              "source": "vanillaOcean_system"
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
           "actions": []
         }
       ],
-      "executions": []
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaOcean_pressurize",
+            "amount": 2
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:kelp_spinal_cord_attacked_pressure",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     },
     {
       "conditions": [
@@ -96,11 +108,11 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaOcean_tide_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_tide_online"
-          }
+        "config": {
+          "callback": "vanillaOcean_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
         }
+      }
       ],
       "grants": [
         {

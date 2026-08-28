@@ -36,7 +36,18 @@ let SOURCE_IDS = new Set([
   "kubejs:deflection_prism_shoulder",
   "kubejs:nano_copy_gland",
   "kubejs:energy_harvest_step_foot",
-  "kubejs:zero_loss_sampler_claw"
+  "kubejs:zero_loss_sampler_claw",
+  "kubejs:radiation_diffusion_core",
+  "kubejs:fission_plasma_chamber",
+  "kubejs:plasma_state_wiring",
+  "kubejs:radiation_deflection_armor",
+  "kubejs:quantum_mecha_protocol",
+  "kubejs:quantum_wire",
+  "kubejs:phase_coil",
+  "kubejs:nano_repair_line",
+  "kubejs:lockon_sensor_array",
+  "kubejs:fission_fuel_rod",
+  "kubejs:radiation_filter"
 ])
 let CORELINE_IDS = new Set([
   "kubejs:quantum_shield_core",
@@ -56,19 +67,24 @@ let OVERLOAD_IDS = new Set([
   "kubejs:phase_cut_arm",
   "kubejs:vector_lock_eye",
   "kubejs:light_spear_tendon",
-  "kubejs:prism_compute_brain"
+  "kubejs:prism_compute_brain",
+  "kubejs:phase_coil",
+  "kubejs:fission_plasma_chamber",
+  "kubejs:quantum_mecha_protocol"
 ])
 let NANO_IDS = new Set([
   "kubejs:nano_recharge_nest",
   "kubejs:nano_repair_mesh",
   "kubejs:nano_copy_gland",
   "kubejs:energy_harvest_step_foot",
-  "kubejs:zero_loss_sampler_claw"
+  "kubejs:zero_loss_sampler_claw",
+  "kubejs:nano_repair_line"
 ])
 let LOCK_IDS = new Set([
   "kubejs:vector_lock_eye",
   "kubejs:prism_compute_brain",
-  "kubejs:light_spear_tendon"
+  "kubejs:light_spear_tendon",
+  "kubejs:lockon_sensor_array"
 ])
 let MANA_IDS = new Set([])
 let SPELL_IDS = new Set([])
@@ -76,7 +92,8 @@ let CROWN_IDS = new Set([
   "kubejs:prism_compute_brain"
 ])
 let ARMOR_IDS = new Set([
-  "kubejs:shield_weave_membrane"
+  "kubejs:shield_weave_membrane",
+  "kubejs:radiation_deflection_armor"
 ])
 let MOVEMENT_IDS = new Set([
   "kubejs:energy_harvest_step_foot"
@@ -91,7 +108,10 @@ let RANGED_IDS = new Set([
 ])
 let RESOURCE_IDS = new Set([
   "kubejs:zero_loss_sampler_claw",
-  "kubejs:nano_copy_gland"
+  "kubejs:nano_copy_gland",
+  "kubejs:quantum_wire",
+  "kubejs:fission_fuel_rod",
+  "kubejs:radiation_filter"
 ])
 
 let entityOf = Common.entityOf
@@ -112,6 +132,12 @@ let addEffect = Common.addEffect
 let installedSourceIds = Common.installedSourceIds
 let countMatching = Common.countMatching
 let hasMatching = Common.hasMatching
+let syncOnline = Common.mekanismT2SyncOnline
+let shieldReady = Common.mekanismT2ShieldReady
+let spendShield = Common.mekanismT2SpendShield
+let plasmaOnline = Common.mekanismT2PlasmaOnline
+let protocolOnline = Common.mekanismT2ProtocolOnline
+let adjustedEnergyCost = Common.mekanismT2AdjustedEnergyCost
 
 function applyLinearLinks(player) {
   if (!player) {
@@ -235,6 +261,11 @@ OrganKubejsEvents.predicate('mekanismT2_barrier_high', event => {
   return mekanismT2PredicateResult(event, !!event.player && getShieldPoint(event.player, 'kubejs:mekanismT2_barrier') >= 18)
 })
 
+OrganKubejsEvents.predicate('mekanismT2_barrier_low', event => {
+  let value = getShieldPoint(event.player, 'kubejs:mekanismT2_barrier')
+  return mekanismT2PredicateResult(event, value > 0 && value < 18)
+})
+
 OrganKubejsEvents.predicate('mekanismT2_overload_online', event => {
   return mekanismT2PredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:mek_t2_overload_window') > 0)
 })
@@ -266,7 +297,11 @@ PlayerEvents.tick(event => {
 
 OrganKubejsEvents.skillCast('phase_cut_arm_cast', event => {
   let player = event.player
-  if (!player || !resourceReady(player, 36)) {
+  if (!player || !syncOnline(player) || !shieldReady(player, 18)) {
+    return false
+  }
+  let cost = adjustedEnergyCost(player, 12)
+  if (!resourceReady(player, cost)) {
     return false
   }
   let target = targetInFront(player, 5.0)
@@ -274,14 +309,26 @@ OrganKubejsEvents.skillCast('phase_cut_arm_cast', event => {
     return false
   }
   let scaledDamage = 13 + getLinkCounter(player, 'kubejs:mekanismT2_hunt_link') + getLinkCounter(player, 'kubejs:mekanismT2_barrier_line')
-  spendResource(player, 36)
+  if (plasmaOnline(player)) {
+    scaledDamage = Math.floor(scaledDamage * 1.1)
+  }
+  if (protocolOnline(player)) {
+    scaledDamage = Math.floor(scaledDamage * 1.1)
+  }
+  if (!spendShield(player, 18) || !spendResource(player, cost)) {
+    return false
+  }
   damageTarget(player, target, scaledDamage, 0.9)
   return true
 })
 
 OrganKubejsEvents.skillCast('light_spear_tendon_cast', event => {
   let player = event.player
-  if (!player || !resourceReady(player, 30)) {
+  if (!player || !syncOnline(player) || !shieldReady(player, 24)) {
+    return false
+  }
+  let cost = adjustedEnergyCost(player, 30)
+  if (!resourceReady(player, cost)) {
     return false
   }
   let target = targetInFront(player, 12.0)
@@ -289,10 +336,28 @@ OrganKubejsEvents.skillCast('light_spear_tendon_cast', event => {
     return false
   }
   let scaledDamage = 11 + getLinkCounter(player, 'kubejs:mekanismT2_hunt_link') + getLinkCounter(player, 'kubejs:mekanismT2_lock_line')
+  if (plasmaOnline(player)) {
+    scaledDamage = Math.floor(scaledDamage * 1.1)
+  }
+  if (protocolOnline(player)) {
+    scaledDamage = Math.floor(scaledDamage * 1.15)
+  }
   let scaledDuration = 120 + getLinkCounter(player, 'kubejs:mekanismT2_overload_line') * 20
-  spendResource(player, 30)
+  if (!spendShield(player, 24) || !spendResource(player, cost)) {
+    return false
+  }
   damageTarget(player, target, scaledDamage, 0.2)
   addEffect(target, MobEffects.GLOWING, scaledDuration, 0)
+  if (protocolOnline(player)) {
+    let nearbyTargets = targetsSortedByDistance(player, 12.0)
+    for (let index = 0; index < nearbyTargets.length; index++) {
+      if (nearbyTargets[index] !== target) {
+        damageTarget(player, nearbyTargets[index], Math.floor(scaledDamage * 0.6), 0.1)
+        addEffect(nearbyTargets[index], MobEffects.GLOWING, 60, 1)
+        break
+      }
+    }
+  }
   return true
 })
 
@@ -300,7 +365,11 @@ let NANO_COPY_GLAND_CAST_WHITELIST = new Set(["minecraft:diamond", "minecraft:em
 
 OrganKubejsEvents.skillCast('nano_copy_gland_cast', event => {
   let player = event.player
-  if (!player || !resourceReady(player, 40)) {
+  if (!player || !syncOnline(player) || !shieldReady(player, 20)) {
+    return false
+  }
+  let cost = adjustedEnergyCost(player, 40)
+  if (!resourceReady(player, cost)) {
     return false
   }
   let stack = entityOf(player).getMainHandItem()
@@ -312,7 +381,12 @@ OrganKubejsEvents.skillCast('nano_copy_gland_cast', event => {
     return false
   }
   let copies = 1 + Math.min(2, getLinkCounter(player, 'kubejs:mekanismT2_nano_line'))
-  spendResource(player, 40)
+  if (protocolOnline(player)) {
+    copies = copies + 1
+  }
+  if (!spendShield(player, 20) || !spendResource(player, cost)) {
+    return false
+  }
   player.give(Item.of(itemId, copies))
   return true
 })

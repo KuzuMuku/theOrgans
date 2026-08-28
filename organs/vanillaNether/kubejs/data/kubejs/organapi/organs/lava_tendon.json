@@ -15,67 +15,11 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 1,
-              "source": "vanillaNether_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": [],
-          "distance": 2
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_has_chase",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_has_chase"
-          }
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 1,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 1, "hidden": true },
+        { "type": "attribute", "attribute": "minecraft:generic.movement_speed", "amount": 1 }
       ],
       "events": [],
       "executions": []
@@ -84,23 +28,11 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
-          }
+          "config": { "callback": "vanillaNether_lava_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_lava_online" }
         }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
+        { "type": "attribute", "attribute": "minecraft:generic.movement_speed", "amount": 1 }
       ],
       "events": [],
       "executions": []

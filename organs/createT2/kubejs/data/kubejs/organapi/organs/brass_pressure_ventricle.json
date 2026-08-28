@@ -15,46 +15,6 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "createT2_set_major",
-            "custom_display_key": "message.organkubejs.condition.createT2_set_major"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "createT2_resource_online",
-            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "static"
         }
       ],
@@ -79,6 +39,46 @@
           "type": "counter",
           "id": "kubejs:torque_capacity",
           "amount": 120
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_four_resonance"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_four_resonance"
+        }
+      ],
+      "grants": [
+        {
+          "type": "counter",
+          "id": "kubejs:torque_capacity",
+          "amount": 40
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_high_load"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
         }
       ],
       "events": [],

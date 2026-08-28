@@ -5,53 +5,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6肝§r §5暗4§r §9暗域底盘§r §e高§r"
+    "§6肝§r §5暗4§r §9掠夺续航§r §e高§r"
   ],
   "tags": [
     "vanillaPillager",
     "mana"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "organironspell:spell_cast",
-          "school": "irons_spellbooks:evocation",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:emerald_liver_spell_loop",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 2,
-              "source": "vanillaPillager_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "organironspell:restore_mana",
-          "point_type": "runtime",
-          "point_id": "kubejs:emerald_liver_spell_loop",
-          "amount": 4,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
     {
       "conditions": [
         {
@@ -74,11 +34,6 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:mana_regen",
           "amount": 1
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:vanillaPillager_resonance_capacity",
-          "amount": 8
         }
       ],
       "events": [],
@@ -87,27 +42,150 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
-          }
+          "type": "static"
         }
       ],
-      "grants": [
+      "grants": [],
+      "events": [
         {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:max_mana",
-          "amount": 20
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:emerald_liver_kill_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:emerald_liver_kill_mana",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_raid_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:emerald_liver_raid_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:emerald_liver_raid_mana",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_plunder_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:emerald_liver_plunder_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:emerald_liver_plunder_mana",
+          "amount": 6,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_plunder_online"
         },
         {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_aux_plunder_knot"
         }
       ],
-      "events": [],
-      "executions": []
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:emerald_liver_knot_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "kubejs:emerald_liver_knot_mana",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

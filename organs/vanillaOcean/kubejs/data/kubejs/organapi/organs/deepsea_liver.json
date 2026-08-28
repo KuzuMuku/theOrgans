@@ -31,10 +31,10 @@
               "duration_ticks": 2
             },
             {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
+              "type": "runtime",
+              "id": "kubejs:deepsea_liver_pressure_request",
               "amount": 2,
-              "source": "vanillaOcean_system"
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -47,6 +47,17 @@
           "point_type": "runtime",
           "point_id": "kubejs:deepsea_liver_spell_loop",
           "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaOcean_pressurize",
+            "amount": 2
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:deepsea_liver_pressure_request",
           "consume_points": true,
           "max_consume": 1
         }

@@ -1,0 +1,58 @@
+{
+  "item": "kubejs:quantum_wire",
+  "size": 1,
+  "tooltips": [
+    "§6线§r §d电1§r §9量子续航§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "auxiliary"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:mek_energy_capacity",
+          "amount": 10
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "mekanismT2_sync_online",
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_sync_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

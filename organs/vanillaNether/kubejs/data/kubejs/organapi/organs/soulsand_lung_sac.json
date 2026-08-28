@@ -14,65 +14,13 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "distance": 2,
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 1,
-              "source": "vanillaNether_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 1,
-              "source": "vanillaNether_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 3,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 3, "hidden": true },
+        { "type": "attribute", "attribute": "minecraft:generic.armor", "amount": 1 },
+        { "type": "attribute", "attribute": "minecraft:generic.knockback_resistance", "amount": 1 },
+        { "type": "counter", "id": "kubejs:soulsand_lung_sac_effect", "amount": 1, "hidden": true }
       ],
       "events": [],
       "executions": []
@@ -81,23 +29,11 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
-          }
+          "config": { "callback": "vanillaNether_soul_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_soul_online" }
         }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
-        }
+        { "type": "attribute", "attribute": "minecraft:generic.knockback_resistance", "amount": 2 }
       ],
       "events": [],
       "executions": []

@@ -180,5 +180,16 @@
    "point.organeffects.skill.kubejs.bubblewave_throat" : "Bubblewave Throat",
    "point.organeffects.skill.kubejs.bubblewave_throat.desc" : "Release a slowing bubble wave around you. Scales with tide line.",
    "point.organeffects.skill.kubejs.tidesound_fork_wrist" : "Tidesound Fork Wrist",
-   "point.organeffects.skill.kubejs.tidesound_fork_wrist.desc" : "Drive a short, heavy tide-forged thrust. Scales with wet and temple lines."
+   "point.organeffects.skill.kubejs.tidesound_fork_wrist.desc" : "Drive a short, heavy tide-forged thrust. Scales with wet and temple lines.",
+   "point.organeffects.skill.kubejs.frostabyss_core" : "Frostabyss Core",
+   "point.organeffects.skill.kubejs.frostabyss_core.desc" : "Release tide pressure as an abyssal frost wave while preserving base pressure.",
+   "item.kubejs.dragonfrost_sac" : "Dragonfrost Sac",
+   "item.kubejs.frostabyss_core" : "Frostabyss Core",
+   "item.kubejs.current_conduit" : "Current Conduit",
+   "item.kubejs.salt_exchange_valve" : "Salt Exchange Valve",
+   "item.kubejs.tidal_buoy" : "Tidal Buoy",
+   "message.organkubejs.condition.vanillaOcean_cold_online" : "in a deep frozen ocean or ice maze",
+   "message.organkubejs.condition.vanillaOcean_conduit_online" : "current conduit is linked to four Ocean organs",
+   "message.organkubejs.condition.vanillaOcean_saltvalve_online" : "salt exchange valve is in its pressure window",
+   "message.organkubejs.condition.vanillaOcean_buoy_online" : "tidal buoy has marked a release direction"
 }

@@ -10,7 +10,12 @@ let VANILLASWAMP_ORGAN_IDS = [
   "kubejs:frogfin_sneak_leg",
   "kubejs:sporebog_lung",
   "kubejs:slime_mana_spleen",
-  "kubejs:witchbog_crown"
+  "kubejs:witchbog_crown",
+  "kubejs:hydra_venom_core",
+  "kubejs:mud_vein_conduit",
+  "kubejs:rot_hyphae",
+  "kubejs:swamp_gas_bladder",
+  "kubejs:rot_pump"
 ]
 
 ServerEvents.tags('item', event => {

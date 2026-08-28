@@ -44,19 +44,20 @@
               "duration_ticks": 80
             },
             {
-              "type": "counter",
-              "id": "kubejs:mek_energy",
-              "amount": 1,
-              "source": "kubejs_mek_system"
-            },
-            {
               "type": "shield",
               "id": "kubejs:mekanismT2_barrier",
               "amount": 1,
               "source": "mekanismT2_shield"
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:mek_energy",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            }
+          ],
           "actions": []
         }
       ],

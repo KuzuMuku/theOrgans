@@ -34,26 +34,6 @@
       ],
       "events": [],
       "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "createT2_resource_online",
-            "custom_display_key": "message.organkubejs.condition.createT2_resource_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
     }
   ]
 }

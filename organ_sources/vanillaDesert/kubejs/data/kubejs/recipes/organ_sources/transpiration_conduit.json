@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "GXG",
+    " C "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
+    "G": {
+      "item": "minecraft:dead_bush"
+    },
+    "X": {
+      "item": "kubejs:sintered_sand_core"
+    },
+    "C": {
+      "item": "minecraft:cactus"
+    }
+  },
+  "result": {
+    "item": "kubejs:transpiration_conduit"
+  }
+}

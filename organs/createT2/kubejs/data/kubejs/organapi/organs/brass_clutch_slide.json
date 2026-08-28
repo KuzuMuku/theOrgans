@@ -1,0 +1,72 @@
+{
+  "item": "kubejs:brass_clutch_slide",
+  "valid_parts": [
+    "organapi:head",
+    "organapi:chest",
+    "organapi:abdomen",
+    "organapi:left_arm",
+    "organapi:right_arm",
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6轨§r §a风1§r §9主动平滑§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "assembly"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "kubejs:torque_capacity",
+          "amount": 10
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "createT2_system_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_system_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "createT2:stress_spent",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:torque",
+              "amount": 2,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

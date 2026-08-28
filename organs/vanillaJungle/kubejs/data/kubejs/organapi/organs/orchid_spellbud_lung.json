@@ -18,59 +18,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "organironspell:spell_hit",
-          "school": "irons_spellbooks:nature",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:orchid_spellbud_lung_spell_echo",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaJungle_resonance",
-              "amount": 2,
-              "source": "vanillaJungle_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "damage_target",
-          "point_type": "runtime",
-          "point_id": "kubejs:orchid_spellbud_lung_spell_echo",
-          "amount": 2.0,
-          "config": {
-            "radius": 4.0
-          },
-          "consume_points": true,
-          "max_consume": 1
-        },
-        {
-          "type": "apply_target_mob_effect",
-          "point_type": "runtime",
-          "point_id": "kubejs:orchid_spellbud_lung_spell_echo",
-          "effect": "minecraft:weakness",
-          "duration_ticks": 80,
-          "amplifier": 0,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -89,28 +36,40 @@
           "amount": 1
         }
       ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
+      "events": [
         {
-          "type": "kubejs_predicate",
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:orchid_spellbud_lung_spell_echo",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 1,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_target_call",
           "config": {
-            "callback": "vanillaJungle_rainforest_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
-          }
+            "callback": "vanillaJungle_orchid_spell_echo"
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:orchid_spellbud_lung_spell_echo",
+          "consume_points": true,
+          "max_consume": 1
         }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:casting_movespeed",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
+      ]
     }
   ]
 }

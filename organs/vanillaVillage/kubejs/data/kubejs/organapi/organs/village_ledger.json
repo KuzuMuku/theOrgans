@@ -1,0 +1,26 @@
+{
+  "item": "kubejs:village_ledger",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6书§r §e光1§r §9村账簿§r §7辅§r"
+  ],
+  "tags": [
+    "vanillaVillage",
+    "auxiliary"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

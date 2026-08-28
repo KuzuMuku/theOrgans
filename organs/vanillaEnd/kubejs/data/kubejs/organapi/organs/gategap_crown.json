@@ -21,30 +21,20 @@
       "grants": [],
       "events": [
         {
-          "type": "organironspell:cooldown_added",
-          "school": "irons_spellbooks:ender",
+          "type": "vanillaEnd:displacement",
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:gategap_crown_cooldown_echo",
+              "id": "kubejs:vanillaEnd_travel_surge",
               "amount": 1,
-              "duration_ticks": 2
+              "duration_ticks": 100
             }
           ],
           "consume_points": [],
           "actions": []
         }
       ],
-      "executions": [
-        {
-          "type": "organironspell:restore_mana",
-          "point_type": "runtime",
-          "point_id": "kubejs:gategap_crown_cooldown_echo",
-          "amount": 3,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
+      "executions": []
     },
     {
       "conditions": [
@@ -88,6 +78,26 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:casting_movespeed",
           "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_void_guard_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_guard_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
         }
       ],
       "events": [],

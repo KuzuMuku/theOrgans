@@ -5,53 +5,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6心§r §c火3§r §9献祭底盘§r §e高§r"
+    "§6心§r §c火3§r §9干热底盘§r §e高§r"
   ],
   "tags": [
     "vanillaDesert",
     "core"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaDesert_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_set_major"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaDesert_dryheat_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_dryheat_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -89,6 +49,84 @@
         {
           "type": "kubejs_predicate",
           "config": {
+            "callback": "vanillaDesert_heat_ge_1",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
+          }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_night_shade_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_night_shade_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 1,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_night_heat_loss"
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_heat_ge_1",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
+          }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_wet_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_wet_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 1,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_water_heat_loss"
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
             "callback": "vanillaDesert_home",
             "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
           }
@@ -108,6 +146,61 @@
       ],
       "events": [],
       "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_heat_ge_25",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
+          }
+        },
+        {
+          "type": "health",
+          "mode": "missing",
+          "op": "gte",
+          "value": 1
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 600
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:sun_ventricle_heat_heal",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_sun_heat_heal"
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:sun_ventricle_heat_heal",
+          "amount": 1.0,
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaDesert_sun_heat_heal"
+        }
+      ]
     }
   ]
 }

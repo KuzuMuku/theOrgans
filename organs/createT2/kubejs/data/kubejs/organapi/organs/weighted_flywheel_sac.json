@@ -70,19 +70,30 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "createT2_has_support",
-            "custom_display_key": "message.organkubejs.condition.createT2_has_support"
-          }
+            "callback": "createT2_high_load"
+          },
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
         }
       ],
-      "grants": [
+      "grants": [],
+      "events": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
+          "type": "tick",
+          "config": {
+            "interval_ticks": 20
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:brass_rhythm",
+              "amount": 1,
+              "duration_ticks": 100
+            }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
-      "events": [],
       "executions": []
     }
   ]

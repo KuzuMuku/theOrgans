@@ -125,41 +125,21 @@
             }
           ],
           "consume_points": [],
-          "actions": []
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaVillage_extra_trade"
         }
       ],
       "executions": [
         {
-          "type": "grant_items",
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaVillage_grant_trade_scavenger_bonus"
+          },
           "point_type": "runtime",
           "point_id": "kubejs:trade_scavenger_hand_trade_bonus",
           "consume_points": true,
           "max_consume": 1,
-          "rolls": 2,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:emerald",
-              "count": 1,
-              "weight": 3
-            },
-            {
-              "item": "minecraft:paper",
-              "count": 4,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:book",
-              "count": 1,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:lantern",
-              "count": 1,
-              "weight": 1
-            }
-          ]
+          "custom_display_key": "message.organkubejs.execution.vanillaVillage_extra_trade"
         }
       ]
     }

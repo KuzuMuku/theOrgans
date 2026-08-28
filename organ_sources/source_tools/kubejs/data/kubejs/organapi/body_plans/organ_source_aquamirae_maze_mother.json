@@ -1,0 +1,28 @@
+{
+  "entity_types": [
+    "aquamirae:maze_mother"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 3
+    },
+    "organapi:chest": {
+      "capacity": 8
+    },
+    "organapi:abdomen": {
+      "capacity": 4
+    },
+    "organapi:left_arm": {
+      "enabled": false
+    },
+    "organapi:right_arm": {
+      "enabled": false
+    },
+    "organapi:left_leg": {
+      "enabled": false
+    },
+    "organapi:right_leg": {
+      "enabled": false
+    }
+  }
+}

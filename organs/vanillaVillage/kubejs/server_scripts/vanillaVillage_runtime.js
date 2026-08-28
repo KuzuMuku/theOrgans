@@ -4,6 +4,7 @@ let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity'
 let MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
 let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
 let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
+let ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
 let Registries = Java.loadClass('net.minecraft.core.registries.Registries')
 let HolderSet = Java.loadClass('net.minecraft.core.HolderSet')
 let ResourceKey = Java.loadClass('net.minecraft.resources.ResourceKey')
@@ -21,7 +22,9 @@ let HOME = {
     "minecraft:village_desert",
     "minecraft:village_savanna",
     "minecraft:village_snowy",
-    "minecraft:village_taiga"
+    "minecraft:village_taiga",
+    "irons_spellbooks:priest_house",
+    "irons_spellbooks:priest_house_taiga"
   ],
   "structure_radius": 8
 }
@@ -31,14 +34,14 @@ let RESOURCE = {
   "system": "vanillaVillage_system",
   "capacity": "kubejs:vanillaVillage_resonance_capacity",
   "current": "kubejs:vanillaVillage_resonance",
-  "capacity_en": "Order Reserve Capacity",
-  "capacity_desc_en": "Maximum shared reserve for order reserve.",
-  "current_en": "Order Reserve",
-  "current_desc_en": "Shared village order gathered by bells, work and local presence.",
-  "capacity_zh": "秩序储备上限",
-  "capacity_desc_zh": "秩序储备可积累的最大上限。",
-  "current_zh": "秩序储备",
-  "current_desc_zh": "由钟声、职业运作与村落存在共同积累的秩序储备。",
+  "capacity_en": "Village Prestige Capacity",
+  "capacity_desc_en": "Maximum shared village order reserve.",
+  "current_en": "Village Prestige",
+  "current_desc_en": "Village covenant and order reserve maintained by trade, repair, defense and holy support.",
+  "capacity_zh": "村落声望上限",
+  "capacity_desc_zh": "村落声望可积累的最大上限。",
+  "current_zh": "村落声望",
+  "current_desc_zh": "由交易、修补、守备与圣法支援共同维持的村约与秩序余量。",
   "generated": true
 }
 let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'vanillaVillage_system'
@@ -59,7 +62,8 @@ let SOURCE_IDS = new Set([
   "kubejs:offering_gland",
   "kubejs:iron_guard_shoulder",
   "kubejs:travel_legplate",
-  "kubejs:trade_scavenger_hand"
+  "kubejs:trade_scavenger_hand",
+  "kubejs:village_bell_core"
 ])
 let CORELINE_IDS = new Set([
   "kubejs:bell_ventricle",
@@ -94,6 +98,21 @@ let RANGED_IDS = new Set([
 let RESOURCE_IDS = new Set([
   "kubejs:field_spleen",
   "kubejs:trade_scavenger_hand"
+])
+let CORE_IDS = new Set([
+  "kubejs:village_bell_core"
+])
+let VILLAGE_LEDGER_IDS = new Set([
+  "kubejs:village_ledger"
+])
+let BELL_ROPE_WINDER_IDS = new Set([
+  "kubejs:bell_rope_winder"
+])
+let HOLY_PATH_RELAY_IDS = new Set([
+  "kubejs:holy_path_relay"
+])
+let MENDING_SUTURE_IDS = new Set([
+  "kubejs:mending_suture"
 ])
 
 let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE ? RESOURCE.current : null)
@@ -332,9 +351,11 @@ function homeState(player) {
 }
 
 function homeMatch(player) {
-  let state = homeState(player)
   let entity = entityOf(player)
-  return state.final || countNearbyEntityTypes(entity, ['minecraft:villager', 'minecraft:wandering_trader'], 16) > 0
+  if (HOME.dimensions && HOME.dimensions.length > 0 && HOME.dimensions.indexOf(dimensionId(entity)) < 0) {
+    return false
+  }
+  return hasNearbyStructure(entity, HOME.structures || [], HOME.structure_radius || 8)
 }
 
 function sqDistanceBetween(a, b) {
@@ -390,6 +411,64 @@ function damageTarget(player, target, amount, knockbackStrength) {
     target.knockback(knockbackStrength, entity.getX() - target.getX(), entity.getZ() - target.getZ())
   }
   return Number(target.getHealth()) < before
+}
+
+function pickWeightedEntry(entries) {
+  if (!entries || entries.length === 0) {
+    return null
+  }
+  let total = 0
+  for (let i = 0; i < entries.length; i++) {
+    total += Math.max(1, Number(entries[i].weight || 1))
+  }
+  if (total <= 0) {
+    return entries[0]
+  }
+  let ticket = Math.floor(Math.random() * total)
+  for (let i = 0; i < entries.length; i++) {
+    ticket -= Math.max(1, Number(entries[i].weight || 1))
+    if (ticket < 0) {
+      return entries[i]
+    }
+  }
+  return entries[entries.length - 1]
+}
+
+function giveWeightedItems(player, entries, rolls) {
+  let entity = entityOf(player)
+  for (let index = 0; index < rolls; index++) {
+    let entry = pickWeightedEntry(entries)
+    if (!entry) {
+      continue
+    }
+    let location = ResourceLocation.tryParse(String(entry.item))
+    if (!location) {
+      continue
+    }
+    let item = BuiltInRegistries.ITEM.get(location)
+    if (!item) {
+      continue
+    }
+    let stack = new ItemStack(item, Math.max(1, Number(entry.count || 1)))
+    if (!entity.addItem(stack)) {
+      entity.drop(stack, false)
+    }
+  }
+}
+
+function isBellWardActive(player) {
+  return Runtime.getRuntimePoint(player, 'kubejs:vanillaVillage_bell_ward') > 0
+}
+
+function clearBellWard(player) {
+  OrganKubeJS.clearRuntimePoint(entityOf(player), pointKey('runtime', 'kubejs:vanillaVillage_bell_ward'))
+}
+
+function syncBellWard(player) {
+  let installed = installedSourceIds(player)
+  let active = isBellWardActive(player) && hasMatching(installed, CORE_IDS)
+  setLinkAttribute(player, 'minecraft:armor_toughness', active ? 1 : 0)
+  setLinkAttribute(player, 'minecraft:knockback_resistance', active ? 1 : 0)
 }
 
 function vanillaVillagePredicateResult(event, value) {
@@ -456,6 +535,58 @@ OrganKubejsEvents.predicate('vanillaVillage_has_chase', event => {
   return vanillaVillagePredicateResult(event, hasMatching(installed, MOVEMENT_IDS) && (hasMatching(installed, MELEE_IDS) || hasMatching(installed, RANGED_IDS)))
 })
 
+OrganKubejsEvents.predicate('vanillaVillage_bell_ward_online', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && isBellWardActive(event.player))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_no_bell_ward', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && !isBellWardActive(event.player))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_bell_ward_no_rope', event => {
+  if (!event.player) {
+    return vanillaVillagePredicateResult(event, false)
+  }
+  let installed = installedSourceIds(event.player)
+  return vanillaVillagePredicateResult(event, isBellWardActive(event.player) && !hasMatching(installed, BELL_ROPE_WINDER_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_bell_ward_rope', event => {
+  if (!event.player) {
+    return vanillaVillagePredicateResult(event, false)
+  }
+  let installed = installedSourceIds(event.player)
+  return vanillaVillagePredicateResult(event, isBellWardActive(event.player) && hasMatching(installed, BELL_ROPE_WINDER_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_has_village_ledger', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), VILLAGE_LEDGER_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_no_village_ledger', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && !hasMatching(installedSourceIds(event.player), VILLAGE_LEDGER_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_has_holy_path_relay', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), HOLY_PATH_RELAY_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_no_holy_path_relay', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && !hasMatching(installedSourceIds(event.player), HOLY_PATH_RELAY_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_has_mending_suture', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), MENDING_SUTURE_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_no_mending_suture', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && !hasMatching(installedSourceIds(event.player), MENDING_SUTURE_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaVillage_iris_no_crown', event => {
+  return vanillaVillagePredicateResult(event, !!event.player && !hasMatching(installedSourceIds(event.player), CROWN_IDS))
+})
+
 
 OrganKubejsEvents.predicate('vanillaVillage_has_trade', event => {
   return vanillaVillagePredicateResult(event, !!event.player && getCounter(event.player, 'kubejs:village_trade_flow') > 0)
@@ -489,6 +620,77 @@ let VILLAGE_HOSTILE_IDS = [
   'minecraft:witch',
   'minecraft:ravager'
 ]
+let FIELD_SUPPLY_ITEMS = [
+  { item: 'minecraft:bread', count: 2, weight: 3 },
+  { item: 'minecraft:wheat', count: 4, weight: 2 },
+  { item: 'minecraft:carrot', count: 3, weight: 1 }
+]
+let TRADE_SCAVENGER_ITEMS = [
+  { item: 'minecraft:emerald', count: 1, weight: 3 },
+  { item: 'minecraft:paper', count: 4, weight: 2 },
+  { item: 'minecraft:book', count: 1, weight: 2 },
+  { item: 'minecraft:lantern', count: 1, weight: 1 }
+]
+
+OrganKubejsEvents.pointAction('vanillaVillage_grant_field_supply_bonus', event => {
+  let player = event.player
+  if (!player) {
+    return 0
+  }
+  let ledger = hasMatching(installedSourceIds(player), VILLAGE_LEDGER_IDS)
+  let cost = ledger ? 2 : 3
+  if (getCounter(player, RESOURCE.current) < cost) {
+    return 0
+  }
+  spendResource(player, cost)
+  giveWeightedItems(player, FIELD_SUPPLY_ITEMS, ledger ? 3 : 2)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.pointAction('vanillaVillage_grant_trade_scavenger_bonus', event => {
+  let player = event.player
+  if (!player) {
+    return 0
+  }
+  let ledger = hasMatching(installedSourceIds(player), VILLAGE_LEDGER_IDS)
+  let cost = ledger ? 2 : 3
+  if (getCounter(player, RESOURCE.current) < cost) {
+    return 0
+  }
+  spendResource(player, cost)
+  giveWeightedItems(player, TRADE_SCAVENGER_ITEMS, ledger ? 3 : 2)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.pointAction('vanillaVillage_repair_item_extra', event => {
+  let player = event.player
+  if (!player) {
+    return 0
+  }
+  let entity = entityOf(player)
+  let stack = entity.getMainHandItem()
+  if (!stack || stack.isEmpty() || stack.getMaxDamage() <= 0) {
+    return 0
+  }
+  if (getCounter(player, RESOURCE.current) < 2) {
+    return 0
+  }
+  let repairAmount = hasMatching(installedSourceIds(player), MENDING_SUTURE_IDS) ? 4 : 2
+  spendResource(player, 2)
+  stack.setDamageValue(Math.max(0, stack.getDamageValue() - repairAmount))
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.targetAction('vanillaVillage_iris_crown_mark', event => {
+  let player = event.player
+  let target = Common.rawEntity(event.target)
+  if (!player || !target || getCounter(player, RESOURCE.current) < 2) {
+    return 0
+  }
+  spendResource(player, 2)
+  addEffect(target, MobEffects.GLOWING, 120, 0)
+  return event.pointsConsume ? 1 : 0
+})
 
 PlayerEvents.tick(event => {
   let player = event.player
@@ -498,13 +700,14 @@ PlayerEvents.tick(event => {
   }
   let villagers = countNearbyEntityTypes(entity, ['minecraft:villager'], 16)
   let golems = countNearbyEntityTypes(entity, ['minecraft:iron_golem'], 16)
+  let priests = countNearbyEntityTypes(entity, ['irons_spellbooks:priest'], 16)
   let hostiles = countNearbyEntityTypes(entity, VILLAGE_HOSTILE_IDS, 18)
-  let presence = villagers + golems * 2
+  let presence = villagers + golems * 2 + priests * 2
   let worksite = hasNearbyBlock(entity, VILLAGE_WORKSITE_BLOCKS, 5)
   let emeralds = inventoryCount(player, ['minecraft:emerald'])
   let lastEmeralds = getCounter(player, 'kubejs:village_last_emeralds')
   let tradeFlow = villagers > 0 && emeralds !== lastEmeralds ? Math.min(4, Math.abs(emeralds - lastEmeralds)) : 0
-  let guardLine = hostiles > 0 && (golems > 0 || villagers >= 3) ? Math.min(4, hostiles + golems) : 0
+  let guardLine = hostiles > 0 && (golems > 0 || priests > 0 || villagers >= 3) ? Math.min(4, hostiles + golems + priests) : 0
   let supplyLine = worksite && villagers > 0 ? Math.min(4, 1 + Math.floor(villagers / 2)) : 0
   setCounter(player, 'kubejs:village_presence', presence)
   setCounter(player, 'kubejs:village_trade_flow', tradeFlow)
@@ -534,6 +737,50 @@ PlayerEvents.tick(event => {
   let current = Math.min(capacity, getCounter(player, RESOURCE.current))
   setCounter(player, RESOURCE.current, current)
   applyLinearLinks(player)
+})
+
+OrganKubejsEvents.skillCast('village_bell_core_cast', event => {
+  let player = event.player
+  if (!player || !hasMatching(installedSourceIds(player), CORE_IDS)) {
+    return false
+  }
+  if (getCounter(player, RESOURCE.current) < 24) {
+    return false
+  }
+  let ropeCount = countMatching(installedSourceIds(player), BELL_ROPE_WINDER_IDS)
+  let durationTicks = 200 + ropeCount * 40
+  OrganKubeJS.setRuntimePoint(entityOf(player), pointKey('runtime', 'kubejs:vanillaVillage_bell_ward'), 1, durationTicks)
+  syncBellWard(player)
+  try {
+    Common.castSpell('irons_spellbooks:fortify', 1, player)
+  } catch (ignored) {
+  }
+  return true
+})
+
+PlayerEvents.tick(event => {
+  let player = event.player
+  if (!player) {
+    return
+  }
+  let entity = entityOf(player)
+  if (Number(entity.tickCount) % 20 !== 0) {
+    return
+  }
+  let active = isBellWardActive(player) && hasMatching(installedSourceIds(player), CORE_IDS)
+  syncBellWard(player)
+  if (!active) {
+    return
+  }
+  if (getCounter(player, RESOURCE.current) < 2) {
+    clearBellWard(player)
+    syncBellWard(player)
+    return
+  }
+  spendResource(player, 2)
+  if (Number(entity.tickCount) % 40 === 0) {
+    entity.heal(1.0)
+  }
 })
 
 

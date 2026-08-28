@@ -95,6 +95,26 @@
       ],
       "events": [],
       "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_void_guard_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_guard_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
     }
   ]
 }

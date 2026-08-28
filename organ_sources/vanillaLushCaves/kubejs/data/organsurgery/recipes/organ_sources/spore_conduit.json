@@ -1,0 +1,25 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "minecraft:glow_berries",
+      "count": 2
+    },
+    {
+      "item": "minecraft:clay_ball",
+      "count": 2
+    },
+    {
+      "item": "kubejs:annealed_calcite_chip",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:spore_conduit"
+  }
+}

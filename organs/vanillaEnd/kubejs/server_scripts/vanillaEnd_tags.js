@@ -20,7 +20,8 @@ let VANILLAEND_ORGAN_IDS = [
   "kubejs:endpattern_iris",
   "kubejs:foldgate_fist",
   "kubejs:endbound_shoulderplate",
-  "kubejs:gategap_tailbone"
+  "kubejs:gategap_tailbone",
+  "kubejs:void_guard_core"
 ]
 
 ServerEvents.tags('item', event => {

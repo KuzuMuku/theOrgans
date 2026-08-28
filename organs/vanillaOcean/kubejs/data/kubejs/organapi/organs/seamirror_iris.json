@@ -24,11 +24,6 @@
           "id": "organsynergia:water_affinity",
           "amount": 3,
           "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:cooldown_reduction",
-          "amount": 1
         }
       ],
       "events": [
@@ -42,10 +37,10 @@
               "duration_ticks": 2
             },
             {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
+              "type": "runtime",
+              "id": "kubejs:seamirror_iris_mark_request",
               "amount": 1,
-              "source": "vanillaOcean_system"
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -60,6 +55,16 @@
           "effect": "minecraft:glowing",
           "duration_ticks": 100,
           "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "kubejs_target_call",
+          "config": {
+            "callback": "vanillaOcean_mark_and_slow"
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:seamirror_iris_mark_request",
           "consume_points": true,
           "max_consume": 1
         }
@@ -93,36 +98,16 @@
       ],
       "executions": [
         {
-          "type": "apply_target_mob_effect",
+          "type": "kubejs_target_call",
+          "config": {
+            "callback": "vanillaOcean_seamirror_mark_consume"
+          },
           "point_type": "runtime",
           "point_id": "kubejs:seamirror_iris_focus_wet",
-          "effect": "minecraft:movement_slowdown",
-          "duration_ticks": 80,
-          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1
         }
       ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaOcean_tide_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_tide_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:cast_time_reduction",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
     }
   ]
 }

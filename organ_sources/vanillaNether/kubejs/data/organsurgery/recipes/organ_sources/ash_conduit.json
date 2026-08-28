@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_lungs",
+      "count": 1
+    },
+    {
+      "item": "minecraft:blaze_rod",
+      "count": 2
+    },
+    {
+      "item": "kubejs:calcined_nether_bone_shard",
+      "count": 1
+    },
+    {
+      "item": "kubejs:fireward_distillate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:scorch_crystal",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:ash_conduit"
+  },
+  "fluid": {
+    "fluid": "minecraft:lava",
+    "amount": 250
+  }
+}

@@ -15,7 +15,11 @@
     {
       "conditions": [
         {
-          "type": "static"
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_purpur_nerve_cord_offline",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_purpur_nerve_cord_offline"
+          }
         }
       ],
       "grants": [],
@@ -26,9 +30,21 @@
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:ender_lung_spell_echo",
+              "id": "kubejs:ender_lung_spell_damage",
               "amount": 1,
-              "duration_ticks": 2
+              "duration_ticks": 2,
+              "chance": {
+                "base": 0.5
+              }
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:ender_lung_spell_levitate",
+              "amount": 1,
+              "duration_ticks": 2,
+              "chance": {
+                "base": 0.5
+              }
             },
             {
               "type": "counter",
@@ -45,7 +61,7 @@
         {
           "type": "damage_target",
           "point_type": "runtime",
-          "point_id": "kubejs:ender_lung_spell_echo",
+          "point_id": "kubejs:ender_lung_spell_damage",
           "amount": 2.0,
           "config": {
             "radius": 4.0
@@ -56,7 +72,76 @@
         {
           "type": "apply_target_mob_effect",
           "point_type": "runtime",
-          "point_id": "kubejs:ender_lung_spell_echo",
+          "point_id": "kubejs:ender_lung_spell_levitate",
+          "effect": "minecraft:levitation",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_purpur_nerve_cord_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_purpur_nerve_cord_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:ender",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:ender_lung_spell_damage",
+              "amount": 1,
+              "duration_ticks": 2,
+              "chance": {
+                "base": 0.75
+              }
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:ender_lung_spell_levitate",
+              "amount": 1,
+              "duration_ticks": 2,
+              "chance": {
+                "base": 0.75
+              }
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 2,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:ender_lung_spell_damage",
+          "amount": 2.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        },
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "kubejs:ender_lung_spell_levitate",
           "effect": "minecraft:levitation",
           "duration_ticks": 80,
           "amplifier": 0,
@@ -107,6 +192,26 @@
           "type": "attribute",
           "attribute": "irons_spellbooks:casting_movespeed",
           "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaEnd_void_guard_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_guard_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:ender_spell_power",
+          "amount": 2
         }
       ],
       "events": [],

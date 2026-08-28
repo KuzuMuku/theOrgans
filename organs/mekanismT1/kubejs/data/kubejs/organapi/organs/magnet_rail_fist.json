@@ -6,11 +6,12 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6臂§r §d电2§r §9电刃近战§r §7低§r"
+    "§6臂§r §d电2§r §9磁轨重拳§r §7低§r"
   ],
   "tags": [
     "mekanismT1",
-    "active_melee"
+    "active_melee",
+    "rhythm"
   ],
   "effects": [
     {

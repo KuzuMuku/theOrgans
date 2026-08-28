@@ -1,0 +1,37 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:baseline_organ",
+      "count": 1
+    },
+    {
+      "item": "create:brass_sheet",
+      "count": 2
+    },
+    {
+      "item": "create:precision_mechanism",
+      "count": 1
+    },
+    {
+      "item": "minecraft:experience_bottle",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quenched_brass_plate",
+      "count": 1
+    },
+    {
+      "item": "kubejs:precision_suture",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:experience_etched_line"
+  },
+  "fluid": {
+    "fluid": "create:honey",
+    "amount": 250
+  }
+}

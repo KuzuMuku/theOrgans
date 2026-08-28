@@ -47,6 +47,11 @@
         {
           "id": "kubejs:tidal_ventricle"
         }
+      ],
+      "5": [
+        {
+          "id": "kubejs:frostabyss_core"
+        }
       ]
     },
     "organapi:abdomen": {

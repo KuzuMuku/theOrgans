@@ -17,26 +17,6 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_tide_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_tide_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
             "callback": "vanillaOcean_temple_online",
             "custom_display_key": "message.organkubejs.condition.vanillaOcean_temple_online"
           }

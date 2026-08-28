@@ -1,0 +1,16 @@
+{
+  "item": "kubejs:glow_bed",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6荧光菌床§r §2让花区成为生根点，花区内自然法术伤害 +2§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "auxiliary",
+    "flower"
+  ]
+}

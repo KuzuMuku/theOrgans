@@ -83,19 +83,14 @@
           }
         }
       ],
-      "grants": [
-        {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaOcean_tide_line",
-            "target_type": "attribute",
-            "target_attribute": "irons_spellbooks:casting_movespeed",
-            "per": 2
-          }
-        }
-      ],
+    "grants": [
+      {
+        "type": "attribute",
+        "attribute": "irons_spellbooks:casting_movespeed",
+        "amount": 1,
+        "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
+      }
+    ],
       "events": [],
       "executions": []
     }

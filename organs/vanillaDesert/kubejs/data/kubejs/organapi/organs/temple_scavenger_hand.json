@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6臂§r §c火2§r §9熔炼收益§r §7低§r"
+    "§6臂§r §c火2§r §9遗迹搜刮§r §7低§r"
   ],
   "tags": [
     "vanillaDesert",
@@ -26,56 +26,8 @@
           "hidden": true
         }
       ],
-      "events": [
-        {
-          "type": "mine",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:temple_scavenger_hand_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaDesert_resonance",
-              "amount": 2,
-              "source": "vanillaDesert_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "grant_items",
-          "point_type": "runtime",
-          "point_id": "kubejs:temple_scavenger_hand_loot",
-          "consume_points": true,
-          "max_consume": 1,
-          "rolls": 1,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:cactus",
-              "count": 2,
-              "weight": 3
-            },
-            {
-              "item": "minecraft:sand",
-              "count": 4,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:gold_nugget",
-              "count": 3,
-              "weight": 1
-            }
-          ]
-        }
-      ]
+      "events": [],
+      "executions": []
     },
     {
       "conditions": [
@@ -85,51 +37,160 @@
             "callback": "vanillaDesert_temple_online",
             "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
           }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_heat_ge_2",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_2"
+          }
         }
       ],
       "grants": [],
       "events": [
         {
           "type": "mine",
+          "block": "minecraft:sandstone",
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:temple_scavenger_hand_bonus_loot",
+              "id": "kubejs:temple_scavenger_hand_relic_loot",
               "amount": 1,
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
-          "actions": []
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_relic_interact"
+        },
+        {
+          "type": "mine",
+          "block": "minecraft:cut_sandstone",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:temple_scavenger_hand_relic_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_relic_interact"
+        },
+        {
+          "type": "mine",
+          "block": "minecraft:chiseled_sandstone",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:temple_scavenger_hand_relic_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_relic_interact"
+        },
+        {
+          "type": "mine",
+          "block": "minecraft:smooth_sandstone",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:temple_scavenger_hand_relic_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_relic_interact"
+        },
+        {
+          "type": "mine",
+          "block": "minecraft:suspicious_sand",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:temple_scavenger_hand_relic_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_relic_interact"
+        },
+        {
+          "type": "vanillaDesert:relic_interact",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:temple_scavenger_hand_relic_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_relic_interact"
         }
       ],
       "executions": [
         {
-          "type": "grant_items",
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaDesert_grant_relic_loot"
+          },
           "point_type": "runtime",
-          "point_id": "kubejs:temple_scavenger_hand_bonus_loot",
+          "point_id": "kubejs:temple_scavenger_hand_relic_loot",
           "consume_points": true,
           "max_consume": 1,
-          "rolls": 2,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:cactus",
-              "count": 2,
-              "weight": 3
-            },
-            {
-              "item": "minecraft:sand",
-              "count": 4,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:gold_nugget",
-              "count": 3,
-              "weight": 1
-            }
-          ]
+          "custom_display_key": "message.organkubejs.execution.vanillaDesert_relic_interact"
         }
       ]
     }

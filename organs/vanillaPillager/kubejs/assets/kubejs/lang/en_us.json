@@ -161,5 +161,14 @@
    "point.organeffects.runtime.kubejs.trade_spinewheel_ledgers" : "Trade Spinewheel Ledgers",
    "point.organeffects.runtime.kubejs.trade_spinewheel_ledgers.desc" : "Temporary point used to grant ledger loot from the trade spinewheel.",
    "point.organeffects.skill.kubejs.dark_arrow_throat" : "Dark Arrow Throat",
-   "point.organeffects.skill.kubejs.dark_arrow_throat.desc" : "Launch a suppressive dark arrow. Scales with spell weave."
+   "point.organeffects.skill.kubejs.dark_arrow_throat.desc" : "Launch a suppressive dark arrow. Scales with spell weave.",
+   "point.organeffects.skill.kubejs.plunder_core" : "Plunder Core",
+   "point.organeffects.skill.kubejs.plunder_core.desc" : "Open an 8-second raid surge that drains raid heat each second and rewards marked executions.",
+   "point.organeffects.runtime.kubejs.plunder_core_extra_loot" : "Plunder Core Extra Loot",
+   "point.organeffects.runtime.kubejs.plunder_core_extra_loot.desc" : "One extra plunder roll granted by a marked execution.",
+   "item.kubejs.plunder_core" : "Plunder Core",
+   "item.kubejs.raider_banner_sash" : "Raider Banner Sash",
+   "item.kubejs.crossbow_string_winder" : "Crossbow String Winder",
+   "item.kubejs.wardrum_head" : "Wardrum Head",
+   "item.kubejs.plunder_knot" : "Plunder Knot"
 }

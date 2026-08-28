@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:common_brain",
+      "count": 1
+    },
+    {
+      "item": "minecraft:soul_sand",
+      "count": 2
+    },
+    {
+      "item": "minecraft:glowstone_dust",
+      "count": 4
+    },
+    {
+      "item": "kubejs:calcined_nether_bone_shard",
+      "count": 1
+    },
+    {
+      "item": "kubejs:fireward_distillate",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:soulfire_rhythm"
+  },
+  "fluid": {
+    "fluid": "minecraft:lava",
+    "amount": 250
+  }
+}

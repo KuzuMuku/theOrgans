@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "SIS",
+    " C "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:smooth_sandstone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:clock"
+    }
+  },
+  "result": {
+    "item": "kubejs:sundial_axle"
+  }
+}

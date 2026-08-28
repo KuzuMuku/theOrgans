@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6脊§r §5暗2§r §9暗域底盘§r §6中§r"
+    "§6脊§r §5暗2§r §9热度生产§r §6中§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -48,10 +48,7 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_raid",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_raid"
-          }
+          "callback": "vanillaPillager_raid_online"
         }
       ],
       "grants": [],
@@ -65,7 +62,7 @@
             {
               "type": "counter",
               "id": "kubejs:vanillaPillager_resonance",
-              "amount": 3,
+              "amount": 1,
               "source": "vanillaPillager_system"
             }
           ],
@@ -79,20 +76,54 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_outpost",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_outpost"
-          }
+          "callback": "vanillaPillager_raid_online"
         }
       ],
-      "grants": [
+      "grants": [],
+      "events": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 1,
+              "source": "vanillaPillager_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
-      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_raid_online"
+        },
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_aux_banner_sash"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 1,
+              "source": "vanillaPillager_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
       "executions": []
     }
   ]

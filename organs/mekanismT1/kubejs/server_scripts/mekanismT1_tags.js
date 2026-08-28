@@ -14,7 +14,8 @@ let MEKANISMT1_ORGAN_IDS = [
   "kubejs:overheat_diffusion_shoulder",
   "kubejs:cracking_mine_sac",
   "kubejs:refining_recovery_gland",
-  "kubejs:magnet_rail_leg_bolt"
+  "kubejs:magnet_rail_leg_bolt",
+  "kubejs:energy_loop_core"
 ]
 
 ServerEvents.tags('item', event => {

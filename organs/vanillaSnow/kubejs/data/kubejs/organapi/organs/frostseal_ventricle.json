@@ -5,53 +5,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6心§r §b冰3§r §9霜域底盘§r §e高§r"
+    "§6心§r §b冰3§r §9寒势自愈§r §e高§r"
   ],
   "tags": [
     "vanillaSnow",
     "core"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_set_major"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_frost_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_frost_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -88,26 +48,77 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
+          "callback": "vanillaSnow_resonance_25",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_25"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
           "config": {
-            "callback": "vanillaSnow_shell_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_shell_online"
-          }
+            "interval_ticks": 600
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:frostseal_ventricle_heal_ready",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
-      "grants": [
+      "executions": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        },
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_frostseal_heal",
+          "point_type": "runtime",
+          "point_id": "kubejs:frostseal_ventricle_heal_ready",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 1
+          "type": "kubejs_predicate",
+          "callback": "vanillaSnow_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_home"
         }
       ],
-      "events": [],
-      "executions": []
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 200
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:frostseal_ventricle_suppress_ready",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_frostseal_suppress",
+          "point_type": "runtime",
+          "point_id": "kubejs:frostseal_ventricle_suppress_ready",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

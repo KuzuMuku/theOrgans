@@ -19,57 +19,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaSnow_resonance",
-              "amount": 1,
-              "source": "vanillaSnow_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": [],
-          "distance": 2
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_crack_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_crack_ready"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaSnow_crack_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.movement_speed",
-            "per": 2
-          }
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -90,10 +39,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_frost_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_frost_online"
-          }
+          "callback": "vanillaSnow_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_home"
         }
       ],
       "grants": [
@@ -105,6 +52,24 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaSnow_frostvein_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_frostvein_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
           "amount": 1
         }
       ],

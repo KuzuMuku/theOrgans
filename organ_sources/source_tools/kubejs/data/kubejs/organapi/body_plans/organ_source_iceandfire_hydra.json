@@ -8,7 +8,7 @@
       "enabled": true
     },
     "organapi:chest": {
-      "capacity": 6,
+      "capacity": 7,
       "enabled": true
     },
     "organapi:abdomen": {

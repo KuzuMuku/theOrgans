@@ -15,46 +15,6 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaLushCaves_cave_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_cave_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaLushCaves_mycelium_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_mycelium_ready"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "static"
         }
       ],
@@ -84,8 +44,33 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_cave_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_cave_online"
+            "callback": "vanillaLushCaves_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_mycelium_ready",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_mycelium_ready"
           }
         }
       ],

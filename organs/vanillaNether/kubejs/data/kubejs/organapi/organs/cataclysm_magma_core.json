@@ -14,20 +14,24 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_set_major"
-          }
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 3, "hidden": true },
+        { "type": "attribute", "attribute": "minecraft:generic.max_health", "amount": 4 },
+        { "type": "attribute", "attribute": "minecraft:generic.armor", "amount": 1 },
+        { "type": "counter", "id": "kubejs:vanillaNether_resonance_capacity", "amount": 50 }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        { "type": "static" }
+      ],
+      "grants": [
+        { "type": "skill", "skill_name": "kubejs:cataclysm_magma_burst", "amount": 1 },
+        { "type": "skill", "skill_name": "kubejs:cataclysm_magma_upkeep", "amount": 1 }
       ],
       "events": [],
       "executions": []
@@ -36,18 +40,11 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_heat_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
-          }
+          "config": { "callback": "vanillaNether_soulfire_rhythm_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_soulfire_rhythm_online" }
         }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
-        }
+        { "type": "counter", "id": "kubejs:soulfire_rhythm_core", "amount": 1, "hidden": true }
       ],
       "events": [],
       "executions": []
@@ -55,70 +52,26 @@
     {
       "conditions": [
         {
-          "type": "static"
+          "type": "kubejs_predicate",
+          "config": { "callback": "vanillaNether_inferno_upkeep_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online" }
         }
       ],
       "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 3,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 4
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 1
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:vanillaNether_resonance_capacity",
-          "amount": 50
-        }
+        { "type": "attribute", "attribute": "irons_spellbooks:fire_spell_power", "amount": 2 }
       ],
-      "events": [
-        {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:vanillaNether_sacrifice_window",
-              "amount": 2,
-              "duration_ticks": 80
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
+      "events": [],
       "executions": []
     },
     {
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
-          }
+          "config": { "callback": "vanillaNether_magma_overload_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_magma_overload_online" }
         }
       ],
       "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 1
-        }
+        { "type": "attribute", "attribute": "irons_spellbooks:fire_spell_power", "amount": 1 },
+        { "type": "attribute", "attribute": "irons_spellbooks:cooldown_reduction", "amount": 1 }
       ],
       "events": [],
       "executions": []

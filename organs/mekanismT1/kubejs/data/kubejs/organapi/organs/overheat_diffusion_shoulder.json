@@ -6,11 +6,12 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6肩§r §d电2§r §9电刃近战§r §7低§r"
+    "§6肩§r §d电2§r §9过热泄压§r §7低§r"
   ],
   "tags": [
     "mekanismT1",
-    "melee"
+    "melee",
+    "heat"
   ],
   "effects": [
     {
@@ -37,14 +38,33 @@
           "type": "attacked",
           "add_points": [
             {
-              "type": "runtime",
-              "id": "kubejs:mek_t1_heat_cycle",
+              "type": "counter",
+              "id": "kubejs:mek_t1_overheat_stacks",
               "amount": 1,
-              "duration_ticks": 80
+              "source": "kubejs_mek_system"
             },
             {
               "type": "runtime",
-              "id": "kubejs:overheat_diffusion_shoulder_strike",
+              "id": "kubejs:overheat_diffusion_buildup",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:mek_t1_overheat_stacks",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:overheat_diffusion_buildup",
               "amount": 1,
               "duration_ticks": 2
             }
@@ -55,14 +75,14 @@
       ],
       "executions": [
         {
-          "type": "damage_target",
-          "point_type": "runtime",
-          "point_id": "kubejs:overheat_diffusion_shoulder_strike",
-          "amount": 3.0,
+          "type": "kubejs_nearby_entities",
           "config": {
+            "callback": "mekanismT1_overheat_buildup",
             "radius": 4.0
           },
-          "consume_points": true,
+          "point_type": "runtime",
+          "point_id": "kubejs:overheat_diffusion_buildup",
+          "consume_points": false,
           "max_consume": 1
         }
       ]
@@ -72,47 +92,37 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_heat_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_online"
+            "callback": "mekanismT1_hot_zone",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_hot_zone"
           }
         }
       ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        }
-      ],
+      "grants": [],
       "events": [
         {
-          "type": "attacked",
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
           "add_points": [
             {
-              "type": "mark",
-              "id": "kubejs:mekanismT1_mark",
-              "amount": 1
+              "type": "counter",
+              "id": "kubejs:mek_t1_overheat_stacks",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:overheat_diffusion_buildup",
+              "amount": 1,
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
           "actions": []
         }
       ],
-      "executions": [
-        {
-          "type": "kubejs_target_call",
-          "config": {
-            "callback": "common_apply_target_mark_effect"
-          },
-          "point_type": "mark",
-          "point_id": "kubejs:mekanismT1_mark",
-          "effect": "minecraft:weakness",
-          "duration_ticks": 60,
-          "amplifier": 0,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
+      "executions": []
     }
   ]
 }

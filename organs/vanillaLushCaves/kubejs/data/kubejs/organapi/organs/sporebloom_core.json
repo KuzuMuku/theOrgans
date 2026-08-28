@@ -1,0 +1,146 @@
+{
+  "item": "kubejs:sporebloom_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §2草4§r §9孢苞主核§r §e毕业§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "core",
+    "flower"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:nature_spell_power",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "kubejs:sporebloom_core",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_spore_bloom_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:nature_spell_power",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 20
+          },
+          "add_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaLushCaves_spore_bloom_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaLushCaves:spore_bloom_pulse",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:vanillaLushCaves_spore_bloom_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaLushCaves_spore_bloom_pulse"
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:vanillaLushCaves_spore_bloom_pulse",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

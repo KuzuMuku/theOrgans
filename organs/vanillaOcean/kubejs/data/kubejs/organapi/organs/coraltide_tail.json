@@ -46,30 +46,29 @@
           "type": "deal_damage",
           "add_points": [
             {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
+              "type": "runtime",
+              "id": "kubejs:coraltide_tail_pressure_request",
               "amount": 3,
-              "source": "vanillaOcean_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "mine",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
-              "amount": 2,
-              "source": "vanillaOcean_system"
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
           "actions": []
         }
       ],
-      "executions": []
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaOcean_pressurize",
+            "amount": 3
+          },
+          "point_type": "runtime",
+          "point_id": "kubejs:coraltide_tail_pressure_request",
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     },
     {
       "conditions": [

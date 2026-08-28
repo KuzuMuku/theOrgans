@@ -43,8 +43,8 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_has_chase",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_has_chase"
+            "callback": "vanillaEnd_air_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
           }
         }
       ],
@@ -85,8 +85,8 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_home"
+            "callback": "vanillaEnd_ender_tether_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_ender_tether_online"
           }
         }
       ],
@@ -94,11 +94,6 @@
         {
           "type": "attribute",
           "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
           "amount": 1
         }
       ],

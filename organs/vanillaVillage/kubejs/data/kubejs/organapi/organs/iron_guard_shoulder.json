@@ -16,7 +16,11 @@
     {
       "conditions": [
         {
-          "type": "static"
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_no_bell_ward",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_no_bell_ward"
+          }
         }
       ],
       "grants": [
@@ -127,6 +131,98 @@
       ],
       "events": [],
       "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_bell_ward_no_rope",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_no_rope"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:iron_guard_shoulder_ward_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:iron_guard_shoulder_ward_strike",
+          "amount": 4.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_bell_ward_rope",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_rope"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:iron_guard_shoulder_ward_strike_rope",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "kubejs:iron_guard_shoulder_ward_strike_rope",
+          "amount": 6.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
     }
   ]
 }

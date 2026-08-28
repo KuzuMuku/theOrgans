@@ -10,7 +10,12 @@ let VANILLALUSHCAVES_ORGAN_IDS = [
   "kubejs:mycelium_sole",
   "kubejs:brightpod_sac",
   "kubejs:sporebed_spleen",
-  "kubejs:gloommoss_crown"
+  "kubejs:gloommoss_crown",
+  "kubejs:sporebloom_core",
+  "kubejs:mycelium_bridge",
+  "kubejs:spore_conduit",
+  "kubejs:glow_bed",
+  "kubejs:root_network"
 ]
 
 ServerEvents.tags('item', event => {

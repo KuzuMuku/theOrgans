@@ -83,6 +83,44 @@
             "callback": "vanillaVillage_has_trade",
             "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
           }
+        },
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_village_ledger",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_village_ledger"
+          }
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaVillage_has_trade",
+            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
+          }
         }
       ],
       "grants": [],

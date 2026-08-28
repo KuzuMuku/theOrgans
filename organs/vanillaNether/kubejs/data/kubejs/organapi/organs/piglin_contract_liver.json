@@ -14,8 +14,22 @@
   "effects": [
     {
       "conditions": [
+        { "type": "static" }
+      ],
+      "grants": [
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 4, "hidden": true },
+        { "type": "attribute", "attribute": "irons_spellbooks:max_mana", "amount": 40 },
+        { "type": "attribute", "attribute": "irons_spellbooks:mana_regen", "amount": 1 },
+        { "type": "counter", "id": "kubejs:vanillaNether_resonance_capacity", "amount": 8 }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
         {
-          "type": "static"
+          "type": "kubejs_predicate",
+          "config": { "callback": "vanillaNether_contract_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_contract_online" }
         }
       ],
       "grants": [],
@@ -24,18 +38,7 @@
           "type": "organironspell:spell_cast",
           "school": "irons_spellbooks:fire",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:piglin_contract_liver_spell_loop",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 2,
-              "source": "vanillaNether_system"
-            }
+            { "type": "runtime", "id": "kubejs:piglin_contract_liver_mana_request", "amount": 1, "duration_ticks": 2 }
           ],
           "consume_points": [],
           "actions": []
@@ -45,69 +48,12 @@
         {
           "type": "organironspell:restore_mana",
           "point_type": "runtime",
-          "point_id": "kubejs:piglin_contract_liver_spell_loop",
-          "amount": 4,
+          "point_id": "kubejs:piglin_contract_liver_mana_request",
+          "amount": 8,
           "consume_points": true,
           "max_consume": 1
         }
       ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 4,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:max_mana",
-          "amount": 40
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:vanillaNether_resonance_capacity",
-          "amount": 8
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_home"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:max_mana",
-          "amount": 20
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:mana_regen",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
     }
   ]
 }

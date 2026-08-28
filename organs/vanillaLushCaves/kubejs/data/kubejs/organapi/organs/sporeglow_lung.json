@@ -18,59 +18,6 @@
           "type": "static"
         }
       ],
-      "grants": [],
-      "events": [
-        {
-          "type": "organironspell:spell_hit",
-          "school": "irons_spellbooks:nature",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:sporeglow_lung_spell_echo",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaLushCaves_resonance",
-              "amount": 2,
-              "source": "vanillaLushCaves_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "damage_target",
-          "point_type": "runtime",
-          "point_id": "kubejs:sporeglow_lung_spell_echo",
-          "amount": 2.0,
-          "config": {
-            "radius": 4.0
-          },
-          "consume_points": true,
-          "max_consume": 1
-        },
-        {
-          "type": "apply_target_mob_effect",
-          "point_type": "runtime",
-          "point_id": "kubejs:sporeglow_lung_spell_echo",
-          "effect": "minecraft:glowing",
-          "duration_ticks": 80,
-          "amplifier": 0,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
       "grants": [
         {
           "type": "organ_stat",
@@ -89,16 +36,48 @@
           "amount": 1
         }
       ],
-      "events": [],
-      "executions": []
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "mark",
+              "id": "kubejs:vanillaLushCaves_mark",
+              "amount": 1,
+              "source": "vanillaLushCaves_system"
+            },
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaLushCaves_resonance",
+              "amount": 1,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "mark",
+          "point_id": "kubejs:vanillaLushCaves_mark",
+          "effect": "minecraft:glowing",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": false,
+          "max_consume": 1
+        }
+      ]
     },
     {
       "conditions": [
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_spore_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_online"
+            "callback": "vanillaLushCaves_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
           }
         }
       ],

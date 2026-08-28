@@ -6,38 +6,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6腿§r §c火1§r §9熔地机动§r §7低§r"
+    "§6腿§r §c火1§r §9沙地机动§r §7低§r"
   ],
   "tags": [
     "vanillaDesert",
     "movement"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaDesert_resonance",
-              "amount": 1,
-              "source": "vanillaDesert_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": [],
-          "distance": 2
-        }
-      ],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -63,35 +38,75 @@
     {
       "conditions": [
         {
+          "type": "stepon",
+          "block_tag": "minecraft:sand"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_daylight_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_daylight_online"
+            "callback": "vanillaDesert_home",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
           }
         }
       ],
       "grants": [
         {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaDesert_daylight_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.movement_speed",
-            "per": 2
-          }
-        },
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
         {
-          "type": "derived",
-          "amount": 1,
+          "type": "kubejs_predicate",
           "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaDesert_daylight_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.knockback_resistance",
-            "per": 3
+            "callback": "vanillaDesert_sand_vein_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_sand_vein_online"
           }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaDesert_storm_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaDesert_storm_online"
+          }
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 2
         }
       ],
       "events": [],

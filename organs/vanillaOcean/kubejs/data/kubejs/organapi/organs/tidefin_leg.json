@@ -14,11 +14,12 @@
   ],
   "effects": [
     {
-      "conditions": [
-        {
-          "type": "static"
-        }
-      ],
+    "conditions": [
+      {
+        "type": "environment_state",
+        "state": "in_water"
+      }
+    ],
       "grants": [],
       "events": [
         {

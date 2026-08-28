@@ -1,0 +1,29 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:precision_table",
+  "ingredients": [
+    {
+      "item": "minecraft:sea_lantern",
+      "count": 1
+    },
+    {
+      "item": "minecraft:prismarine",
+      "count": 2
+    },
+    {
+      "item": "minecraft:bone_meal",
+      "count": 2
+    },
+    {
+      "item": "kubejs:tidal_paste",
+      "count": 2
+    }
+  ],
+  "result": {
+    "item": "kubejs:tidal_buoy"
+  },
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 500
+  }
+}

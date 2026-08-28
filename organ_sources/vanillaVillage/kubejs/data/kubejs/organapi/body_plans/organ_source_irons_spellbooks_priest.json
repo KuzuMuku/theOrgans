@@ -1,0 +1,35 @@
+{
+  "entity_types": [
+    "irons_spellbooks:priest"
+  ],
+  "parts": {
+    "organapi:head": {
+      "capacity": 2,
+      "enabled": true
+    },
+    "organapi:chest": {
+      "capacity": 6,
+      "enabled": true
+    },
+    "organapi:abdomen": {
+      "capacity": 5,
+      "enabled": true
+    },
+    "organapi:left_arm": {
+      "capacity": 1,
+      "enabled": true
+    },
+    "organapi:right_arm": {
+      "capacity": 1,
+      "enabled": true
+    },
+    "organapi:left_leg": {
+      "capacity": 1,
+      "enabled": true
+    },
+    "organapi:right_leg": {
+      "capacity": 1,
+      "enabled": true
+    }
+  }
+}

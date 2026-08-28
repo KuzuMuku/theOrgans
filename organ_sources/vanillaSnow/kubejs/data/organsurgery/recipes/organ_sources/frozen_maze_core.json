@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "aquamirae:dead_sea_scroll",
+      "count": 1
+    },
+    {
+      "item": "aquamirae:shell_horn",
+      "count": 1
+    },
+    {
+      "item": "aquamirae:frozen_key",
+      "count": 1
+    },
+    {
+      "item": "kubejs:quenched_ice_shard",
+      "count": 2
+    },
+    {
+      "item": "minecraft:blue_ice",
+      "count": 2
+    }
+  ],
+  "result": {
+    "item": "kubejs:frozen_maze_core"
+  },
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

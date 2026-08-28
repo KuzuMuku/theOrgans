@@ -15,7 +15,8 @@ let VANILLAPILLAGER_ORGAN_IDS = [
   "kubejs:raid_scavenger_hand",
   "kubejs:skirmish_arm",
   "kubejs:banner_spike_shoulder",
-  "kubejs:nightraid_tendon"
+  "kubejs:nightraid_tendon",
+  "kubejs:plunder_core"
 ]
 
 ServerEvents.tags('item', event => {

@@ -39,9 +39,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_snare_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_snare_ready"
-          }
+            "callback": "vanillaJungle_snare_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_snare_online"
         }
       ],
       "grants": [

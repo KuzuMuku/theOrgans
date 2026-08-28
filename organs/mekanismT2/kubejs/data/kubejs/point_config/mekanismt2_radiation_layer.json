@@ -1,0 +1,6 @@
+{
+  "point": "counter:kubejs:mek_t2_radiation_layer",
+  "sync_to_client": false,
+  "display_name_key": "point.organeffects.counter.kubejs.mek_t2_radiation_layer",
+  "priority": 20
+}

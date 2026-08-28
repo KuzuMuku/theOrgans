@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6头§r §2草4§r §9毒沼控场§r §7低§r"
+    "§6头§r §2草4§r §9施法节律§r §6中§r"
   ],
   "tags": [
     "vanillaLushCaves",
@@ -18,7 +18,24 @@
           "type": "static"
         }
       ],
-      "grants": [],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:nature_magic_resist",
+          "amount": 3
+        }
+      ],
       "events": [
         {
           "type": "organironspell:cooldown_added",
@@ -49,51 +66,18 @@
     {
       "conditions": [
         {
-          "type": "static"
-        }
-      ],
-      "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:grass_affinity",
-          "amount": 4,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:cooldown_reduction",
-          "amount": 2
-        },
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:nature_magic_resist",
-          "amount": 3
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_glow_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_online"
+            "callback": "vanillaLushCaves_glow_synergy",
+            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_synergy"
           }
         }
       ],
       "grants": [
         {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaLushCaves_glow_line",
-            "target_type": "attribute",
-            "target_attribute": "irons_spellbooks:casting_movespeed",
-            "per": 2
-          }
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
         }
       ],
       "events": [],

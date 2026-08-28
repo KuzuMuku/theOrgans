@@ -17,9 +17,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rooted_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
-          }
+            "callback": "vanillaJungle_rooted_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
         }
       ],
       "grants": [
@@ -27,32 +27,6 @@
           "type": "attribute",
           "attribute": "minecraft:generic.max_health",
           "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaJungle_canopy_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaJungle_bark_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.knockback_resistance",
-            "per": 2
-          }
         }
       ],
       "events": [],
@@ -90,22 +64,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaJungle_rainforest_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
-          }
+            "callback": "vanillaJungle_rainforest_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
         }
       ],
       "grants": [
         {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaJungle_bark_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.knockback_resistance",
-            "per": 2
-          }
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 2
         }
       ],
       "events": [],

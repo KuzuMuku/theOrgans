@@ -6,7 +6,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6臂§r §b冰3§r §9冰裂近战§r §7低§r"
+    "§6臂§r §b冰3§r §9近战上标§r §7低§r"
   ],
   "tags": [
     "vanillaSnow",
@@ -35,56 +35,19 @@
       "events": [
         {
           "type": "deal_damage",
+          "damage_type": "player",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:icechip_arm_strike",
-              "amount": 1,
-              "duration_ticks": 2
-            },
             {
               "type": "counter",
               "id": "kubejs:vanillaSnow_resonance",
               "amount": 1,
               "source": "vanillaSnow_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "apply_target_mob_effect",
-          "point_type": "runtime",
-          "point_id": "kubejs:icechip_arm_strike",
-          "effect": "minecraft:movement_slowdown",
-          "duration_ticks": 80,
-          "amplifier": 0,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_crack_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_crack_ready"
-          }
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "deal_damage",
-          "add_points": [
+            },
             {
-              "type": "mark",
-              "id": "kubejs:vanillaSnow_mark",
-              "amount": 1
+              "type": "runtime",
+              "id": "kubejs:icechip_arm_mark_ready",
+              "amount": 1,
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -94,38 +57,13 @@
       "executions": [
         {
           "type": "kubejs_target_call",
-          "config": {
-            "callback": "common_apply_target_mark_effect"
-          },
-          "point_type": "mark",
-          "point_id": "kubejs:vanillaSnow_mark",
-          "effect": "minecraft:movement_slowdown",
-          "duration_ticks": 60,
-          "amplifier": 0,
+          "callback": "vanillaSnow_melee_mark",
+          "point_type": "runtime",
+          "point_id": "kubejs:icechip_arm_mark_ready",
           "consume_points": true,
           "max_consume": 1
         }
       ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_shell_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_shell_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
     }
   ]
 }

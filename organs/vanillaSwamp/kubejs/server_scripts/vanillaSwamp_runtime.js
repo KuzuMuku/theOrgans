@@ -3,6 +3,8 @@ let BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
 let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
 let MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
 let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
+let ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
+let Items = Java.loadClass('net.minecraft.world.item.Items')
 let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
 let Registries = Java.loadClass('net.minecraft.core.registries.Registries')
 let HolderSet = Java.loadClass('net.minecraft.core.HolderSet')
@@ -20,7 +22,8 @@ let HOME = {
     "mangrove"
   ],
   "structures": [
-    "minecraft:swamp_hut"
+    "minecraft:swamp_hut",
+    "iceandfire:hydra_cave"
   ],
   "structure_radius": 8
 }
@@ -30,14 +33,14 @@ let RESOURCE = {
   "system": "vanillaSwamp_system",
   "capacity": "kubejs:vanillaSwamp_resonance_capacity",
   "current": "kubejs:vanillaSwamp_resonance",
-  "capacity_en": "Mire Venom Capacity",
-  "capacity_desc_en": "Maximum shared reserve for mire venom.",
-  "current_en": "Mire Venom",
-  "current_desc_en": "Shared swamp mire venom gathered by sludge, poison and wet decay.",
-  "capacity_zh": "沼腐毒势上限",
-  "capacity_desc_zh": "沼腐毒势可积累的最大上限。",
-  "current_zh": "沼腐毒势",
-  "current_desc_zh": "由污泥、毒素与潮湿腐化共同积累的沼腐毒势。",
+  "capacity_en": "Mire Venom Concentration Capacity",
+  "capacity_desc_en": "Maximum maintained mire venom concentration.",
+  "current_en": "Mire Venom Concentration",
+  "current_desc_en": "Rot-sown inoculation maintained by swamp sludge, poison, wet decay and hydra venom.",
+  "capacity_zh": "腐毒浓度上限",
+  "capacity_desc_zh": "腐毒浓度可维持的最大上限。",
+  "current_zh": "腐毒浓度",
+  "current_desc_zh": "由污泥、毒素、潮湿腐化与九头蛇毒液共同维持的腐殖接种量。",
   "generated": true
 }
 let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'vanillaSwamp_system'
@@ -53,10 +56,16 @@ let SOURCE_IDS = new Set([
   "kubejs:frogfin_sneak_leg",
   "kubejs:sporebog_lung",
   "kubejs:slime_mana_spleen",
-  "kubejs:witchbog_crown"
+  "kubejs:witchbog_crown",
+  "kubejs:hydra_venom_core",
+  "kubejs:mud_vein_conduit",
+  "kubejs:rot_hyphae",
+  "kubejs:swamp_gas_bladder",
+  "kubejs:rot_pump"
 ])
 let CORELINE_IDS = new Set([
-  "kubejs:silt_poison_heart"
+  "kubejs:silt_poison_heart",
+  "kubejs:hydra_venom_core"
 ])
 let SUPPORT_IDS = new Set([
   "kubejs:bog_rot_sac"
@@ -64,7 +73,8 @@ let SUPPORT_IDS = new Set([
 let VENOM_IDS = new Set([
   "kubejs:silt_poison_heart",
   "kubejs:bog_rot_sac",
-  "kubejs:poison_bloom_throat"
+  "kubejs:poison_bloom_throat",
+  "kubejs:hydra_venom_core"
 ])
 let SLIME_IDS = new Set([
   "kubejs:slime_shell",
@@ -106,6 +116,27 @@ let RANGED_IDS = new Set([
 let RESOURCE_IDS = new Set([
   "kubejs:slime_mana_spleen"
 ])
+let HYDRA_CORE_IDS = new Set([
+  "kubejs:hydra_venom_core"
+])
+let MUD_CONDUIT_IDS = new Set([
+  "kubejs:mud_vein_conduit"
+])
+let ROT_HYPHAE_IDS = new Set([
+  "kubejs:rot_hyphae"
+])
+let GAS_BLADDER_IDS = new Set([
+  "kubejs:swamp_gas_bladder"
+])
+let ROT_PUMP_IDS = new Set([
+  "kubejs:rot_pump"
+])
+let BONUS_LOOT = [
+  { item: 'minecraft:slime_ball', count: 2, weight: 3 },
+  { item: 'minecraft:lily_pad', count: 1, weight: 2 },
+  { item: 'minecraft:spider_eye', count: 1, weight: 1 }
+]
+let ROTTING_WINDOW = 'kubejs:vanillaSwamp_rotting_window'
 
 let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE ? RESOURCE.current : null)
 let entityOf = Common.entityOf
@@ -126,6 +157,66 @@ let addEffect = Common.addEffect
 let installedSourceIds = Common.installedSourceIds
 let countMatching = Common.countMatching
 let hasMatching = Common.hasMatching
+
+function setOepRuntimePoint(player, pointId, value, ticks) {
+  if (!player) {
+    return
+  }
+  OrganKubeJS.setRuntimePoint(entityOf(player), pointKey('runtime', pointId), value, ticks)
+}
+
+function clearOepRuntimePoint(player, pointId) {
+  if (!player) {
+    return
+  }
+  OrganKubeJS.clearRuntimePoint(entityOf(player), pointKey('runtime', pointId))
+}
+
+function grantWeighted(player, entries) {
+  if (!player || !entries || entries.length === 0) {
+    return
+  }
+  let entity = entityOf(player)
+  let totalWeight = 0
+  for (let i = 0; i < entries.length; i++) {
+    totalWeight += Number(entries[i].weight)
+  }
+  if (totalWeight <= 0) {
+    return
+  }
+  let roll = Math.floor(Math.random() * totalWeight)
+  for (let i = 0; i < entries.length; i++) {
+    let entry = entries[i]
+    roll -= Number(entry.weight)
+    if (roll >= 0) {
+      continue
+    }
+    let location = ResourceLocation.tryParse(entry.item)
+    if (!location) {
+      continue
+    }
+    let item = BuiltInRegistries.ITEM.get(location)
+    if (!item || item === Items.AIR) {
+      continue
+    }
+    let stack = new ItemStack(item, Math.max(1, Number(entry.count)))
+    if (!entity.addItem(stack)) {
+      entity.spawnAtLocation(stack)
+    }
+    return
+  }
+}
+
+function swampMarkedTargets(player, radius) {
+  let targets = targetsSortedByDistance(player, radius)
+  let marked = []
+  for (let i = 0; i < targets.length; i++) {
+    if (OrganKubeJS.getMark(targets[i], 'kubejs:vanillaSwamp_mark') > 0) {
+      marked.push(targets[i])
+    }
+  }
+  return marked
+}
 
 function applyLinearLinks(player) {
   if (!player) {
@@ -387,6 +478,37 @@ function homeMatch(player) {
   })
 }
 
+function overworldSwampBiome(player) {
+  if (!player) {
+    return false
+  }
+  let entity = entityOf(player)
+  if (dimensionId(entity) !== 'minecraft:overworld') {
+    return false
+  }
+  let biome = biomeId(entity).toLowerCase()
+  return biome.indexOf('swamp') >= 0 || biome.indexOf('mangrove') >= 0
+}
+
+function nearSwampStructure(player) {
+  if (!player) {
+    return false
+  }
+  return hasNearbyStructure(entityOf(player), HOME.structures, HOME.structure_radius)
+}
+
+function venomWindow(player) {
+  return nearSwampStructure(player)
+}
+
+function rotWindow(player) {
+  return overworldSwampBiome(player) || nearSwampStructure(player)
+}
+
+function slimeWindow(player) {
+  return overworldSwampBiome(player)
+}
+
 let sqDistanceBetween = Common.sqDistanceBetween
 
 function targetsSortedByDistance(player, radius) {
@@ -515,6 +637,30 @@ OrganKubejsEvents.predicate('vanillaSwamp_rot_online', event => {
   return vanillaSwampPredicateResult(event, !!event.player && getRuntimePoint(event.player, 'kubejs:vanillaSwamp_rot_window') > 0)
 })
 
+OrganKubejsEvents.predicate('vanillaSwamp_hydra_online', event => {
+  return vanillaSwampPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), HYDRA_CORE_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaSwamp_rotting_online', event => {
+  return vanillaSwampPredicateResult(event, !!event.player && getRuntimePoint(event.player, ROTTING_WINDOW) > 0)
+})
+
+OrganKubejsEvents.predicate('vanillaSwamp_mud_conduit_online', event => {
+  return vanillaSwampPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), MUD_CONDUIT_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaSwamp_rot_hyphae_online', event => {
+  return vanillaSwampPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), ROT_HYPHAE_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaSwamp_rot_pump_online', event => {
+  return vanillaSwampPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), ROT_PUMP_IDS))
+})
+
+OrganKubejsEvents.predicate('vanillaSwamp_gas_bladder_online', event => {
+  return vanillaSwampPredicateResult(event, !!event.player && hasMatching(installedSourceIds(event.player), GAS_BLADDER_IDS))
+})
+
 
 
 
@@ -527,15 +673,36 @@ PlayerEvents.tick(event => {
     setRuntimePoint(player, 'kubejs:vanillaSwamp_slime_window', 0)
     setRuntimePoint(player, 'kubejs:vanillaSwamp_venom_window', 0)
     setRuntimePoint(player, 'kubejs:vanillaSwamp_rot_window', 0)
+    clearOepRuntimePoint(player, ROTTING_WINDOW)
     applyLinearLinks(player)
     return
   }
   let current = Math.min(capacity, getCounter(player, RESOURCE.current))
   setCounter(player, RESOURCE.current, current)
   let mire = homeMatch(player) || isWet(player) || isRainingHere(player)
-  let slime = slimeTerrain(player)
-  let venom = mire && crowdedBog(player)
-  let rot = slime || hasNearbyBlock(entityOf(player), ['minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:moss_block'], 4)
+  let slime = slimeWindow(player)
+  let venom = venomWindow(player)
+  let rot = rotWindow(player)
+  let tickCount = Number(entityOf(player).tickCount)
+  let installed = installedSourceIds(player)
+  let decayInterval = hasMatching(installed, ROT_PUMP_IDS) ? 120 : 60
+  if (tickCount % decayInterval === 0 && !rot && getCounter(player, RESOURCE.current) > 0) {
+    setCounter(player, RESOURCE.current, getCounter(player, RESOURCE.current) - 1)
+  }
+  if (tickCount % 20 === 0 && getRuntimePoint(player, ROTTING_WINDOW) > 0) {
+    let spent = spendResource(player, 2)
+    if (spent <= 0) {
+      clearOepRuntimePoint(player, ROTTING_WINDOW)
+    } else {
+      let marked = swampMarkedTargets(player, 8)
+      let reach = 3 + Math.min(5, marked.length)
+      marked = swampMarkedTargets(player, reach)
+      for (let i = 0; i < marked.length; i++) {
+        addEffect(marked[i], MobEffects.POISON, 60, 0)
+        addEffect(marked[i], MobEffects.MOVEMENT_SLOWDOWN, 60, 0)
+      }
+    }
+  }
   setRuntimePoint(player, 'kubejs:vanillaSwamp_mire_window', mire ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaSwamp_slime_window', slime ? 1 : 0)
   setRuntimePoint(player, 'kubejs:vanillaSwamp_venom_window', venom ? 1 : 0)
@@ -543,18 +710,50 @@ PlayerEvents.tick(event => {
   applyLinearLinks(player)
 })
 
+OrganKubejsEvents.pointAction('vanillaSwamp_spend_bonus_loot', event => {
+  let player = event.player
+  if (!player || spendResource(player, 2) <= 0) {
+    return 0
+  }
+  grantWeighted(player, BONUS_LOOT)
+  grantWeighted(player, BONUS_LOOT)
+  return event.pointsConsume ? 1 : 0
+})
 
 OrganKubejsEvents.skillCast('poison_bloom_throat_cast', event => {
   let player = event.player
   if (!player || !resourceReady(player, 12)) {
     return false
   }
-  let scaledDuration = 100 + getLinkCounter(player, 'kubejs:vanillaSwamp_venom_line') * 20
+  let scaledDuration = Math.min(140, 100 + getLinkCounter(player, 'kubejs:vanillaSwamp_venom_line') * 20)
   spendResource(player, 12)
   let targets = targetsSortedByDistance(player, 4.5)
   for (let i = 0; i < targets.length; i++) {
     addEffect(targets[i], MobEffects.POISON, scaledDuration, 0)
     addEffect(targets[i], MobEffects.MOVEMENT_SLOWDOWN, scaledDuration, 0)
+  }
+  return true
+})
+
+OrganKubejsEvents.skillCast('hydra_venom_core_cast', event => {
+  let player = event.player
+  if (!player || !hasMatching(installedSourceIds(player), HYDRA_CORE_IDS) || !resourceReady(player, 20)) {
+    return false
+  }
+  setOepRuntimePoint(player, ROTTING_WINDOW, 1, 120)
+  return true
+})
+
+OrganKubejsEvents.skillCast('swamp_gas_bladder_cast', event => {
+  let player = event.player
+  if (!player || !resourceReady(player, 3)) {
+    return false
+  }
+  spendResource(player, 3)
+  let targets = targetsSortedByDistance(player, 5)
+  for (let i = 0; i < targets.length; i++) {
+    addEffect(targets[i], MobEffects.POISON, 40, 0)
+    addEffect(targets[i], MobEffects.MOVEMENT_SLOWDOWN, 40, 0)
   }
   return true
 })

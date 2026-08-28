@@ -1,0 +1,29 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "kubejs:quenched_ice_shard",
+      "count": 2
+    },
+    {
+      "item": "aquamirae:ship_graveyard_echo",
+      "count": 1
+    },
+    {
+      "item": "aquamirae:jellyfish_jelly",
+      "count": 2
+    },
+    {
+      "item": "minecraft:clock",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:icecore_rhythm"
+  },
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  }
+}

@@ -10,7 +10,8 @@ let VANILLADESERT_ORGAN_IDS = [
   "kubejs:wind_erosion_arm",
   "kubejs:cactus_tendon",
   "kubejs:drysand_iris",
-  "kubejs:temple_scavenger_hand"
+  "kubejs:temple_scavenger_hand",
+  "kubejs:ancient_remnant_core"
 ]
 
 ServerEvents.tags('item', event => {

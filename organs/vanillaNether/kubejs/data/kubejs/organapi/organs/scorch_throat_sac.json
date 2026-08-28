@@ -14,42 +14,11 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "static"
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 2,
-          "hidden": true
-        },
-        {
-          "type": "skill",
-          "skill_name": "kubejs:scorch_throat_sac",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_heat_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 1
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 2, "hidden": true },
+        { "type": "skill", "skill_name": "kubejs:scorch_throat_sac", "amount": 1 }
       ],
       "events": [],
       "executions": []

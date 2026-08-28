@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6肾§r §5暗2§r §9幽影续航§r §7低§r"
+    "§6肾§r §5暗2§r §9战后撤离§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -26,40 +26,46 @@
           "hidden": true
         }
       ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_exile_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_exile_online"
+        }
+      ],
+      "grants": [],
       "events": [
         {
-          "type": "deal_damage",
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
           "add_points": [
             {
               "type": "runtime",
               "id": "kubejs:exile_kidneysheath_recover",
               "amount": 1,
               "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 1,
-              "source": "vanillaPillager_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:exile_kidneysheath_recover",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 2,
-              "source": "vanillaPillager_system"
             }
           ],
           "consume_points": [],
@@ -72,45 +78,6 @@
           "point_type": "runtime",
           "point_id": "kubejs:exile_kidneysheath_recover",
           "amount": 1.0,
-          "consume_points": true,
-          "max_consume": 1
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_online"
-          }
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "attacked",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:exile_kidneysheath_recover_pulse",
-              "amount": 1,
-              "duration_ticks": 2
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
-        {
-          "type": "apply_mob_effect",
-          "point_type": "runtime",
-          "point_id": "kubejs:exile_kidneysheath_recover_pulse",
-          "effect": "minecraft:resistance",
-          "duration_ticks": 80,
-          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1
         }

@@ -52,6 +52,11 @@
         {
           "id": "kubejs:sun_ventricle"
         }
+      ],
+      "6": [
+        {
+          "id": "kubejs:ancient_remnant_core"
+        }
       ]
     },
     "organapi:abdomen": {

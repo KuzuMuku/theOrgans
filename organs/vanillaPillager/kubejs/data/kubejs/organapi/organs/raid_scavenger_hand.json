@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6臂§r §5暗2§r §9劫掠收益§r §7低§r"
+    "§6臂§r §5暗2§r §9结构搜刮§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -33,10 +33,15 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_plunder",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_plunder"
-          }
+          "callback": "vanillaPillager_home"
+        },
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_resource_at_least_3"
+        },
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_no_plunder_knot"
         }
       ],
       "grants": [],
@@ -44,23 +49,24 @@
         {
           "type": "tick",
           "config": {
-            "interval_ticks": 80
+            "interval_ticks": 100
           },
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:raid_scavenger_hand_plunder",
+              "id": "kubejs:raid_scavenger_structure_loot",
               "amount": 1,
               "duration_ticks": 2
-            },
+            }
+          ],
+          "consume_points": [
             {
               "type": "counter",
               "id": "kubejs:vanillaPillager_resonance",
-              "amount": 2,
+              "amount": 3,
               "source": "vanillaPillager_system"
             }
           ],
-          "consume_points": [],
           "actions": []
         }
       ],
@@ -68,7 +74,7 @@
         {
           "type": "grant_items",
           "point_type": "runtime",
-          "point_id": "kubejs:raid_scavenger_hand_plunder",
+          "point_id": "kubejs:raid_scavenger_structure_loot",
           "consume_points": true,
           "max_consume": 1,
           "rolls": 1,
@@ -103,10 +109,15 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_outpost",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_outpost"
-          }
+          "callback": "vanillaPillager_home"
+        },
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_resource_at_least_2"
+        },
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_aux_plunder_knot"
         }
       ],
       "grants": [],
@@ -114,17 +125,24 @@
         {
           "type": "tick",
           "config": {
-            "interval_ticks": 120
+            "interval_ticks": 100
           },
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:raid_scavenger_hand_plunder_bonus",
+              "id": "kubejs:raid_scavenger_structure_loot_knot",
               "amount": 1,
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaPillager_resonance",
+              "amount": 2,
+              "source": "vanillaPillager_system"
+            }
+          ],
           "actions": []
         }
       ],
@@ -132,7 +150,7 @@
         {
           "type": "grant_items",
           "point_type": "runtime",
-          "point_id": "kubejs:raid_scavenger_hand_plunder_bonus",
+          "point_id": "kubejs:raid_scavenger_structure_loot_knot",
           "consume_points": true,
           "max_consume": 1,
           "rolls": 2,

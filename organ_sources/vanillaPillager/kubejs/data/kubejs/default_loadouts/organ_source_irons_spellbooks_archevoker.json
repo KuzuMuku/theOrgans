@@ -1,0 +1,135 @@
+{
+  "priority": 1000,
+  "entity_types": [
+    "irons_spellbooks:archevoker"
+  ],
+  "entity_tags": [],
+  "placements": {
+    "organapi:head": {
+      "0": [
+        {
+          "id": "organdefaults:common_skull"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_brain"
+        }
+      ],
+      "2": [
+        {
+          "id": "kubejs:dark_arrow_throat"
+        }
+      ],
+      "3": [
+        {
+          "id": "kubejs:horn_crown"
+        }
+      ]
+    },
+    "organapi:chest": {
+      "0": [
+        {
+          "id": "organdefaults:common_heart"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_lungs"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:reinforced_rib_cage"
+        }
+      ],
+      "3": [
+        {
+          "id": "organdefaults:keen_spine"
+        }
+      ],
+      "4": [
+        {
+          "id": "kubejs:breach_gland"
+        }
+      ],
+      "5": [
+        {
+          "id": "kubejs:plunder_core"
+        }
+      ]
+    },
+    "organapi:abdomen": {
+      "0": [
+        {
+          "id": "organdefaults:common_liver"
+        }
+      ],
+      "1": [
+        {
+          "id": "organdefaults:common_kidney_pair"
+        }
+      ],
+      "2": [
+        {
+          "id": "organdefaults:common_digestive_tract"
+        }
+      ]
+    },
+    "organapi:left_arm": {
+      "0": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_arm": {
+      "0": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    },
+    "organapi:left_leg": {
+      "0": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    },
+    "organapi:right_leg": {
+      "0": [
+        {
+          "id": "organdefaults:muscle_bundle"
+        }
+      ]
+    }
+  },
+  "point_adjustments": [
+    {
+      "source": "organdefaults:balance/archevoker_elite",
+      "point_key": "organ_stat:organeffects:cardiac_output",
+      "amount": -3
+    },
+    {
+      "source": "organdefaults:balance/archevoker_elite",
+      "point_key": "organ_stat:organeffects:oxygen_efficiency",
+      "amount": -2
+    },
+    {
+      "source": "organdefaults:balance/archevoker_elite",
+      "point_key": "organ_stat:organeffects:neural_conduction",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/archevoker_elite",
+      "point_key": "organ_stat:organeffects:muscular_strength",
+      "amount": -6
+    },
+    {
+      "source": "organdefaults:balance/archevoker_elite",
+      "point_key": "attribute:minecraft:generic.armor",
+      "amount": -3
+    }
+  ]
+}

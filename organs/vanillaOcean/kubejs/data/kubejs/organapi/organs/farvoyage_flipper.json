@@ -16,31 +16,6 @@
     {
       "conditions": [
         {
-          "type": "static"
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "move",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
-              "amount": 1,
-              "source": "vanillaOcean_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": [],
-          "distance": 2
-        }
-      ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "kubejs_predicate",
           "config": {
             "callback": "vanillaOcean_has_chase",

@@ -1,0 +1,6 @@
+{
+  "point": "counter:kubejs:mek_t2_fuel",
+  "sync_to_client": true,
+  "display_name_key": "point.organeffects.counter.kubejs.mek_t2_fuel",
+  "priority": 15
+}

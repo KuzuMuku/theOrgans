@@ -15,7 +15,12 @@ let VANILLAVILLAGE_ORGAN_IDS = [
   "kubejs:offering_gland",
   "kubejs:iron_guard_shoulder",
   "kubejs:travel_legplate",
-  "kubejs:trade_scavenger_hand"
+  "kubejs:trade_scavenger_hand",
+  "kubejs:village_ledger",
+  "kubejs:bell_rope_winder",
+  "kubejs:holy_path_relay",
+  "kubejs:mending_suture",
+  "kubejs:village_bell_core"
 ]
 
 ServerEvents.tags('item', event => {

@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6腺§r §5暗2§r §9暗蚀法增§r §7低§r"
+    "§6腺§r §5暗2§r §9法系标记§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -42,26 +42,6 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_curse",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_curse"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "irons_spellbooks:evocation_spell_power",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
           "type": "static"
         }
       ],
@@ -73,15 +53,15 @@
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:breach_gland_curse",
+              "id": "kubejs:breach_gland_mark",
               "amount": 1,
               "duration_ticks": 2
             },
             {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 2,
-              "source": "vanillaPillager_system"
+              "type": "runtime",
+              "id": "kubejs:breach_gland_weakness",
+              "amount": 1,
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -90,22 +70,19 @@
       ],
       "executions": [
         {
-          "type": "damage_target",
+          "type": "kubejs_target_call",
+          "callback": "common_apply_target_mark_effect",
           "point_type": "runtime",
-          "point_id": "kubejs:breach_gland_curse",
-          "amount": 2.0,
-          "config": {
-            "radius": 4.0
-          },
+          "point_id": "kubejs:breach_gland_mark",
           "consume_points": true,
           "max_consume": 1
         },
         {
           "type": "apply_target_mob_effect",
           "point_type": "runtime",
-          "point_id": "kubejs:breach_gland_curse",
+          "point_id": "kubejs:breach_gland_weakness",
           "effect": "minecraft:weakness",
-          "duration_ticks": 80,
+          "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": true,
           "max_consume": 1

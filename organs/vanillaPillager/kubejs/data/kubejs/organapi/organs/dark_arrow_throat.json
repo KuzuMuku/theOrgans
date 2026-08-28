@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6喉§r §5暗2§r §9暗袭远压§r §7低§r"
+    "§6喉§r §5暗2§r §9热度主动§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -28,26 +28,6 @@
         {
           "type": "skill",
           "skill_name": "kubejs:dark_arrow_throat",
-          "amount": 1
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
           "amount": 1
         }
       ],

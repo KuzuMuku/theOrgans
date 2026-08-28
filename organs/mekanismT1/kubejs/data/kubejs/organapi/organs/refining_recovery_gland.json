@@ -5,11 +5,12 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6腺§r §d电2§r §9工业收益§r §7低§r"
+    "§6腺§r §d电2§r §9精炼回收§r §7低§r"
   ],
   "tags": [
     "mekanismT1",
-    "resource"
+    "resource",
+    "refinery"
   ],
   "effects": [
     {
@@ -28,38 +29,39 @@
       ],
       "events": [
         {
-          "type": "mine",
+          "type": "kill",
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:refining_recovery_gland_loot",
+              "id": "kubejs:refining_recovery_gland_recover",
               "amount": 1,
               "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:mek_energy",
-              "amount": 2,
-              "source": "kubejs_mek_system"
             }
           ],
           "consume_points": [],
           "actions": []
         },
         {
-          "type": "kill",
+          "type": "mine",
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:refining_recovery_gland_loot",
+              "id": "kubejs:refining_recovery_gland_recover",
               "amount": 1,
               "duration_ticks": 2
-            },
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "mekanismT1:refinery",
+          "add_points": [
             {
-              "type": "counter",
-              "id": "kubejs:mek_energy",
-              "amount": 2,
-              "source": "kubejs_mek_system"
+              "type": "runtime",
+              "id": "kubejs:refining_recovery_gland_recover",
+              "amount": 1,
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -68,31 +70,15 @@
       ],
       "executions": [
         {
-          "type": "grant_items",
+          "type": "kubejs_call",
+          "config": {
+            "callback": "mekanismT1_energy_recover",
+            "amount": 2
+          },
           "point_type": "runtime",
-          "point_id": "kubejs:refining_recovery_gland_loot",
-          "consume_points": true,
-          "max_consume": 1,
-          "rolls": 1,
-          "unique": false,
-          "drop_if_full": true,
-          "items": [
-            {
-              "item": "minecraft:redstone",
-              "count": 6,
-              "weight": 3
-            },
-            {
-              "item": "mekanism:ingot_osmium",
-              "count": 1,
-              "weight": 2
-            },
-            {
-              "item": "minecraft:iron_nugget",
-              "count": 6,
-              "weight": 1
-            }
-          ]
+          "point_id": "kubejs:refining_recovery_gland_recover",
+          "consume_points": false,
+          "max_consume": 1
         }
       ]
     },
@@ -101,13 +87,26 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_has_support",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_has_support"
+            "callback": "mekanismT1_refinery_online",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_refinery_online"
           }
         }
       ],
       "grants": [],
       "events": [
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:refining_recovery_gland_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
         {
           "type": "mine",
           "add_points": [
@@ -122,7 +121,7 @@
           "actions": []
         },
         {
-          "type": "kill",
+          "type": "mekanismT1:refinery",
           "add_points": [
             {
               "type": "runtime",

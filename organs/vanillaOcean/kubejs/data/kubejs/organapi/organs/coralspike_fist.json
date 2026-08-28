@@ -36,19 +36,13 @@
         {
           "type": "deal_damage",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:coralspike_fist_strike",
-              "amount": 1,
-              "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaOcean_resonance",
-              "amount": 1,
-              "source": "vanillaOcean_system"
-            }
-          ],
+          {
+            "type": "runtime",
+            "id": "kubejs:coralspike_fist_strike",
+            "amount": 1,
+            "duration_ticks": 2
+          }
+        ],
           "consume_points": [],
           "actions": []
         }
@@ -112,11 +106,11 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaOcean_tide_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_tide_online"
-          }
+        "config": {
+          "callback": "vanillaOcean_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
         }
+      }
       ],
       "grants": [
         {

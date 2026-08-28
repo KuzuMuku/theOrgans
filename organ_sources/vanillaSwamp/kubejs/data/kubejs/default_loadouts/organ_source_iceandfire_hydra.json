@@ -52,6 +52,11 @@
         {
           "id": "kubejs:silt_poison_heart"
         }
+      ],
+      "6": [
+        {
+          "id": "kubejs:hydra_venom_core"
+        }
       ]
     },
     "organapi:abdomen": {

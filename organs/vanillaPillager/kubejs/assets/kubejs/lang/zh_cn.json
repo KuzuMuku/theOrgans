@@ -161,5 +161,14 @@
    "point.organeffects.runtime.kubejs.trade_spinewheel_ledgers" : "交易脊轮账册收益",
    "point.organeffects.runtime.kubejs.trade_spinewheel_ledgers.desc" : "用于发放交易脊轮生成的账册收益。",
    "point.organeffects.skill.kubejs.dark_arrow_throat" : "暗箭喉囊",
-   "point.organeffects.skill.kubejs.dark_arrow_throat.desc" : "射出一记带有压制性的暗箭。效果随施法织度线性提升。"
+   "point.organeffects.skill.kubejs.dark_arrow_throat.desc" : "射出一记带有压制性的暗箭。效果随施法织度线性提升。",
+   "point.organeffects.skill.kubejs.plunder_core" : "劫掠主核",
+   "point.organeffects.skill.kubejs.plunder_core.desc" : "开启持续 8 秒的掠夺狂潮，每秒消耗袭击热度，并强化带标记目标的处决收益。",
+   "point.organeffects.runtime.kubejs.plunder_core_extra_loot" : "劫掠主核额外战利品",
+   "point.organeffects.runtime.kubejs.plunder_core_extra_loot.desc" : "由标记处决额外触发一次战利品结算。",
+   "item.kubejs.plunder_core" : "劫掠主核",
+   "item.kubejs.raider_banner_sash" : "掠夺旗带",
+   "item.kubejs.crossbow_string_winder" : "猎弩弦轴",
+   "item.kubejs.wardrum_head" : "战鼓皮膜",
+   "item.kubejs.plunder_knot" : "掠夺绳结"
 }

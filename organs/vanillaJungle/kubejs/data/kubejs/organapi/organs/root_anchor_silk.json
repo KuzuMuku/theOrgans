@@ -1,0 +1,133 @@
+{
+  "item": "kubejs:root_anchor_silk",
+  "valid_parts": [
+    "organapi:head",
+    "organapi:chest",
+    "organapi:abdomen",
+    "organapi:left_arm",
+    "organapi:right_arm",
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6丝§r §2草1§r §9根系连接§r §7低§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "auxiliary",
+    "root_anchor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_rooted_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rooted_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 1,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_canopy_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_canopy_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 1,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "vanillaJungle_snare_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_snare_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaJungle_resonance",
+              "amount": 1,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

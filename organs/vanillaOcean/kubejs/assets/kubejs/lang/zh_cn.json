@@ -180,5 +180,16 @@
    "point.organeffects.skill.kubejs.bubblewave_throat" : "泡浪喉囊",
    "point.organeffects.skill.kubejs.bubblewave_throat.desc" : "喷出潮湿泡浪，压慢近处敌人。效果随潮汐线性提升。",
    "point.organeffects.skill.kubejs.tidesound_fork_wrist" : "潮声叉腕",
-   "point.organeffects.skill.kubejs.tidesound_fork_wrist.desc" : "以潮压驱动一次近距离突刺打击。效果随湿润和神殿线性提升。"
+   "point.organeffects.skill.kubejs.tidesound_fork_wrist.desc" : "以潮压驱动一次近距离突刺打击。效果随湿润和神殿线性提升。",
+   "point.organeffects.skill.kubejs.frostabyss_core" : "冰渊主核",
+   "point.organeffects.skill.kubejs.frostabyss_core.desc" : "压差泄压释放冰渊冰浪，按当前潮压的比例消耗并保留底压。",
+   "item.kubejs.dragonfrost_sac" : "龙霜气囊",
+   "item.kubejs.frostabyss_core" : "冰渊主核",
+   "item.kubejs.current_conduit" : "洋流导管",
+   "item.kubejs.salt_exchange_valve" : "盐析阀",
+   "item.kubejs.tidal_buoy" : "潮汐浮标",
+   "message.organkubejs.condition.vanillaOcean_cold_online" : "位于深冻海洋或寒冰迷宫",
+   "message.organkubejs.condition.vanillaOcean_conduit_online" : "洋流导管已接入四件海洋器官",
+   "message.organkubejs.condition.vanillaOcean_saltvalve_online" : "盐析阀处于调压窗口",
+   "message.organkubejs.condition.vanillaOcean_buoy_online" : "潮汐浮标已定位泄压方向"
 }

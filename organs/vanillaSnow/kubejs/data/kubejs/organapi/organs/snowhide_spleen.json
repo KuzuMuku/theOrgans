@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6脾§r §b冰2§r §9寒息续航§r §7低§r"
+    "§6脾§r §b冰2§r §9寒地打捞§r §7低§r"
   ],
   "tags": [
     "vanillaSnow",
@@ -29,37 +29,38 @@
       "events": [
         {
           "type": "mine",
+          "block_tag": "kubejs:vanilla_snow_harvestable",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:snowhide_spleen_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            },
             {
               "type": "counter",
               "id": "kubejs:vanillaSnow_resonance",
               "amount": 2,
               "source": "vanillaSnow_system"
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:snowhide_spleen_mine_loot",
+              "amount": 1,
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
           "actions": []
         },
         {
-          "type": "kill",
+          "type": "vanillaSnow:hunt_kill",
           "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:snowhide_spleen_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            },
             {
               "type": "counter",
               "id": "kubejs:vanillaSnow_resonance",
               "amount": 2,
               "source": "vanillaSnow_system"
+            },
+            {
+              "type": "runtime",
+              "id": "kubejs:snowhide_spleen_hunt_loot",
+              "amount": 1,
+              "duration_ticks": 2
             }
           ],
           "consume_points": [],
@@ -70,7 +71,7 @@
         {
           "type": "grant_items",
           "point_type": "runtime",
-          "point_id": "kubejs:snowhide_spleen_loot",
+          "point_id": "kubejs:snowhide_spleen_mine_loot",
           "consume_points": true,
           "max_consume": 1,
           "rolls": 1,
@@ -91,58 +92,51 @@
               "item": "minecraft:rabbit_hide",
               "count": 1,
               "weight": 1
+            },
+            {
+              "item": "aquamirae:fin",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "aquamirae:sharp_bones",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "aquamirae:spinefish",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:esca",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:anglers_fang",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:jellyfish_jelly",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:ship_graveyard_echo",
+              "count": 1,
+              "weight": 1
             }
           ]
-        }
-      ]
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_frost_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_frost_online"
-          }
-        }
-      ],
-      "grants": [],
-      "events": [
-        {
-          "type": "mine",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:snowhide_spleen_bonus_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            }
-          ],
-          "consume_points": [],
-          "actions": []
         },
-        {
-          "type": "kill",
-          "add_points": [
-            {
-              "type": "runtime",
-              "id": "kubejs:snowhide_spleen_bonus_loot",
-              "amount": 1,
-              "duration_ticks": 2
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        }
-      ],
-      "executions": [
         {
           "type": "grant_items",
           "point_type": "runtime",
-          "point_id": "kubejs:snowhide_spleen_bonus_loot",
+          "point_id": "kubejs:snowhide_spleen_hunt_loot",
           "consume_points": true,
           "max_consume": 1,
-          "rolls": 2,
+          "rolls": 1,
           "unique": false,
           "drop_if_full": true,
           "items": [
@@ -158,6 +152,41 @@
             },
             {
               "item": "minecraft:rabbit_hide",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:fin",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "aquamirae:sharp_bones",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "aquamirae:spinefish",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:esca",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:anglers_fang",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:jellyfish_jelly",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "aquamirae:ship_graveyard_echo",
               "count": 1,
               "weight": 1
             }

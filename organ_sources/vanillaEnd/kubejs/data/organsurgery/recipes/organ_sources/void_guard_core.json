@@ -1,0 +1,33 @@
+{
+  "type": "organsurgery:surgery",
+  "table": "organsurgery:surgery_table",
+  "ingredients": [
+    {
+      "item": "organdefaults:strong_heart",
+      "count": 1
+    },
+    {
+      "item": "cataclysm:void_core",
+      "count": 1
+    },
+    {
+      "item": "cataclysm:void_shard",
+      "count": 2
+    },
+    {
+      "item": "cataclysm:void_eye",
+      "count": 1
+    },
+    {
+      "item": "kubejs:foldgate_fist",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "kubejs:void_guard_core"
+  },
+  "fluid": {
+    "fluid": "irons_spellbooks:timeless_slurry",
+    "amount": 250
+  }
+}

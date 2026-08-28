@@ -17,8 +17,8 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_set_major"
+            "callback": "vanillaEnd_gate_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_gate_online"
           }
         }
       ],
@@ -27,6 +27,11 @@
           "type": "attribute",
           "attribute": "minecraft:generic.max_health",
           "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
         }
       ],
       "events": [],

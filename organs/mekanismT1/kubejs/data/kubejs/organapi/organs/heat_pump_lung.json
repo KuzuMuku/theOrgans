@@ -5,11 +5,12 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6肺§r §d电2§r §9能核底盘§r §6中§r"
+    "§6肺§r §d电2§r §9热泵回充§r §6中§r"
   ],
   "tags": [
     "mekanismT1",
-    "driver"
+    "driver",
+    "heat"
   ],
   "effects": [
     {
@@ -31,6 +32,20 @@
           "amount": 30
         }
       ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "config": {
+            "callback": "mekanismT1_passive_heat_allowed",
+            "custom_display_key": "message.organkubejs.condition.mekanismT1_passive_heat_allowed"
+          }
+        }
+      ],
+      "grants": [],
       "events": [
         {
           "type": "tick",
@@ -42,7 +57,7 @@
               "type": "runtime",
               "id": "kubejs:mek_t1_heat_cycle",
               "amount": 1,
-              "duration_ticks": 80
+              "duration_ticks": 100
             },
             {
               "type": "counter",
@@ -53,7 +68,18 @@
           ],
           "consume_points": [],
           "actions": []
-        },
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
         {
           "type": "move",
           "distance": 2,
@@ -94,26 +120,6 @@
           "actions": []
         }
       ],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "mekanismT1_rhythm_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_rhythm_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.movement_speed",
-          "amount": 1
-        }
-      ],
-      "events": [],
       "executions": []
     }
   ]

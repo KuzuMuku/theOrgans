@@ -5,59 +5,13 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6胸§r §b冰2§r §9寒甲生存§r §7低§r"
+    "§6胸§r §b冰2§r §9霜壳站场§r §7低§r"
   ],
   "tags": [
     "vanillaSnow",
     "armor"
   ],
   "effects": [
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_shell_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_shell_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.max_health",
-          "amount": 2
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
-    {
-      "conditions": [
-        {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_frost_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_frost_online"
-          }
-        }
-      ],
-      "grants": [
-        {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaSnow_shell_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.knockback_resistance",
-            "per": 2
-          }
-        }
-      ],
-      "events": [],
-      "executions": []
-    },
     {
       "conditions": [
         {
@@ -89,23 +43,33 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaSnow_shell_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSnow_shell_online"
-          }
+          "callback": "vanillaSnow_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_home"
         }
       ],
       "grants": [
         {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaSnow_shell_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.knockback_resistance",
-            "per": 2
-          }
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaSnow_resonance_high",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 2
         }
       ],
       "events": [],

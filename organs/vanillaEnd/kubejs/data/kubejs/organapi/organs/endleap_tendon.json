@@ -34,6 +34,19 @@
           "consume_points": [],
           "actions": [],
           "distance": 2
+        },
+        {
+          "type": "jump",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "kubejs:vanillaEnd_resonance",
+              "amount": 1,
+              "source": "vanillaEnd_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
       "executions": []
@@ -43,22 +56,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_has_chase",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_has_chase"
+            "callback": "vanillaEnd_air_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
           }
         }
       ],
       "grants": [
         {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaEnd_air_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.movement_speed",
-            "per": 2
-          }
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
         }
       ],
       "events": [],
@@ -91,33 +98,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_home"
+            "callback": "vanillaEnd_ender_tether_online",
+            "custom_display_key": "message.organkubejs.condition.vanillaEnd_ender_tether_online"
           }
         }
       ],
       "grants": [
         {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaEnd_air_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.movement_speed",
-            "per": 2
-          }
-        },
-        {
-          "type": "derived",
-          "amount": 1,
-          "config": {
-            "from_type": "counter",
-            "from_id": "kubejs:vanillaEnd_air_line",
-            "target_type": "attribute",
-            "target_attribute": "minecraft:generic.knockback_resistance",
-            "per": 3
-          }
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
         }
       ],
       "events": [],

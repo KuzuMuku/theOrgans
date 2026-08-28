@@ -5,7 +5,7 @@
   ],
   "size": 1,
   "tooltips": [
-    "§6脾§r §5暗2§r §9劫掠收益§r §7低§r"
+    "§6脾§r §5暗2§r §9战斗掉落§r §7低§r"
   ],
   "tags": [
     "vanillaPillager",
@@ -32,32 +32,19 @@
     {
       "conditions": [
         {
-          "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_plunder",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_plunder"
-          }
+          "type": "static"
         }
       ],
       "grants": [],
       "events": [
         {
-          "type": "tick",
-          "config": {
-            "interval_ticks": 60
-          },
+          "type": "kill",
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:loot_spleen_plunder",
+              "id": "kubejs:loot_spleen_kill_loot",
               "amount": 1,
               "duration_ticks": 2
-            },
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaPillager_resonance",
-              "amount": 2,
-              "source": "vanillaPillager_system"
             }
           ],
           "consume_points": [],
@@ -68,7 +55,7 @@
         {
           "type": "grant_items",
           "point_type": "runtime",
-          "point_id": "kubejs:loot_spleen_plunder",
+          "point_id": "kubejs:loot_spleen_kill_loot",
           "consume_points": true,
           "max_consume": 1,
           "rolls": 1,
@@ -98,23 +85,17 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaPillager_has_raid",
-            "custom_display_key": "message.organkubejs.condition.vanillaPillager_has_raid"
-          }
+          "callback": "vanillaPillager_aux_plunder_knot"
         }
       ],
       "grants": [],
       "events": [
         {
-          "type": "tick",
-          "config": {
-            "interval_ticks": 100
-          },
+          "type": "kill",
           "add_points": [
             {
               "type": "runtime",
-              "id": "kubejs:loot_spleen_plunder_bonus",
+              "id": "kubejs:loot_spleen_knot_loot",
               "amount": 1,
               "duration_ticks": 2
             }
@@ -127,10 +108,66 @@
         {
           "type": "grant_items",
           "point_type": "runtime",
-          "point_id": "kubejs:loot_spleen_plunder_bonus",
+          "point_id": "kubejs:loot_spleen_knot_loot",
           "consume_points": true,
           "max_consume": 1,
-          "rolls": 2,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:arrow",
+              "count": 6,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:emerald",
+              "count": 2,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:crossbow",
+              "count": 1,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_predicate",
+          "callback": "vanillaPillager_raid_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "kubejs:loot_spleen_wave_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "kubejs:loot_spleen_wave_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
           "unique": false,
           "drop_if_full": true,
           "items": [

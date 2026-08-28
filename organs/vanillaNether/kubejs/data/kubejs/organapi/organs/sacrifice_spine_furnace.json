@@ -14,56 +14,19 @@
   "effects": [
     {
       "conditions": [
-        {
-          "type": "static"
-        }
+        { "type": "static" }
       ],
       "grants": [
-        {
-          "type": "organ_stat",
-          "id": "organsynergia:fire_affinity",
-          "amount": 2,
-          "hidden": true
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor",
-          "amount": 1
-        },
-        {
-          "type": "attribute",
-          "attribute": "minecraft:generic.knockback_resistance",
-          "amount": 1
-        },
-        {
-          "type": "counter",
-          "id": "kubejs:vanillaNether_resonance_capacity",
-          "amount": 20
-        }
+        { "type": "organ_stat", "id": "organsynergia:fire_affinity", "amount": 2, "hidden": true },
+        { "type": "attribute", "attribute": "minecraft:generic.armor", "amount": 1 },
+        { "type": "attribute", "attribute": "minecraft:generic.knockback_resistance", "amount": 1 },
+        { "type": "counter", "id": "kubejs:vanillaNether_resonance_capacity", "amount": 20 }
       ],
       "events": [
         {
-          "type": "attacked",
+          "type": "health_loss",
           "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 3,
-              "source": "vanillaNether_system"
-            }
-          ],
-          "consume_points": [],
-          "actions": []
-        },
-        {
-          "type": "deal_damage",
-          "add_points": [
-            {
-              "type": "counter",
-              "id": "kubejs:vanillaNether_resonance",
-              "amount": 2,
-              "source": "vanillaNether_system"
-            }
+            { "type": "counter", "id": "kubejs:vanillaNether_resonance", "amount": 2, "source": "vanillaNether_system" }
           ],
           "consume_points": [],
           "actions": []
@@ -75,40 +38,60 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_sacrifice_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_sacrifice_ready"
-          }
+          "config": { "callback": "vanillaNether_ash_conduit_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_ash_conduit_online" }
         }
       ],
-      "grants": [
+      "grants": [],
+      "events": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.attack_damage",
-          "amount": 1
+          "type": "health_loss",
+          "add_points": [
+            { "type": "counter", "id": "kubejs:vanillaNether_resonance", "amount": 1, "source": "vanillaNether_system" }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
-      "events": [],
       "executions": []
     },
     {
       "conditions": [
+        { "type": "environment_state", "state": "on_fire" }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": { "interval_ticks": 40 },
+          "add_points": [
+            { "type": "counter", "id": "kubejs:vanillaNether_resonance", "amount": 2, "source": "vanillaNether_system" }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        { "type": "environment_state", "state": "on_fire" },
         {
           "type": "kubejs_predicate",
-          "config": {
-            "callback": "vanillaNether_heat_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
-          }
+          "config": { "callback": "vanillaNether_ash_conduit_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_ash_conduit_online" }
         }
       ],
-      "grants": [
+      "grants": [],
+      "events": [
         {
-          "type": "attribute",
-          "attribute": "minecraft:generic.armor_toughness",
-          "amount": 1
+          "type": "tick",
+          "config": { "interval_ticks": 40 },
+          "add_points": [
+            { "type": "counter", "id": "kubejs:vanillaNether_resonance", "amount": 1, "source": "vanillaNether_system" }
+          ],
+          "consume_points": [],
+          "actions": []
         }
       ],
-      "events": [],
       "executions": []
     }
   ]

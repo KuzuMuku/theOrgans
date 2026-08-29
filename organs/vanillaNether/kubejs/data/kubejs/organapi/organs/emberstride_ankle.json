@@ -28,7 +28,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_emberstride_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_emberstride_online" }
+          "config": { "callback": "vanillaNether_emberstride_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_emberstride_online"
         }
       ],
       "grants": [

@@ -97,9 +97,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_rot_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_rot_online"
-          }
+            "callback": "vanillaSwamp_rot_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_rot_online"
         }
       ],
       "grants": [

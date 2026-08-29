@@ -77,9 +77,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT2_overload_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT2_overload_online"
-          }
+            "callback": "mekanismT2_overload_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_overload_online"
         }
       ],
       "grants": [

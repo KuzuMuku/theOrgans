@@ -82,9 +82,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_venom_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
-          }
+            "callback": "vanillaSwamp_venom_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
         }
       ],
       "grants": [],

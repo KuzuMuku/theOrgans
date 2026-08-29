@@ -44,9 +44,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_trade",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
-          }
+            "callback": "vanillaVillage_has_trade"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         }
       ],
       "grants": [
@@ -69,9 +69,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_trade",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
-          }
+            "callback": "vanillaVillage_has_trade"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         }
       ],
       "grants": [],

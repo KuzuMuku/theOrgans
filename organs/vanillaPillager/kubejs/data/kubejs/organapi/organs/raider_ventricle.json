@@ -48,7 +48,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_home"
+          "callback": "vanillaPillager_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
         }
       ],
       "grants": [
@@ -70,11 +71,13 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_home"
+          "callback": "vanillaPillager_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_aux_banner_sash"
+          "callback": "vanillaPillager_aux_banner_sash",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_banner_sash"
         }
       ],
       "grants": [

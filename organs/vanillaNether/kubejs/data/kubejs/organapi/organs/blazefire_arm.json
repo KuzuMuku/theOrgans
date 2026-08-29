@@ -46,7 +46,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:blazefire_arm_mark_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_blazefire_arm_strike"
         }
       ]
     }

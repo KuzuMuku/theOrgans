@@ -15,7 +15,7 @@ function entityOf(player) {
   return player && player.minecraftEntity ? player.minecraftEntity : player
 }
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent$RightClickBlock', event => {
   let player = event.getEntity()
   if (!(player instanceof PlayerClass) || event.getLevel().isClientSide()) {
     return

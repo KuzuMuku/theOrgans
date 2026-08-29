@@ -40,9 +40,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_passive_heat_allowed",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_passive_heat_allowed"
-          }
+            "callback": "mekanismT1_passive_heat_allowed"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_passive_heat_allowed"
         }
       ],
       "grants": [],

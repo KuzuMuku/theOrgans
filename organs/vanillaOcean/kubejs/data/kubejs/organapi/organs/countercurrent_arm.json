@@ -65,9 +65,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_wet_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
-          }
+            "callback": "vanillaOcean_wet_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
         }
       ],
       "grants": [],
@@ -95,7 +95,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:countercurrent_arm_push_wet",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_push_target"
         }
       ]
     }

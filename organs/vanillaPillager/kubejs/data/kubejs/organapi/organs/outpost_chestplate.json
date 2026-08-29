@@ -43,7 +43,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_home"
+          "callback": "vanillaPillager_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
         }
       ],
       "grants": [
@@ -60,7 +61,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_raid_online"
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
         }
       ],
       "grants": [],

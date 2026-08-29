@@ -18,9 +18,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_no_bell_ward",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_no_bell_ward"
-          }
+            "callback": "vanillaVillage_no_bell_ward"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_no_bell_ward"
         }
       ],
       "grants": [
@@ -76,9 +76,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_movement",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_movement"
-          }
+            "callback": "vanillaVillage_has_movement"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_movement"
         }
       ],
       "grants": [],
@@ -108,7 +108,8 @@
           "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaVillage_target_mark"
         }
       ]
     },
@@ -117,9 +118,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
-          }
+            "callback": "vanillaVillage_resource_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
         }
       ],
       "grants": [
@@ -137,9 +138,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_bell_ward_no_rope",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_no_rope"
-          }
+            "callback": "vanillaVillage_bell_ward_no_rope"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_no_rope"
         }
       ],
       "grants": [],
@@ -183,9 +184,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_bell_ward_rope",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_rope"
-          }
+            "callback": "vanillaVillage_bell_ward_rope"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_rope"
         }
       ],
       "grants": [],

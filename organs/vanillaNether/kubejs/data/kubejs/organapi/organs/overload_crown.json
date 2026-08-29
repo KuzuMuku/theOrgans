@@ -28,7 +28,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_overload_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_overload_online" }
+          "config": { "callback": "vanillaNether_overload_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_overload_online"
         }
       ],
       "grants": [
@@ -42,7 +43,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_soulfire_rhythm_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_soulfire_rhythm_online" }
+          "config": { "callback": "vanillaNether_soulfire_rhythm_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_soulfire_rhythm_online"
         }
       ],
       "grants": [

@@ -59,7 +59,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_surge_active"
+          "callback": "vanillaPillager_surge_active",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_surge_active"
         }
       ],
       "grants": [

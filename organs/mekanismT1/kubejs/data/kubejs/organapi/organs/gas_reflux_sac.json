@@ -78,7 +78,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:gas_reflux_sac_recover",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_energy_recover"
         }
       ]
     }

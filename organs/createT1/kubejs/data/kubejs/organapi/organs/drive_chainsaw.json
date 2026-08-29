@@ -35,7 +35,8 @@
           "point_type": "counter",
           "point_id": "kubejs:chainsaw_active",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.createT1_drive_chainsaw_cycle"
         },
         {
           "type": "damage_nearby_entities",

@@ -83,7 +83,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:overheat_diffusion_buildup",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_overheat_buildup"
         }
       ]
     },
@@ -92,9 +93,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_hot_zone",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_hot_zone"
-          }
+            "callback": "mekanismT1_hot_zone"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_hot_zone"
         }
       ],
       "grants": [],

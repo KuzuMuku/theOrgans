@@ -296,7 +296,7 @@ PlayerEvents.tick(event => {
     return
   }
   let tick = Number(entity.tickCount)
-  let uuid = String(entity.getUUID())
+  let uuid = String(entity.uuid)
   let capacity = getCounter(player, RESOURCE.capacity)
   if (capacity <= 0) {
     if (getCounter(player, RESOURCE.current) !== 0) {
@@ -345,7 +345,7 @@ PlayerEvents.tick(event => {
   }
   PREV_POSITIONS.set(uuid, { x: x, y: y, z: z })
 
-  let now = Number(entity.level().getGameTime())
+  let now = Number(entity.getLevel().getGameTime())
   let lastHome = LAST_HOME_TICKS.get(uuid) || 0
   if (homeMatch(player)) {
     LAST_HOME_TICKS.set(uuid, now)

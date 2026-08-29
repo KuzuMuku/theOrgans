@@ -54,7 +54,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:ancient_city_step_quiet_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSculk_ancient_step_quiet"
         }
       ]
     }

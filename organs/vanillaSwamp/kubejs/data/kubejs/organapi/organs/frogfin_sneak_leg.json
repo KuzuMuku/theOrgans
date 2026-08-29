@@ -43,9 +43,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_slime_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
-          }
+            "callback": "vanillaSwamp_slime_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
         }
       ],
       "grants": [
@@ -91,9 +91,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_mire_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
-          }
+            "callback": "vanillaSwamp_mire_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
         }
       ],
       "grants": [

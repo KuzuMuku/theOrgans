@@ -43,9 +43,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_mending_suture",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_mending_suture"
-          }
+            "callback": "vanillaVillage_has_mending_suture"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_mending_suture"
         }
       ],
       "grants": [],
@@ -73,9 +73,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_chase",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_chase"
-          }
+            "callback": "vanillaVillage_has_chase"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_chase"
         }
       ],
       "grants": [
@@ -120,9 +120,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
-          }
+            "callback": "vanillaVillage_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
         }
       ],
       "grants": [

@@ -82,9 +82,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
-          }
+            "callback": "vanillaVillage_resource_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
         }
       ],
       "grants": [],

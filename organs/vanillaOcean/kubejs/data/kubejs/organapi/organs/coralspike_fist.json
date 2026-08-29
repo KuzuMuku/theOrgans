@@ -66,9 +66,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_wet_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
-          }
+            "callback": "vanillaOcean_wet_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
         }
       ],
       "grants": [],
@@ -98,7 +98,8 @@
           "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_target_mark"
         }
       ]
     },
@@ -106,10 +107,10 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-        "config": {
-          "callback": "vanillaOcean_home",
+          "config": {
+            "callback": "vanillaOcean_home"
+          },
           "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
-        }
       }
       ],
       "grants": [

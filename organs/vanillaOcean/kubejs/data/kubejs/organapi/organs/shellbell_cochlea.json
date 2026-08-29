@@ -57,7 +57,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:shellbell_attacked_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_pressurize"
         },
         {
           "type": "kubejs_call",
@@ -68,7 +69,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:shellbell_kill_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_pressurize"
         }
       ]
     },
@@ -104,9 +106,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
-          }
+            "callback": "vanillaOcean_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
         }
       ],
       "grants": [

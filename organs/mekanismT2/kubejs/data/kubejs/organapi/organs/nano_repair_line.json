@@ -84,7 +84,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:mek_t2_nano_repair_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT2_nano_repair"
         }
       ]
     }

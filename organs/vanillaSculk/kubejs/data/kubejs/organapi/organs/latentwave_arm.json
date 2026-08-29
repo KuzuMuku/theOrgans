@@ -55,7 +55,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:latentwave_arm_strike",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSculk_melee_mark"
         }
       ]
     }

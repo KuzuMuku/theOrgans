@@ -101,9 +101,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_mire_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
-          }
+            "callback": "vanillaSwamp_mire_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
         }
       ],
       "grants": [],
@@ -144,7 +144,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:slime_mana_spleen_bonus_loot",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSwamp_spend_bonus_loot"
         }
       ]
     }

@@ -53,7 +53,6 @@ let AUXILIARY = {
 
 let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE.current)
 let entityOf = Common.entityOf
-let rawEntity = Common.rawEntity
 let pointKey = Common.pointKey
 let getCounter = Runtime.getCounter
 let getRuntimePoint = Runtime.getRuntimePoint
@@ -69,12 +68,10 @@ let installedSourceIds = Common.installedSourceIds
 let targetInFront = Common.targetInFront
 let damageTarget = Common.damageTarget
 
-let MARK_POINT_KEY = pointKey('mark', 'kubejs:vanillaPillager_mark')
 let PLUNDER_WINDOW = pointKey('runtime', 'kubejs:vanillaPillager_plunder_window')
 let EXILE_WINDOW = pointKey('runtime', 'kubejs:vanillaPillager_exile_window')
 let SPIKE_WINDOW = pointKey('runtime', 'kubejs:banner_spike_shoulder_window')
 let SURGE_KEY = 'kubejs:vanillaPillager_raid_surge'
-let PLUNDER_CORE_ITEM = 'kubejs:plunder_core'
 
 function homeMatch(player) {
   return Common.homeMatch(player, HOME)
@@ -85,13 +82,6 @@ function raidOnline(player) {
   return homeMatch(player)
     || entity.hasEffect(MobEffects.BAD_OMEN)
     || countNearbyEntityTypes(entity, PILLAGER_FACTION_IDS, 20) > 0
-}
-
-function isMarked(target) {
-  if (!target) {
-    return false
-  }
-  return Number(OrganKubeJS.getPoint(rawEntity(target), MARK_POINT_KEY)) > 0
 }
 
 function auxOnline(player, auxId) {
@@ -238,21 +228,6 @@ PlayerEvents.tick(event => {
   } else {
     spendResource(player, 2)
   }
-})
-
-ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', event => {
-  let source = event.getSource()
-  let attacker = source && source.actual ? source.actual : null
-  if (!(attacker instanceof PlayerClass) || getRuntimePoint(attacker, SURGE_KEY) <= 0) {
-    return
-  }
-  let dead = event.getEntity()
-  if (!isMarked(dead) || installedSourceIds(attacker).indexOf(PLUNDER_CORE_ITEM) < 0) {
-    return
-  }
-  OrganKubeJS.consumeMarkPoint(dead, 'kubejs:vanillaPillager_mark', 1)
-  addResource(attacker, 3)
-  OrganKubeJS.addTypedRuntimePoint(entityOf(attacker), 'runtime', 'kubejs:plunder_core_extra_loot', 1, 2)
 })
 
 OrganKubejsEvents.skillCast('dark_arrow_throat_cast', event => {

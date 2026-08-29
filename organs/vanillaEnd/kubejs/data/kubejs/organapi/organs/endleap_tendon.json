@@ -56,9 +56,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_air_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
-          }
+            "callback": "vanillaEnd_air_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
         }
       ],
       "grants": [
@@ -98,9 +98,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_ender_tether_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_ender_tether_online"
-          }
+            "callback": "vanillaEnd_ender_tether_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_ender_tether_online"
         }
       ],
       "grants": [

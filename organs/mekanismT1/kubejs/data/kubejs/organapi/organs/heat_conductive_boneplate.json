@@ -54,9 +54,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_heat_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_online"
-          }
+            "callback": "mekanismT1_heat_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_online"
         }
       ],
       "grants": [

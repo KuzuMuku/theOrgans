@@ -61,6 +61,7 @@
    "message.organkubejs.execution.vanillaVillage_iris_crown" : "Extend the focus mark for 6 seconds",
    "message.organkubejs.execution.vanillaVillage_repair" : "Pay Village Prestige and repair more durability",
    "message.organkubejs.execution.vanillaVillage_suture_travel" : "Gain Village Prestige from sutured expedition travel",
+   "message.organkubejs.execution.vanillaVillage_target_mark" : "Mark the target and apply glowing for 3 seconds",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction" : "Cast Time Reduction",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction.desc" : "Reduces spell cast time.",
    "point.organeffects.attribute.irons_spellbooks.casting_movespeed" : "Casting Movement Speed",

@@ -3,7 +3,6 @@
 let Common = global.Common || (global.Common = {})
 
 let PlayerClass = Java.loadClass('net.minecraft.world.entity.player.Player')
-let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
 let ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
 let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
 let BlockPos = Java.loadClass('net.minecraft.core.BlockPos')
@@ -77,9 +76,6 @@ let RADIATION_IDS = new Set([
   "kubejs:radiation_diffusion_core",
   "kubejs:radiation_filter"
 ])
-let DEFLECTION_IDS = new Set([
-  "kubejs:radiation_deflection_armor"
-])
 let PLASMA_IDS = new Set([
   "kubejs:fission_plasma_chamber",
   "kubejs:plasma_state_wiring"
@@ -101,6 +97,9 @@ let RADIATION_BLOCKS = [
 let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE.current)
 let entityOf = Common.entityOf
 let pointKey = Common.pointKey
+function entityCacheId(entity) {
+  return String(entity.uuid)
+}
 let getCounter = Runtime.getCounter
 let setCounter = Runtime.setCounter
 let getLinkCounter = Runtime.getLinkCounter
@@ -501,21 +500,21 @@ PlayerEvents.tick(event => {
     getOepRuntime(player, NANO_KEY),
     getCounter(player, RADIATION_KEY)
   ].join('|')
-  let previousWindowState = windowCache.get(entity.getStringUUID())
+  let previousWindowState = windowCache.get(entityCacheId(entity))
   if (previousWindowState !== windowState) {
-    windowCache.set(entity.getStringUUID(), windowState)
+    windowCache.set(entityCacheId(entity), windowState)
     refreshPlayerState(player)
   }
   if (entity.tickCount % 20 === 0) {
     let capacity = getCounter(player, RESOURCE.capacity)
     let fuelCache = global.mekanismT2FuelCache || (global.mekanismT2FuelCache = new Map())
     let fuelCap = countMatching(installedSourceIds(player), FISSION_FUEL_IDS) * 2
-    let previousFuelCap = fuelCache.get(entity.getStringUUID())
+    let previousFuelCap = fuelCache.get(entityCacheId(entity))
     if (previousFuelCap == null || fuelCap > previousFuelCap) {
       let fuelBonus = previousFuelCap == null ? fuelCap : fuelCap - previousFuelCap
       setCounter(player, FUEL_COUNTER_KEY, getCounter(player, FUEL_COUNTER_KEY) + fuelBonus)
     }
-    fuelCache.set(entity.getStringUUID(), fuelCap)
+    fuelCache.set(entityCacheId(entity), fuelCap)
     setCounter(player, FUEL_COUNTER_KEY, Math.min(fuelCap, getCounter(player, FUEL_COUNTER_KEY)))
     if (count > 0 && capacity > 0) {
       addResource(player, count * 4)
@@ -562,28 +561,4 @@ BlockEvents.broken(event => {
   refreshPlayerState(player)
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', event => {
-  let target = event.getEntity()
-  if (!(target instanceof PlayerClass) || target.level().isClientSide()) {
-    return
-  }
-  if (!hasMatching(installedSourceIds(target), DEFLECTION_IDS)) {
-    return
-  }
-  let layers = getCounter(target, RADIATION_KEY)
-  let shieldTotal = getShieldPoint(target, SHIELD_ID)
-  if (layers <= 0 || shieldTotal <= 0 || !syncOnline(target) || !resourceReady(target, 2)) {
-    return
-  }
-  let damaged = Number(event.getAmount())
-  let absorbed = Math.max(1, Math.min(damaged * 0.25, layers * 1.5))
-  event.setAmount(Math.max(0, damaged - absorbed))
-  spendResource(target, 2)
-  setOepRuntime(target, 'kubejs:mek_t2_deflection_burn', 1, 80)
-  let source = event.getSource()
-  let attackerEntity = source ? source.getDirectEntity() : null
-  if (attackerEntity && attackerEntity instanceof LivingEntityClass && attackerEntity !== target) {
-    addEffect(attackerEntity, MobEffects.WITHER, 50, 0)
-  }
-})
 })()

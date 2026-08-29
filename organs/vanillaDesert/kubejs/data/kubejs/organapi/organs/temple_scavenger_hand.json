@@ -34,16 +34,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_temple_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
-          }
+            "callback": "vanillaDesert_temple_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
         },
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_2",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_2"
-          }
+            "callback": "vanillaDesert_heat_ge_2"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_2"
         }
       ],
       "grants": [],

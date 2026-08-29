@@ -163,6 +163,7 @@
    "point.organeffects.skill.kubejs.void_guard_core": "虚空守卫核心",
    "point.organeffects.skill.kubejs.void_guard_core.desc": "开启持续 8 秒的虚空守卫窗口，消耗 24 点虚空折能，每秒再消耗 2 点。",
    "message.organkubejs.condition.vanillaEnd_purpur_nerve_cord_offline": "未携带紫珀神经索",
+   "message.organkubejs.execution.vanillaEnd_target_mark": "标记目标并施加虚弱",
    "point.organeffects.runtime.kubejs.ender_lung_spell_damage": "末影肺叶空间裂伤",
    "point.organeffects.runtime.kubejs.ender_lung_spell_damage.desc": "用于结算末影肺叶空间裂伤的临时点数。",
    "point.organeffects.runtime.kubejs.ender_lung_spell_levitate": "末影肺叶漂浮",

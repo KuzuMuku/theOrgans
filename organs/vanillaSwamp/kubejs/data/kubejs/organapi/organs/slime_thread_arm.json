@@ -72,9 +72,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_slime_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
-          }
+            "callback": "vanillaSwamp_slime_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
         }
       ],
       "grants": [],
@@ -104,7 +104,8 @@
           "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSwamp_target_mark"
         }
       ]
     },
@@ -113,9 +114,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaSwamp_venom_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
-          }
+            "callback": "vanillaSwamp_venom_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
         }
       ],
       "grants": [

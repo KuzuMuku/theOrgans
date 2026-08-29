@@ -33,7 +33,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_exile_online"
+          "callback": "vanillaPillager_exile_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_exile_online"
         }
       ],
       "grants": [
@@ -50,7 +51,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_exile_online"
+          "callback": "vanillaPillager_exile_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_exile_online"
         }
       ],
       "grants": [],

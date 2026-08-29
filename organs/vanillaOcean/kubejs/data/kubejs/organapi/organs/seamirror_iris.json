@@ -66,7 +66,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:seamirror_iris_mark_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_mark_and_slow"
         }
       ]
     },
@@ -75,9 +76,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_wet_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
-          }
+            "callback": "vanillaOcean_wet_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
         }
       ],
       "grants": [],
@@ -105,7 +106,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:seamirror_iris_focus_wet",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_seamirror_mark_consume"
         }
       ]
     }

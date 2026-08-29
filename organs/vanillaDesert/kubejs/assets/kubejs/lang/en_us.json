@@ -202,6 +202,8 @@
    "point.organeffects.runtime.kubejs.sandstone_breastplate_curse_clear.desc" : "Temporary point used to resolve relic-site curse cleansing.",
    "point.organeffects.runtime.kubejs.drought_liver_heat_mana" : "Drought Liver Heat-to-Mana",
    "point.organeffects.runtime.kubejs.drought_liver_heat_mana.desc" : "Temporary point used to resolve heat-to-mana conversion.",
+   "point.organeffects.runtime.kubejs.quicksand_spleen_sand_loot" : "Quicksand Spleen Sand Loot",
+   "point.organeffects.runtime.kubejs.quicksand_spleen_sand_loot.desc" : "Temporary point used to grant loot.",
    "point.organeffects.runtime.kubejs.sun_ventricle_heat_heal" : "Sun Ventricle High-Heat Healing",
    "point.organeffects.runtime.kubejs.sun_ventricle_heat_heal.desc" : "Temporary point used to resolve heat regeneration.",
    "point.organeffects.runtime.kubejs.vanillaDesert_storm_window" : "Ancient Remnant Sandstorm",

@@ -75,7 +75,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:breach_gland_mark",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaPillager_target_mark"
         },
         {
           "type": "apply_target_mob_effect",

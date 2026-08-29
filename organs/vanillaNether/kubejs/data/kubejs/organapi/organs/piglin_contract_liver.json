@@ -29,7 +29,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_contract_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_contract_online" }
+          "config": { "callback": "vanillaNether_contract_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_contract_online"
         }
       ],
       "grants": [],

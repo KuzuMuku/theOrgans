@@ -71,9 +71,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_sand_vein_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_sand_vein_online"
-          }
+            "callback": "vanillaDesert_sand_vein_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_sand_vein_online"
         }
       ],
       "grants": [],
@@ -105,7 +105,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:wind_erosion_arm_mark_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaDesert_melee_mark"
         }
       ]
     },
@@ -114,9 +115,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_storm_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_storm_online"
-          }
+            "callback": "vanillaDesert_storm_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_storm_online"
         }
       ],
       "grants": [
@@ -134,9 +135,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_25",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
-          }
+            "callback": "vanillaDesert_heat_ge_25"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
         }
       ],
       "grants": [

@@ -57,7 +57,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:wetgill_jowl_attacked_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_pressurize"
         },
         {
           "type": "kubejs_target_call",
@@ -68,7 +69,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:wetgill_jowl_kill_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_fish_kill_pressure"
         }
       ]
     },
@@ -94,9 +96,9 @@
       {
         "type": "kubejs_predicate",
         "config": {
-          "callback": "vanillaOcean_wet_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
-        }
+          "callback": "vanillaOcean_wet_online"
+        },
+        "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
       }
     ],
     "grants": [],
@@ -136,9 +138,9 @@
       {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
-          }
+            "callback": "vanillaOcean_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
         }
       ],
       "grants": [

@@ -175,7 +175,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', e
   fireNetherEvent(attacker, 'vanillaNether:nether_kill', event.getEntity(), null, null)
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingEntityUseItemEvent.Finish', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingEntityUseItemEvent$Finish', event => {
   let entity = event.getEntity()
   if (!(entity instanceof PlayerClass) || entity.level.isClientSide()) {
     return
@@ -192,7 +192,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingEntityUseItemE
   fireNetherEvent(entity, 'vanillaNether:herb_supply', null, stack, null)
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent$EntityInteract', event => {
   let player = event.getEntity()
   let target = event.getTarget()
   let stack = event.getItemStack()
@@ -215,7 +215,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent.
   }
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent$RightClickBlock', event => {
   let player = event.getEntity()
   if (!(player instanceof PlayerClass) || event.getLevel().isClientSide() || String(event.getHand()) !== 'MAIN_HAND') {
     return
@@ -295,7 +295,7 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
   }
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingEvent$LivingJumpEvent', event => {
   let entity = event.getEntity()
   if (entity instanceof PlayerClass) {
     setRuntime(entity, 'kubejs:vanillaNether_jump_momentum', 80)

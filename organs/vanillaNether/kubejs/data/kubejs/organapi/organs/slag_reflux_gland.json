@@ -36,7 +36,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:slag_reflux_recover_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_slag_reflux_recover"
         }
       ]
     },
@@ -63,7 +64,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:slag_reflux_burn_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_slag_reflux_recover"
         }
       ]
     },
@@ -71,7 +73,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_slag_pump_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online" }
+          "config": { "callback": "vanillaNether_slag_pump_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online"
         }
       ],
       "grants": [
@@ -84,7 +87,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_inferno_upkeep_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online" }
+          "config": { "callback": "vanillaNether_inferno_upkeep_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online"
         }
       ],
       "grants": [

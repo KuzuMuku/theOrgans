@@ -2,14 +2,11 @@
 let LivingEntityClass = Java.loadClass('net.minecraft.world.entity.LivingEntity')
 let PlayerClass = Java.loadClass('net.minecraft.world.entity.player.Player')
 let MobEffects = Java.loadClass('net.minecraft.world.effect.MobEffects')
+let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
+let OrganQueryService = Java.loadClass('cn.kuzuanpa.organapi.api.query.OrganQueryService')
 
-let Runtime = Common.createRuntimeTools('vanillaSwamp_system', 'vanillaSwamp_links', 'kubejs:vanillaSwamp_resonance')
-let entityOf = Common.entityOf
-let addResource = Runtime.addResource
-let getRuntimePoint = Runtime.getRuntimePoint
-let installedSourceIds = Common.installedSourceIds
-let addEffect = Common.addEffect
-let entityTypeId = Common.entityTypeId
+let SYSTEM_SOURCE = 'vanillaSwamp_system'
+let RESOURCE_CURRENT = 'kubejs:vanillaSwamp_resonance'
 let SWAMP_CORPSES = [
   'minecraft:frog',
   'minecraft:slime',
@@ -18,17 +15,58 @@ let SWAMP_CORPSES = [
   'minecraft:tropical_fish',
   'iceandfire:hydra'
 ]
-let WETLAND_PLANTS = [
-  'minecraft:lily_pad',
-  'minecraft:vines',
-  'minecraft:moss_block',
-  'minecraft:mangrove_propagule',
-  'minecraft:brown_mushroom',
-  'minecraft:red_mushroom',
-  'minecraft:short_grass',
-  'minecraft:seagrass',
-  'minecraft:kelp'
-]
+
+function entityOf(player) {
+  return player && player.minecraftEntity ? player.minecraftEntity : player
+}
+
+function pointKey(pointType, pointId) {
+  return OrganKubeJS.pointKey(pointType, pointId)
+}
+
+function getRuntimePoint(player, pointId) {
+  return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'runtime', pointId))
+}
+
+function addResource(player, amount) {
+  if (!player || amount <= 0) {
+    return
+  }
+  let entity = entityOf(player)
+  let current = Number(OrganKubeJS.getTypedPoint(entity, 'counter', RESOURCE_CURRENT))
+  OrganKubeJS.setSourcePoint(entity, SYSTEM_SOURCE, pointKey('counter', RESOURCE_CURRENT), Math.max(0, Math.floor(current + amount)))
+}
+
+function installedSourceIds(player) {
+  let found = []
+  try {
+    let positions = OrganQueryService.getInstalledOrganPositions(entityOf(player))
+    let iterator = positions.iterator()
+    while (iterator.hasNext()) {
+      let position = iterator.next()
+      let stack = position.organ()
+      if (!stack || stack.isEmpty()) {
+        continue
+      }
+      found.push(String(BuiltInRegistries.ITEM.getKey(stack.getItem())))
+    }
+  } catch (ignored) {
+  }
+  return found
+}
+
+function entityTypeId(entity) {
+  try {
+    return String(BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()))
+  } catch (ignored) {
+    return ''
+  }
+}
+
+function addEffect(entity, effect, duration, amplifier) {
+  let MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
+  entity.addEffect(new MobEffectInstance(effect, duration, amplifier, false, false, true))
+}
 
 function playerInstalled(player, id) {
   if (!player) {
@@ -97,22 +135,6 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', e
   if (playerInstalled(player, 'kubejs:mud_vein_conduit')) {
     spreadMarkedCorpse(player, deadTarget)
   }
-})
-
-BlockEvents.broken(event => {
-  let player = event.player || event.entity
-  if (!player || !rotHyphaeOnline(player)) {
-    return
-  }
-  let block = event.block
-  if (!block || WETLAND_PLANTS.indexOf(block.getId()) < 0) {
-    return
-  }
-  let entity = entityOf(player)
-  if (!entity || entity.level.isClientSide()) {
-    return
-  }
-  addResource(player, 1)
 })
 
 })()

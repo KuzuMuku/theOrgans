@@ -67,7 +67,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:orchid_spellbud_lung_spell_echo",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_orchid_spell_echo"
         }
       ]
     }

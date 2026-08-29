@@ -17,9 +17,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_temple_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_temple_online"
-          }
+            "callback": "vanillaOcean_temple_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_temple_online"
         }
       ],
       "grants": [
@@ -64,9 +64,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
-          }
+            "callback": "vanillaOcean_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
         }
       ],
       "grants": [

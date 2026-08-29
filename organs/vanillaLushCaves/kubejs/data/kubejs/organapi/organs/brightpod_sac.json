@@ -89,9 +89,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_glow_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_online"
-          }
+            "callback": "vanillaLushCaves_glow_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_online"
         }
       ],
       "grants": [

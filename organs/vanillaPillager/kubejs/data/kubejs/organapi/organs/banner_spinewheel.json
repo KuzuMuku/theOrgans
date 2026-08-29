@@ -48,7 +48,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_raid_online"
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
         }
       ],
       "grants": [],
@@ -76,7 +77,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_raid_online"
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
         }
       ],
       "grants": [],
@@ -101,11 +103,13 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_raid_online"
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_aux_banner_sash"
+          "callback": "vanillaPillager_aux_banner_sash",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_banner_sash"
         }
       ],
       "grants": [],

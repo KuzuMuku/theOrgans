@@ -38,7 +38,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_no_crossbow_winder"
+          "callback": "vanillaPillager_no_crossbow_winder",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_no_crossbow_winder"
         }
       ],
       "grants": [],
@@ -74,7 +75,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_aux_crossbow_winder"
+          "callback": "vanillaPillager_aux_crossbow_winder",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_crossbow_winder"
         }
       ],
       "grants": [],
@@ -135,7 +137,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:scout_iris_mark_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaPillager_target_mark"
         }
       ]
     }

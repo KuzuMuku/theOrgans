@@ -66,9 +66,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_spore_bloom_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
-          }
+            "callback": "vanillaLushCaves_spore_bloom_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
         }
       ],
       "grants": [
@@ -108,9 +108,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_spore_bloom_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
-          }
+            "callback": "vanillaLushCaves_spore_bloom_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
         }
       ],
       "grants": [],
@@ -138,7 +138,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:vanillaLushCaves_spore_bloom_pulse",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaLushCaves_spore_bloom_pulse"
         }
       ]
     }

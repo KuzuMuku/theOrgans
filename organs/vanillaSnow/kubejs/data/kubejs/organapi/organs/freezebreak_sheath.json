@@ -88,7 +88,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:freezebreak_sheath_guard_self",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_freezebreak_guard_self"
         }
       ]
     },
@@ -123,7 +124,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:freezebreak_sheath_guard_retal",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_freezebreak_guard_retal"
         }
       ]
     },
@@ -166,7 +168,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:deposition_conduit_ready",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_deposition_conduit"
         }
       ]
     }

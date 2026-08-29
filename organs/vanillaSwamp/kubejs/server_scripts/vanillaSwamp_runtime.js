@@ -136,6 +136,17 @@ let BONUS_LOOT = [
   { item: 'minecraft:lily_pad', count: 1, weight: 2 },
   { item: 'minecraft:spider_eye', count: 1, weight: 1 }
 ]
+let WETLAND_PLANTS = [
+  'minecraft:lily_pad',
+  'minecraft:vines',
+  'minecraft:moss_block',
+  'minecraft:mangrove_propagule',
+  'minecraft:brown_mushroom',
+  'minecraft:red_mushroom',
+  'minecraft:short_grass',
+  'minecraft:seagrass',
+  'minecraft:kelp'
+]
 let ROTTING_WINDOW = 'kubejs:vanillaSwamp_rotting_window'
 
 let Runtime = Common.createRuntimeTools(SYSTEM_SOURCE, LINK_SOURCE, RESOURCE ? RESOURCE.current : null)
@@ -170,6 +181,10 @@ function clearOepRuntimePoint(player, pointId) {
     return
   }
   OrganKubeJS.clearRuntimePoint(entityOf(player), pointKey('runtime', pointId))
+}
+
+function rotHyphaeOnline(player) {
+  return !!player && hasMatching(installedSourceIds(player), ROT_HYPHAE_IDS)
 }
 
 function grantWeighted(player, entries) {
@@ -756,6 +771,22 @@ OrganKubejsEvents.skillCast('swamp_gas_bladder_cast', event => {
     addEffect(targets[i], MobEffects.MOVEMENT_SLOWDOWN, 40, 0)
   }
   return true
+})
+
+BlockEvents.broken(event => {
+  let player = event.player || event.entity
+  if (!player || !rotHyphaeOnline(player)) {
+    return
+  }
+  let block = event.block
+  if (!block || WETLAND_PLANTS.indexOf(block.getId()) < 0) {
+    return
+  }
+  let entity = entityOf(player)
+  if (!entity || entity.level.isClientSide()) {
+    return
+  }
+  addResource(player, 1)
 })
 
 })()

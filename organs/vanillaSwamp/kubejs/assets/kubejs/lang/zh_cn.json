@@ -38,6 +38,8 @@
    "message.organkubejs.condition.vanillaSwamp_set_major" : "沼泽器官形成四件共振",
    "message.organkubejs.condition.vanillaSwamp_slime_online" : "处于胶膜活性",
    "message.organkubejs.condition.vanillaSwamp_venom_online" : "处于腐毒浓度窗口",
+   "message.organkubejs.execution.vanillaSwamp_spend_bonus_loot" : "消耗 2 点黏液法力换取双份额外掉落",
+   "message.organkubejs.execution.vanillaSwamp_target_mark" : "标记目标并施加 3 秒中毒",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction" : "施法时间缩减",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction.desc" : "缩短法术施法时间。",
    "point.organeffects.attribute.irons_spellbooks.casting_movespeed" : "施法移速",

@@ -28,7 +28,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_lava_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_lava_online" }
+          "config": { "callback": "vanillaNether_lava_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_lava_online"
         }
       ],
       "grants": [

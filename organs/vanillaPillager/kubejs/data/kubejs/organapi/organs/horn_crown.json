@@ -43,7 +43,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_high_heat"
+          "callback": "vanillaPillager_high_heat",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_high_heat"
         }
       ],
       "grants": [
@@ -65,7 +66,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_high_heat_reduced"
+          "callback": "vanillaPillager_high_heat_reduced",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_high_heat_reduced"
         }
       ],
       "grants": [

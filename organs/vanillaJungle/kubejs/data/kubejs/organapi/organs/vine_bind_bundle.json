@@ -75,7 +75,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:vine_bind_bundle_pulse",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_vine_bind"
         }
       ]
     }

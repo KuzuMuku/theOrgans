@@ -54,9 +54,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT2_set_major",
-            "custom_display_key": "message.organkubejs.condition.mekanismT2_set_major"
-          }
+            "callback": "mekanismT2_set_major"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_set_major"
         }
       ],
       "grants": [
@@ -74,9 +74,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT2_barrier_high",
-            "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_high"
-          }
+            "callback": "mekanismT2_barrier_high"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_high"
         }
       ],
       "grants": [

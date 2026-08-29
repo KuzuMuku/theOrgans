@@ -102,16 +102,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
-          }
+            "callback": "vanillaLushCaves_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
         },
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_resource_cost_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_resource_cost_ready"
-          }
+            "callback": "vanillaLushCaves_resource_cost_ready"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_resource_cost_ready"
         }
       ],
       "grants": [],

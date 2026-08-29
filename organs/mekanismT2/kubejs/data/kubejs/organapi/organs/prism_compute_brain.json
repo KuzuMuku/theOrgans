@@ -39,9 +39,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT2_lock_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT2_lock_online"
-          }
+            "callback": "mekanismT2_lock_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_lock_online"
         }
       ],
       "grants": [

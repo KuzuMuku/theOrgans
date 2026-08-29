@@ -17,9 +17,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaOcean_salvage_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaOcean_salvage_online"
-          }
+            "callback": "vanillaOcean_salvage_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_salvage_online"
         }
       ],
       "grants": [
@@ -89,7 +89,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:deeptide_scavenger_hand_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_pressurize"
         }
       ]
     },
@@ -137,7 +138,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:deeptide_scavenger_hand_bonus_loot",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_salvage_bonus"
         }
       ]
     }

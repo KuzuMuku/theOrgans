@@ -44,16 +44,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
-          }
+            "callback": "vanillaDesert_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
         },
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_10",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
-          }
+            "callback": "vanillaDesert_heat_ge_10"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
         },
         {
           "type": "organironspell:missing_mana",

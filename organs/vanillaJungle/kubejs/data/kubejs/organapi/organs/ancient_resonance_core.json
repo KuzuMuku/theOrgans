@@ -126,7 +126,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:ancient_resonance_core_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_root_pressure"
         },
         {
           "type": "apply_mob_effect",
@@ -156,7 +157,8 @@
           },
           "point_type": "runtime",
           "point_id": "kubejs:ancient_resonance_core_end_recover",
-          "consume_points": true
+          "consume_points": true,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_root_protocol_end_heal"
         }
       ]
     }

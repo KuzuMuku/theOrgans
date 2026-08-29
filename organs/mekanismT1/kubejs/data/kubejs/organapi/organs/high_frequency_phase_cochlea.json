@@ -78,7 +78,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:mekanismT1_rhythm_actions",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_rhythm_loop"
         }
       ]
     },
@@ -87,9 +88,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_rhythm_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_rhythm_online"
-          }
+            "callback": "mekanismT1_rhythm_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_rhythm_online"
         }
       ],
       "grants": [

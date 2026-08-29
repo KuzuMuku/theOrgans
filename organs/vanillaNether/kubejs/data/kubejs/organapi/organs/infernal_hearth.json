@@ -29,7 +29,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_heat_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online" }
+          "config": { "callback": "vanillaNether_heat_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
         }
       ],
       "grants": [

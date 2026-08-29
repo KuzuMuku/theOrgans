@@ -49,16 +49,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_1",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
-          }
+            "callback": "vanillaDesert_heat_ge_1"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
         },
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_night_shade_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_night_shade_online"
-          }
+            "callback": "vanillaDesert_night_shade_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_night_shade_online"
         }
       ],
       "grants": [],
@@ -88,16 +88,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_1",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
-          }
+            "callback": "vanillaDesert_heat_ge_1"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
         },
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_wet_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_wet_online"
-          }
+            "callback": "vanillaDesert_wet_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_wet_online"
         }
       ],
       "grants": [],
@@ -127,9 +127,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
-          }
+            "callback": "vanillaDesert_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
         }
       ],
       "grants": [
@@ -152,9 +152,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_25",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
-          }
+            "callback": "vanillaDesert_heat_ge_25"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
         },
         {
           "type": "health",

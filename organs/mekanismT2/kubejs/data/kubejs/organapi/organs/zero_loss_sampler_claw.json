@@ -103,9 +103,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT2_has_support",
-            "custom_display_key": "message.organkubejs.condition.mekanismT2_has_support"
-          }
+            "callback": "mekanismT2_has_support"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_has_support"
         }
       ],
       "grants": [],

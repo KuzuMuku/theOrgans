@@ -28,7 +28,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_heat_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online" }
+          "config": { "callback": "vanillaNether_heat_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
         }
       ],
       "grants": [
@@ -41,7 +42,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_slag_pump_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online" }
+          "config": { "callback": "vanillaNether_slag_pump_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online"
         }
       ],
       "grants": [
@@ -55,7 +57,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_inferno_upkeep_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online" }
+          "config": { "callback": "vanillaNether_inferno_upkeep_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online"
         }
       ],
       "grants": [

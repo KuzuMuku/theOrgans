@@ -44,9 +44,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
-          }
+            "callback": "vanillaDesert_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
         }
       ],
       "grants": [
@@ -87,9 +87,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_10",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
-          }
+            "callback": "vanillaDesert_heat_ge_10"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
         }
       ],
       "grants": [
@@ -107,9 +107,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaDesert_heat_ge_25",
-            "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
-          }
+            "callback": "vanillaDesert_heat_ge_25"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
         }
       ],
       "grants": [

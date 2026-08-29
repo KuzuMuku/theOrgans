@@ -45,7 +45,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:ash_spleen_loot_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_grant_ash_spleen_loot"
         }
       ]
     },
@@ -53,7 +54,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_gilded_belt_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online" }
+          "config": { "callback": "vanillaNether_gilded_belt_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online"
         }
       ],
       "grants": [],
@@ -73,7 +75,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_crimson_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_crimson_online" }
+          "config": { "callback": "vanillaNether_crimson_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_crimson_online"
         }
       ],
       "grants": [],
@@ -94,7 +97,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:ash_spleen_crimson_bonus_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_grant_ash_spleen_loot"
         }
       ]
     }

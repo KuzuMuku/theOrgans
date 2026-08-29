@@ -76,7 +76,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_banner_spike_window"
+          "callback": "vanillaPillager_banner_spike_window",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_banner_spike_window"
         }
       ],
       "grants": [

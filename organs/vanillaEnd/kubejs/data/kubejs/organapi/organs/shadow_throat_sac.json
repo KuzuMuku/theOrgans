@@ -39,9 +39,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_gate_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_gate_online"
-          }
+            "callback": "vanillaEnd_gate_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_gate_online"
         }
       ],
       "grants": [

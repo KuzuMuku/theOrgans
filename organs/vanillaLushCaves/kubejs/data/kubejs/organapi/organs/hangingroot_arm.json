@@ -82,7 +82,8 @@
           "duration_ticks": 80,
           "amplifier": 0,
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaLushCaves_target_mark"
         }
       ]
     },
@@ -91,9 +92,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_mycelium_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_mycelium_ready"
-          }
+            "callback": "vanillaLushCaves_mycelium_ready"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_mycelium_ready"
         }
       ],
       "grants": [],
@@ -124,7 +125,8 @@
           "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaLushCaves_target_mark"
         }
       ]
     },
@@ -133,9 +135,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaLushCaves_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
-          }
+            "callback": "vanillaLushCaves_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
         }
       ],
       "grants": [

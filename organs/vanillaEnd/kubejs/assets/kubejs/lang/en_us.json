@@ -163,6 +163,7 @@
    "point.organeffects.skill.kubejs.void_guard_core": "Void Guard Core",
    "point.organeffects.skill.kubejs.void_guard_core.desc": "Open a sustained 8-second void guard window costing 24 Void Fold, draining 2 per second.",
    "message.organkubejs.condition.vanillaEnd_purpur_nerve_cord_offline": "Purpur Nerve Cord is not in inventory",
+   "message.organkubejs.execution.vanillaEnd_target_mark": "Mark the target and apply weakness",
    "point.organeffects.runtime.kubejs.ender_lung_spell_damage": "Ender Lung Space Laceration",
    "point.organeffects.runtime.kubejs.ender_lung_spell_damage.desc": "Temporary point resolving ender lung space laceration.",
    "point.organeffects.runtime.kubejs.ender_lung_spell_levitate": "Ender Lung Levitation",

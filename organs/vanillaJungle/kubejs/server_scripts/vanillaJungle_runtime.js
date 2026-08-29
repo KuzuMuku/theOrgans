@@ -70,7 +70,7 @@ let countMatching = Common.countMatching
 let targetsSortedByDistance = Common.targetsSortedByDistance
 
 function uuidOf(player) {
-  return String(entityOf(player).getUUID())
+  return String(entityOf(player).uuid)
 }
 
 function homeState(player) {
@@ -240,7 +240,7 @@ OrganKubejsEvents.targetAction('vanillaJungle_orchid_spell_echo', event => {
     return 0
   }
   let playerEntity = entityOf(player)
-  let list = origin.level().getEntities(origin, origin.getBoundingBox().inflate(4))
+  let list = origin.getLevel().getEntities(origin, origin.getBoundingBox().inflate(4))
   let iterator = list.iterator()
   while (iterator.hasNext()) {
     let target = iterator.next()
@@ -248,7 +248,7 @@ OrganKubejsEvents.targetAction('vanillaJungle_orchid_spell_echo', event => {
       continue
     }
     addEffect(target, MobEffects.WEAKNESS, 60, 0)
-    target.hurt(target.level().damageSources().magic(), 2.0)
+    target.hurt(target.getLevel().damageSources().magic(), 2.0)
   }
   return event.isPointsConsume ? 1 : 0
 })

@@ -74,7 +74,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:shaft_attack_pulse",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.createT1_shaft_attack_gain"
         },
         {
           "type": "kubejs_call",
@@ -82,7 +83,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:shaft_mine_pulse",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.createT1_shaft_mine_gain"
         },
         {
           "type": "kubejs_call",
@@ -90,7 +92,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:shaft_interrupt_pulse",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.createT1_shaft_interrupt"
         }
       ]
     }

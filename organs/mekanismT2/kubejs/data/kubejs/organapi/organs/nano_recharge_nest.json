@@ -87,9 +87,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT2_barrier_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_online"
-          }
+            "callback": "mekanismT2_barrier_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_online"
         }
       ],
       "grants": [

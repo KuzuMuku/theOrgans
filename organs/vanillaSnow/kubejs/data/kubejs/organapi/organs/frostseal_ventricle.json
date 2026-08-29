@@ -78,7 +78,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:frostseal_ventricle_heal_ready",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_frostseal_heal"
         }
       ]
     },
@@ -116,7 +117,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:frostseal_ventricle_suppress_ready",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_frostseal_suppress"
         }
       ]
     }

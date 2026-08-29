@@ -61,6 +61,7 @@
    "message.organkubejs.execution.vanillaVillage_iris_crown" : "将聚焦标记延长到 6 秒",
    "message.organkubejs.execution.vanillaVillage_repair" : "消耗 2 点村落声望并额外修补耐久",
    "message.organkubejs.execution.vanillaVillage_suture_travel" : "由修补绷带维持的远征移动获得村落声望",
+   "message.organkubejs.execution.vanillaVillage_target_mark" : "标记目标并施加 3 秒发光",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction" : "施法时间缩减",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction.desc" : "缩短法术施法时间。",
    "point.organeffects.attribute.irons_spellbooks.casting_movespeed" : "施法移速",

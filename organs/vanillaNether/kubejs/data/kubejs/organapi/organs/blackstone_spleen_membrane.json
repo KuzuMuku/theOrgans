@@ -98,7 +98,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_blacksmith_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_blacksmith_online" }
+          "config": { "callback": "vanillaNether_blacksmith_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_blacksmith_online"
         }
       ],
       "grants": [

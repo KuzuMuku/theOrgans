@@ -72,9 +72,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_fold_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
-          }
+            "callback": "vanillaEnd_fold_ready"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
         }
       ],
       "grants": [],
@@ -104,7 +104,8 @@
           "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaEnd_target_mark"
         }
       ]
     },
@@ -113,9 +114,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_air_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
-          }
+            "callback": "vanillaEnd_air_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
         }
       ],
       "grants": [

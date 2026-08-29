@@ -17,9 +17,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_iris_no_crown",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_iris_no_crown"
-          }
+            "callback": "vanillaVillage_iris_no_crown"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_iris_no_crown"
         }
       ],
       "grants": [
@@ -74,9 +74,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_crown",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_crown"
-          }
+            "callback": "vanillaVillage_has_crown"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_crown"
         }
       ],
       "grants": [],

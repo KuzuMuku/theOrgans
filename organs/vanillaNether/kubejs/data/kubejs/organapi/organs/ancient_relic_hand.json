@@ -92,7 +92,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_gilded_belt_online", "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online" }
+          "config": { "callback": "vanillaNether_gilded_belt_online" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online"
         }
       ],
       "grants": [],

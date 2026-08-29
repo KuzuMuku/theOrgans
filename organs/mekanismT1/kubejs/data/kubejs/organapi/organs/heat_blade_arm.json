@@ -19,9 +19,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_heat_blade_ready",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_blade_ready"
-          }
+            "callback": "mekanismT1_heat_blade_ready"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_blade_ready"
         }
       ],
       "grants": [
@@ -64,7 +64,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:heat_blade_arm_pay_request",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_heat_blade_pay"
         },
         {
           "type": "modify_damage",
@@ -84,9 +85,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_heat_blade_ready",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_blade_ready"
-          }
+            "callback": "mekanismT1_heat_blade_ready"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_blade_ready"
         }
       ],
       "grants": [],
@@ -114,7 +115,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:heat_blade_arm_sear_request",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_heat_sear_apply"
         }
       ]
     }

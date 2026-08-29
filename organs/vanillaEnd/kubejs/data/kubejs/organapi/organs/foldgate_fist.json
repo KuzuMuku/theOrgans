@@ -40,9 +40,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_fold_ready",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
-          }
+            "callback": "vanillaEnd_fold_ready"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
         }
       ],
       "grants": [

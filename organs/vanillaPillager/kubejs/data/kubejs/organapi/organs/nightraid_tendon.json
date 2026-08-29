@@ -39,7 +39,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_nightraid_online"
+          "callback": "vanillaPillager_nightraid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_nightraid_online"
         }
       ],
       "grants": [

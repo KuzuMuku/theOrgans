@@ -76,7 +76,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_raid_online"
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
         }
       ],
       "grants": [],
@@ -113,7 +114,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_plunder_online"
+          "callback": "vanillaPillager_plunder_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_plunder_online"
         }
       ],
       "grants": [],
@@ -150,11 +152,13 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_plunder_online"
+          "callback": "vanillaPillager_plunder_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_plunder_online"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_aux_plunder_knot"
+          "callback": "vanillaPillager_aux_plunder_knot",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_plunder_knot"
         }
       ],
       "grants": [],

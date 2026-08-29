@@ -58,7 +58,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:silence_crown_mark_request",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSculk_crown_mark_vibration"
         }
       ]
     }

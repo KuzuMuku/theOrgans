@@ -85,7 +85,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:seacurrent_spleen_fish_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_pressurize"
         }
       ]
     },
@@ -155,7 +156,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:seacurrent_spleen_fish_kill_pressure",
           "consume_points": true,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaOcean_fish_kill_pressure"
         }
       ]
     }

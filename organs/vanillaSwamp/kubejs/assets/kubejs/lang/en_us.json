@@ -38,6 +38,8 @@
    "message.organkubejs.condition.vanillaSwamp_set_major" : "Swamp organs have formed a four-piece resonance",
    "message.organkubejs.condition.vanillaSwamp_slime_online" : "Slime membrane is active",
    "message.organkubejs.condition.vanillaSwamp_venom_online" : "Venom buildup is active",
+   "message.organkubejs.execution.vanillaSwamp_spend_bonus_loot" : "Spend 2 slime mana for a doubled extra loot roll",
+   "message.organkubejs.execution.vanillaSwamp_target_mark" : "Mark the target and apply poison for 3 seconds",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction" : "Cast Time Reduction",
    "point.organeffects.attribute.irons_spellbooks.cast_time_reduction.desc" : "Reduces spell cast time.",
    "point.organeffects.attribute.irons_spellbooks.casting_movespeed" : "Casting Movement Speed",

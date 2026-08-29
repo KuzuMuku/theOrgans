@@ -120,9 +120,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaEnd_city_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaEnd_city_online"
-          }
+            "callback": "vanillaEnd_city_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaEnd_city_online"
         }
       ],
       "grants": [],

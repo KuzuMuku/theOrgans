@@ -57,9 +57,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_holy_path_relay",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_holy_path_relay"
-          }
+            "callback": "vanillaVillage_has_holy_path_relay"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_holy_path_relay"
         }
       ],
       "grants": [],
@@ -129,9 +129,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
-          }
+            "callback": "vanillaVillage_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
         }
       ],
       "grants": [

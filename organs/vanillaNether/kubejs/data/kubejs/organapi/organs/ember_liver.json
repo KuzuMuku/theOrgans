@@ -29,7 +29,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "config": { "callback": "vanillaNether_ember_ge_10", "custom_display_key": "message.organkubejs.condition.vanillaNether_ember_ge_10" }
+          "config": { "callback": "vanillaNether_ember_ge_10" },
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_ember_ge_10"
         }
       ],
       "grants": [],

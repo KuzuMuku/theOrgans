@@ -17,9 +17,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_set_major",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_set_major"
-          }
+            "callback": "vanillaVillage_set_major"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_set_major"
         }
       ],
       "grants": [
@@ -37,9 +37,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_resource_online",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
-          }
+            "callback": "vanillaVillage_resource_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
         }
       ],
       "grants": [
@@ -89,9 +89,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_home",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
-          }
+            "callback": "vanillaVillage_home"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
         }
       ],
       "grants": [

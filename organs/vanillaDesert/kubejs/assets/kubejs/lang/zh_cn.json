@@ -202,6 +202,8 @@
    "point.organeffects.runtime.kubejs.sandstone_breastplate_curse_clear.desc" : "用于结算遗迹环境中的诅咒净化。",
    "point.organeffects.runtime.kubejs.drought_liver_heat_mana" : "耐旱肝囊热量转蓝",
    "point.organeffects.runtime.kubejs.drought_liver_heat_mana.desc" : "用于结算干热转法力的循环。",
+   "point.organeffects.runtime.kubejs.quicksand_spleen_sand_loot" : "流砂脾囊砂土战利品",
+   "point.organeffects.runtime.kubejs.quicksand_spleen_sand_loot.desc" : "用于发放掉落物的临时点数。",
    "point.organeffects.runtime.kubejs.sun_ventricle_heat_heal" : "烈阳心室高热自愈",
    "point.organeffects.runtime.kubejs.sun_ventricle_heat_heal.desc" : "用于结算干热回血循环。",
    "point.organeffects.runtime.kubejs.vanillaDesert_storm_window" : "远古遗魂沙暴",

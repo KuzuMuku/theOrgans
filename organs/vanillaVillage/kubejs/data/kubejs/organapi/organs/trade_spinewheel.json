@@ -49,9 +49,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_trade",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
-          }
+            "callback": "vanillaVillage_has_trade"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         }
       ],
       "grants": [],
@@ -80,16 +80,16 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_trade",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
-          }
+            "callback": "vanillaVillage_has_trade"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         },
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_village_ledger",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_village_ledger"
-          }
+            "callback": "vanillaVillage_has_village_ledger"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_village_ledger"
         }
       ],
       "grants": [],
@@ -118,9 +118,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_trade",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
-          }
+            "callback": "vanillaVillage_has_trade"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         }
       ],
       "grants": [],
@@ -177,9 +177,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "vanillaVillage_has_guard",
-            "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
-          }
+            "callback": "vanillaVillage_has_guard"
+          },
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
         }
       ],
       "grants": [

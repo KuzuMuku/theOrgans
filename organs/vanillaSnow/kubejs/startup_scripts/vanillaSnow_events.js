@@ -60,7 +60,7 @@ function fireHuntEvent(player, dead) {
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', event => {
   let source = event.getSource()
   let attacker = source && source.actual ? source.actual : null
-  if (!(attacker instanceof PlayerClass) || attacker.level().isClientSide() || !(event.getEntity() instanceof LivingEntityClass)) {
+  if (!(attacker instanceof PlayerClass) || attacker.getLevel().isClientSide() || !(event.getEntity() instanceof LivingEntityClass)) {
     return
   }
   if (getCounter(attacker, 'kubejs:snowhide_spleen_effect') <= 0) {
@@ -76,7 +76,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', e
 ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', event => {
   let source = event.getSpellDamageSource()
   let caster = source && source.actual ? source.actual : null
-  if (!(caster instanceof PlayerClass) || caster.level().isClientSide() || !(event.getEntity() instanceof LivingEntityClass)) {
+  if (!(caster instanceof PlayerClass) || caster.getLevel().isClientSide() || !(event.getEntity() instanceof LivingEntityClass)) {
     return
   }
   if (Number(OrganKubeJS.getTypedPoint(entityOf(caster), 'runtime', 'kubejs:vanillaSnow_deepfreeze_online')) <= 0) {

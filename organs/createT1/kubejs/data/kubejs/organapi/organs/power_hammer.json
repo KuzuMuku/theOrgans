@@ -67,7 +67,8 @@
           "point_type": "runtime",
           "point_id": "kubejs:power_hammer_trigger",
           "consume_points": false,
-          "max_consume": 1
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.createT1_power_hammer_counter"
         }
       ]
     }

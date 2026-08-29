@@ -170,7 +170,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', e
   fireEndEvent(attacker, 'vanillaEnd:end_kill', dead, null, null)
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.level.BlockEvent.BreakEvent', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.level.BlockEvent$BreakEvent', event => {
   let player = event.getPlayer()
   if (!(player instanceof PlayerClass) || event.getLevel().isClientSide()) {
     return
@@ -182,7 +182,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.level.BlockEvent.BreakEvent', even
   fireEndEvent(player, 'vanillaEnd:end_mine', null, state, null)
 })
 
-ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock', event => {
+ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent$RightClickBlock', event => {
   let player = event.getEntity()
   if (!(player instanceof PlayerClass) || event.getLevel().isClientSide()) {
     return

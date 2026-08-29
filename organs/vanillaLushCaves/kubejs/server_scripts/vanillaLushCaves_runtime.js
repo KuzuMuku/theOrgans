@@ -109,7 +109,7 @@ function distanceSqFromState(state, entity) {
 
 function getFlowerState(player) {
   let entity = entityOf(player)
-  return FLOWERS[String(entity.getUUID())]
+  return FLOWERS[String(entity.uuid)]
 }
 
 function findFlowerForPlayer(player) {
@@ -125,7 +125,7 @@ function findFlowerForPlayer(player) {
 
 function clearFlower(player) {
   let entity = entityOf(player)
-  delete FLOWERS[String(entity.getUUID())]
+  delete FLOWERS[String(entity.uuid)]
   OrganKubeJS.setRuntimePoint(entity, SPORE_BLOOM_RUNTIME_KEY, 0, 0)
 }
 
@@ -160,7 +160,7 @@ function clampResource(player) {
 function applyFieldBuffs(player) {
   let entity = entityOf(player)
   let state = findFlowerForPlayer(player)
-  let insideAlly = state != null && String(entity.getUUID()) !== state.ownerId
+  let insideAlly = state != null && String(entity.uuid) !== state.ownerId
   let powerKey = pointKey('attribute', 'irons_spellbooks:nature_spell_power')
   let knockbackKey = pointKey('attribute', 'minecraft:generic.knockback_resistance')
   OrganKubeJS.setSourcePoint(entity, FLOWER_FIELD_SOURCE, powerKey, insideAlly ? 2 : 0)
@@ -169,7 +169,7 @@ function applyFieldBuffs(player) {
 
 function applyFlowerPulse(player) {
   let ownerEntity = entityOf(player)
-  let state = FLOWERS[String(ownerEntity.getUUID())]
+  let state = FLOWERS[String(ownerEntity.uuid)]
   if (!state || !refreshFlowerState(player, state)) {
     return
   }
@@ -193,7 +193,7 @@ function applyFlowerPulse(player) {
       if (hasGlowBed) {
         target.heal(1)
       }
-      if (hasRootNetwork && String(target.getUUID()) !== state.ownerId) {
+      if (hasRootNetwork && String(target.uuid) !== state.ownerId) {
         target.heal(1)
       }
     } else {
@@ -273,44 +273,19 @@ OrganKubejsEvents.skillCast('sporebloom_core_cast', event => {
   let duration = 200 + bridges * 40
   let pos = entity.blockPosition()
   let state = {
-    ownerId: String(entity.getUUID()),
+    ownerId: String(entity.uuid),
     ownerEntity: entity,
     dimension: Common.dimensionId(entity),
     x: Number(pos.getX()) + 0.5,
     y: Number(entity.getY()),
     z: Number(pos.getZ()) + 0.5,
-    startedAt: Number(entity.level().getGameTime()),
+    startedAt: Number(entity.getLevel().getGameTime()),
     radius: 3 + bridges
   }
   FLOWERS[state.ownerId] = state
   OrganKubeJS.setRuntimePoint(entity, SPORE_BLOOM_RUNTIME_KEY, 1, duration)
   Common.castSpell('irons_spellbooks:stomp', 1, player)
   return true
-})
-
-ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', event => {
-  let source = event.getSpellDamageSource()
-  if (!source) {
-    return
-  }
-  let caster = source.actual
-  if (!(caster instanceof PlayerClass) || !hasMatching(installedSourceIds(caster), GLOW_BED_IDS)) {
-    return
-  }
-  let spell = source.spell()
-  if (!spell || !spell.getSchoolType() || String(spell.getSchoolType().getId()) !== 'irons_spellbooks:nature') {
-    return
-  }
-  let player = caster
-  let state = FLOWERS[String(entityOf(player).getUUID())]
-  if (!state) {
-    return
-  }
-  let target = event.getEntity()
-  if (!target || !sameDimensionEntity(target, entityOf(player)) || distanceSqFromState(state, target) > state.radius * state.radius) {
-    return
-  }
-  event.setAmount(Number(event.getAmount()) + 2)
 })
 
 PlayerEvents.tick(event => {
@@ -322,7 +297,7 @@ PlayerEvents.tick(event => {
   let mycelium = homeMatch(player) && hasMatching(installedSourceIds(player), MOVEMENT_IDS)
   setRuntimePoint(player, 'kubejs:vanillaLushCaves_mycelium_window', mycelium ? 1 : 0)
 
-  let state = FLOWERS[String(entity.getUUID())]
+  let state = FLOWERS[String(entity.uuid)]
   if (!state) {
     if (getRuntimePoint(player, 'kubejs:vanillaLushCaves_spore_bloom') > 0) {
       clearFlower(player)
@@ -334,7 +309,7 @@ PlayerEvents.tick(event => {
     clearFlower(player)
     return
   }
-  if (Number(entity.level().getGameTime()) >= state.expiresAt) {
+  if (Number(entity.getLevel().getGameTime()) >= state.expiresAt) {
     clearFlower(player)
     return
   }

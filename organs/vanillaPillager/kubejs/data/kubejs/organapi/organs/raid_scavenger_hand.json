@@ -33,15 +33,18 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_home"
+          "callback": "vanillaPillager_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_resource_at_least_3"
+          "callback": "vanillaPillager_resource_at_least_3",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_at_least_3"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_no_plunder_knot"
+          "callback": "vanillaPillager_no_plunder_knot",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_no_plunder_knot"
         }
       ],
       "grants": [],
@@ -109,15 +112,18 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_home"
+          "callback": "vanillaPillager_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_resource_at_least_2"
+          "callback": "vanillaPillager_resource_at_least_2",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_at_least_2"
         },
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_aux_plunder_knot"
+          "callback": "vanillaPillager_aux_plunder_knot",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_plunder_knot"
         }
       ],
       "grants": [],

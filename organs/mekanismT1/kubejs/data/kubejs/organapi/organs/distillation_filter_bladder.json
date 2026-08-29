@@ -121,9 +121,9 @@
         {
           "type": "kubejs_predicate",
           "config": {
-            "callback": "mekanismT1_refinery_online",
-            "custom_display_key": "message.organkubejs.condition.mekanismT1_refinery_online"
-          }
+            "callback": "mekanismT1_refinery_online"
+          },
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_refinery_online"
         }
       ],
       "grants": [],

@@ -85,7 +85,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_aux_plunder_knot"
+          "callback": "vanillaPillager_aux_plunder_knot",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_plunder_knot"
         }
       ],
       "grants": [],
@@ -138,7 +139,8 @@
       "conditions": [
         {
           "type": "kubejs_predicate",
-          "callback": "vanillaPillager_raid_online"
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
         }
       ],
       "grants": [],

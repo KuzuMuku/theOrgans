@@ -284,11 +284,17 @@
    "message.organkubejs.execution.vanillaNether_inferno_shoulderplate_burst" : "点燃目标 3 秒并将其击退",
    "message.organkubejs.execution.vanillaNether_slag_reflux_recover" : "消耗 3 至 4 点献祭余烬换取 4 秒生命恢复",
    "message.organkubejs.execution.vanillaNether_spiritflame_lung_ignite" : "点燃目标 2 秒",
+   "message.organkubejs.execution.vanillaNether_hellfire_tailbone_strike" : "点燃目标 2 秒并接通狱火反击的伤害加成",
+   "message.organkubejs.execution.vanillaNether_fortress_bone_key_loot" : "roll 一次强化要塞宝箱战利品",
    "item.kubejs.ash_conduit" : "灰烬导管",
    "item.kubejs.slag_pump" : "熔渣泵",
    "item.kubejs.soulfire_rhythm" : "魂火节律器",
    "item.kubejs.gilded_recovery_belt" : "炽金回收带",
    "point.organeffects.runtime.kubejs.vanillaNether_overload_window" : "过载窗口",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_retribution" : "狱火反击",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_retribution.desc" : "受击后获得的临时点数，用于下一次近战或火系法术命中。",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_strike" : "狱火反击命中",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_strike.desc" : "把狱火反击的伤害加成带入本次近战命中的临时点数。",
    "point.organeffects.runtime.kubejs.vanillaNether_inferno_upkeep" : "灾厄高热",
    "point.organeffects.runtime.kubejs.vanillaNether_contract_window" : "猪灵契约窗口"
 }

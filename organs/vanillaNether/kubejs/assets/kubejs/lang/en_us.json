@@ -284,11 +284,17 @@
    "message.organkubejs.execution.vanillaNether_inferno_shoulderplate_burst" : "Ignite the target for 3 seconds and knock it back",
    "message.organkubejs.execution.vanillaNether_slag_reflux_recover" : "Spend 3 to 4 sacrifice embers for 4 seconds of regeneration",
    "message.organkubejs.execution.vanillaNether_spiritflame_lung_ignite" : "Ignite the target for 2 seconds",
+   "message.organkubejs.execution.vanillaNether_hellfire_tailbone_strike" : "Ignite the target for 2 seconds and arm the retribution damage bonus",
+   "message.organkubejs.execution.vanillaNether_fortress_bone_key_loot" : "Roll one reinforced fortress chest loot drop",
    "item.kubejs.ash_conduit" : "Ash Conduit",
    "item.kubejs.slag_pump" : "Slag Pump",
    "item.kubejs.soulfire_rhythm" : "Soulfire Rhythm",
    "item.kubejs.gilded_recovery_belt" : "Gilded Recovery Belt",
    "point.organeffects.runtime.kubejs.vanillaNether_overload_window" : "Overload Window",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_retribution" : "Hellfire Retribution",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_retribution.desc" : "Temporary point granted when you are hit, spent on the next melee or fire spell hit.",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_strike" : "Hellfire Retribution Strike",
+   "point.organeffects.runtime.kubejs.vanillaNether_hellfire_strike.desc" : "Temporary point that carries the retribution damage bonus into the current melee hit.",
    "point.organeffects.runtime.kubejs.vanillaNether_inferno_upkeep" : "Inferno Upkeep",
    "point.organeffects.runtime.kubejs.vanillaNether_contract_window" : "Piglin Contract Window"
 }

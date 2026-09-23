@@ -36,8 +36,14 @@ let HERB_ITEM_IDS = [
   'minecraft:suspicious_stew'
 ]
 
-let SMELTFIST_ORGAN = 'kubejs:smeltfist_subcore'
 let SMELTFIST_STACKS = 'kubejs:vanillaNether_smeltfist_stacks'
+let SMELTFIST_COUNTER = 'kubejs:smeltfist_subcore_effect'
+
+let FORTRESS_CHEST_BLOCKS = [
+  'minecraft:chest',
+  'minecraft:trapped_chest',
+  'minecraft:barrel'
+]
 
 function entityOf(player) {
   return player && player.minecraftEntity ? player.minecraftEntity : player
@@ -73,6 +79,14 @@ function entityTypeId(entity) {
 function itemId(stack) {
   try {
     return String(BuiltInRegistries.ITEM.getKey(stack.getItem()))
+  } catch (ignored) {
+    return ''
+  }
+}
+
+function dimensionId(level) {
+  try {
+    return String(level.dimension().location())
   } catch (ignored) {
     return ''
   }
@@ -122,6 +136,14 @@ function hasRuntime(player, pointId) {
   }
 }
 
+function hasCounter(player, pointId) {
+  try {
+    return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'counter', pointId)) > 0
+  } catch (ignored) {
+    return false
+  }
+}
+
 function getRuntimeValue(player, pointId) {
   try {
     return Number(OrganKubeJS.getTypedPoint(entityOf(player), 'runtime', pointId))
@@ -152,6 +174,26 @@ function isFireDamage(source) {
   } catch (ignored) {
   }
   return false
+}
+
+// 贴身近战：伤害直接来源就是攻击者本人，排除投射物与法术
+function isMeleeDamage(source) {
+  if (!source) {
+    return false
+  }
+  try {
+    if (source.getDirectEntity() !== source.getEntity()) {
+      return false
+    }
+  } catch (ignored) {
+    return false
+  }
+  let id = ''
+  try {
+    id = String(source.type().msgId())
+  } catch (ignored) {
+  }
+  return id === 'player' || id === 'mob'
 }
 
 function addEmber(player, amount) {
@@ -222,7 +264,10 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.player.PlayerInteractEvent$
   }
   let state = event.getLevel().getBlockState(event.getPos())
   let blockId = String(BuiltInRegistries.BLOCK.getKey(state.getBlock()))
-  if (blockId.indexOf('chest') < 0 && blockId.indexOf('barrel') < 0) {
+  if (FORTRESS_CHEST_BLOCKS.indexOf(blockId) < 0) {
+    return
+  }
+  if (dimensionId(event.getLevel()) !== 'minecraft:the_nether') {
     return
   }
   fireNetherEvent(player, 'vanillaNether:chest_open', null, null, state)
@@ -232,12 +277,9 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', ev
   let entity = event.getEntity()
   let source = event.getSource()
   if (entity instanceof PlayerClass) {
-    if (hasNetherOrgan(entity, SMELTFIST_ORGAN)) {
-      let stacks = getRuntimeValue(entity, SMELTFIST_STACKS) + 1
+    if (hasCounter(entity, SMELTFIST_COUNTER)) {
+      let stacks = Math.min(3, getRuntimeValue(entity, SMELTFIST_STACKS) + 1)
       setRuntimeValue(entity, SMELTFIST_STACKS, stacks, 100)
-    }
-    if (hasNetherOrgan(entity, 'kubejs:hellfire_tailbone')) {
-      setRuntime(entity, 'kubejs:vanillaNether_hellfire_retribution', 100)
     }
     if (hasNetherOrgan(entity, 'kubejs:obsidian_chest_cavity') && isFireDamage(source)) {
       event.setAmount(Number(event.getAmount()) * 0.8)
@@ -252,19 +294,17 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', ev
   if (!(target instanceof LivingEntityClass) || !target.isAlive()) {
     return
   }
-  if (hasRuntime(attacker, 'kubejs:vanillaNether_hellfire_retribution')) {
-    event.setAmount(Number(event.getAmount()) * 1.5)
-    target.setSecondsOnFire(2)
-    clearRuntime(attacker, 'kubejs:vanillaNether_hellfire_retribution')
-  }
-
-  if (hasNetherOrgan(attacker, SMELTFIST_ORGAN) && getRuntimeValue(attacker, SMELTFIST_STACKS) >= 3) {
-    let area = entityOf(attacker).getEntitiesOfClass(LivingEntityClass, entityOf(attacker).getBoundingBox().inflate(3.5), candidate => candidate !== attacker && candidate.isAlive())
-    let iterator = area.iterator()
-    while (iterator.hasNext()) {
-      iterator.next().setSecondsOnFire(4)
+  if (hasCounter(attacker, SMELTFIST_COUNTER) && isMeleeDamage(source)) {
+    if (getRuntimeValue(attacker, SMELTFIST_STACKS) >= 3) {
+      let area = entityOf(attacker).getEntitiesOfClass(LivingEntityClass, entityOf(attacker).getBoundingBox().inflate(3.5), candidate => candidate !== attacker && candidate.isAlive())
+      let iterator = area.iterator()
+      while (iterator.hasNext()) {
+        iterator.next().setSecondsOnFire(4)
+      }
+      clearRuntime(attacker, SMELTFIST_STACKS)
+    } else {
+      setRuntimeValue(attacker, SMELTFIST_STACKS, Math.min(3, getRuntimeValue(attacker, SMELTFIST_STACKS) + 1), 100)
     }
-    clearRuntime(attacker, SMELTFIST_STACKS)
   }
 })
 
@@ -284,6 +324,7 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
     addEmber(caster, 1)
   }
 
+  // 近战那半已由 hellfire_tailbone.json 的 modify_damage 处理；SpellDamageEvent 不带 DamageHandle，火法只能在脚本侧结算
   if (school === 'irons_spellbooks:fire' && hasRuntime(caster, 'kubejs:vanillaNether_hellfire_retribution')) {
     let amount = Number(event.getAmount())
     event.setAmount(amount * 1.5)

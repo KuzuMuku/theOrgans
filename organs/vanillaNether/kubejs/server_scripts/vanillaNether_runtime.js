@@ -6,6 +6,10 @@ let BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInReg
 let ResourceLocation = Java.loadClass('net.minecraft.resources.ResourceLocation')
 let ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack')
 let Items = Java.loadClass('net.minecraft.world.item.Items')
+let LootTableClass = Java.loadClass('net.minecraft.world.level.storage.loot.LootTable')
+let LootParamsBuilder = Java.loadClass('net.minecraft.world.level.storage.loot.LootParams$Builder')
+let LootContextParams = Java.loadClass('net.minecraft.world.level.storage.loot.parameters.LootContextParams')
+let LootContextParamSets = Java.loadClass('net.minecraft.world.level.storage.loot.parameters.LootContextParamSets')
 
 let DIR_KEY = 'vanillaNether'
 let HOME_STRUCTURE_CACHE = new Map()
@@ -106,6 +110,20 @@ let ASH_SPLEEN_LOOT = [
   { item: 'alexsmobs:hemolymph_sac', count: 1, weight: 4 },
   { item: 'alexsmobs:warped_muscle', count: 1, weight: 3 }
 ]
+let FORTRESS_BONE_KEY_LOOT_TABLES = [
+  'betterfortresses:chests/beacon',
+  'betterfortresses:chests/keep',
+  'betterfortresses:chests/obsidian',
+  'betterfortresses:chests/storage'
+]
+let FORTRESS_BONE_KEY_FALLBACK_LOOT = [
+  { item: 'minecraft:blaze_rod', count: 1, weight: 4 },
+  { item: 'minecraft:quartz', count: 4, weight: 6 },
+  { item: 'minecraft:gold_ingot', count: 1, weight: 4 },
+  { item: 'minecraft:obsidian', count: 2, weight: 3 },
+  { item: 'minecraft:golden_sword', count: 1, weight: 2 },
+  { item: 'minecraft:netherite_scrap', count: 1, weight: 1 }
+]
 
 function itemExists(itemId) {
   let location = ResourceLocation.tryParse(itemId)
@@ -151,6 +169,59 @@ function setRuntime(player, pointId, value, durationTicks) {
   OrganKubeJS.setRuntimePoint(entityOf(player), pointKey('runtime', pointId), Math.max(0, Number(value)), Math.max(2, Number(durationTicks || 2)))
 }
 
+// 真实战利品表：从服务器 LootDataManager 取表按 chest 参数集 roll 一次，取其中一件；缺表时回退到权重表
+function grantLootTable(player, tableIds, fallbackEntries) {
+  let entity = entityOf(player)
+  let server = entity.getServer()
+  if (!server) {
+    grantWeighted(player, fallbackEntries)
+    return
+  }
+  let granted = false
+  try {
+    let available = []
+    for (let i = 0; i < tableIds.length; i++) {
+      let location = ResourceLocation.tryParse(tableIds[i])
+      if (!location) {
+        continue
+      }
+      let table = server.getLootData().getLootTable(location)
+      if (table != null && !LootTableClass.EMPTY.equals(table)) {
+        available.push(table)
+      }
+    }
+    if (available.length > 0) {
+      let table = available[Math.floor(Math.random() * available.length)]
+      let params = new LootParamsBuilder(entity.serverLevel())
+        .withParameter(LootContextParams.ORIGIN, entity.position())
+        .withLuck(Number(entity.getLuck()))
+        .create(LootContextParamSets.CHEST)
+      let items = table.getRandomItems(params)
+      let iterator = items.iterator()
+      let rolled = []
+      while (iterator.hasNext()) {
+        let stack = iterator.next()
+        if (!stack || stack.isEmpty()) {
+          continue
+        }
+        rolled.push(stack)
+      }
+      if (rolled.length > 0) {
+        let stack = rolled[Math.floor(Math.random() * rolled.length)]
+        granted = true
+        if (!entity.addItem(stack)) {
+          entity.spawnAtLocation(stack)
+        }
+      }
+    }
+  } catch (ignored) {
+    granted = false
+  }
+  if (!granted) {
+    grantWeighted(player, fallbackEntries)
+  }
+}
+
 function clearRuntime(player, pointId) {
   if (!player) {
     return
@@ -163,6 +234,10 @@ function clearRuntime(player, pointId) {
 
 function hasAccessory(player, itemId) {
   return !!player && Common.inventoryCount(player, [itemId]) > 0
+}
+
+function soulfireRhythmLinked(player) {
+  return getCounter(player, 'kubejs:soulfire_rhythm_core') > 0 || getCounter(player, 'kubejs:soulfire_rhythm_crown') > 0
 }
 
 function homeMatch(player) {
@@ -381,6 +456,14 @@ OrganKubejsEvents.pointAction('vanillaNether_grant_ash_spleen_loot', event => {
   return event.pointsConsume ? 1 : 0
 })
 
+OrganKubejsEvents.pointAction('vanillaNether_fortress_bone_key_loot', event => {
+  if (!event.player) {
+    return 0
+  }
+  grantLootTable(event.player, FORTRESS_BONE_KEY_LOOT_TABLES, FORTRESS_BONE_KEY_FALLBACK_LOOT)
+  return event.pointsConsume ? 1 : 0
+})
+
 OrganKubejsEvents.targetAction('vanillaNether_blazefire_arm_strike', event => {
   let player = event.player
   let target = rawEntity(event.target)
@@ -398,6 +481,23 @@ OrganKubejsEvents.targetAction('vanillaNether_spiritflame_lung_ignite', event =>
     return 0
   }
   target.setSecondsOnFire(2)
+  return event.pointsConsume ? 1 : 0
+})
+
+OrganKubejsEvents.targetAction('vanillaNether_hellfire_tailbone_strike', event => {
+  // 目标执行器会在任何带目标的事件上被遍历，这里只认近战造成伤害的那一次
+  if (String(event.eventType) !== 'deal_damage' || String(event.eventExtraString('damage_type')) !== 'player') {
+    return 0
+  }
+  let player = event.player
+  let target = rawEntity(event.target)
+  if (!player || !target || !(target instanceof LivingEntityClass) || !target.isAlive()) {
+    return 0
+  }
+  target.setSecondsOnFire(2)
+  // 受击窗口在本次命中兑现：清掉窗口，改挂一次性点位，交给紧随其后的 modify_damage 消耗
+  clearRuntime(player, 'kubejs:vanillaNether_hellfire_retribution')
+  setRuntime(player, 'kubejs:vanillaNether_hellfire_strike', 1, 2)
   return event.pointsConsume ? 1 : 0
 })
 
@@ -436,7 +536,7 @@ OrganKubejsEvents.pointAction('vanillaNether_slag_reflux_recover', event => {
   if (!player) {
     return 0
   }
-  let cheaper = hasAccessory(player, SLAG_PUMP_ID) || getRuntimePoint(player, 'kubejs:vanillaNether_inferno_upkeep') > 0
+  let cheaper = getCounter(player, 'kubejs:slag_pump_effect') > 0 || getCounter(player, 'kubejs:inferno_upkeep_reflux') > 0
   if (!resourceReady(player, cheaper ? 3 : 4)) {
     return 0
   }
@@ -451,7 +551,7 @@ function shortenNetherEffects(player) {
     return
   }
   let kidneyShorten = getCounter(player, FURNACESLAG_EFFECT) > 0 ? 20 : 0
-  if (getCounter(player, 'kubejs:kidneysheath_slag_pump') > 0) {
+  if (kidneyShorten > 0 && getCounter(player, 'kubejs:kidneysheath_slag_pump') > 0) {
     kidneyShorten += 20
   }
   let soulShorten = getCounter(player, SOULSAND_EFFECT) > 0 ? 20 : 0
@@ -498,7 +598,7 @@ PlayerEvents.tick(event => {
   setCounter(player, RESOURCE.current, current)
 
   if (isLowHealth(player) || current >= 16) {
-    let duration = hasAccessory(player, SOULFIRE_RHYTHM_ID) ? 120 : 100
+    let duration = soulfireRhythmLinked(player) ? 120 : 100
     setRuntime(player, 'kubejs:vanillaNether_overload_window', 1, duration)
   } else {
     clearRuntime(player, 'kubejs:vanillaNether_overload_window')
@@ -506,9 +606,6 @@ PlayerEvents.tick(event => {
 
   if (homeMatch(player) && (entity.isSprinting() || hasNearbyBlock(entity, ['minecraft:blackstone', 'minecraft:basalt'], 4))) {
     setRuntime(player, 'kubejs:vanillaNether_emberstride_window', 1, 80)
-    if (entity.tickCount % 80 === 0) {
-      addResource(player, 1)
-    }
   } else {
     clearRuntime(player, 'kubejs:vanillaNether_emberstride_window')
   }
@@ -518,8 +615,10 @@ PlayerEvents.tick(event => {
   }
 
   if (getRuntimePoint(player, 'kubejs:vanillaNether_inferno_upkeep') > 0 && entity.tickCount % 20 === 0) {
-    let cost = hasAccessory(player, SOULFIRE_RHYTHM_ID) ? 1 : 2
-    if (current < cost) {
+    let cost = soulfireRhythmLinked(player) ? 1 : 2
+    // 仍处于下界高温/燃烧环境时保留最多 5 点余烬作为底火
+    let floor = homeMatch(player) ? 5 : 0
+    if (current - cost < floor) {
       clearRuntime(player, 'kubejs:vanillaNether_inferno_upkeep')
     } else {
       spendResource(player, cost)

@@ -94,15 +94,23 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "common_apply_target_mark_effect"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillaswamp:vanillaSwamp_mark"
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:poison",
+                "duration_ticks": 60,
+                "amplifier": 0
+              }
+            ]
           },
           "point_type": "mark",
           "point_id": "vanillaswamp:vanillaSwamp_mark",
-          "effect": "minecraft:poison",
-          "duration_ticks": 60,
-          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaSwamp_target_mark"

@@ -98,15 +98,23 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "common_apply_target_mark_effect"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillavillage:vanillaVillage_mark"
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:glowing",
+                "duration_ticks": 60,
+                "amplifier": 0
+              }
+            ]
           },
           "point_type": "mark",
           "point_id": "vanillavillage:vanillaVillage_mark",
-          "effect": "minecraft:glowing",
-          "duration_ticks": 60,
-          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaVillage_target_mark"

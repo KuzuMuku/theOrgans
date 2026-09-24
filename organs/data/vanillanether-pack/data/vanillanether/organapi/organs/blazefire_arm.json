@@ -59,9 +59,18 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "vanillaNether_blazefire_arm_strike"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillanether:vanillaNether_mark"
+              },
+              {
+                "op": "fire",
+                "seconds": 2
+              }
+            ]
           },
           "point_type": "runtime",
           "point_id": "vanillanether:blazefire_arm_mark_request",

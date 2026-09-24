@@ -59,9 +59,18 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "vanillaNether_inferno_shoulderplate_burst"
+            "ops": [
+              {
+                "op": "fire",
+                "seconds": 3
+              },
+              {
+                "op": "knockback",
+                "strength": 0.45
+              }
+            ]
           },
           "point_type": "runtime",
           "point_id": "vanillanether:inferno_shoulderplate_burst",

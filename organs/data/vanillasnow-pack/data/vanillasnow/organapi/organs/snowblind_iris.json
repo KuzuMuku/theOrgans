@@ -48,8 +48,24 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
-          "callback": "vanillaSnow_ranged_mark",
+          "type": "target_strike",
+          "config": {
+            "ops": [
+              {
+                "op": "effect",
+                "effect": "minecraft:glowing",
+                "duration_ticks": 80,
+                "amplifier": 0
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:movement_slowdown",
+                "duration_ticks": 60,
+                "amplifier": 1
+              }
+            ],
+            "require_mark": "vanillasnow:vanillaSnow_mark"
+          },
           "point_type": "runtime",
           "point_id": "vanillasnow:snowblind_iris_focus",
           "consume_points": true,

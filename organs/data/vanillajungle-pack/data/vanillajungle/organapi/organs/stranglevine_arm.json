@@ -92,9 +92,21 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "vanillaJungle_stranglevine_snare"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillajungle:vanillaJungle_mark"
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:weakness",
+                "duration_ticks": 60,
+                "amplifier": 0,
+                "require_mark": "vanillajungle:vanillaJungle_mark"
+              }
+            ]
           },
           "point_type": "runtime",
           "point_id": "vanillajungle:stranglevine_arm_snare_pulse",

@@ -59,9 +59,20 @@
           "max_consume": 1
         },
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "vanillaOcean_mark_and_slow"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillaocean:vanillaOcean_mark"
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:movement_slowdown",
+                "duration_ticks": 60,
+                "amplifier": 0
+              }
+            ]
           },
           "point_type": "runtime",
           "point_id": "vanillaocean:seamirror_iris_mark_request",

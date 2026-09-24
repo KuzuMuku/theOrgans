@@ -49,9 +49,23 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "vanillaDesert_drysand_mark_consume"
+            "ops": [
+              {
+                "op": "effect",
+                "effect": "minecraft:glowing",
+                "duration_ticks": 100,
+                "amplifier": 0
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:weakness",
+                "duration_ticks": 40,
+                "amplifier": 0
+              }
+            ],
+            "require_mark": "vanilladesert:vanillaDesert_mark"
           },
           "point_type": "runtime",
           "point_id": "vanilladesert:drysand_iris_mark_consume_request",

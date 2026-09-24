@@ -123,8 +123,15 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
-          "callback": "vanillaSnow_freezebreak_guard_retal",
+          "type": "target_strike",
+          "config": {
+            "ops": [
+              {
+                "op": "damage",
+                "amount": 2.0
+              }
+            ]
+          },
           "point_type": "runtime",
           "point_id": "vanillasnow:freezebreak_sheath_guard_retal",
           "consume_points": true,

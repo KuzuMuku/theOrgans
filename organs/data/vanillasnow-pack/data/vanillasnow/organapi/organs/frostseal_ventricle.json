@@ -1,0 +1,128 @@
+{
+  "item": "vanillasnow:frostseal_ventricle",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6心§r §b冰3§r §9寒势自愈§r §e高§r"
+  ],
+  "tags": [
+    "vanillaSnow",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:ice_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillasnow:vanillaSnow_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanillasnow:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 25,
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_25"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 600
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:frostseal_ventricle_heal_ready",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_frostseal_heal",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:frostseal_ventricle_heal_ready",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_frostseal_heal"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_home"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 200
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:frostseal_ventricle_suppress_ready",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_frostseal_suppress",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:frostseal_ventricle_suppress_ready",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_frostseal_suppress"
+        }
+      ]
+    }
+  ]
+}

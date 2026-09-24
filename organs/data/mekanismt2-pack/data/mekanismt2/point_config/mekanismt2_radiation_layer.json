@@ -1,0 +1,6 @@
+{
+  "point": "counter:mekanismt2:mek_t2_radiation_layer",
+  "sync_to_client": false,
+  "display_name_key": "point.organeffects.counter.mekanismt2.mek_t2_radiation_layer",
+  "priority": 20
+}

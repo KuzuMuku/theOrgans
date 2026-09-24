@@ -1,0 +1,85 @@
+{
+  "item": "createt2:ratchet_breach_shoulder",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肩§r §a风3§r §9高压近战§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        },
+        {
+          "type": "skill",
+          "skill_name": "createt2:ratchet_breach_shoulder",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "move",
+          "distance": 4,
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "createt2:brass_breach_charge",
+              "amount": 1,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "createt2:brass_breach_charge",
+              "amount": 2,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "createt2:brass_breach_charge",
+              "amount": 2,
+              "source": "kubejs_level2_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

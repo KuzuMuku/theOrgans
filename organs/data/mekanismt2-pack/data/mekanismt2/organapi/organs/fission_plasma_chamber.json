@@ -1,0 +1,96 @@
+{
+  "item": "mekanismt2:fission_plasma_chamber",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6炉§r §d电4§r §9裂变等离子§r §e高§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "core",
+    "plasma"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "skill",
+          "skill_name": "mekanismt2:fission_plasma_chamber",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "mekanismt2:mek_t2_radiation_cap",
+          "amount": 4
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "mekanismT2_plasma_online",
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_plasma_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "mekanismt2:mek_t2_plasma_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_target_call",
+          "callback": "mekanismT2_plasma_strike",
+          "point_type": "runtime",
+          "point_id": "mekanismt2:mek_t2_plasma_strike",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT2_plasma_strike"
+        }
+      ]
+    }
+  ]
+}

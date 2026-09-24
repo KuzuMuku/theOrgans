@@ -1,0 +1,105 @@
+{
+  "item": "mekanismt1:high_frequency_phase_cochlea",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6耳§r §d电3§r §9工业节拍§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "support",
+    "rhythm"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 3,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "mekanismt1:mekanismT1_rhythm_actions",
+              "amount": 1,
+              "duration_ticks": 60
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "mekanismt1:mekanismT1_rhythm_actions",
+              "amount": 1,
+              "duration_ticks": 60
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "move",
+          "distance": 2,
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "mekanismt1:mekanismT1_rhythm_actions",
+              "amount": 1,
+              "duration_ticks": 60
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "mekanismT1_rhythm_loop"
+          },
+          "point_type": "runtime",
+          "point_id": "mekanismt1:mekanismT1_rhythm_actions",
+          "consume_points": false,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_rhythm_loop"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "mekanismT1_rhythm_online",
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_rhythm_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.luck",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

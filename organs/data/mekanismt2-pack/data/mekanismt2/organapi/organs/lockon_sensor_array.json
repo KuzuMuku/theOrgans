@@ -1,0 +1,92 @@
+{
+  "item": "mekanismt2:lockon_sensor_array",
+  "size": 1,
+  "tooltips": [
+    "§6阵§r §d电2§r §9锁定辅助§r §6中§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "auxiliary",
+    "lockon"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:mekanismt2:mek_t2_lock_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_lock_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "mekanismT2_sync_online",
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_sync_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "projectile_hit",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "mekanismt2:mek_t2_lockon_focus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_target_call",
+          "callback": "mekanismT2_lockon_focus",
+          "point_type": "runtime",
+          "point_id": "mekanismt2:mek_t2_lockon_focus",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT2_lockon_focus"
+        }
+      ]
+    }
+  ]
+}

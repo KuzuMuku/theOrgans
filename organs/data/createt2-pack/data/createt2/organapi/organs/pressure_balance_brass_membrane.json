@@ -1,0 +1,96 @@
+{
+  "item": "createt2:pressure_balance_brass_membrane",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §a风2§r §9稳压生存§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "armor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "createT2_cruise_online",
+          "custom_display_key": "message.organkubejs.condition.createT2_cruise_online"
+        },
+        {
+          "type": "kubejs_hook",
+          "callback": "createT2_high_load",
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 2
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "createt2:brass_processing_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "createt2:brass_processing_pulse",
+          "items": [
+            {
+              "item": "minecraft:iron_nugget",
+              "count": 1,
+              "weight": 1
+            }
+          ],
+          "rolls": 1,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

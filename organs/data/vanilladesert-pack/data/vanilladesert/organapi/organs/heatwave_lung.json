@@ -1,0 +1,127 @@
+{
+  "item": "vanilladesert:heatwave_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §c火5§r §9火法产热§r §6中§r"
+  ],
+  "tags": [
+    "vanillaDesert",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 5,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:fire",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanilladesert:heatwave_lung_spell_echo",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanilladesert:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_fire_hit"
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "runtime",
+          "point_id": "vanilladesert:heatwave_lung_spell_echo",
+          "effect": "minecraft:slowness",
+          "duration_ticks": 60,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaDesert_fire_hit"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanilladesert:vanillaDesert_resonance",
+          "op": "gte",
+          "value": 10,
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanilladesert:vanillaDesert_resonance",
+          "op": "gte",
+          "value": 25,
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

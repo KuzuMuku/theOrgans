@@ -1,0 +1,129 @@
+{
+  "item": "vanilladesert:eclipse_crown",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6头§r §c火4§r §9白昼节律§r §6中§r"
+  ],
+  "tags": [
+    "vanillaDesert",
+    "crown"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_magic_resist",
+          "amount": 3
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaDesert_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 60
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "vanilladesert:vanillaDesert_resonance",
+              "amount": 1,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_daylight_heat"
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanilladesert:vanillaDesert_resonance",
+          "op": "gte",
+          "value": 10,
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanilladesert:vanillaDesert_resonance",
+          "op": "gte",
+          "value": 25,
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "item": "vanillalushcaves:sporeglow_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §2草6§r §9自然法增§r §6中§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 6,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:nature_spell_power",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "mark",
+              "id": "vanillalushcaves:vanillaLushCaves_mark",
+              "amount": 1,
+              "source": "vanillaLushCaves_system"
+            },
+            {
+              "type": "counter",
+              "id": "vanillalushcaves:vanillaLushCaves_resonance",
+              "amount": 1,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "apply_target_mob_effect",
+          "point_type": "mark",
+          "point_id": "vanillalushcaves:vanillaLushCaves_mark",
+          "effect": "minecraft:glowing",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": false,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaLushCaves_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

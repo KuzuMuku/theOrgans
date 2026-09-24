@@ -1,0 +1,137 @@
+{
+  "item": "vanillanether:cataclysm_magma_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6核§r §c火3§r §9献祭底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillanether:vanillaNether_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "vanillanether:cataclysm_magma_burst",
+          "amount": 1
+        },
+        {
+          "type": "skill",
+          "skill_name": "vanillanether:cataclysm_magma_upkeep",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "inventory",
+          "items": [
+            "vanillanether:soulfire_rhythm"
+          ],
+          "op": "gte",
+          "value": 1,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_soulfire_rhythm_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "counter",
+          "id": "vanillanether:soulfire_rhythm_core",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillanether:vanillaNether_inferno_upkeep",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillanether:vanillaNether_magma_overload",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_magma_overload_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_spell_power",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

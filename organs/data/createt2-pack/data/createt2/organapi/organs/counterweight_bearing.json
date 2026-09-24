@@ -1,0 +1,62 @@
+{
+  "item": "createt2:counterweight_bearing",
+  "valid_parts": [
+    "organapi:head",
+    "organapi:chest",
+    "organapi:abdomen",
+    "organapi:left_arm",
+    "organapi:right_arm",
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6轴§r §a风1§r §9节拍稳定§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "assembly"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "createt2:torque_capacity",
+          "amount": 10
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "createT2_tempo_ready",
+          "custom_display_key": "message.organkubejs.condition.createT2_tempo_ready"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

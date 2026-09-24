@@ -1,0 +1,38 @@
+{
+  "item": "vanillaocean:bubblewave_throat",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6喉§r §1水2§r §9潮叉远压§r §7低§r"
+  ],
+  "tags": [
+    "vanillaOcean",
+    "active_ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:water_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "vanillaocean:bubblewave_throat",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

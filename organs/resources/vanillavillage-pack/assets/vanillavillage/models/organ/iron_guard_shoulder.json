@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanillavillage:item/iron_guard_shoulder"
+  }
+}

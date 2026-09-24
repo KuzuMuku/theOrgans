@@ -1,0 +1,190 @@
+{
+  "item": "vanillalushcaves:sporebed_spleen",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脾§r §2草2§r §9洞穴采集补给§r §7低§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillalushcaves:sporebed_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanillalushcaves:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:nature",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillalushcaves:sporebed_spleen_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanillalushcaves:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "vanillalushcaves:sporebed_spleen_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:glow_berries",
+              "count": 3,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:moss_block",
+              "count": 2,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:clay_ball",
+              "count": 2,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaLushCaves_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+        },
+        {
+          "type": "point",
+          "point": "counter:vanillalushcaves:vanillaLushCaves_resonance",
+          "op": "gte",
+          "value": 2,
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_resource_cost_ready"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "mine",
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillalushcaves:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillalushcaves:sporebed_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "actions": []
+        },
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:nature",
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillalushcaves:vanillaLushCaves_resonance",
+              "amount": 2,
+              "source": "vanillaLushCaves_system"
+            }
+          ],
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillalushcaves:sporebed_spleen_bonus_loot",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "grant_items",
+          "point_type": "runtime",
+          "point_id": "vanillalushcaves:sporebed_spleen_bonus_loot",
+          "consume_points": true,
+          "max_consume": 1,
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:glow_berries",
+              "count": 3,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:moss_block",
+              "count": 2,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:clay_ball",
+              "count": 2,
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

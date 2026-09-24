@@ -1,0 +1,1027 @@
+{
+ "vanillaVillage": {
+  "resource": null,
+  "sets": {
+   "VANILLAVILLAGE_ORGAN_IDS": [
+    "kubejs:bell_ventricle",
+    "kubejs:trade_spinewheel",
+    "kubejs:order_sternum",
+    "kubejs:profession_liver",
+    "kubejs:prestige_crown",
+    "kubejs:ledger_lung",
+    "kubejs:field_spleen",
+    "kubejs:repair_reflux_gland",
+    "kubejs:beacon_kidneysheath",
+    "kubejs:watchbell_cochlea",
+    "kubejs:village_iris",
+    "kubejs:offering_gland",
+    "kubejs:iron_guard_shoulder",
+    "kubejs:travel_legplate",
+    "kubejs:trade_scavenger_hand",
+    "kubejs:village_ledger",
+    "kubejs:bell_rope_winder",
+    "kubejs:holy_path_relay",
+    "kubejs:mending_suture",
+    "kubejs:village_bell_core"
+   ],
+   "SOURCE_IDS": [
+    "kubejs:bell_ventricle",
+    "kubejs:trade_spinewheel",
+    "kubejs:order_sternum",
+    "kubejs:profession_liver",
+    "kubejs:prestige_crown",
+    "kubejs:ledger_lung",
+    "kubejs:field_spleen",
+    "kubejs:repair_reflux_gland",
+    "kubejs:beacon_kidneysheath",
+    "kubejs:watchbell_cochlea",
+    "kubejs:village_iris",
+    "kubejs:offering_gland",
+    "kubejs:iron_guard_shoulder",
+    "kubejs:travel_legplate",
+    "kubejs:trade_scavenger_hand",
+    "kubejs:village_bell_core"
+   ],
+   "CORELINE_IDS": [
+    "kubejs:bell_ventricle",
+    "kubejs:trade_spinewheel"
+   ],
+   "SUPPORT_IDS": [
+    "kubejs:beacon_kidneysheath",
+    "kubejs:watchbell_cochlea",
+    "kubejs:offering_gland"
+   ],
+   "MANA_IDS": [
+    "kubejs:profession_liver"
+   ],
+   "SPELL_IDS": [
+    "kubejs:ledger_lung"
+   ],
+   "CROWN_IDS": [
+    "kubejs:prestige_crown"
+   ],
+   "ARMOR_IDS": [
+    "kubejs:order_sternum"
+   ],
+   "MOVEMENT_IDS": [
+    "kubejs:travel_legplate"
+   ],
+   "MELEE_IDS": [
+    "kubejs:iron_guard_shoulder"
+   ],
+   "RANGED_IDS": [
+    "kubejs:village_iris"
+   ],
+   "RESOURCE_IDS": [
+    "kubejs:field_spleen",
+    "kubejs:trade_scavenger_hand"
+   ],
+   "CORE_IDS": [
+    "kubejs:village_bell_core"
+   ],
+   "VILLAGE_LEDGER_IDS": [
+    "kubejs:village_ledger"
+   ],
+   "BELL_ROPE_WINDER_IDS": [
+    "kubejs:bell_rope_winder"
+   ],
+   "HOLY_PATH_RELAY_IDS": [
+    "kubejs:holy_path_relay"
+   ],
+   "MENDING_SUTURE_IDS": [
+    "kubejs:mending_suture"
+   ],
+   "VILLAGE_HOSTILE_IDS": [
+    "minecraft:zombie",
+    "minecraft:zombie_villager",
+    "minecraft:husk",
+    "minecraft:skeleton",
+    "minecraft:spider",
+    "minecraft:pillager",
+    "minecraft:vindicator",
+    "minecraft:witch",
+    "minecraft:ravager"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "createT1": {
+  "resource": null,
+  "sets": {},
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaNether": {
+  "resource": "kubejs:vanillaNether_resonance",
+  "sets": {
+   "SOURCE_IDS": [
+    "kubejs:infernal_hearth",
+    "kubejs:sacrifice_spine_furnace",
+    "kubejs:obsidian_chest_cavity",
+    "kubejs:ember_liver",
+    "kubejs:spiritflame_lung",
+    "kubejs:overload_crown",
+    "kubejs:ash_spleen",
+    "kubejs:slag_reflux_gland",
+    "kubejs:soulsand_lung_sac",
+    "kubejs:netherwart_liver",
+    "kubejs:furnaceslag_kidneysheath",
+    "kubejs:blackstone_spleen_membrane",
+    "kubejs:blazefire_arm",
+    "kubejs:scorch_throat_sac",
+    "kubejs:lava_tendon",
+    "kubejs:emberstride_ankle",
+    "kubejs:ash_iris",
+    "kubejs:sacrifice_fire_fist",
+    "kubejs:inferno_shoulderplate",
+    "kubejs:hellfire_tailbone",
+    "kubejs:furnace_kneering",
+    "kubejs:blackflame_throat_pipe",
+    "kubejs:fortress_bone_key",
+    "kubejs:bastion_hoof_lock",
+    "kubejs:ancient_relic_hand",
+    "kubejs:gilded_recovery_claw",
+    "kubejs:smeltfist_subcore",
+    "kubejs:cataclysm_magma_core",
+    "kubejs:piglin_contract_liver",
+    "kubejs:ashvale_lung"
+   ],
+   "VANILLANETHER_ORGAN_IDS": [
+    "kubejs:infernal_hearth",
+    "kubejs:sacrifice_spine_furnace",
+    "kubejs:obsidian_chest_cavity",
+    "kubejs:ember_liver",
+    "kubejs:spiritflame_lung",
+    "kubejs:overload_crown",
+    "kubejs:ash_spleen",
+    "kubejs:slag_reflux_gland",
+    "kubejs:soulsand_lung_sac",
+    "kubejs:netherwart_liver",
+    "kubejs:furnaceslag_kidneysheath",
+    "kubejs:blackstone_spleen_membrane",
+    "kubejs:blazefire_arm",
+    "kubejs:scorch_throat_sac",
+    "kubejs:lava_tendon",
+    "kubejs:emberstride_ankle",
+    "kubejs:ash_iris",
+    "kubejs:sacrifice_fire_fist",
+    "kubejs:inferno_shoulderplate",
+    "kubejs:hellfire_tailbone",
+    "kubejs:furnace_kneering",
+    "kubejs:blackflame_throat_pipe",
+    "kubejs:fortress_bone_key",
+    "kubejs:bastion_hoof_lock",
+    "kubejs:ancient_relic_hand",
+    "kubejs:gilded_recovery_claw",
+    "kubejs:smeltfist_subcore",
+    "kubejs:cataclysm_magma_core",
+    "kubejs:piglin_contract_liver",
+    "kubejs:ashvale_lung"
+   ]
+  },
+  "consts": {
+   "ASH_CONDUIT_ID": "kubejs:ash_conduit",
+   "SLAG_PUMP_ID": "kubejs:slag_pump",
+   "SOULFIRE_RHYTHM_ID": "kubejs:soulfire_rhythm",
+   "GILDED_BELT_ID": "kubejs:gilded_recovery_belt"
+  },
+  "aux": {}
+ },
+ "mekanismT1": {
+  "resource": "kubejs:mek_energy",
+  "sets": {
+   "SOURCE_IDS": [
+    "kubejs:industrial_energy_core",
+    "kubejs:heat_pump_lung",
+    "kubejs:gas_reflux_sac",
+    "kubejs:high_frequency_phase_cochlea",
+    "kubejs:heat_conductive_boneplate",
+    "kubejs:capacitor_rhythm_gland",
+    "kubejs:distillation_filter_bladder",
+    "kubejs:calibration_lens_eye",
+    "kubejs:heat_blade_arm",
+    "kubejs:magnet_rail_fist",
+    "kubejs:overheat_diffusion_shoulder",
+    "kubejs:cracking_mine_sac",
+    "kubejs:refining_recovery_gland",
+    "kubejs:magnet_rail_leg_bolt",
+    "kubejs:energy_loop_core"
+   ],
+   "HEAT_IDS": [
+    "kubejs:heat_pump_lung",
+    "kubejs:heat_conductive_boneplate",
+    "kubejs:heat_blade_arm",
+    "kubejs:overheat_diffusion_shoulder"
+   ],
+   "RHYTHM_IDS": [
+    "kubejs:high_frequency_phase_cochlea",
+    "kubejs:capacitor_rhythm_gland",
+    "kubejs:calibration_lens_eye",
+    "kubejs:magnet_rail_leg_bolt"
+   ],
+   "REFINERY_IDS": [
+    "kubejs:gas_reflux_sac",
+    "kubejs:distillation_filter_bladder",
+    "kubejs:cracking_mine_sac",
+    "kubejs:refining_recovery_gland"
+   ],
+   "OVERHEAT_IDS": [
+    "kubejs:overheat_diffusion_shoulder",
+    "kubejs:heat_conductive_boneplate"
+   ],
+   "INFRASTRUCTURE_IDS": [
+    "kubejs:basic_energy_wire",
+    "kubejs:heat_exchange_pipe",
+    "kubejs:chemical_gas_pipe",
+    "kubejs:capacitor_bus_bar",
+    "kubejs:mineral_transport_rail"
+   ],
+   "MEKANISMT1_ORGAN_IDS": [
+    "kubejs:industrial_energy_core",
+    "kubejs:heat_pump_lung",
+    "kubejs:gas_reflux_sac",
+    "kubejs:high_frequency_phase_cochlea",
+    "kubejs:heat_conductive_boneplate",
+    "kubejs:capacitor_rhythm_gland",
+    "kubejs:distillation_filter_bladder",
+    "kubejs:calibration_lens_eye",
+    "kubejs:heat_blade_arm",
+    "kubejs:magnet_rail_fist",
+    "kubejs:overheat_diffusion_shoulder",
+    "kubejs:cracking_mine_sac",
+    "kubejs:refining_recovery_gland",
+    "kubejs:magnet_rail_leg_bolt",
+    "kubejs:energy_loop_core"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaOcean": {
+  "resource": null,
+  "sets": {
+   "VANILLAOCEAN_ORGAN_IDS": [
+    "kubejs:tidal_ventricle",
+    "kubejs:saltgill_lung",
+    "kubejs:deepsea_liver",
+    "kubejs:coral_boneplate",
+    "kubejs:seacurrent_spleen",
+    "kubejs:tidepressure_crown",
+    "kubejs:wetgill_jowl",
+    "kubejs:seamirror_iris",
+    "kubejs:foam_kidney",
+    "kubejs:farvoyage_flipper",
+    "kubejs:kelp_spinal_cord",
+    "kubejs:shellbell_cochlea",
+    "kubejs:countercurrent_arm",
+    "kubejs:tidefin_leg",
+    "kubejs:bubblewave_throat",
+    "kubejs:coralspike_fist",
+    "kubejs:monument_refraction_eye",
+    "kubejs:tidesound_fork_wrist",
+    "kubejs:deeptide_scavenger_hand",
+    "kubejs:coraltide_tail",
+    "kubejs:dragonfrost_sac",
+    "kubejs:frostabyss_core"
+   ],
+   "SOURCE_IDS": [
+    "kubejs:tidal_ventricle",
+    "kubejs:saltgill_lung",
+    "kubejs:deepsea_liver",
+    "kubejs:coral_boneplate",
+    "kubejs:seacurrent_spleen",
+    "kubejs:tidepressure_crown",
+    "kubejs:wetgill_jowl",
+    "kubejs:seamirror_iris",
+    "kubejs:foam_kidney",
+    "kubejs:farvoyage_flipper",
+    "kubejs:kelp_spinal_cord",
+    "kubejs:shellbell_cochlea",
+    "kubejs:countercurrent_arm",
+    "kubejs:tidefin_leg",
+    "kubejs:bubblewave_throat",
+    "kubejs:coralspike_fist",
+    "kubejs:monument_refraction_eye",
+    "kubejs:tidesound_fork_wrist",
+    "kubejs:deeptide_scavenger_hand",
+    "kubejs:coraltide_tail",
+    "kubejs:dragonfrost_sac",
+    "kubejs:frostabyss_core"
+   ],
+   "CORELINE_IDS": [
+    "kubejs:tidal_ventricle",
+    "kubejs:kelp_spinal_cord",
+    "kubejs:coraltide_tail",
+    "kubejs:frostabyss_core"
+   ],
+   "SUPPORT_IDS": [
+    "kubejs:wetgill_jowl",
+    "kubejs:shellbell_cochlea"
+   ],
+   "TIDE_IDS": [
+    "kubejs:tidal_ventricle",
+    "kubejs:saltgill_lung",
+    "kubejs:foam_kidney"
+   ],
+   "TEMPLE_IDS": [
+    "kubejs:monument_refraction_eye",
+    "kubejs:coral_boneplate",
+    "kubejs:seamirror_iris"
+   ],
+   "SALVAGE_IDS": [
+    "kubejs:seacurrent_spleen",
+    "kubejs:deeptide_scavenger_hand"
+   ],
+   "WET_IDS": [
+    "kubejs:wetgill_jowl",
+    "kubejs:farvoyage_flipper",
+    "kubejs:tidefin_leg",
+    "kubejs:foam_kidney"
+   ],
+   "MANA_IDS": [
+    "kubejs:deepsea_liver"
+   ],
+   "SPELL_IDS": [
+    "kubejs:saltgill_lung"
+   ],
+   "CROWN_IDS": [
+    "kubejs:tidepressure_crown"
+   ],
+   "ARMOR_IDS": [
+    "kubejs:coral_boneplate"
+   ],
+   "MOVEMENT_IDS": [
+    "kubejs:farvoyage_flipper",
+    "kubejs:tidefin_leg"
+   ],
+   "MELEE_IDS": [
+    "kubejs:countercurrent_arm",
+    "kubejs:coralspike_fist",
+    "kubejs:tidesound_fork_wrist"
+   ],
+   "RANGED_IDS": [
+    "kubejs:seamirror_iris",
+    "kubejs:monument_refraction_eye",
+    "kubejs:bubblewave_throat"
+   ],
+   "RESOURCE_IDS": [
+    "kubejs:seacurrent_spleen",
+    "kubejs:deeptide_scavenger_hand"
+   ],
+   "AUX_ITEM_IDS": [
+    "kubejs:current_conduit",
+    "kubejs:salt_exchange_valve",
+    "kubejs:tidal_buoy"
+   ],
+   "FISH_ENTITY_IDS": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:pufferfish",
+    "minecraft:tropical_fish",
+    "minecraft:glow_squid",
+    "minecraft:squid",
+    "minecraft:dolphin",
+    "minecraft:turtle"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaJungle": {
+  "resource": "kubejs:vanillaJungle_resonance",
+  "sets": {
+   "VANILLAJUNGLE_ORGAN_IDS": [
+    "kubejs:buttress_ventricle",
+    "kubejs:mossbark_carapace",
+    "kubejs:rainforest_water_sac",
+    "kubejs:temple_moss_spine",
+    "kubejs:stranglevine_arm",
+    "kubejs:flytrap_throat_sac",
+    "kubejs:jaguar_crouch_tendon",
+    "kubejs:orchid_spellbud_lung",
+    "kubejs:cocoa_marow_liver",
+    "kubejs:sporeweb_crown",
+    "kubejs:ancient_resonance_core",
+    "kubejs:wooden_sap_conduit",
+    "kubejs:root_anchor_silk",
+    "kubejs:aerial_root_breathing_tube",
+    "kubejs:vine_bind_bundle"
+   ],
+   "SOURCE_IDS": [
+    "kubejs:buttress_ventricle",
+    "kubejs:mossbark_carapace",
+    "kubejs:rainforest_water_sac",
+    "kubejs:temple_moss_spine",
+    "kubejs:stranglevine_arm",
+    "kubejs:flytrap_throat_sac",
+    "kubejs:jaguar_crouch_tendon",
+    "kubejs:orchid_spellbud_lung",
+    "kubejs:cocoa_marow_liver",
+    "kubejs:sporeweb_crown",
+    "kubejs:ancient_resonance_core",
+    "kubejs:wooden_sap_conduit",
+    "kubejs:root_anchor_silk",
+    "kubejs:aerial_root_breathing_tube",
+    "kubejs:vine_bind_bundle"
+   ],
+   "SNARE_IDS": [
+    "kubejs:stranglevine_arm",
+    "kubejs:flytrap_throat_sac",
+    "kubejs:jaguar_crouch_tendon",
+    "kubejs:vine_bind_bundle"
+   ]
+  },
+  "consts": {
+   "MARK_POINT_ID": "kubejs:vanillaJungle_mark"
+  },
+  "aux": {}
+ },
+ "vanillaSnow": {
+  "resource": "kubejs:vanillaSnow_resonance",
+  "sets": {
+   "VANILLASNOW_ORGAN_IDS": [
+    "kubejs:frostseal_ventricle",
+    "kubejs:frozensoil_chest_membrane",
+    "kubejs:birchmarrow_liver",
+    "kubejs:icecrystal_lung",
+    "kubejs:frostlight_crown",
+    "kubejs:snowhide_spleen",
+    "kubejs:icechip_arm",
+    "kubejs:snowblind_iris",
+    "kubejs:frosthoof_tendon",
+    "kubejs:freezebreak_sheath",
+    "kubejs:frozen_maze_core"
+   ],
+   "SOURCE_IDS": [
+    "kubejs:frostseal_ventricle",
+    "kubejs:frozensoil_chest_membrane",
+    "kubejs:birchmarrow_liver",
+    "kubejs:icecrystal_lung",
+    "kubejs:frostlight_crown",
+    "kubejs:snowhide_spleen",
+    "kubejs:icechip_arm",
+    "kubejs:snowblind_iris",
+    "kubejs:frosthoof_tendon",
+    "kubejs:freezebreak_sheath",
+    "kubejs:frozen_maze_core"
+   ],
+   "AUX_ITEM_IDS": [
+    "kubejs:deposition_conduit",
+    "kubejs:frostvein_bundle",
+    "kubejs:icecore_rhythm"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaEnd": {
+  "resource": "kubejs:vanillaEnd_resonance",
+  "sets": {
+   "VANILLAEND_ORGAN_IDS": [
+    "kubejs:void_ventricle",
+    "kubejs:return_spine_furnace",
+    "kubejs:purpur_chest_membrane",
+    "kubejs:dragonbreath_liver",
+    "kubejs:ender_lung",
+    "kubejs:gategap_crown",
+    "kubejs:shulker_spleen",
+    "kubejs:endstone_reflux_gland",
+    "kubejs:endgate_lung",
+    "kubejs:enderwart_liver",
+    "kubejs:voidabyss_kidneysheath",
+    "kubejs:enddust_spleen_membrane",
+    "kubejs:shadowfold_arm",
+    "kubejs:shadow_throat_sac",
+    "kubejs:endleap_tendon",
+    "kubejs:wingfold_shoulder_ring",
+    "kubejs:endpattern_iris",
+    "kubejs:foldgate_fist",
+    "kubejs:endbound_shoulderplate",
+    "kubejs:gategap_tailbone",
+    "kubejs:void_guard_core"
+   ],
+   "END_MOB_IDS": [
+    "minecraft:enderman",
+    "minecraft:endermite",
+    "minecraft:shulker",
+    "minecraft:ender_dragon",
+    "cataclysm:ender_guardian",
+    "cataclysm:ender_golem"
+   ],
+   "END_BLOCK_IDS": [
+    "minecraft:end_stone",
+    "minecraft:end_stone_bricks",
+    "minecraft:end_stone_brick_stairs",
+    "minecraft:end_stone_brick_slab",
+    "minecraft:purpur_block",
+    "minecraft:purpur_pillar",
+    "minecraft:purpur_stairs",
+    "minecraft:purpur_slab"
+   ],
+   "CITY_BLOCK_IDS": [
+    "minecraft:purpur_block",
+    "minecraft:purpur_pillar",
+    "minecraft:end_rod",
+    "minecraft:end_stone_bricks"
+   ]
+  },
+  "consts": {},
+  "aux": {
+   "void_conduit": "kubejs:void_conduit",
+   "gate_anchor": "kubejs:gate_anchor",
+   "purpur_nerve_cord": "kubejs:purpur_nerve_cord",
+   "ender_tether": "kubejs:ender_tether"
+  }
+ },
+ "vanillaDesert": {
+  "resource": "kubejs:vanillaDesert_resonance",
+  "sets": {
+   "VANILLADESERT_ORGAN_IDS": [
+    "kubejs:sun_ventricle",
+    "kubejs:sandstone_breastplate",
+    "kubejs:drought_liver",
+    "kubejs:heatwave_lung",
+    "kubejs:quicksand_spleen",
+    "kubejs:eclipse_crown",
+    "kubejs:wind_erosion_arm",
+    "kubejs:cactus_tendon",
+    "kubejs:drysand_iris",
+    "kubejs:temple_scavenger_hand",
+    "kubejs:ancient_remnant_core"
+   ],
+   "DESERT_ORGAN_IDS": [
+    "kubejs:sun_ventricle",
+    "kubejs:sandstone_breastplate",
+    "kubejs:drought_liver",
+    "kubejs:heatwave_lung",
+    "kubejs:quicksand_spleen",
+    "kubejs:eclipse_crown",
+    "kubejs:wind_erosion_arm",
+    "kubejs:cactus_tendon",
+    "kubejs:drysand_iris",
+    "kubejs:temple_scavenger_hand",
+    "kubejs:ancient_remnant_core"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaPillager": {
+  "resource": "kubejs:vanillaPillager_resonance",
+  "sets": {
+   "VANILLAPILLAGER_ORGAN_IDS": [
+    "kubejs:raider_ventricle",
+    "kubejs:banner_spinewheel",
+    "kubejs:outpost_chestplate",
+    "kubejs:emerald_liver",
+    "kubejs:horn_crown",
+    "kubejs:scout_iris",
+    "kubejs:loot_spleen",
+    "kubejs:breach_gland",
+    "kubejs:exile_kidneysheath",
+    "kubejs:war_drum_cochlea",
+    "kubejs:dark_arrow_throat",
+    "kubejs:raid_scavenger_hand",
+    "kubejs:skirmish_arm",
+    "kubejs:banner_spike_shoulder",
+    "kubejs:nightraid_tendon",
+    "kubejs:plunder_core"
+   ],
+   "PILLAGER_FACTION_IDS": [
+    "minecraft:pillager",
+    "minecraft:vindicator",
+    "minecraft:evoker",
+    "minecraft:illusioner",
+    "minecraft:witch",
+    "minecraft:ravager",
+    "minecraft:vex",
+    "irons_spellbooks:summoned_vex",
+    "irons_spellbooks:archevoker"
+   ],
+   "PILLAGER_LOOT_IDS": [
+    "minecraft:emerald",
+    "minecraft:arrow",
+    "minecraft:crossbow",
+    "minecraft:white_banner",
+    "minecraft:splash_potion",
+    "irons_spellbooks:arcane_essence",
+    "irons_spellbooks:evocation_rune",
+    "irons_spellbooks:scroll"
+   ]
+  },
+  "consts": {},
+  "aux": {
+   "banner_sash": "kubejs:raider_banner_sash",
+   "crossbow_winder": "kubejs:crossbow_string_winder",
+   "wardrum_head": "kubejs:wardrum_head",
+   "plunder_knot": "kubejs:plunder_knot"
+  }
+ },
+ "vanillaSculk": {
+  "resource": "kubejs:vanillaSculk_resonance",
+  "sets": {
+   "VANILLASCULK_ORGAN_IDS": [
+    "kubejs:echo_core",
+    "kubejs:listening_lung",
+    "kubejs:gloomvein_liver",
+    "kubejs:warden_boneplate",
+    "kubejs:silence_crown",
+    "kubejs:echo_cochlea",
+    "kubejs:darkvision_iris",
+    "kubejs:stealthshock_sole",
+    "kubejs:sensor_subbrain",
+    "kubejs:resonance_spine",
+    "kubejs:gloomshell_spleen",
+    "kubejs:echo_marrow",
+    "kubejs:resonant_kidneysheath",
+    "kubejs:otherdeep_float_membrane",
+    "kubejs:deepchamber_sac",
+    "kubejs:latentwave_arm",
+    "kubejs:sensor_throat_sac",
+    "kubejs:silent_arrow_gland",
+    "kubejs:tremor_tail",
+    "kubejs:ancient_city_step_leg",
+    "kubejs:wavefront_forehead",
+    "kubejs:conduction_fork_joint",
+    "kubejs:deepheart_remnant",
+    "kubejs:ancient_jar_hand",
+    "kubejs:abyss_hunter_membrane",
+    "kubejs:warden_core"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "mekanismT2": {
+  "resource": "kubejs:mek_energy",
+  "sets": {
+   "SOURCE_IDS": [
+    "kubejs:quantum_shield_core",
+    "kubejs:plasma_membrane_lung",
+    "kubejs:nano_recharge_nest",
+    "kubejs:overload_phase_spine",
+    "kubejs:shield_weave_membrane",
+    "kubejs:vector_lock_eye",
+    "kubejs:nano_repair_mesh",
+    "kubejs:prism_compute_brain",
+    "kubejs:phase_cut_arm",
+    "kubejs:light_spear_tendon",
+    "kubejs:deflection_prism_shoulder",
+    "kubejs:nano_copy_gland",
+    "kubejs:energy_harvest_step_foot",
+    "kubejs:zero_loss_sampler_claw",
+    "kubejs:radiation_diffusion_core",
+    "kubejs:fission_plasma_chamber",
+    "kubejs:plasma_state_wiring",
+    "kubejs:radiation_deflection_armor",
+    "kubejs:quantum_mecha_protocol",
+    "kubejs:quantum_wire",
+    "kubejs:phase_coil",
+    "kubejs:nano_repair_line",
+    "kubejs:lockon_sensor_array",
+    "kubejs:fission_fuel_rod",
+    "kubejs:radiation_filter"
+   ],
+   "CORELINE_IDS": [
+    "kubejs:quantum_shield_core",
+    "kubejs:plasma_membrane_lung",
+    "kubejs:overload_phase_spine"
+   ],
+   "SUPPORT_IDS": [
+    "kubejs:nano_repair_mesh"
+   ],
+   "BARRIER_IDS": [
+    "kubejs:quantum_shield_core",
+    "kubejs:shield_weave_membrane",
+    "kubejs:deflection_prism_shoulder"
+   ],
+   "OVERLOAD_IDS": [
+    "kubejs:overload_phase_spine",
+    "kubejs:phase_cut_arm",
+    "kubejs:vector_lock_eye",
+    "kubejs:light_spear_tendon",
+    "kubejs:prism_compute_brain",
+    "kubejs:phase_coil",
+    "kubejs:fission_plasma_chamber",
+    "kubejs:quantum_mecha_protocol"
+   ],
+   "NANO_IDS": [
+    "kubejs:nano_recharge_nest",
+    "kubejs:nano_repair_mesh",
+    "kubejs:nano_copy_gland",
+    "kubejs:energy_harvest_step_foot",
+    "kubejs:zero_loss_sampler_claw",
+    "kubejs:nano_repair_line"
+   ],
+   "LOCK_IDS": [
+    "kubejs:vector_lock_eye",
+    "kubejs:prism_compute_brain",
+    "kubejs:light_spear_tendon",
+    "kubejs:lockon_sensor_array"
+   ],
+   "MANA_IDS": [],
+   "SPELL_IDS": [],
+   "CROWN_IDS": [
+    "kubejs:prism_compute_brain"
+   ],
+   "ARMOR_IDS": [
+    "kubejs:shield_weave_membrane",
+    "kubejs:radiation_deflection_armor"
+   ],
+   "MOVEMENT_IDS": [
+    "kubejs:energy_harvest_step_foot"
+   ],
+   "MELEE_IDS": [
+    "kubejs:deflection_prism_shoulder",
+    "kubejs:phase_cut_arm"
+   ],
+   "RANGED_IDS": [
+    "kubejs:vector_lock_eye",
+    "kubejs:light_spear_tendon"
+   ],
+   "RESOURCE_IDS": [
+    "kubejs:zero_loss_sampler_claw",
+    "kubejs:nano_copy_gland",
+    "kubejs:quantum_wire",
+    "kubejs:fission_fuel_rod",
+    "kubejs:radiation_filter"
+   ],
+   "CORE_IDS": [
+    "kubejs:quantum_shield_core",
+    "kubejs:plasma_membrane_lung",
+    "kubejs:overload_phase_spine"
+   ],
+   "SHIELD_WEAVE_IDS": [
+    "kubejs:shield_weave_membrane"
+   ],
+   "RADIATION_IDS": [
+    "kubejs:radiation_diffusion_core",
+    "kubejs:radiation_filter"
+   ],
+   "PLASMA_IDS": [
+    "kubejs:fission_plasma_chamber",
+    "kubejs:plasma_state_wiring"
+   ],
+   "FISSION_FUEL_IDS": [
+    "kubejs:fission_fuel_rod"
+   ],
+   "PROTOCOL_IDS": [
+    "kubejs:quantum_mecha_protocol"
+   ],
+   "MEKANISMT2_ORGAN_IDS": [
+    "kubejs:quantum_shield_core",
+    "kubejs:plasma_membrane_lung",
+    "kubejs:nano_recharge_nest",
+    "kubejs:overload_phase_spine",
+    "kubejs:shield_weave_membrane",
+    "kubejs:vector_lock_eye",
+    "kubejs:nano_repair_mesh",
+    "kubejs:prism_compute_brain",
+    "kubejs:phase_cut_arm",
+    "kubejs:light_spear_tendon",
+    "kubejs:deflection_prism_shoulder",
+    "kubejs:nano_copy_gland",
+    "kubejs:energy_harvest_step_foot",
+    "kubejs:zero_loss_sampler_claw",
+    "kubejs:radiation_diffusion_core",
+    "kubejs:fission_plasma_chamber",
+    "kubejs:plasma_state_wiring",
+    "kubejs:radiation_deflection_armor",
+    "kubejs:quantum_mecha_protocol",
+    "kubejs:quantum_wire",
+    "kubejs:phase_coil",
+    "kubejs:nano_repair_line",
+    "kubejs:lockon_sensor_array",
+    "kubejs:fission_fuel_rod",
+    "kubejs:radiation_filter"
+   ]
+  },
+  "consts": {
+   "SHIELD_ID": "kubejs:mekanismT2_barrier"
+  },
+  "aux": {}
+ },
+ "common": {
+  "resource": null,
+  "sets": {},
+  "consts": {},
+  "aux": {}
+ },
+ "createT2": {
+  "resource": "kubejs:torque",
+  "sets": {
+   "SOURCE_IDS": [
+    "kubejs:brass_pressure_ventricle",
+    "kubejs:weighted_flywheel_sac",
+    "kubejs:brass_clutch_spine",
+    "kubejs:tempo_calibration_cochlea",
+    "kubejs:overpressure_forge_lung",
+    "kubejs:lubrication_reflux_gland",
+    "kubejs:pressure_balance_brass_membrane",
+    "kubejs:brass_pile_driver",
+    "kubejs:ratchet_breach_shoulder",
+    "kubejs:spiral_tunnel_drill",
+    "kubejs:brass_constancy_star_core",
+    "kubejs:brass_stress_conduit",
+    "kubejs:brass_coolant_return_pipe",
+    "kubejs:counterweight_bearing",
+    "kubejs:brass_clutch_slide",
+    "kubejs:experience_etched_line"
+   ],
+   "CREATET2_ORGAN_IDS": [
+    "kubejs:brass_pressure_ventricle",
+    "kubejs:weighted_flywheel_sac",
+    "kubejs:brass_clutch_spine",
+    "kubejs:tempo_calibration_cochlea",
+    "kubejs:overpressure_forge_lung",
+    "kubejs:lubrication_reflux_gland",
+    "kubejs:pressure_balance_brass_membrane",
+    "kubejs:brass_pile_driver",
+    "kubejs:ratchet_breach_shoulder",
+    "kubejs:spiral_tunnel_drill",
+    "kubejs:brass_constancy_star_core",
+    "kubejs:brass_stress_conduit",
+    "kubejs:brass_coolant_return_pipe",
+    "kubejs:counterweight_bearing",
+    "kubejs:brass_clutch_slide",
+    "kubejs:experience_etched_line"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaSwamp": {
+  "resource": null,
+  "sets": {
+   "VANILLASWAMP_ORGAN_IDS": [
+    "kubejs:silt_poison_heart",
+    "kubejs:rotmoss_filter_liver",
+    "kubejs:bog_rot_sac",
+    "kubejs:slime_shell",
+    "kubejs:slime_thread_arm",
+    "kubejs:poison_bloom_throat",
+    "kubejs:frogfin_sneak_leg",
+    "kubejs:sporebog_lung",
+    "kubejs:slime_mana_spleen",
+    "kubejs:witchbog_crown",
+    "kubejs:hydra_venom_core",
+    "kubejs:mud_vein_conduit",
+    "kubejs:rot_hyphae",
+    "kubejs:swamp_gas_bladder",
+    "kubejs:rot_pump"
+   ],
+   "SOURCE_IDS": [
+    "kubejs:silt_poison_heart",
+    "kubejs:rotmoss_filter_liver",
+    "kubejs:bog_rot_sac",
+    "kubejs:slime_shell",
+    "kubejs:slime_thread_arm",
+    "kubejs:poison_bloom_throat",
+    "kubejs:frogfin_sneak_leg",
+    "kubejs:sporebog_lung",
+    "kubejs:slime_mana_spleen",
+    "kubejs:witchbog_crown",
+    "kubejs:hydra_venom_core",
+    "kubejs:mud_vein_conduit",
+    "kubejs:rot_hyphae",
+    "kubejs:swamp_gas_bladder",
+    "kubejs:rot_pump"
+   ],
+   "CORELINE_IDS": [
+    "kubejs:silt_poison_heart",
+    "kubejs:hydra_venom_core"
+   ],
+   "SUPPORT_IDS": [
+    "kubejs:bog_rot_sac"
+   ],
+   "VENOM_IDS": [
+    "kubejs:silt_poison_heart",
+    "kubejs:bog_rot_sac",
+    "kubejs:poison_bloom_throat",
+    "kubejs:hydra_venom_core"
+   ],
+   "SLIME_IDS": [
+    "kubejs:slime_shell",
+    "kubejs:slime_thread_arm",
+    "kubejs:frogfin_sneak_leg",
+    "kubejs:slime_mana_spleen"
+   ],
+   "ROT_IDS": [
+    "kubejs:rotmoss_filter_liver",
+    "kubejs:sporebog_lung",
+    "kubejs:witchbog_crown"
+   ],
+   "MIRE_IDS": [
+    "kubejs:silt_poison_heart",
+    "kubejs:slime_shell",
+    "kubejs:frogfin_sneak_leg"
+   ],
+   "MANA_IDS": [
+    "kubejs:rotmoss_filter_liver"
+   ],
+   "SPELL_IDS": [
+    "kubejs:sporebog_lung"
+   ],
+   "CROWN_IDS": [
+    "kubejs:witchbog_crown"
+   ],
+   "ARMOR_IDS": [
+    "kubejs:slime_shell"
+   ],
+   "MOVEMENT_IDS": [
+    "kubejs:frogfin_sneak_leg"
+   ],
+   "MELEE_IDS": [
+    "kubejs:slime_thread_arm"
+   ],
+   "RANGED_IDS": [
+    "kubejs:poison_bloom_throat"
+   ],
+   "RESOURCE_IDS": [
+    "kubejs:slime_mana_spleen"
+   ],
+   "HYDRA_CORE_IDS": [
+    "kubejs:hydra_venom_core"
+   ],
+   "MUD_CONDUIT_IDS": [
+    "kubejs:mud_vein_conduit"
+   ],
+   "ROT_HYPHAE_IDS": [
+    "kubejs:rot_hyphae"
+   ],
+   "GAS_BLADDER_IDS": [
+    "kubejs:swamp_gas_bladder"
+   ],
+   "ROT_PUMP_IDS": [
+    "kubejs:rot_pump"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ },
+ "vanillaLushCaves": {
+  "resource": "kubejs:vanillaLushCaves_resonance",
+  "sets": {
+   "VANILLALUSHCAVES_ORGAN_IDS": [
+    "kubejs:mossglow_core",
+    "kubejs:calcite_breastbone",
+    "kubejs:sporeglow_lung",
+    "kubejs:mossheal_liver",
+    "kubejs:sporebud_gland",
+    "kubejs:hangingroot_arm",
+    "kubejs:mycelium_sole",
+    "kubejs:brightpod_sac",
+    "kubejs:sporebed_spleen",
+    "kubejs:gloommoss_crown",
+    "kubejs:sporebloom_core",
+    "kubejs:mycelium_bridge",
+    "kubejs:spore_conduit",
+    "kubejs:glow_bed",
+    "kubejs:root_network"
+   ],
+   "SOURCE_IDS": [
+    "kubejs:mossglow_core",
+    "kubejs:calcite_breastbone",
+    "kubejs:sporeglow_lung",
+    "kubejs:mossheal_liver",
+    "kubejs:sporebud_gland",
+    "kubejs:hangingroot_arm",
+    "kubejs:mycelium_sole",
+    "kubejs:brightpod_sac",
+    "kubejs:sporebed_spleen",
+    "kubejs:gloommoss_crown",
+    "kubejs:sporebloom_core"
+   ],
+   "BRIDGE_IDS": [
+    "kubejs:mycelium_bridge"
+   ],
+   "CONDUIT_IDS": [
+    "kubejs:spore_conduit"
+   ],
+   "GLOW_BED_IDS": [
+    "kubejs:glow_bed"
+   ],
+   "ROOT_NETWORK_IDS": [
+    "kubejs:root_network"
+   ],
+   "MOVEMENT_IDS": [
+    "kubejs:mycelium_sole"
+   ],
+   "CROWN_IDS": [
+    "kubejs:gloommoss_crown"
+   ],
+   "MANA_IDS": [
+    "kubejs:brightpod_sac"
+   ],
+   "SPELL_IDS": [
+    "kubejs:sporeglow_lung"
+   ],
+   "RECOVERY_IDS": [
+    "kubejs:mossheal_liver"
+   ]
+  },
+  "consts": {},
+  "aux": {}
+ }
+}

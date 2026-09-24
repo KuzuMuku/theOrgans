@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vanillajungle:item/flytrap_throat_sac"
+  }
+}

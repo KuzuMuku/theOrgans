@@ -1,0 +1,103 @@
+{
+  "item": "createt2:brass_pressure_ventricle",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6心§r §a风3§r §9增压底盘§r §e高§r"
+  ],
+  "tags": [
+    "createT2",
+    "engine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "createt2:torque_capacity",
+          "amount": 120
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "organ_set",
+          "organs": [
+            "createt2:brass_pressure_ventricle",
+            "createt2:weighted_flywheel_sac",
+            "createt2:brass_clutch_spine",
+            "createt2:tempo_calibration_cochlea",
+            "createt2:overpressure_forge_lung",
+            "createt2:lubrication_reflux_gland",
+            "createt2:pressure_balance_brass_membrane",
+            "createt2:brass_pile_driver",
+            "createt2:ratchet_breach_shoulder",
+            "createt2:spiral_tunnel_drill",
+            "createt2:brass_constancy_star_core",
+            "createt2:brass_stress_conduit",
+            "createt2:brass_coolant_return_pipe",
+            "createt2:counterweight_bearing",
+            "createt2:brass_clutch_slide",
+            "createt2:experience_etched_line"
+          ],
+          "op": "gte",
+          "value": 4,
+          "custom_display_key": "message.organkubejs.condition.createT2_four_resonance"
+        }
+      ],
+      "grants": [
+        {
+          "type": "counter",
+          "id": "createt2:torque_capacity",
+          "amount": 40
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "createT2_high_load",
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

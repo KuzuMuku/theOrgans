@@ -1,0 +1,16 @@
+{
+  "item": "vanillalushcaves:mycelium_bridge",
+  "valid_parts": [
+    "organapi:chest",
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6菌丝桥§r §2连接附近孢子花区，延长持续时间与半径§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "auxiliary",
+    "flower"
+  ]
+}

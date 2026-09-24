@@ -1,0 +1,164 @@
+{
+  "item": "vanillajungle:ancient_resonance_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 2,
+  "tooltips": [
+    "§6核§r §2草6§r §9古树根脉协议§r §e高§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 6,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:nature_spell_power",
+          "amount": 2
+        },
+        {
+          "type": "counter",
+          "id": "vanillajungle:vanillaJungle_resonance_capacity",
+          "amount": 20
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "skill",
+          "skill_name": "vanillajungle:ancient_resonance_core",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaJungle_root_protocol_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_root_protocol_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 20
+          },
+          "add_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillajungle:vanillaJungle_resonance",
+              "amount": 3,
+              "source": "vanillaJungle_system"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 20
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillajungle:ancient_resonance_core_pressure",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillajungle:ancient_resonance_core_regen",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_nearby_entities",
+          "config": {
+            "callback": "vanillaJungle_root_pressure",
+            "radius": 4
+          },
+          "point_type": "runtime",
+          "point_id": "vanillajungle:ancient_resonance_core_pressure",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_root_pressure"
+        },
+        {
+          "type": "apply_mob_effect",
+          "point_type": "runtime",
+          "point_id": "vanillajungle:ancient_resonance_core_regen",
+          "effect": "minecraft:regeneration",
+          "duration_ticks": 80,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaJungle_root_protocol_end_heal"
+          },
+          "point_type": "runtime",
+          "point_id": "vanillajungle:ancient_resonance_core_end_recover",
+          "consume_points": true,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_root_protocol_end_heal"
+        }
+      ]
+    }
+  ]
+}

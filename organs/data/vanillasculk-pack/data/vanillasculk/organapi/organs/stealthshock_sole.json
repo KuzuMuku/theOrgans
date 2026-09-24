@@ -1,0 +1,56 @@
+{
+  "item": "vanillasculk:stealthshock_sole",
+  "valid_parts": [
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腿§r §5暗1§r §9潜袭机动§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "movement"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 1,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "vanillasculk:slient_shulk",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "movement_state",
+          "state": "sneaking"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

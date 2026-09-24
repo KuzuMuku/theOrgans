@@ -1,0 +1,91 @@
+{
+  "item": "vanillanether:overload_crown",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6头§r §c火4§r §9火法增幅§r §6中§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "crown"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:fire_magic_resist",
+          "amount": 3
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillanether:vanillaNether_overload_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_overload_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:casting_movespeed",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "inventory",
+          "items": [
+            "vanillanether:soulfire_rhythm"
+          ],
+          "op": "gte",
+          "value": 1,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_soulfire_rhythm_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "counter",
+          "id": "vanillanether:soulfire_rhythm_crown",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

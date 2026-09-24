@@ -1,0 +1,119 @@
+{
+  "item": "vanilladesert:sandstone_breastplate",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6胸§r §c火2§r §9遗迹站场§r §7低§r"
+  ],
+  "tags": [
+    "vanillaDesert",
+    "armor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaDesert_temple_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaDesert_temple_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
+        },
+        {
+          "type": "point",
+          "point": "counter:vanilladesert:vanillaDesert_resonance",
+          "op": "gte",
+          "value": 2,
+          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_2"
+        },
+        {
+          "type": "status_effect",
+          "effect": "cataclysm:curse_of_desert"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 200
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanilladesert:sandstone_breastplate_curse_clear",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanilladesert:vanillaDesert_resonance",
+              "amount": 2,
+              "source": "vanillaDesert_system"
+            }
+          ],
+          "actions": [],
+          "custom_display_key": "message.organkubejs.event.vanillaDesert_curse_clear"
+        }
+      ],
+      "executions": [
+        {
+          "type": "remove_effect",
+          "effect": "cataclysm:curse_of_desert",
+          "point_type": "runtime",
+          "point_id": "vanilladesert:sandstone_breastplate_curse_clear",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaDesert_curse_clear"
+        }
+      ]
+    }
+  ]
+}

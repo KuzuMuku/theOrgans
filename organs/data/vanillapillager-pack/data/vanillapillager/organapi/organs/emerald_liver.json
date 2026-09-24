@@ -1,0 +1,199 @@
+{
+  "item": "vanillapillager:emerald_liver",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肝§r §5暗4§r §9掠夺续航§r §e高§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "mana"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 40
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillapillager:emerald_liver_kill_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "vanillapillager:emerald_liver_kill_mana",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaPillager_raid_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_raid_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillapillager:emerald_liver_raid_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "vanillapillager:emerald_liver_raid_mana",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillapillager:vanillaPillager_plunder_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_plunder_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillapillager:emerald_liver_plunder_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "vanillapillager:emerald_liver_plunder_mana",
+          "amount": 6,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillapillager:vanillaPillager_plunder_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_plunder_online"
+        },
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaPillager_aux_plunder_knot",
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_plunder_knot"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillapillager:emerald_liver_knot_mana",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "organironspell:restore_mana",
+          "point_type": "runtime",
+          "point_id": "vanillapillager:emerald_liver_knot_mana",
+          "amount": 4,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

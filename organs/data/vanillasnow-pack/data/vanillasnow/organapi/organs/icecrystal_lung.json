@@ -1,0 +1,76 @@
+{
+  "item": "vanillasnow:icecrystal_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §b冰6§r §9冰法蓄势§r §6中§r"
+  ],
+  "tags": [
+    "vanillaSnow",
+    "spell"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:ice_affinity",
+          "amount": 6,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:ice_spell_power",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cast_time_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:ice",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "vanillasnow:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_resonance_mid",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_mid"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:ice_spell_power",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

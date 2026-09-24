@@ -1,0 +1,38 @@
+{
+  "item": "vanillanether:blackflame_throat_pipe",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6喉§r §c火2§r §9焰矛远压§r §7低§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "active_ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "skill",
+          "skill_name": "vanillanether:blackflame_throat_pipe",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

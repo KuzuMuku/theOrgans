@@ -1,0 +1,143 @@
+{
+  "item": "vanillanether:ash_spleen",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6脾§r §c火2§r §9余烬续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaNether:nether_kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillanether:ash_spleen_loot_request",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanillanether:vanillaNether_resonance",
+              "amount": 1,
+              "source": "vanillaNether_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaNether_grant_ash_spleen_loot"
+          },
+          "point_type": "runtime",
+          "point_id": "vanillanether:ash_spleen_loot_request",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_grant_ash_spleen_loot"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "inventory",
+          "items": [
+            "vanillanether:gilded_recovery_belt"
+          ],
+          "op": "gte",
+          "value": 1,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaNether:nether_kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "vanillanether:vanillaNether_resonance",
+              "amount": 1,
+              "source": "vanillaNether_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaNether_crimson_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_crimson_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaNether:nether_kill",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillanether:ash_spleen_crimson_bonus_request",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaNether_grant_ash_spleen_loot"
+          },
+          "point_type": "runtime",
+          "point_id": "vanillanether:ash_spleen_crimson_bonus_request",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_grant_ash_spleen_loot"
+        }
+      ]
+    }
+  ]
+}

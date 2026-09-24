@@ -1,0 +1,62 @@
+{
+  "item": "vanillasnow:snowblind_iris",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6眼§r §b冰3§r §9标记压制§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSnow",
+    "ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:ice_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "projectile_hit",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:snowblind_iris_focus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_target_call",
+          "callback": "vanillaSnow_ranged_mark",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:snowblind_iris_focus",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_ranged_mark"
+        }
+      ]
+    }
+  ]
+}

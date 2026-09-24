@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "createt2:item/weighted_flywheel_sac"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "item": "vanillapillager:exile_kidneysheath",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肾§r §5暗2§r §9战后撤离§r §7低§r"
+  ],
+  "tags": [
+    "vanillaPillager",
+    "recovery"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillapillager:vanillaPillager_exile_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_exile_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillapillager:vanillaPillager_exile_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaPillager_exile_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillapillager:exile_kidneysheath_recover",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "heal",
+          "point_type": "runtime",
+          "point_id": "vanillapillager:exile_kidneysheath_recover",
+          "amount": 1.0,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

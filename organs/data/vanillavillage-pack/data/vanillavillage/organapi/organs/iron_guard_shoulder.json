@@ -1,0 +1,223 @@
+{
+  "item": "vanillavillage:iron_guard_shoulder",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肩§r §e光3§r §9秩序近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaVillage",
+    "melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_no_bell_ward",
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_no_bell_ward"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:light_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillavillage:iron_guard_shoulder_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanillavillage:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "vanillavillage:iron_guard_shoulder_strike",
+          "amount": 2.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "organ_set",
+          "organs": [
+            "vanillavillage:travel_legplate"
+          ],
+          "op": "gte",
+          "value": 1,
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_movement"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "mark",
+              "id": "vanillavillage:vanillaVillage_mark",
+              "amount": 1
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_target_call",
+          "config": {
+            "callback": "common_apply_target_mark_effect"
+          },
+          "point_type": "mark",
+          "point_id": "vanillavillage:vanillaVillage_mark",
+          "effect": "minecraft:glowing",
+          "duration_ticks": 60,
+          "amplifier": 0,
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaVillage_target_mark"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_resource_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_bell_ward_no_rope",
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_no_rope"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillavillage:iron_guard_shoulder_ward_strike",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanillavillage:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "vanillavillage:iron_guard_shoulder_ward_strike",
+          "amount": 4.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_bell_ward_rope",
+          "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_rope"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillavillage:iron_guard_shoulder_ward_strike_rope",
+              "amount": 1,
+              "duration_ticks": 2
+            },
+            {
+              "type": "counter",
+              "id": "vanillavillage:vanillaVillage_resonance",
+              "amount": 1,
+              "source": "vanillaVillage_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "damage_target",
+          "point_type": "runtime",
+          "point_id": "vanillavillage:iron_guard_shoulder_ward_strike_rope",
+          "amount": 6.0,
+          "config": {
+            "radius": 4.0
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

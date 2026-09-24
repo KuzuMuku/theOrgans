@@ -1,0 +1,114 @@
+{
+  "item": "vanillaocean:tidal_ventricle",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6心§r §1水3§r §9潮汐底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaOcean",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "organ_set",
+          "organs": [
+            "vanillaocean:tidal_ventricle",
+            "vanillaocean:saltgill_lung",
+            "vanillaocean:deepsea_liver",
+            "vanillaocean:coral_boneplate",
+            "vanillaocean:seacurrent_spleen",
+            "vanillaocean:tidepressure_crown",
+            "vanillaocean:wetgill_jowl",
+            "vanillaocean:seamirror_iris",
+            "vanillaocean:foam_kidney",
+            "vanillaocean:farvoyage_flipper",
+            "vanillaocean:kelp_spinal_cord",
+            "vanillaocean:shellbell_cochlea",
+            "vanillaocean:countercurrent_arm",
+            "vanillaocean:tidefin_leg",
+            "vanillaocean:bubblewave_throat",
+            "vanillaocean:coralspike_fist",
+            "vanillaocean:monument_refraction_eye",
+            "vanillaocean:tidesound_fork_wrist",
+            "vanillaocean:deeptide_scavenger_hand",
+            "vanillaocean:coraltide_tail",
+            "vanillaocean:dragonfrost_sac",
+            "vanillaocean:frostabyss_core"
+          ],
+          "op": "gte",
+          "value": 4,
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_set_major"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:water_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillaocean:vanillaOcean_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaOcean_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaOcean_home"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

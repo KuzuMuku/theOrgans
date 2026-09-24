@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "createt2:item/ratchet_breach_shoulder"
+  }
+}

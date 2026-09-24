@@ -1,0 +1,114 @@
+{
+  "createT2": [
+    "createT2_cruise_online",
+    "createT2_high_load",
+    "createT2_system_online",
+    "createT2_tempo_ready"
+  ],
+  "mekanismT1": [
+    "mekanismT1_discharge_ready",
+    "mekanismT1_flow_online",
+    "mekanismT1_heat_blade_ready",
+    "mekanismT1_heat_online",
+    "mekanismT1_hot_zone",
+    "mekanismT1_passive_heat_allowed",
+    "mekanismT1_refinery_online",
+    "mekanismT1_rhythm_online"
+  ],
+  "mekanismT2": [
+    "mekanismT2_barrier_low",
+    "mekanismT2_plasma_online",
+    "mekanismT2_protocol_online",
+    "mekanismT2_radiation_online",
+    "mekanismT2_radiation_source_nearby",
+    "mekanismT2_sync_online"
+  ],
+  "vanillaDesert": [
+    "vanillaDesert_home",
+    "vanillaDesert_night_shade_online",
+    "vanillaDesert_sand_vein_online",
+    "vanillaDesert_storm_online",
+    "vanillaDesert_temple_online",
+    "vanillaDesert_wet_online"
+  ],
+  "vanillaEnd": [
+    "vanillaEnd_air_online",
+    "vanillaEnd_city_online",
+    "vanillaEnd_fold_ready",
+    "vanillaEnd_gate_online",
+    "vanillaEnd_home",
+    "vanillaEnd_purpur_nerve_cord_offline"
+  ],
+  "vanillaJungle": [
+    "vanillaJungle_canopy_online",
+    "vanillaJungle_marked_online",
+    "vanillaJungle_rainforest_online",
+    "vanillaJungle_root_protocol_online",
+    "vanillaJungle_rooted_online",
+    "vanillaJungle_snare_online"
+  ],
+  "vanillaLushCaves": [
+    "vanillaLushCaves_glow_online",
+    "vanillaLushCaves_glow_synergy",
+    "vanillaLushCaves_home"
+  ],
+  "vanillaNether": [
+    "vanillaNether_ashvale_online",
+    "vanillaNether_bastion_online",
+    "vanillaNether_blacksmith_online",
+    "vanillaNether_crimson_online",
+    "vanillaNether_fortress_online",
+    "vanillaNether_furnace_kneering_online",
+    "vanillaNether_heat_online",
+    "vanillaNether_lava_online",
+    "vanillaNether_soul_online"
+  ],
+  "vanillaOcean": [
+    "vanillaOcean_has_chase",
+    "vanillaOcean_home",
+    "vanillaOcean_tide_online",
+    "vanillaOcean_wet_online"
+  ],
+  "vanillaPillager": [
+    "vanillaPillager_aux_banner_sash",
+    "vanillaPillager_aux_crossbow_winder",
+    "vanillaPillager_aux_plunder_knot",
+    "vanillaPillager_aux_wardrum_head",
+    "vanillaPillager_high_heat",
+    "vanillaPillager_high_heat_reduced",
+    "vanillaPillager_home",
+    "vanillaPillager_nightraid_online",
+    "vanillaPillager_no_crossbow_winder",
+    "vanillaPillager_no_plunder_knot",
+    "vanillaPillager_no_wardrum_head",
+    "vanillaPillager_raid_online",
+    "vanillaPillager_surge_active"
+  ],
+  "vanillaSculk": [
+    "vanillaSculk_high_resonance",
+    "vanillaSculk_home"
+  ],
+  "vanillaSnow": [
+    "vanillaSnow_deepfreeze_online",
+    "vanillaSnow_deposition_conduit_online",
+    "vanillaSnow_frostvein_online",
+    "vanillaSnow_home",
+    "vanillaSnow_icecore_rhythm_online",
+    "vanillaSnow_resonance_high",
+    "vanillaSnow_resonance_mid"
+  ],
+  "vanillaSwamp": [
+    "vanillaSwamp_mire_online"
+  ],
+  "vanillaVillage": [
+    "vanillaVillage_bell_ward_no_rope",
+    "vanillaVillage_bell_ward_rope",
+    "vanillaVillage_has_chase",
+    "vanillaVillage_has_guard",
+    "vanillaVillage_has_supply",
+    "vanillaVillage_has_trade",
+    "vanillaVillage_home",
+    "vanillaVillage_no_bell_ward",
+    "vanillaVillage_resource_online"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "item": "vanillajungle:vine_bind_bundle",
+  "valid_parts": [
+    "organapi:head",
+    "organapi:chest",
+    "organapi:abdomen",
+    "organapi:left_arm",
+    "organapi:right_arm",
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6束§r §2草2§r §9控制连接§r §7低§r"
+  ],
+  "tags": [
+    "vanillaJungle",
+    "auxiliary",
+    "vine_bind"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaJungle_marked_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaJungle_marked_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillajungle:vine_bind_bundle_pulse",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_nearby_entities",
+          "config": {
+            "callback": "vanillaJungle_vine_bind",
+            "radius": 4
+          },
+          "point_type": "runtime",
+          "point_id": "vanillajungle:vine_bind_bundle_pulse",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaJungle_vine_bind"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "item": "createt2:overpressure_forge_lung",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肺§r §a风6§r §9节拍压制§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "melee"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 6,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "createT2_high_load",
+          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "deal_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "createt2:forge_lung_bonus",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "modify_damage",
+          "point_type": "runtime",
+          "point_id": "createt2:forge_lung_bonus",
+          "amount": 4,
+          "config": {
+            "mode": "add"
+          },
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

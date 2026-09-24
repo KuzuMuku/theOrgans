@@ -1,0 +1,62 @@
+{
+  "item": "createt2:experience_etched_line",
+  "valid_parts": [
+    "organapi:head",
+    "organapi:chest",
+    "organapi:abdomen",
+    "organapi:left_arm",
+    "organapi:right_arm",
+    "organapi:left_leg",
+    "organapi:right_leg"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6线§r §a风1§r §9经验维护§r §7低§r"
+  ],
+  "tags": [
+    "createT2",
+    "assembly"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:wind_affinity",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "mine",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "createt2:experience_etched_line_repair",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "repair_item",
+          "point_type": "runtime",
+          "point_id": "createt2:experience_etched_line_repair",
+          "amount": 1,
+          "consume_points": true,
+          "max_consume": 1
+        }
+      ]
+    }
+  ]
+}

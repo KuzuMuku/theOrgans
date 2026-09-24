@@ -1,0 +1,94 @@
+{
+  "item": "vanillanether:fortress_bone_key",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腹§r §c火2§r §9爆燃压制§r §7低§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaNether_fortress_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_fortress_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaNether_fortress_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_fortress_online"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "vanillaNether:chest_open",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillanether:fortress_bone_key_loot_request",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "config": {
+            "callback": "vanillaNether_fortress_bone_key_loot"
+          },
+          "point_type": "runtime",
+          "point_id": "vanillanether:fortress_bone_key_loot_request",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaNether_fortress_bone_key_loot"
+        }
+      ]
+    }
+  ]
+}

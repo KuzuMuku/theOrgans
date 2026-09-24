@@ -1,0 +1,179 @@
+{
+  "item": "vanillasnow:freezebreak_sheath",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腹§r §b冰2§r §9冰裂反打§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSnow",
+    "recovery"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:ice_affinity",
+          "amount": 2,
+          "hidden": true
+        }
+      ],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "vanillasnow:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "organironspell:spell_hit",
+          "school": "irons_spellbooks:ice",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "vanillasnow:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanillasnow:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 20,
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_20"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "take_damage",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:freezebreak_sheath_guard_self",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_freezebreak_guard_self",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:freezebreak_sheath_guard_self",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_freezebreak_guard_self"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_resonance_high",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:freezebreak_sheath_guard_retal",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_target_call",
+          "callback": "vanillaSnow_freezebreak_guard_retal",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:freezebreak_sheath_guard_retal",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_freezebreak_guard_retal"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_deposition_conduit_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_deposition_conduit_online"
+        },
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_resonance_high",
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 100
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:deposition_conduit_ready",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_deposition_conduit",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:deposition_conduit_ready",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_deposition_conduit"
+        }
+      ]
+    }
+  ]
+}

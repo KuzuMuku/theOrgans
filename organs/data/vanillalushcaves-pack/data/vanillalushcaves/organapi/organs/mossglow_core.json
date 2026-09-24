@@ -1,0 +1,108 @@
+{
+  "item": "vanillalushcaves:mossglow_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6核§r §2草3§r §9花区核心§r §e高§r"
+  ],
+  "tags": [
+    "vanillaLushCaves",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillalushcaves:vanillaLushCaves_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "organ_set",
+          "organs": [
+            "vanillalushcaves:mossglow_core",
+            "vanillalushcaves:calcite_breastbone",
+            "vanillalushcaves:sporeglow_lung",
+            "vanillalushcaves:mossheal_liver",
+            "vanillalushcaves:sporebud_gland",
+            "vanillalushcaves:hangingroot_arm",
+            "vanillalushcaves:mycelium_sole",
+            "vanillalushcaves:brightpod_sac",
+            "vanillalushcaves:sporebed_spleen",
+            "vanillalushcaves:gloommoss_crown",
+            "vanillalushcaves:sporebloom_core"
+          ],
+          "op": "gte",
+          "value": 4,
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_major_set"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaLushCaves_home",
+          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

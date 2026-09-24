@@ -1,0 +1,119 @@
+{
+  "item": "mekanismt2:quantum_shield_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6核§r §d电3§r §9能核底盘§r §e高§r"
+  ],
+  "tags": [
+    "mekanismT2",
+    "engine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "shield",
+          "id": "mekanismt2:mekanismT2_barrier",
+          "amount": 18
+        },
+        {
+          "type": "counter",
+          "id": "mekanismt2:mek_energy_capacity",
+          "amount": 160
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "organ_set",
+          "organs": [
+            "mekanismt2:quantum_shield_core",
+            "mekanismt2:plasma_membrane_lung",
+            "mekanismt2:nano_recharge_nest",
+            "mekanismt2:overload_phase_spine",
+            "mekanismt2:shield_weave_membrane",
+            "mekanismt2:vector_lock_eye",
+            "mekanismt2:nano_repair_mesh",
+            "mekanismt2:prism_compute_brain",
+            "mekanismt2:phase_cut_arm",
+            "mekanismt2:light_spear_tendon",
+            "mekanismt2:deflection_prism_shoulder",
+            "mekanismt2:nano_copy_gland",
+            "mekanismt2:energy_harvest_step_foot",
+            "mekanismt2:zero_loss_sampler_claw",
+            "mekanismt2:radiation_diffusion_core",
+            "mekanismt2:fission_plasma_chamber",
+            "mekanismt2:plasma_state_wiring",
+            "mekanismt2:radiation_deflection_armor",
+            "mekanismt2:quantum_mecha_protocol",
+            "mekanismt2:quantum_wire",
+            "mekanismt2:phase_coil",
+            "mekanismt2:nano_repair_line",
+            "mekanismt2:lockon_sensor_array",
+            "mekanismt2:fission_fuel_rod",
+            "mekanismt2:radiation_filter"
+          ],
+          "op": "gte",
+          "value": 4,
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_set_major"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "shield:mekanismt2:mekanismT2_barrier",
+          "op": "gte",
+          "value": 18,
+          "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_high"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

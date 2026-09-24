@@ -1,0 +1,6 @@
+{
+  "point": "counter:mekanismt2:mek_t2_fuel",
+  "sync_to_client": true,
+  "display_name_key": "point.organeffects.counter.mekanismt2.mek_t2_fuel",
+  "priority": 15
+}

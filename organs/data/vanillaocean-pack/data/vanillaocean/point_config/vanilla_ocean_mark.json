@@ -1,0 +1,10 @@
+{
+  "point": "mark:vanillaocean:vanillaOcean_mark",
+  "display_name_key": "point.organeffects.mark.vanillaocean.vanillaOcean_mark",
+  "priority": 10,
+  "sync_to_client": true,
+  "mark_icon": "vanillaocean:mark/vanilla_ocean_mark",
+  "mark_render_scale": 0.3,
+  "mark_render_offset": 0.0,
+  "mark_tint": "#FFFFFFFF"
+}

@@ -1,0 +1,43 @@
+{
+  "item": "vanillasculk:silent_arrow_gland",
+  "valid_parts": [
+    "organapi:head"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6腺§r §5暗3§r §9暗袭远压§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "ranged"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:cooldown_reduction",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillasculk:silent_arrow_gland_effect",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

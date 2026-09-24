@@ -1,0 +1,904 @@
+{
+ "HOME_CALLBACK": {
+  "type": "hook"
+ },
+ "createT2_cruise_online": {
+  "type": "hook"
+ },
+ "createT2_four_resonance": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "createT2_high_load": {
+  "type": "hook"
+ },
+ "createT2_system_online": {
+  "type": "hook"
+ },
+ "createT2_tempo_ready": {
+  "type": "hook"
+ },
+ "mekanismT1_discharge_ready": {
+  "type": "hook"
+ },
+ "mekanismT1_energy_ready": {
+  "type": "hook"
+ },
+ "mekanismT1_flow_online": {
+  "type": "hook"
+ },
+ "mekanismT1_flow_ready": {
+  "type": "hook"
+ },
+ "mekanismT1_heat_blade_ready": {
+  "type": "hook"
+ },
+ "mekanismT1_heat_online": {
+  "type": "hook"
+ },
+ "mekanismT1_hot_zone": {
+  "type": "hook"
+ },
+ "mekanismT1_passive_heat_allowed": {
+  "type": "hook"
+ },
+ "mekanismT1_refinery_online": {
+  "type": "hook"
+ },
+ "mekanismT1_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:mek_energy",
+  "type": "point",
+  "value": 8
+ },
+ "mekanismT1_rhythm_online": {
+  "type": "hook"
+ },
+ "mekanismT1_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "mekanismT2_barrier_high": {
+  "op": "gte",
+  "point": "shield:kubejs:mekanismT2_barrier",
+  "type": "point",
+  "value": 18
+ },
+ "mekanismT2_barrier_low": {
+  "type": "hook"
+ },
+ "mekanismT2_barrier_online": {
+  "op": "gt",
+  "point": "shield:kubejs:mekanismT2_barrier",
+  "type": "point",
+  "value": 0
+ },
+ "mekanismT2_has_armor": {
+  "op": "gte",
+  "set": "ARMOR_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_chase": {
+  "type": "hook"
+ },
+ "mekanismT2_has_coreline": {
+  "op": "gte",
+  "set": "CORELINE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_crown": {
+  "op": "gte",
+  "set": "CROWN_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_fuel": {
+  "type": "hook"
+ },
+ "mekanismT2_has_hunt": {
+  "type": "hook"
+ },
+ "mekanismT2_has_mana": {
+  "op": "gte",
+  "set": "MANA_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_movement": {
+  "op": "gte",
+  "set": "MOVEMENT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_resource": {
+  "op": "gte",
+  "set": "RESOURCE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_spell": {
+  "op": "gte",
+  "set": "SPELL_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_has_support": {
+  "op": "gte",
+  "set": "SUPPORT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "mekanismT2_lock_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:mek_t2_lock_window",
+  "type": "point",
+  "value": 0
+ },
+ "mekanismT2_nano_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:mek_t2_nano_cycle",
+  "type": "point",
+  "value": 0
+ },
+ "mekanismT2_overload_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:mek_t2_overload_window",
+  "type": "point",
+  "value": 0
+ },
+ "mekanismT2_plasma_online": {
+  "type": "hook"
+ },
+ "mekanismT2_protocol_online": {
+  "type": "hook"
+ },
+ "mekanismT2_radiation_online": {
+  "type": "hook"
+ },
+ "mekanismT2_radiation_source_nearby": {
+  "type": "hook"
+ },
+ "mekanismT2_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:mek_energy",
+  "type": "point",
+  "value": 8
+ },
+ "mekanismT2_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "mekanismT2_sync_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_daylight_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_heat_ge_1": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaDesert_resonance",
+  "type": "point",
+  "value": 1
+ },
+ "vanillaDesert_heat_ge_10": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaDesert_resonance",
+  "type": "point",
+  "value": 10
+ },
+ "vanillaDesert_heat_ge_2": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaDesert_resonance",
+  "type": "point",
+  "value": 2
+ },
+ "vanillaDesert_heat_ge_25": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaDesert_resonance",
+  "type": "point",
+  "value": 25
+ },
+ "vanillaDesert_home": {
+  "type": "hook"
+ },
+ "vanillaDesert_night_shade_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_sand_vein_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_storm_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_sundial_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_temple_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_transpiration_online": {
+  "type": "hook"
+ },
+ "vanillaDesert_wet_online": {
+  "type": "hook"
+ },
+ "vanillaEnd_air_online": {
+  "type": "hook"
+ },
+ "vanillaEnd_city_online": {
+  "type": "hook"
+ },
+ "vanillaEnd_ender_tether_online": {
+  "aux": "ender_tether",
+  "type": "inventory"
+ },
+ "vanillaEnd_fold_ready": {
+  "type": "hook"
+ },
+ "vanillaEnd_gate_anchor_online": {
+  "aux": "gate_anchor",
+  "type": "inventory"
+ },
+ "vanillaEnd_gate_online": {
+  "type": "hook"
+ },
+ "vanillaEnd_home": {
+  "type": "hook"
+ },
+ "vanillaEnd_purpur_nerve_cord_offline": {
+  "type": "hook"
+ },
+ "vanillaEnd_purpur_nerve_cord_online": {
+  "aux": "purpur_nerve_cord",
+  "type": "inventory"
+ },
+ "vanillaEnd_resource_ge_20": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaEnd_resonance",
+  "type": "point",
+  "value": 20
+ },
+ "vanillaEnd_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaEnd_resonance",
+  "type": "point",
+  "value": 8
+ },
+ "vanillaEnd_void_conduit_offline": {
+  "type": "hook"
+ },
+ "vanillaEnd_void_conduit_online": {
+  "aux": "void_conduit",
+  "type": "inventory"
+ },
+ "vanillaEnd_void_guard_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaEnd_void_guard",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaJungle_canopy_online": {
+  "type": "hook"
+ },
+ "vanillaJungle_home": {
+  "type": "hook"
+ },
+ "vanillaJungle_marked_online": {
+  "type": "hook"
+ },
+ "vanillaJungle_rainforest_online": {
+  "type": "hook"
+ },
+ "vanillaJungle_root_protocol_online": {
+  "type": "hook"
+ },
+ "vanillaJungle_rooted_online": {
+  "type": "hook"
+ },
+ "vanillaJungle_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "vanillaJungle_snare_online": {
+  "type": "hook"
+ },
+ "vanillaLushCaves_glow_online": {
+  "type": "hook"
+ },
+ "vanillaLushCaves_glow_synergy": {
+  "type": "hook"
+ },
+ "vanillaLushCaves_home": {
+  "type": "hook"
+ },
+ "vanillaLushCaves_major_set": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "vanillaLushCaves_mycelium_ready": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaLushCaves_mycelium_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaLushCaves_resource_cost_ready": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaLushCaves_resonance",
+  "type": "point",
+  "value": 2
+ },
+ "vanillaLushCaves_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaLushCaves_resonance",
+  "type": "point",
+  "value": 8
+ },
+ "vanillaLushCaves_spore_bloom_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaLushCaves_spore_bloom",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaNether_ash_conduit_online": {
+  "const": "ASH_CONDUIT_ID",
+  "type": "inventory"
+ },
+ "vanillaNether_ashvale_online": {
+  "type": "hook"
+ },
+ "vanillaNether_bastion_online": {
+  "type": "hook"
+ },
+ "vanillaNether_blacksmith_online": {
+  "type": "hook"
+ },
+ "vanillaNether_contract_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaNether_contract_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaNether_crimson_online": {
+  "type": "hook"
+ },
+ "vanillaNether_ember_ge_10": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaNether_resonance",
+  "type": "point",
+  "value": 10
+ },
+ "vanillaNether_ember_online": {
+  "type": "hook"
+ },
+ "vanillaNether_emberstride_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaNether_emberstride_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaNether_fortress_online": {
+  "type": "hook"
+ },
+ "vanillaNether_furnace_kneering_online": {
+  "type": "hook"
+ },
+ "vanillaNether_gilded_belt_online": {
+  "const": "GILDED_BELT_ID",
+  "type": "inventory"
+ },
+ "vanillaNether_heat_online": {
+  "type": "hook"
+ },
+ "vanillaNether_home": {
+  "type": "hook"
+ },
+ "vanillaNether_inferno_upkeep_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaNether_inferno_upkeep",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaNether_lava_online": {
+  "type": "hook"
+ },
+ "vanillaNether_magma_overload_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaNether_magma_overload",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaNether_overload_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaNether_overload_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaNether_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaNether_resonance",
+  "type": "point",
+  "value": 8
+ },
+ "vanillaNether_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "vanillaNether_slag_pump_online": {
+  "const": "SLAG_PUMP_ID",
+  "type": "inventory"
+ },
+ "vanillaNether_soul_online": {
+  "type": "hook"
+ },
+ "vanillaNether_soulfire_rhythm_online": {
+  "const": "SOULFIRE_RHYTHM_ID",
+  "type": "inventory"
+ },
+ "vanillaOcean_buoy_online": {
+  "type": "hook"
+ },
+ "vanillaOcean_cold_online": {
+  "type": "hook"
+ },
+ "vanillaOcean_conduit_online": {
+  "type": "hook"
+ },
+ "vanillaOcean_has_armor": {
+  "op": "gte",
+  "set": "ARMOR_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_chase": {
+  "type": "hook"
+ },
+ "vanillaOcean_has_coreline": {
+  "op": "gte",
+  "set": "CORELINE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_crown": {
+  "op": "gte",
+  "set": "CROWN_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_hunt": {
+  "type": "hook"
+ },
+ "vanillaOcean_has_mana": {
+  "op": "gte",
+  "set": "MANA_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_movement": {
+  "op": "gte",
+  "set": "MOVEMENT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_resource": {
+  "op": "gte",
+  "set": "RESOURCE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_spell": {
+  "op": "gte",
+  "set": "SPELL_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_has_support": {
+  "op": "gte",
+  "set": "SUPPORT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaOcean_resource_online": {
+  "type": "hook"
+ },
+ "vanillaOcean_saltvalve_online": {
+  "type": "hook"
+ },
+ "vanillaOcean_salvage_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaOcean_salvage_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaOcean_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "vanillaOcean_temple_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaOcean_temple_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaOcean_tide_online": {
+  "type": "hook"
+ },
+ "vanillaOcean_wet_online": {
+  "type": "hook"
+ },
+ "vanillaPillager_aux_banner_sash": {
+  "type": "hook"
+ },
+ "vanillaPillager_aux_crossbow_winder": {
+  "type": "hook"
+ },
+ "vanillaPillager_aux_plunder_knot": {
+  "type": "hook"
+ },
+ "vanillaPillager_aux_wardrum_head": {
+  "type": "hook"
+ },
+ "vanillaPillager_banner_spike_window": {
+  "op": "gt",
+  "point": "runtime:kubejs:banner_spike_shoulder_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaPillager_exile_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaPillager_exile_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaPillager_high_heat": {
+  "type": "hook"
+ },
+ "vanillaPillager_high_heat_reduced": {
+  "type": "hook"
+ },
+ "vanillaPillager_nightraid_online": {
+  "type": "hook"
+ },
+ "vanillaPillager_no_crossbow_winder": {
+  "type": "hook"
+ },
+ "vanillaPillager_no_plunder_knot": {
+  "type": "hook"
+ },
+ "vanillaPillager_no_wardrum_head": {
+  "type": "hook"
+ },
+ "vanillaPillager_plunder_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaPillager_plunder_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaPillager_raid_online": {
+  "type": "hook"
+ },
+ "vanillaPillager_resource_at_least_2": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaPillager_resonance",
+  "type": "point",
+  "value": 2
+ },
+ "vanillaPillager_resource_at_least_3": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaPillager_resonance",
+  "type": "point",
+  "value": 3
+ },
+ "vanillaPillager_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaPillager_resonance",
+  "type": "point",
+  "value": 8
+ },
+ "vanillaPillager_surge_active": {
+  "type": "hook"
+ },
+ "vanillaSculk_high_resonance": {
+  "type": "hook"
+ },
+ "vanillaSnow_deepfreeze_online": {
+  "type": "hook"
+ },
+ "vanillaSnow_deposition_conduit_online": {
+  "type": "hook"
+ },
+ "vanillaSnow_frostvein_online": {
+  "type": "hook"
+ },
+ "vanillaSnow_icecore_rhythm_online": {
+  "type": "hook"
+ },
+ "vanillaSnow_resonance_10": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaSnow_resonance",
+  "type": "point",
+  "value": 10
+ },
+ "vanillaSnow_resonance_20": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaSnow_resonance",
+  "type": "point",
+  "value": 20
+ },
+ "vanillaSnow_resonance_25": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaSnow_resonance",
+  "type": "point",
+  "value": 25
+ },
+ "vanillaSnow_resonance_high": {
+  "type": "hook"
+ },
+ "vanillaSnow_resonance_mid": {
+  "type": "hook"
+ },
+ "vanillaSnow_resource_online": {
+  "op": "gte",
+  "point": "counter:kubejs:vanillaSnow_resonance",
+  "type": "point",
+  "value": 8
+ },
+ "vanillaSwamp_gas_bladder_online": {
+  "op": "gte",
+  "set": "GAS_BLADDER_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_armor": {
+  "op": "gte",
+  "set": "ARMOR_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_chase": {
+  "type": "hook"
+ },
+ "vanillaSwamp_has_coreline": {
+  "op": "gte",
+  "set": "CORELINE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_crown": {
+  "op": "gte",
+  "set": "CROWN_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_hunt": {
+  "type": "hook"
+ },
+ "vanillaSwamp_has_mana": {
+  "op": "gte",
+  "set": "MANA_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_movement": {
+  "op": "gte",
+  "set": "MOVEMENT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_resource": {
+  "op": "gte",
+  "set": "RESOURCE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_spell": {
+  "op": "gte",
+  "set": "SPELL_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_has_support": {
+  "op": "gte",
+  "set": "SUPPORT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_hydra_online": {
+  "op": "gte",
+  "set": "HYDRA_CORE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_mire_online": {
+  "type": "hook"
+ },
+ "vanillaSwamp_mud_conduit_online": {
+  "op": "gte",
+  "set": "MUD_CONDUIT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_resource_online": {
+  "type": "hook"
+ },
+ "vanillaSwamp_rot_hyphae_online": {
+  "op": "gte",
+  "set": "ROT_HYPHAE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_rot_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaSwamp_rot_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaSwamp_rot_pump_online": {
+  "op": "gte",
+  "set": "ROT_PUMP_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaSwamp_rotting_online": {
+  "type": "hook"
+ },
+ "vanillaSwamp_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ },
+ "vanillaSwamp_slime_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaSwamp_slime_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaSwamp_venom_online": {
+  "op": "gt",
+  "point": "runtime:kubejs:vanillaSwamp_venom_window",
+  "type": "point",
+  "value": 0
+ },
+ "vanillaVillage_bell_ward_no_rope": {
+  "type": "hook"
+ },
+ "vanillaVillage_bell_ward_online": {
+  "type": "hook"
+ },
+ "vanillaVillage_bell_ward_rope": {
+  "type": "hook"
+ },
+ "vanillaVillage_has_armor": {
+  "op": "gte",
+  "set": "ARMOR_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_chase": {
+  "type": "hook"
+ },
+ "vanillaVillage_has_coreline": {
+  "op": "gte",
+  "set": "CORELINE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_crown": {
+  "op": "gte",
+  "set": "CROWN_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_guard": {
+  "type": "hook"
+ },
+ "vanillaVillage_has_holy_path_relay": {
+  "op": "gte",
+  "set": "HOLY_PATH_RELAY_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_hunt": {
+  "type": "hook"
+ },
+ "vanillaVillage_has_mana": {
+  "op": "gte",
+  "set": "MANA_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_mending_suture": {
+  "op": "gte",
+  "set": "MENDING_SUTURE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_movement": {
+  "op": "gte",
+  "set": "MOVEMENT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_resource": {
+  "op": "gte",
+  "set": "RESOURCE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_spell": {
+  "op": "gte",
+  "set": "SPELL_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_supply": {
+  "type": "hook"
+ },
+ "vanillaVillage_has_support": {
+  "op": "gte",
+  "set": "SUPPORT_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_has_trade": {
+  "type": "hook"
+ },
+ "vanillaVillage_has_village_ledger": {
+  "op": "gte",
+  "set": "VILLAGE_LEDGER_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_iris_no_crown": {
+  "op": "gte",
+  "set": "CROWN_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_no_bell_ward": {
+  "type": "hook"
+ },
+ "vanillaVillage_no_holy_path_relay": {
+  "op": "gte",
+  "set": "HOLY_PATH_RELAY_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_no_mending_suture": {
+  "op": "gte",
+  "set": "MENDING_SUTURE_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_no_village_ledger": {
+  "op": "gte",
+  "set": "VILLAGE_LEDGER_IDS",
+  "type": "organ_set",
+  "value": 1
+ },
+ "vanillaVillage_resource_online": {
+  "type": "hook"
+ },
+ "vanillaVillage_set_major": {
+  "op": "gte",
+  "set": "SOURCE_IDS",
+  "type": "organ_set",
+  "value": 4
+ }
+}

@@ -1,0 +1,127 @@
+{
+  "item": "mekanismt1:overheat_diffusion_shoulder",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肩§r §d电2§r §9过热泄压§r §7低§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "melee",
+    "heat"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [
+        {
+          "type": "attacked",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "mekanismt1:mek_t1_overheat_stacks",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            },
+            {
+              "type": "runtime",
+              "id": "mekanismt1:overheat_diffusion_buildup",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        },
+        {
+          "type": "kill",
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "mekanismt1:mek_t1_overheat_stacks",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            },
+            {
+              "type": "runtime",
+              "id": "mekanismt1:overheat_diffusion_buildup",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_nearby_entities",
+          "config": {
+            "callback": "mekanismT1_overheat_buildup",
+            "radius": 4.0
+          },
+          "point_type": "runtime",
+          "point_id": "mekanismt1:overheat_diffusion_buildup",
+          "consume_points": false,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.mekanismT1_overheat_buildup"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "mekanismT1_hot_zone",
+          "custom_display_key": "message.organkubejs.condition.mekanismT1_hot_zone"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 80
+          },
+          "add_points": [
+            {
+              "type": "counter",
+              "id": "mekanismt1:mek_t1_overheat_stacks",
+              "amount": 1,
+              "source": "kubejs_mek_system"
+            },
+            {
+              "type": "runtime",
+              "id": "mekanismt1:overheat_diffusion_buildup",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": []
+    }
+  ]
+}

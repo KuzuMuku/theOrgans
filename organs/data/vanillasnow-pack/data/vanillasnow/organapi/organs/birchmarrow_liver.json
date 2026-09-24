@@ -1,0 +1,89 @@
+{
+  "item": "vanillasnow:birchmarrow_liver",
+  "valid_parts": [
+    "organapi:abdomen"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肝§r §b冰4§r §9寒势转法§r §e高§r"
+  ],
+  "tags": [
+    "vanillaSnow",
+    "mana"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:ice_affinity",
+          "amount": 4,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:max_mana",
+          "amount": 40
+        },
+        {
+          "type": "attribute",
+          "attribute": "irons_spellbooks:mana_regen",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillasnow:vanillaSnow_resonance_capacity",
+          "amount": 8
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "counter:vanillasnow:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 10,
+          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_10"
+        }
+      ],
+      "grants": [],
+      "events": [
+        {
+          "type": "tick",
+          "config": {
+            "interval_ticks": 40
+          },
+          "add_points": [
+            {
+              "type": "runtime",
+              "id": "vanillasnow:birchmarrow_liver_mana_ready",
+              "amount": 1,
+              "duration_ticks": 2
+            }
+          ],
+          "consume_points": [],
+          "actions": []
+        }
+      ],
+      "executions": [
+        {
+          "type": "kubejs_call",
+          "callback": "vanillaSnow_birch_mana",
+          "point_type": "runtime",
+          "point_id": "vanillasnow:birchmarrow_liver_mana_ready",
+          "consume_points": true,
+          "max_consume": 1,
+          "custom_display_key": "message.organkubejs.execution.vanillaSnow_birch_mana"
+        }
+      ]
+    }
+  ]
+}

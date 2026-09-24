@@ -1,0 +1,46 @@
+{
+  "item": "vanillasculk:ancient_jar_hand",
+  "valid_parts": [
+    "organapi:left_arm",
+    "organapi:right_arm"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §5暗2§r §9潜袭近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaSculk",
+    "resource"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:dark_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "derived",
+          "amount": 1,
+          "config": {
+            "from_type": "counter",
+            "from_id": "kubejs:vanillaSculk_resonance",
+            "target_type": "attribute",
+            "target_attribute": "minecraft:generic.luck",
+            "per": 4,
+            "source": "vanillaSculk_system"
+          }
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

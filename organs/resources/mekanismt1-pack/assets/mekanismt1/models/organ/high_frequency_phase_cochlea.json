@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mekanismt1:item/high_frequency_phase_cochlea"
+  }
+}

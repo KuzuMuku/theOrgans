@@ -1,0 +1,49 @@
+{
+  "item": "vanillanether:smeltfist_subcore",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6臂§r §c火3§r §9熔火近战§r §7低§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "support"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.knockback_resistance",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillanether:smeltfist_subcore_effect",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "item": "vanillaswamp:silt_poison_heart",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6心§r §2草3§r §9生态底盘§r §e高§r"
+  ],
+  "tags": [
+    "vanillaSwamp",
+    "core"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "organ_set",
+          "organs": [
+            "vanillaswamp:silt_poison_heart",
+            "vanillaswamp:rotmoss_filter_liver",
+            "vanillaswamp:bog_rot_sac",
+            "vanillaswamp:slime_shell",
+            "vanillaswamp:slime_thread_arm",
+            "vanillaswamp:poison_bloom_throat",
+            "vanillaswamp:frogfin_sneak_leg",
+            "vanillaswamp:sporebog_lung",
+            "vanillaswamp:slime_mana_spleen",
+            "vanillaswamp:witchbog_crown",
+            "vanillaswamp:hydra_venom_core",
+            "vanillaswamp:mud_vein_conduit",
+            "vanillaswamp:rot_hyphae",
+            "vanillaswamp:swamp_gas_bladder",
+            "vanillaswamp:rot_pump"
+          ],
+          "op": "gte",
+          "value": 4,
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_set_major"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "kubejs_hook",
+          "callback": "vanillaSwamp_mire_online",
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:grass_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 4
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillaswamp:vanillaSwamp_resonance_capacity",
+          "amount": 50
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "point",
+          "point": "runtime:vanillaswamp:vanillaSwamp_slime_window",
+          "op": "gt",
+          "value": 0,
+          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.max_health",
+          "amount": 2
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 1
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

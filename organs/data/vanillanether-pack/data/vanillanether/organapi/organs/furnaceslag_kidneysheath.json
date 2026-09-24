@@ -1,0 +1,72 @@
+{
+  "item": "vanillanether:furnaceslag_kidneysheath",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6肾§r §c火2§r §9余烬续航§r §7低§r"
+  ],
+  "tags": [
+    "vanillaNether",
+    "armor"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:fire_affinity",
+          "amount": 2,
+          "hidden": true
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor",
+          "amount": 3
+        },
+        {
+          "type": "attribute",
+          "attribute": "minecraft:generic.armor_toughness",
+          "amount": 1
+        },
+        {
+          "type": "counter",
+          "id": "vanillanether:furnaceslag_kidneysheath_effect",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    },
+    {
+      "conditions": [
+        {
+          "type": "inventory",
+          "items": [
+            "vanillanether:slag_pump"
+          ],
+          "op": "gte",
+          "value": 1,
+          "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online"
+        }
+      ],
+      "grants": [
+        {
+          "type": "counter",
+          "id": "vanillanether:kidneysheath_slag_pump",
+          "amount": 1,
+          "hidden": true
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

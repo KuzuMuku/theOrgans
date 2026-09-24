@@ -1,0 +1,13 @@
+{
+  "item": "vanillaswamp:rot_hyphae",
+  "valid_parts": [],
+  "size": 1,
+  "tooltips": [
+    "§6辅助§r §2草0§r §9腐生菌丝§r §e高§r"
+  ],
+  "tags": [
+    "vanillaSwamp",
+    "support"
+  ],
+  "effects": []
+}

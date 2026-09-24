@@ -1,0 +1,38 @@
+{
+  "item": "mekanismt1:industrial_energy_core",
+  "valid_parts": [
+    "organapi:chest"
+  ],
+  "size": 1,
+  "tooltips": [
+    "§6核§r §d电3§r §9能源流转§r §e高§r"
+  ],
+  "tags": [
+    "mekanismT1",
+    "engine"
+  ],
+  "effects": [
+    {
+      "conditions": [
+        {
+          "type": "static"
+        }
+      ],
+      "grants": [
+        {
+          "type": "organ_stat",
+          "id": "organsynergia:electric_affinity",
+          "amount": 3,
+          "hidden": true
+        },
+        {
+          "type": "counter",
+          "id": "mekanismt1:mek_energy_capacity",
+          "amount": 120
+        }
+      ],
+      "events": [],
+      "executions": []
+    }
+  ]
+}

@@ -38,8 +38,14 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_lava_online",
+          "type": "nearby_block",
+          "blocks": [
+            "minecraft:lava",
+            "minecraft:magma_block",
+            "minecraft:basalt",
+            "minecraft:blackstone"
+          ],
+          "radius": 5,
           "custom_display_key": "message.organkubejs.condition.vanillaNether_lava_online"
         }
       ],

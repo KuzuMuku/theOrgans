@@ -91,8 +91,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_storm_online",
+          "type": "point",
+          "point": "runtime:kubejs:vanillaDesert_storm_window",
+          "op": "gt",
+          "value": 0,
           "custom_display_key": "message.organkubejs.condition.vanillaDesert_storm_online"
         }
       ],

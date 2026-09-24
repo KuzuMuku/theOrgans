@@ -151,8 +151,9 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_blacksmith_online",
+          "type": "structure",
+          "structure": "cataclysm:soul_black_smith",
+          "radius_chunks": 10,
           "custom_display_key": "message.organkubejs.condition.vanillaNether_blacksmith_online"
         }
       ],

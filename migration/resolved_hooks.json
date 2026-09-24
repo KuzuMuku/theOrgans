@@ -1,0 +1,279 @@
+{
+  "createT2_cruise_online": {
+    "type": "point",
+    "point": "runtime:kubejs:brass_cruise_online",
+    "op": "gt",
+    "value": 0
+  },
+  "createT2_system_online": {
+    "type": "point",
+    "point": "counter:kubejs:torque_capacity",
+    "op": "gt",
+    "value": 0
+  },
+  "createT2_tempo_ready": {
+    "type": "point",
+    "point": "runtime:kubejs:brass_rhythm",
+    "op": "gte",
+    "value": 3
+  },
+  "mekanismT1_discharge_ready": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t1_discharge_window",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT1_flow_online": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t1_flow_cycle",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT1_heat_online": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t1_heat_cycle",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT1_hot_zone": {
+    "type": "nearby_block",
+    "blocks": [
+      "minecraft:lava",
+      "minecraft:magma_block",
+      "minecraft:campfire",
+      "minecraft:soul_campfire"
+    ],
+    "radius": 5
+  },
+  "mekanismT1_refinery_online": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t1_refinery_cycle",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT1_rhythm_online": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t1_rhythm_cycle",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT2_plasma_online": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t2_plasma_window",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT2_protocol_online": {
+    "type": "point",
+    "point": "runtime:kubejs:mek_t2_protocol_window",
+    "op": "gt",
+    "value": 0
+  },
+  "mekanismT2_radiation_online": {
+    "type": "point",
+    "point": "counter:kubejs:mek_t2_radiation_layer",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaDesert_storm_online": {
+    "type": "point",
+    "point": "runtime:kubejs:vanillaDesert_storm_window",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaJungle_root_protocol_online": {
+    "type": "point",
+    "point": "runtime:kubejs:vanillaJungle_root_protocol",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaNether_ashvale_online": {
+    "type": "any_of",
+    "conditions": [
+      {
+        "type": "biome_category",
+        "value": "ash"
+      },
+      {
+        "type": "biome_category",
+        "value": "soul"
+      },
+      {
+        "type": "structure",
+        "structure": "cataclysm:burning_arena",
+        "radius_chunks": 10
+      },
+      {
+        "type": "structure",
+        "structure": "cataclysm:soul_black_smith",
+        "radius_chunks": 10
+      }
+    ]
+  },
+  "vanillaNether_bastion_online": {
+    "type": "any_of",
+    "conditions": [
+      {
+        "type": "nearby_block",
+        "blocks": [
+          "minecraft:gold_block",
+          "minecraft:gilded_blackstone",
+          "minecraft:blackstone"
+        ],
+        "radius": 5
+      },
+      {
+        "type": "structure",
+        "structure": "minecraft:bastion_remnant",
+        "radius_chunks": 10
+      }
+    ]
+  },
+  "vanillaNether_blacksmith_online": {
+    "type": "structure",
+    "structure": "cataclysm:soul_black_smith",
+    "radius_chunks": 10
+  },
+  "vanillaNether_crimson_online": {
+    "type": "any_of",
+    "conditions": [
+      {
+        "type": "biome_category",
+        "value": "crimson"
+      },
+      {
+        "type": "biome_category",
+        "value": "warped"
+      },
+      {
+        "type": "structure",
+        "structure": "cataclysm:burning_arena",
+        "radius_chunks": 10
+      },
+      {
+        "type": "structure",
+        "structure": "cataclysm:soul_black_smith",
+        "radius_chunks": 10
+      }
+    ]
+  },
+  "vanillaNether_fortress_online": {
+    "type": "any_of",
+    "conditions": [
+      {
+        "type": "nearby_block",
+        "blocks": [
+          "minecraft:nether_bricks",
+          "minecraft:red_nether_bricks",
+          "minecraft:polished_blackstone_bricks",
+          "minecraft:gold_block",
+          "minecraft:nether_wart_block"
+        ],
+        "radius": 5
+      },
+      {
+        "type": "structure",
+        "structure": "minecraft:fortress",
+        "radius_chunks": 10
+      }
+    ]
+  },
+  "vanillaNether_lava_online": {
+    "type": "nearby_block",
+    "blocks": [
+      "minecraft:lava",
+      "minecraft:magma_block",
+      "minecraft:basalt",
+      "minecraft:blackstone"
+    ],
+    "radius": 5
+  },
+  "vanillaNether_soul_online": {
+    "type": "any_of",
+    "conditions": [
+      {
+        "type": "biome_category",
+        "value": "soul"
+      },
+      {
+        "type": "nearby_block",
+        "blocks": [
+          "minecraft:soul_sand",
+          "minecraft:soul_soil",
+          "minecraft:soul_lantern",
+          "minecraft:soul_torch",
+          "minecraft:nether_bricks",
+          "minecraft:red_nether_bricks",
+          "minecraft:polished_blackstone_bricks",
+          "minecraft:gold_block",
+          "minecraft:nether_wart_block"
+        ],
+        "radius": 5
+      },
+      {
+        "type": "structure",
+        "structure": "minecraft:fortress",
+        "radius_chunks": 10
+      },
+      {
+        "type": "structure",
+        "structure": "cataclysm:soul_black_smith",
+        "radius_chunks": 10
+      }
+    ]
+  },
+  "vanillaPillager_surge_active": {
+    "type": "point",
+    "point": "runtime:kubejs:vanillaPillager_raid_surge",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaSculk_high_resonance": {
+    "type": "point",
+    "point": "counter:kubejs:vanillaSculk_resonance",
+    "op": "gt",
+    "value": 10
+  },
+  "vanillaSnow_deepfreeze_online": {
+    "type": "point",
+    "point": "runtime:kubejs:vanillaSnow_deepfreeze_online",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaSnow_resonance_high": {
+    "type": "point",
+    "point": "counter:kubejs:vanillaSnow_resonance",
+    "op": "gte",
+    "value": 40
+  },
+  "vanillaSnow_resonance_mid": {
+    "type": "point",
+    "point": "counter:kubejs:vanillaSnow_resonance",
+    "op": "gte",
+    "value": 20
+  },
+  "vanillaSwamp_rotting_online": {
+    "type": "point",
+    "point": "runtime:kubejs:vanillaSwamp_rotting_window",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaVillage_has_guard": {
+    "type": "point",
+    "point": "counter:kubejs:village_guard_line",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaVillage_has_supply": {
+    "type": "point",
+    "point": "counter:kubejs:village_supply_line",
+    "op": "gt",
+    "value": 0
+  },
+  "vanillaVillage_has_trade": {
+    "type": "point",
+    "point": "counter:kubejs:village_trade_flow",
+    "op": "gt",
+    "value": 0
+  }
+}

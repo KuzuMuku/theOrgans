@@ -67,8 +67,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "createT2_cruise_online",
+          "type": "point",
+          "point": "runtime:kubejs:brass_cruise_online",
+          "op": "gt",
+          "value": 0,
           "custom_display_key": "message.organkubejs.condition.createT2_cruise_online"
         }
       ],

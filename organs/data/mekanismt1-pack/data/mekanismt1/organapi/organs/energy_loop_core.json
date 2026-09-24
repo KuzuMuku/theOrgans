@@ -43,8 +43,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT1_flow_online",
+          "type": "point",
+          "point": "runtime:kubejs:mek_t1_flow_cycle",
+          "op": "gt",
+          "value": 0,
           "custom_display_key": "message.organkubejs.condition.mekanismT1_flow_online"
         }
       ],

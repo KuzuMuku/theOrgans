@@ -15,8 +15,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_plasma_online",
+          "type": "point",
+          "point": "runtime:kubejs:mek_t2_plasma_window",
+          "op": "gt",
+          "value": 0,
           "custom_display_key": "message.organkubejs.condition.mekanismT2_plasma_online"
         }
       ],
@@ -43,8 +45,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_protocol_online",
+          "type": "point",
+          "point": "runtime:kubejs:mek_t2_protocol_window",
+          "op": "gt",
+          "value": 0,
           "custom_display_key": "message.organkubejs.condition.mekanismT2_protocol_online"
         }
       ],

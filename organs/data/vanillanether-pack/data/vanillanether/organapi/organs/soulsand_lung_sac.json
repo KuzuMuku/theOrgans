@@ -48,8 +48,38 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_soul_online",
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "soul"
+            },
+            {
+              "type": "nearby_block",
+              "blocks": [
+                "minecraft:soul_sand",
+                "minecraft:soul_soil",
+                "minecraft:soul_lantern",
+                "minecraft:soul_torch",
+                "minecraft:nether_bricks",
+                "minecraft:red_nether_bricks",
+                "minecraft:polished_blackstone_bricks",
+                "minecraft:gold_block",
+                "minecraft:nether_wart_block"
+              ],
+              "radius": 5
+            },
+            {
+              "type": "structure",
+              "structure": "minecraft:fortress",
+              "radius_chunks": 10
+            },
+            {
+              "type": "structure",
+              "structure": "cataclysm:soul_black_smith",
+              "radius_chunks": 10
+            }
+          ],
           "custom_display_key": "message.organkubejs.condition.vanillaNether_soul_online"
         }
       ],

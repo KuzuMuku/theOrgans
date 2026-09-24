@@ -58,8 +58,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_surge_active",
+          "type": "point",
+          "point": "runtime:kubejs:vanillaPillager_raid_surge",
+          "op": "gt",
+          "value": 0,
           "custom_display_key": "message.organkubejs.condition.vanillaPillager_surge_active"
         }
       ],

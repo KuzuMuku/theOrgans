@@ -38,8 +38,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSculk_high_resonance",
+          "type": "point",
+          "point": "counter:kubejs:vanillaSculk_resonance",
+          "op": "gt",
+          "value": 10,
           "custom_display_key": "message.organkubejs.condition.vanillaSculk_high_resonance"
         }
       ],

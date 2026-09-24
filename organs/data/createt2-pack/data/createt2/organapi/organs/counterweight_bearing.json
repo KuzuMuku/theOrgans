@@ -43,8 +43,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "createT2_tempo_ready",
+          "type": "point",
+          "point": "runtime:kubejs:brass_rhythm",
+          "op": "gte",
+          "value": 3,
           "custom_display_key": "message.organkubejs.condition.createT2_tempo_ready"
         }
       ],

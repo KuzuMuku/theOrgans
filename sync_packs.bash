@@ -14,7 +14,8 @@
 #
 # Usage:
 #   ./sync_packs.bash [target_gamedir]
-# Runs convert_to_packs.py first (all biomes), then mirrors organs/{data,resources}.
+# Mirrors the committed organs/{data,resources}/*-pack into the instance. It does
+# NOT regenerate them (see the note below).
 
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
@@ -26,10 +27,13 @@ else
   target_dir="$1"
 fi
 
-# 1. regenerate packs from theOrgans content
-python3 convert_to_packs.py
+# NOTE: the packs under organs/{data,resources} are now the committed source of
+# truth for the cross-version branch — edit them directly. This script only mirrors
+# them into a game instance. It intentionally does NOT re-run convert_to_packs.py:
+# that one-shot generator (and the resolve_hooks.py second pass) already ran and
+# their output is committed; re-running would clobber hand edits.
 
-# 2. mirror into the game run directory (organs/ is the loader scan root)
+# mirror into the game run directory (organs/ is the loader scan root)
 target_organs="$target_dir/organs"
 for side in data resources; do
   src="organs/$side"

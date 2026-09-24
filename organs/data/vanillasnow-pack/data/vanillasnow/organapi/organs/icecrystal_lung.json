@@ -57,8 +57,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_resonance_mid",
+          "type": "point",
+          "point": "counter:kubejs:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 20,
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_mid"
         }
       ],

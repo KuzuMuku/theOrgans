@@ -98,8 +98,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_resonance_high",
+          "type": "point",
+          "point": "counter:kubejs:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 40,
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
         }
       ],
@@ -139,8 +141,10 @@
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_deposition_conduit_online"
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_resonance_high",
+          "type": "point",
+          "point": "counter:kubejs:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 40,
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
         }
       ],

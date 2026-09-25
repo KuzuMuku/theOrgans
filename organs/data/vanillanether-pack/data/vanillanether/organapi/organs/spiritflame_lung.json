@@ -70,14 +70,9 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "fire",
-                "seconds": 2
-              }
-            ]
+            "callback": "vanillaNether_spiritflame_lung_ignite"
           },
           "point_type": "runtime",
           "point_id": "vanillanether:spiritflame_lung_ignite_request",
@@ -95,8 +90,7 @@
             "vanillanether:ash_conduit"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_ash_conduit_online"
+          "value": 1
         }
       ],
       "grants": [],

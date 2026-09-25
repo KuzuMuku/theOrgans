@@ -57,7 +57,7 @@
         },
         {
           "type": "mine",
-          "block_tag": "kubejs:jungle_sap_mineables",
+          "block_tag": "vanillajungle:jungle_sap_mineables",
           "add_points": [
             {
               "type": "counter",

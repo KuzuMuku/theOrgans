@@ -42,9 +42,39 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_heat_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_heat_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "nether"
+            },
+            {
+              "type": "biome_category",
+              "value": "basalt"
+            },
+            {
+              "type": "biome_category",
+              "value": "soul"
+            },
+            {
+              "type": "biome_category",
+              "value": "crimson"
+            },
+            {
+              "type": "biome_category",
+              "value": "warped"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:fortress",
+                "minecraft:bastion_remnant",
+                "cataclysm:burning_arena",
+                "cataclysm:soul_black_smith"
+              ],
+              "radius_chunks": 10
+            }
+          ]
         }
       ],
       "grants": [
@@ -65,8 +95,7 @@
             "vanillanether:slag_pump"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online"
+          "value": 1
         }
       ],
       "grants": [
@@ -91,8 +120,7 @@
           "type": "point",
           "point": "runtime:vanillanether:vanillaNether_inferno_upkeep",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_inferno_upkeep_online"
+          "value": 0
         }
       ],
       "grants": [

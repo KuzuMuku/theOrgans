@@ -63,8 +63,7 @@
           "type": "point",
           "point": "counter:vanillasnow:vanillaSnow_resonance",
           "op": "gte",
-          "value": 20,
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_20"
+          "value": 20
         }
       ],
       "grants": [],
@@ -98,10 +97,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:vanillaSnow_resonance",
-          "op": "gte",
-          "value": 40,
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_resonance_high",
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
         }
       ],
@@ -123,15 +120,8 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
-          "config": {
-            "ops": [
-              {
-                "op": "damage",
-                "amount": 2.0
-              }
-            ]
-          },
+          "type": "kubejs_target_call",
+          "callback": "vanillaSnow_freezebreak_guard_retal",
           "point_type": "runtime",
           "point_id": "vanillasnow:freezebreak_sheath_guard_retal",
           "consume_points": true,
@@ -148,10 +138,8 @@
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_deposition_conduit_online"
         },
         {
-          "type": "point",
-          "point": "counter:kubejs:vanillaSnow_resonance",
-          "op": "gte",
-          "value": 40,
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_resonance_high",
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_high"
         }
       ],

@@ -68,8 +68,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 2,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_2"
+          "value": 2
         },
         {
           "type": "status_effect",
@@ -99,8 +98,7 @@
               "source": "vanillaDesert_system"
             }
           ],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaDesert_curse_clear"
+          "actions": []
         }
       ],
       "executions": [
@@ -110,8 +108,7 @@
           "point_type": "runtime",
           "point_id": "vanilladesert:sandstone_breastplate_curse_clear",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaDesert_curse_clear"
+          "max_consume": 1
         }
       ]
     }

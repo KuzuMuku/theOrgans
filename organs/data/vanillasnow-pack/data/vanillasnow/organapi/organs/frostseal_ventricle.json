@@ -50,8 +50,7 @@
           "type": "point",
           "point": "counter:vanillasnow:vanillaSnow_resonance",
           "op": "gte",
-          "value": 25,
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_25"
+          "value": 25
         }
       ],
       "grants": [],
@@ -88,9 +87,56 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "biome_category",
+              "value": "snow"
+            },
+            {
+              "type": "biome_category",
+              "value": "frozen"
+            },
+            {
+              "type": "biome_category",
+              "value": "ice_spikes"
+            },
+            {
+              "type": "biome_category",
+              "value": "grove"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:igloo",
+                "aquamirae:ship",
+                "aquamirae:outpost",
+                "aquamirae:shelter"
+              ],
+              "radius_chunks": 8
+            },
+            {
+              "type": "environment_state",
+              "state": "raining"
+            },
+            {
+              "type": "nearby_block",
+              "blocks": [
+                "minecraft:snow_block",
+                "minecraft:powder_snow",
+                "minecraft:ice",
+                "minecraft:packed_ice",
+                "minecraft:blue_ice"
+              ],
+              "radius": 5,
+              "vertical": 1,
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],

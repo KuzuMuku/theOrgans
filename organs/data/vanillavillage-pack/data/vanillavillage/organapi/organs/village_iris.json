@@ -20,8 +20,7 @@
             "vanillavillage:prestige_crown"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_iris_no_crown"
+          "value": 1
         }
       ],
       "grants": [
@@ -79,8 +78,7 @@
             "vanillavillage:prestige_crown"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_crown"
+          "value": 1
         }
       ],
       "grants": [],
@@ -102,8 +100,7 @@
             }
           ],
           "consume_points": [],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaVillage_iris_crown"
+          "actions": []
         }
       ],
       "executions": [

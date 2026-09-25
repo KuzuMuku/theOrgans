@@ -42,10 +42,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:village_guard_line",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_has_guard",
           "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
         }
       ],
@@ -67,10 +65,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:village_guard_line",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_has_guard",
           "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
         }
       ],

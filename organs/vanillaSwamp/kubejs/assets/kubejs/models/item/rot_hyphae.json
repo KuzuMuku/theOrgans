@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "kubejs:item/rot_hyphae"
+    "layer0": "kubejs:item/sporebog_lung"
   }
 }

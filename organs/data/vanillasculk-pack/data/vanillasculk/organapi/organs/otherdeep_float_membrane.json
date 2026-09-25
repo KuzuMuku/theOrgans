@@ -42,9 +42,32 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSculk_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaSculk_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "deeperdarker:otherside"
+            },
+            {
+              "type": "biome_category",
+              "value": "deep_dark"
+            },
+            {
+              "type": "biome_category",
+              "value": "deepdark"
+            },
+            {
+              "type": "biome_category",
+              "value": "sculk"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:ancient_city"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [

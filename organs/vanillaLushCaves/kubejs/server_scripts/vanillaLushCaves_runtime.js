@@ -279,7 +279,7 @@ OrganKubejsEvents.skillCast('sporebloom_core_cast', event => {
     x: Number(pos.getX()) + 0.5,
     y: Number(entity.getY()),
     z: Number(pos.getZ()) + 0.5,
-    startedAt: Number(entity.getLevel().getGameTime()),
+    startedAt: Number(entity.tickCount),
     radius: 3 + bridges
   }
   FLOWERS[state.ownerId] = state
@@ -309,7 +309,7 @@ PlayerEvents.tick(event => {
     clearFlower(player)
     return
   }
-  if (Number(entity.getLevel().getGameTime()) >= state.expiresAt) {
+  if (Number(entity.tickCount) >= state.expiresAt) {
     clearFlower(player)
     return
   }

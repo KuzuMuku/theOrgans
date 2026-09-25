@@ -67,8 +67,7 @@
             "createt2:experience_etched_line"
           ],
           "op": "gte",
-          "value": 4,
-          "custom_display_key": "message.organkubejs.condition.createT2_four_resonance"
+          "value": 4
         }
       ],
       "grants": [

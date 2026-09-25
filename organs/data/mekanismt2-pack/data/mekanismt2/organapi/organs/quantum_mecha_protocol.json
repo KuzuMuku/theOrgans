@@ -43,17 +43,9 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "runtime:kubejs:mek_t2_protocol_window",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "mekanismT2_protocol_online",
           "custom_display_key": "message.organkubejs.condition.mekanismT2_protocol_online"
-        },
-        {
-          "type": "point",
-          "point": "runtime:mekanismt2:mek_t2_protocol_window",
-          "op": "gt",
-          "value": 0
         }
       ],
       "grants": [
@@ -90,21 +82,8 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
-          "config": {
-            "ops": [
-              {
-                "op": "damage",
-                "amount": "2 + organ_count('mekanismt2:quantum_mecha_protocol')"
-              },
-              {
-                "op": "effect",
-                "effect": "minecraft:glowing",
-                "duration_ticks": 80,
-                "amplifier": 0
-              }
-            ]
-          },
+          "type": "kubejs_target_call",
+          "callback": "mekanismT2_protocol_strike",
           "point_type": "runtime",
           "point_id": "mekanismt2:mek_t2_protocol_strike",
           "consume_points": true,

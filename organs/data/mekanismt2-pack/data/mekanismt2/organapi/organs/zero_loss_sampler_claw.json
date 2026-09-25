@@ -106,8 +106,7 @@
             "mekanismt2:nano_repair_mesh"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_has_support"
+          "value": 1
         }
       ],
       "grants": [],

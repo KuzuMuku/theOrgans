@@ -67,8 +67,7 @@
           "type": "point",
           "point": "runtime:vanillalushcaves:vanillaLushCaves_spore_bloom",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
+          "value": 0
         }
       ],
       "grants": [
@@ -109,8 +108,7 @@
           "type": "point",
           "point": "runtime:vanillalushcaves:vanillaLushCaves_spore_bloom",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_spore_bloom_online"
+          "value": 0
         }
       ],
       "grants": [],

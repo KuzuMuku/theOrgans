@@ -22,8 +22,7 @@
             "vanillavillage:offering_gland"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_support"
+          "value": 1
         }
       ],
       "grants": [
@@ -84,9 +83,22 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:village_plains",
+                "minecraft:village_desert",
+                "minecraft:village_savanna",
+                "minecraft:village_snowy",
+                "minecraft:village_taiga",
+                "irons_spellbooks:priest_house",
+                "irons_spellbooks:priest_house_taiga"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [

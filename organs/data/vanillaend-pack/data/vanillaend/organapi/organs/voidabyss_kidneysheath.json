@@ -78,9 +78,26 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaEnd_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:the_end"
+            },
+            {
+              "type": "biome_category",
+              "value": "the_end"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:end_city",
+                "minecraft:end_gateway",
+                "minecraft:end_ship"
+              ],
+              "radius_chunks": 10
+            }
+          ]
         }
       ],
       "grants": [

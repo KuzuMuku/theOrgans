@@ -66,8 +66,7 @@
             "vanillanether:ash_conduit"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_ash_conduit_online"
+          "value": 1
         }
       ],
       "grants": [],
@@ -128,8 +127,7 @@
             "vanillanether:ash_conduit"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_ash_conduit_online"
+          "value": 1
         }
       ],
       "grants": [],

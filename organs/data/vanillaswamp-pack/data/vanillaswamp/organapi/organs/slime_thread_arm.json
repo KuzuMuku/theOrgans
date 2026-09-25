@@ -73,8 +73,7 @@
           "type": "point",
           "point": "runtime:vanillaswamp:vanillaSwamp_slime_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
+          "value": 0
         }
       ],
       "grants": [],
@@ -94,23 +93,15 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillaswamp:vanillaSwamp_mark"
-              },
-              {
-                "op": "effect",
-                "effect": "minecraft:poison",
-                "duration_ticks": 60,
-                "amplifier": 0
-              }
-            ]
+            "callback": "common_apply_target_mark_effect"
           },
           "point_type": "mark",
           "point_id": "vanillaswamp:vanillaSwamp_mark",
+          "effect": "minecraft:poison",
+          "duration_ticks": 60,
+          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaSwamp_target_mark"
@@ -123,8 +114,7 @@
           "type": "point",
           "point": "runtime:vanillaswamp:vanillaSwamp_venom_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_venom_online"
+          "value": 0
         }
       ],
       "grants": [

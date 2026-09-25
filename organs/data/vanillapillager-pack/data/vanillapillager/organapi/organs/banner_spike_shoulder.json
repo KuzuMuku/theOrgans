@@ -78,8 +78,7 @@
           "type": "point",
           "point": "runtime:vanillapillager:banner_spike_shoulder_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_banner_spike_window"
+          "value": 0
         }
       ],
       "grants": [

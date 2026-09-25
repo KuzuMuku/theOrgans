@@ -116,8 +116,7 @@
           "type": "point",
           "point": "runtime:vanillapillager:vanillaPillager_plunder_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_plunder_online"
+          "value": 0
         }
       ],
       "grants": [],
@@ -156,8 +155,7 @@
           "type": "point",
           "point": "runtime:vanillapillager:vanillaPillager_plunder_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_plunder_online"
+          "value": 0
         },
         {
           "type": "kubejs_hook",

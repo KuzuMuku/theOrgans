@@ -58,10 +58,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "runtime:kubejs:vanillaJungle_root_protocol",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaJungle_root_protocol_online",
           "custom_display_key": "message.organkubejs.condition.vanillaJungle_root_protocol_online"
         }
       ],

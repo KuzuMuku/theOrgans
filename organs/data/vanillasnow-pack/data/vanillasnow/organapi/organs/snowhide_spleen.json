@@ -29,7 +29,7 @@
       "events": [
         {
           "type": "mine",
-          "block_tag": "kubejs:vanilla_snow_harvestable",
+          "block_tag": "vanillasnow:vanilla_snow_harvestable",
           "add_points": [
             {
               "type": "counter",

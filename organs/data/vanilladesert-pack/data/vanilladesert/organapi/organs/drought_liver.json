@@ -42,16 +42,31 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "desert"
+            },
+            {
+              "type": "biome_category",
+              "value": "badlands"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:desert_pyramid",
+                "cataclysm:cursed_pyramid"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         },
         {
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 10,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
+          "value": 10
         },
         {
           "type": "organironspell:missing_mana",
@@ -82,8 +97,7 @@
               "source": "vanillaDesert_system"
             }
           ],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaDesert_heat_to_mana"
+          "actions": []
         }
       ],
       "executions": [

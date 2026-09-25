@@ -47,10 +47,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:village_trade_flow",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_has_trade",
           "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         }
       ],
@@ -78,10 +76,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:village_trade_flow",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_has_trade",
           "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         },
         {
@@ -90,8 +86,7 @@
             "vanillavillage:village_ledger"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_village_ledger"
+          "value": 1
         }
       ],
       "grants": [],
@@ -118,10 +113,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:village_trade_flow",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_has_trade",
           "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_trade"
         }
       ],
@@ -177,10 +170,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:village_guard_line",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaVillage_has_guard",
           "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
         }
       ],

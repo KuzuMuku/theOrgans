@@ -53,9 +53,33 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaLushCaves_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "biome_category",
+              "value": "lush_caves"
+            },
+            {
+              "type": "biome_category",
+              "value": "fungal_fen"
+            },
+            {
+              "type": "biome_category",
+              "value": "bioshroom"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "betterdungeons:skeleton_dungeon",
+                "betterdungeons:zombie_dungeon"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [

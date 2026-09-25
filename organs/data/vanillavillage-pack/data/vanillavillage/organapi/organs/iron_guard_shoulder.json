@@ -77,8 +77,7 @@
             "vanillavillage:travel_legplate"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_movement"
+          "value": 1
         }
       ],
       "grants": [],
@@ -98,23 +97,15 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillavillage:vanillaVillage_mark"
-              },
-              {
-                "op": "effect",
-                "effect": "minecraft:glowing",
-                "duration_ticks": 60,
-                "amplifier": 0
-              }
-            ]
+            "callback": "common_apply_target_mark_effect"
           },
           "point_type": "mark",
           "point_id": "vanillavillage:vanillaVillage_mark",
+          "effect": "minecraft:glowing",
+          "duration_ticks": 60,
+          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaVillage_target_mark"

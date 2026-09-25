@@ -48,20 +48,14 @@
             }
           ],
           "consume_points": [],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaDesert_melee_mark"
+          "actions": []
         }
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanilladesert:vanillaDesert_mark"
-              }
-            ]
+            "callback": "vanillaDesert_apply_mark"
           },
           "point_type": "runtime",
           "point_id": "vanilladesert:wind_erosion_arm_mark_request",
@@ -101,14 +95,9 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanilladesert:vanillaDesert_mark"
-              }
-            ]
+            "callback": "vanillaDesert_apply_mark"
           },
           "point_type": "runtime",
           "point_id": "vanilladesert:wind_erosion_arm_mark_request",
@@ -121,10 +110,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "runtime:kubejs:vanillaDesert_storm_window",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaDesert_storm_online",
           "custom_display_key": "message.organkubejs.condition.vanillaDesert_storm_online"
         }
       ],
@@ -144,8 +131,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 25,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
+          "value": 25
         }
       ],
       "grants": [

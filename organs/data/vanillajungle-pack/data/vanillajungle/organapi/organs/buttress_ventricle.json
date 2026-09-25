@@ -34,8 +34,7 @@
             "vanillajungle:vine_bind_bundle"
           ],
           "op": "gte",
-          "value": 4,
-          "custom_display_key": "message.organkubejs.condition.vanillaJungle_set_major"
+          "value": 4
         }
       ],
       "grants": [

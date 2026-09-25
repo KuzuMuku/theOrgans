@@ -32,16 +32,28 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:pillager_outpost",
+                "minecraft:woodland_mansion",
+                "irons_spellbooks:evoker_fort"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         },
         {
           "type": "point",
           "point": "counter:vanillapillager:vanillaPillager_resonance",
           "op": "gte",
-          "value": 3,
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_at_least_3"
+          "value": 3
         },
         {
           "type": "kubejs_hook",
@@ -113,16 +125,28 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:pillager_outpost",
+                "minecraft:woodland_mansion",
+                "irons_spellbooks:evoker_fort"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         },
         {
           "type": "point",
           "point": "counter:vanillapillager:vanillaPillager_resonance",
           "op": "gte",
-          "value": 2,
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_resource_at_least_2"
+          "value": 2
         },
         {
           "type": "kubejs_hook",

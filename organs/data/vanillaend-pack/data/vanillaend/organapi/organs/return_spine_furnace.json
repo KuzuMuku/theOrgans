@@ -80,8 +80,7 @@
             "vanillaend:void_conduit"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_conduit_online"
+          "value": 1
         }
       ],
       "grants": [],

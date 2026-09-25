@@ -68,8 +68,7 @@
           "duration_ticks": 60,
           "amplifier": 0,
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaDesert_fire_hit"
+          "max_consume": 1
         }
       ]
     },
@@ -79,8 +78,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 10,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_10"
+          "value": 10
         }
       ],
       "grants": [
@@ -104,8 +102,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 25,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
+          "value": 25
         }
       ],
       "grants": [

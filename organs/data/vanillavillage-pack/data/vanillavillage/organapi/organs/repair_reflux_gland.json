@@ -133,8 +133,7 @@
             }
           ],
           "consume_points": [],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaVillage_repair"
+          "actions": []
         }
       ],
       "executions": [

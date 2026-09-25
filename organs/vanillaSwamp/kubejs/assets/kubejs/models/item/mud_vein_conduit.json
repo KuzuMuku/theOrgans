@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "kubejs:item/mud_vein_conduit"
+    "layer0": "kubejs:item/rotmoss_filter_liver"
   }
 }

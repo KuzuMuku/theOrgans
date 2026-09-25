@@ -38,8 +38,7 @@
           "type": "point",
           "point": "runtime:mekanismt2:mek_t2_lock_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_lock_online"
+          "value": 0
         }
       ],
       "grants": [

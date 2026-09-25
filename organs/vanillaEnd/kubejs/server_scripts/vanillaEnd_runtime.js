@@ -345,7 +345,7 @@ PlayerEvents.tick(event => {
   }
   PREV_POSITIONS.set(uuid, { x: x, y: y, z: z })
 
-  let now = Number(entity.getLevel().getGameTime())
+  let now = Number(entity.tickCount)
   let lastHome = LAST_HOME_TICKS.get(uuid) || 0
   if (homeMatch(player)) {
     LAST_HOME_TICKS.set(uuid, now)

@@ -53,8 +53,7 @@
             "vanillanether:slag_pump"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_slag_pump_online"
+          "value": 1
         }
       ],
       "grants": [

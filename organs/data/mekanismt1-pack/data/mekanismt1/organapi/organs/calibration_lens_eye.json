@@ -71,15 +71,9 @@
           "max_consume": 1
         },
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "mekanismt1:mekanismT1_mark"
-              }
-            ],
-            "chance": 0.15
+            "callback": "mekanismT1_calibration_mark"
           },
           "point_type": "runtime",
           "point_id": "mekanismt1:calibration_lens_eye_mark_request",

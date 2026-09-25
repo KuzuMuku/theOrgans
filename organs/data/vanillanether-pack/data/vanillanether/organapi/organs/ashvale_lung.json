@@ -48,27 +48,8 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "biome_category",
-              "value": "ash"
-            },
-            {
-              "type": "biome_category",
-              "value": "soul"
-            },
-            {
-              "type": "structure",
-              "structure": "cataclysm:burning_arena",
-              "radius_chunks": 10
-            },
-            {
-              "type": "structure",
-              "structure": "cataclysm:soul_black_smith",
-              "radius_chunks": 10
-            }
-          ],
+          "type": "kubejs_hook",
+          "callback": "vanillaNether_ashvale_online",
           "custom_display_key": "message.organkubejs.condition.vanillaNether_ashvale_online"
         }
       ],

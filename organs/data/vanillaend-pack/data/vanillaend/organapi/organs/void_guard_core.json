@@ -66,8 +66,7 @@
           "type": "point",
           "point": "runtime:vanillaend:vanillaEnd_void_guard",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_void_guard_online"
+          "value": 0
         }
       ],
       "grants": [

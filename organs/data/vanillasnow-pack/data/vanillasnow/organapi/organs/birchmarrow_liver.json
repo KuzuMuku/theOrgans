@@ -50,8 +50,7 @@
           "type": "point",
           "point": "counter:vanillasnow:vanillaSnow_resonance",
           "op": "gte",
-          "value": 10,
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_resonance_10"
+          "value": 10
         }
       ],
       "grants": [],

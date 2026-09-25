@@ -50,8 +50,7 @@
           "type": "point",
           "point": "counter:vanillanether:vanillaNether_resonance",
           "op": "gte",
-          "value": 10,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_ember_ge_10"
+          "value": 10
         }
       ],
       "grants": [],

@@ -50,22 +50,8 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
-          "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillasculk:vanillaSculk_mark"
-              },
-              {
-                "op": "effect",
-                "effect": "minecraft:darkness",
-                "duration_ticks": 80,
-                "amplifier": 0
-              }
-            ],
-            "chance": 0.25
-          },
+          "type": "kubejs_target_call",
+          "callback": "vanillaSculk_melee_mark",
           "point_type": "runtime",
           "point_id": "vanillasculk:latentwave_arm_strike",
           "consume_points": true,

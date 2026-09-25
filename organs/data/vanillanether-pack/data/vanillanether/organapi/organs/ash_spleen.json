@@ -79,8 +79,7 @@
             "vanillanether:gilded_recovery_belt"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online"
+          "value": 1
         }
       ],
       "grants": [],
@@ -104,27 +103,8 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "biome_category",
-              "value": "crimson"
-            },
-            {
-              "type": "biome_category",
-              "value": "warped"
-            },
-            {
-              "type": "structure",
-              "structure": "cataclysm:burning_arena",
-              "radius_chunks": 10
-            },
-            {
-              "type": "structure",
-              "structure": "cataclysm:soul_black_smith",
-              "radius_chunks": 10
-            }
-          ],
+          "type": "kubejs_hook",
+          "callback": "vanillaNether_crimson_online",
           "custom_display_key": "message.organkubejs.condition.vanillaNether_crimson_online"
         }
       ],

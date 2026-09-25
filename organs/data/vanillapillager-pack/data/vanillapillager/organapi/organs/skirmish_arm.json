@@ -65,15 +65,8 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
-          "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillapillager:skirmish_arm_mark_request"
-              }
-            ]
-          },
+          "type": "kubejs_target_call",
+          "callback": "common_apply_target_mark_effect",
           "point_type": "runtime",
           "point_id": "vanillapillager:skirmish_arm_mark_request",
           "consume_points": true,
@@ -112,15 +105,8 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
-          "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillapillager:skirmish_arm_mark_request_winder"
-              }
-            ]
-          },
+          "type": "kubejs_target_call",
+          "callback": "common_apply_target_mark_effect",
           "point_type": "runtime",
           "point_id": "vanillapillager:skirmish_arm_mark_request_winder",
           "consume_points": true,

@@ -58,10 +58,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "runtime:kubejs:vanillaSnow_deepfreeze_online",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "vanillaSnow_deepfreeze_online",
           "custom_display_key": "message.organkubejs.condition.vanillaSnow_deepfreeze_online"
         },
         {

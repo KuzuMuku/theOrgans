@@ -86,8 +86,7 @@
             "vanillaend:ender_tether"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_ender_tether_online"
+          "value": 1
         }
       ],
       "grants": [

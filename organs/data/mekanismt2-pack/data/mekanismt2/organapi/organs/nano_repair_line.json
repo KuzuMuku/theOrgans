@@ -38,8 +38,7 @@
           "type": "point",
           "point": "shield:mekanismt2:mekanismT2_barrier",
           "op": "gte",
-          "value": 18,
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_high"
+          "value": 18
         }
       ],
       "grants": [

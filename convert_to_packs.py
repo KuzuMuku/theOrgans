@@ -35,12 +35,28 @@ ORGANS = ROOT / "organs"
 DATA_OUT = ORGANS / "data"
 RES_OUT = ORGANS / "resources"
 
-# keys inside organ/effect JSON whose string values carry a "kubejs:" identifier
-NS_VALUE_KEYS = {"id", "item", "point_id", "skill_name", "point"}
+# keys inside organ/effect JSON whose string values carry a "kubejs:" identifier.
+# NOTE: `from_id` (derived-grant counter source) is deliberately NOT here — every
+# from_id currently points at a counter written by the forge-only KubeJS hook via
+# setLinkCounter('kubejs:...') (tide/wet/mire/rot/slime_line, *_resonance, barrier_line).
+# The engine reads it as "<from_type>:<from_id>" and must match the hook's literal
+# kubejs: key, so rewriting it to <ns>: would break the linkage. block_tag IS safe:
+# we emit the matching <ns>: datapack tag file below, so it self-resolves.
+NS_VALUE_KEYS = {"id", "item", "point_id", "skill_name", "point", "block_tag"}
 
 MIGRATION = ROOT / "migration"
 PRED_SPEC = json.loads((MIGRATION / "predicate_spec.json").read_text(encoding="utf-8"))
 BIOME_JS = json.loads((MIGRATION / "biome_constants.json").read_text(encoding="utf-8"))
+HOME_JS = json.loads((MIGRATION / "home_constants.json").read_text(encoding="utf-8"))
+# per-biome block tags KubeJS registered at runtime via ServerEvents.tags('block');
+# emitted as real datapack tag files under the biome namespace (kubejs:x -> <ns>:x)
+BLOCK_TAGS = json.loads((MIGRATION / "block_tags.json").read_text(encoding="utf-8"))
+
+# blocks scanned by the KubeJS hasSnowGround helper (radius 5)
+SNOW_GROUND_BLOCKS = [
+    "minecraft:snow_block", "minecraft:powder_snow", "minecraft:ice",
+    "minecraft:packed_ice", "minecraft:blue_ice",
+]
 
 # accumulated fallback report (callbacks that could not be made declarative)
 FALLBACKS = {}
@@ -80,53 +96,104 @@ def resolve_inventory_items(spec, biome, ns):
     return None
 
 
+def build_home_condition(biome):
+    """Declarative equivalent of the KubeJS homeMatch three-way OR.
+
+    homeState.final = dimensionMatch || biomeMatch || structureMatch, plus the
+    per-biome extraMatchFn (snow: snowing/snow-ground, wet: wet/raining).
+    dimensionMatch only fires when the HOME literal set ``dimension_home: true``.
+    KubeJS structure_radius is already in CHUNKS (passed straight to
+    findNearestMapStructure as radiusChunks), matching the declarative ``structure``
+    condition's ``radius_chunks`` 1:1 (engine clamps to 1..32).
+    Returns None if no HOME data (caller falls back to hook).
+    """
+    h = HOME_JS.get(biome)
+    if not h:
+        return None
+    branches = []
+    if h.get("dimension_home"):
+        for dim in h.get("dimensions", []):
+            branches.append({"type": "dimid", "value_id": dim})
+    for kw in h.get("biome_keywords", []):
+        branches.append({"type": "biome_category", "value": kw})
+    structs = h.get("structures", [])
+    if structs:
+        radius_chunks = max(1, min(32, h.get("structure_radius", 8)))
+        branches.append({"type": "structure", "structures": list(structs),
+                         "radius_chunks": radius_chunks})
+    extra = h.get("extra")
+    if extra == "wet":
+        branches.append({"type": "environment_state", "state": "wet"})
+        branches.append({"type": "environment_state", "state": "raining"})
+    elif extra == "snow":
+        branches.append({"type": "environment_state", "state": "raining"})
+        branches.append({"type": "nearby_block", "blocks": list(SNOW_GROUND_BLOCKS),
+                         "radius": 5, "vertical": 1, "value": 1})
+    if not branches:
+        return None
+    return {"type": "any_of", "conditions": branches}
+
+
+def is_opaque_type(t):
+    """A component type the engine cannot describe from data alone.
+
+    Only these keep a ``custom_display_key`` — kubejs_* hooks/calls and namespaced
+    addon events/executions (``organironspell:*``, ``<biome>:*``). Every builtin
+    data-driven type (point/organ_set/inventory/any_of, tick/mine/heal/...) renders
+    itself, so it must NOT carry a mask.
+    """
+    return isinstance(t, str) and (t.startswith("kubejs") or ":" in t)
+
+
 def convert_condition(cond, biome, ns):
-    """kubejs_predicate -> declarative condition, or kubejs_hook passthrough."""
+    """kubejs_predicate -> declarative condition, or kubejs_hook passthrough.
+
+    ``custom_display_key`` is preserved ONLY on the kubejs_hook fallback (an opaque
+    callback with no data-driven name). Declarative results drop it so the engine
+    shows the data-driven description.
+    """
     if cond.get("type") != "kubejs_predicate":
         return deep_rewrite(cond, ns)
     callback = (cond.get("config") or {}).get("callback")
     if callback is None:
         callback = cond.get("callback") or "<unnamed>"
     display = cond.get("custom_display_key")
-    spec = PRED_SPEC.get(callback)
-    base = {}
-    if display:
-        base["custom_display_key"] = display
 
+    def hook():
+        out = {"type": "kubejs_hook", "callback": callback}
+        if display:
+            out["custom_display_key"] = display
+        return out
+
+    spec = PRED_SPEC.get(callback)
     if spec is None or spec.get("type") == "hook":
         FALLBACKS.setdefault(biome, set()).add(callback)
-        out = {"type": "kubejs_hook", "callback": callback}
-        out.update(base)
-        return out
+        return hook()
 
     kind = spec["type"]
+    if kind == "home":
+        home = build_home_condition(biome)
+        if home is None:
+            FALLBACKS.setdefault(biome, set()).add(callback + " (no home constants)")
+            return hook()
+        return home
     if kind == "point":
-        out = {"type": "point", "point": rewrite_point_key(spec["point"], ns),
-               "op": spec["op"], "value": spec["value"]}
-        out.update(base)
-        return out
+        return {"type": "point", "point": rewrite_point_key(spec["point"], ns),
+                "op": spec["op"], "value": spec["value"]}
     if kind == "organ_set":
         organs = resolve_organ_set(spec["set"], biome, ns)
         if organs is None:
             FALLBACKS.setdefault(biome, set()).add(callback + " (unresolved set " + spec["set"] + ")")
-            out = {"type": "kubejs_hook", "callback": callback}
-            out.update(base)
-            return out
-        out = {"type": "organ_set", "organs": organs, "op": spec["op"], "value": spec["value"]}
-        out.update(base)
-        return out
+            return hook()
+        return {"type": "organ_set", "organs": organs, "op": spec["op"], "value": spec["value"]}
     if kind == "inventory":
         items = resolve_inventory_items(spec, biome, ns)
         if items is None:
             FALLBACKS.setdefault(biome, set()).add(callback + " (unresolved item)")
-            out = {"type": "kubejs_hook", "callback": callback}
-            out.update(base)
-            return out
-        out = {"type": "inventory", "items": items, "op": "gte", "value": 1}
-        out.update(base)
-        return out
+            return hook()
+        return {"type": "inventory", "items": items, "op": "gte", "value": 1}
     FALLBACKS.setdefault(biome, set()).add(callback)
-    return {"type": "kubejs_hook", "callback": callback}
+    return hook()
 
 
 def deep_rewrite(node, ns, biome=None):
@@ -144,6 +211,10 @@ def deep_rewrite(node, ns, biome=None):
                 out[key] = val  # source tags are internal, leave as-is
             else:
                 out[key] = deep_rewrite(val, ns, biome)
+        # drop the kubejs display mask on data-driven events/executions; the engine
+        # renders those from their own fields. Opaque types (kubejs_*, addon ns:*) keep it.
+        if "custom_display_key" in out and not is_opaque_type(out.get("type")):
+            del out["custom_display_key"]
         return out
     if isinstance(node, list):
         return [deep_rewrite(v, ns, biome) for v in node]
@@ -199,6 +270,15 @@ def convert_biome(biome, dry_run=False):
             if not dry_run:
                 (dst / f.name).write_text(
                     json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # --- block tags (KubeJS runtime tags -> datapack files under <ns>) ---
+    for tag_name, blocks in BLOCK_TAGS.get(biome, {}).items():
+        dst = data_pack / "data" / ns / "tags" / "blocks"
+        if not dry_run:
+            dst.mkdir(parents=True, exist_ok=True)
+            (dst / f"{tag_name}.json").write_text(
+                json.dumps({"replace": False, "values": blocks}, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8")
 
     # --- assets: textures, models (organ/), lang ---
     if assets_src.is_dir():

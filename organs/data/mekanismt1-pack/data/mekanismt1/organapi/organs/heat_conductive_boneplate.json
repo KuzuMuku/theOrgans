@@ -52,10 +52,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "runtime:kubejs:mek_t1_heat_cycle",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "mekanismT1_heat_online",
           "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_online"
         }
       ],

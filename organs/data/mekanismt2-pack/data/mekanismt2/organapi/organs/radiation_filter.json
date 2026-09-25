@@ -40,10 +40,8 @@
     {
       "conditions": [
         {
-          "type": "point",
-          "point": "counter:kubejs:mek_t2_radiation_layer",
-          "op": "gt",
-          "value": 0,
+          "type": "kubejs_hook",
+          "callback": "mekanismT2_radiation_online",
           "custom_display_key": "message.organkubejs.condition.mekanismT2_radiation_online"
         }
       ],

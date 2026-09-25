@@ -50,8 +50,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
+          "value": 1
         },
         {
           "type": "kubejs_hook",
@@ -75,8 +74,7 @@
               "source": "vanillaDesert_system"
             }
           ],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaDesert_night_heat_loss"
+          "actions": []
         }
       ],
       "executions": []
@@ -87,8 +85,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_1"
+          "value": 1
         },
         {
           "type": "kubejs_hook",
@@ -112,8 +109,7 @@
               "source": "vanillaDesert_system"
             }
           ],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaDesert_water_heat_loss"
+          "actions": []
         }
       ],
       "executions": []
@@ -121,9 +117,25 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "desert"
+            },
+            {
+              "type": "biome_category",
+              "value": "badlands"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:desert_pyramid",
+                "cataclysm:cursed_pyramid"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [
@@ -147,8 +159,7 @@
           "type": "point",
           "point": "counter:vanilladesert:vanillaDesert_resonance",
           "op": "gte",
-          "value": 25,
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_heat_ge_25"
+          "value": 25
         },
         {
           "type": "health",
@@ -180,8 +191,7 @@
               "source": "vanillaDesert_system"
             }
           ],
-          "actions": [],
-          "custom_display_key": "message.organkubejs.event.vanillaDesert_sun_heat_heal"
+          "actions": []
         }
       ],
       "executions": [
@@ -191,8 +201,7 @@
           "point_id": "vanilladesert:sun_ventricle_heat_heal",
           "amount": 1.0,
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaDesert_sun_heat_heal"
+          "max_consume": 1
         }
       ]
     }

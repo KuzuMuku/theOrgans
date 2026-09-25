@@ -248,14 +248,14 @@ def rewrite_condition(cond, table, stats):
         stats["left"] += 1
         return cond
     out = json.loads(json.dumps(replacement))  # deep copy
-    if cond.get("custom_display_key"):
-        _attach_display(out, cond["custom_display_key"])
+    # resolved forms (point/any_of/not) are all data-driven, so the engine renders
+    # them from their own fields — the old kubejs custom_display_key mask is dropped.
     stats["resolved"] += 1
     return out
 
 
 def _attach_display(cond, key):
-    # combinators carry no threshold text; put the display on the wrapper itself
+    # retained for compatibility; masks are no longer attached to resolved conditions
     cond["custom_display_key"] = key
 
 

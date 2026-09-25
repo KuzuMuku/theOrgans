@@ -72,23 +72,15 @@
           "max_consume": 1
         },
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillalushcaves:vanillaLushCaves_mark"
-              },
-              {
-                "op": "effect",
-                "effect": "minecraft:glowing",
-                "duration_ticks": 80,
-                "amplifier": 0
-              }
-            ]
+            "callback": "common_apply_target_mark_effect"
           },
           "point_type": "mark",
           "point_id": "vanillalushcaves:vanillaLushCaves_mark",
+          "effect": "minecraft:glowing",
+          "duration_ticks": 80,
+          "amplifier": 0,
           "consume_points": false,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaLushCaves_target_mark"
@@ -101,8 +93,7 @@
           "type": "point",
           "point": "runtime:vanillalushcaves:vanillaLushCaves_mycelium_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_mycelium_ready"
+          "value": 0
         }
       ],
       "grants": [],
@@ -123,23 +114,15 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillalushcaves:vanillaLushCaves_mark"
-              },
-              {
-                "op": "effect",
-                "effect": "minecraft:slowness",
-                "duration_ticks": 60,
-                "amplifier": 0
-              }
-            ]
+            "callback": "common_apply_target_mark_effect"
           },
           "point_type": "mark",
           "point_id": "vanillalushcaves:vanillaLushCaves_mark",
+          "effect": "minecraft:slowness",
+          "duration_ticks": 60,
+          "amplifier": 0,
           "consume_points": false,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaLushCaves_target_mark"
@@ -149,9 +132,33 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaLushCaves_home",
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_home"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "biome_category",
+              "value": "lush_caves"
+            },
+            {
+              "type": "biome_category",
+              "value": "fungal_fen"
+            },
+            {
+              "type": "biome_category",
+              "value": "bioshroom"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "betterdungeons:skeleton_dungeon",
+                "betterdungeons:zombie_dungeon"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [

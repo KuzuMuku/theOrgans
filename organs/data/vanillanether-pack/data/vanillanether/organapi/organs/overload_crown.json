@@ -45,8 +45,7 @@
           "type": "point",
           "point": "runtime:vanillanether:vanillaNether_overload_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_overload_online"
+          "value": 0
         }
       ],
       "grants": [
@@ -72,8 +71,7 @@
             "vanillanether:soulfire_rhythm"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_soulfire_rhythm_online"
+          "value": 1
         }
       ],
       "grants": [

@@ -132,15 +132,8 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
-          "config": {
-            "ops": [
-              {
-                "op": "mark",
-                "mark": "vanillapillager:scout_iris_mark_request"
-              }
-            ]
-          },
+          "type": "kubejs_target_call",
+          "callback": "common_apply_target_mark_effect",
           "point_type": "runtime",
           "point_id": "vanillapillager:scout_iris_mark_request",
           "consume_points": true,

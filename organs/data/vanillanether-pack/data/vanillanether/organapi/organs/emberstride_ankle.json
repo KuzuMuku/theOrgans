@@ -41,8 +41,7 @@
           "type": "point",
           "point": "runtime:vanillanether:vanillaNether_emberstride_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_emberstride_online"
+          "value": 0
         }
       ],
       "grants": [

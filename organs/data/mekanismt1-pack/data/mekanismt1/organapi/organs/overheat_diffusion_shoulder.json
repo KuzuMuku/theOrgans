@@ -91,14 +91,8 @@
     {
       "conditions": [
         {
-          "type": "nearby_block",
-          "blocks": [
-            "minecraft:lava",
-            "minecraft:magma_block",
-            "minecraft:campfire",
-            "minecraft:soul_campfire"
-          ],
-          "radius": 5,
+          "type": "kubejs_hook",
+          "callback": "mekanismT1_hot_zone",
           "custom_display_key": "message.organkubejs.condition.mekanismT1_hot_zone"
         }
       ],

@@ -18,8 +18,7 @@
           "type": "point",
           "point": "runtime:vanillaocean:vanillaOcean_salvage_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaOcean_salvage_online"
+          "value": 0
         }
       ],
       "grants": [

@@ -18,8 +18,7 @@
           "type": "point",
           "point": "runtime:vanillaswamp:vanillaSwamp_slime_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
+          "value": 0
         }
       ],
       "grants": [
@@ -35,9 +34,33 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSwamp_mire_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_mire_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "swamp"
+            },
+            {
+              "type": "biome_category",
+              "value": "mangrove"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:swamp_hut",
+                "iceandfire:hydra_cave"
+              ],
+              "radius_chunks": 8
+            },
+            {
+              "type": "environment_state",
+              "state": "wet"
+            },
+            {
+              "type": "environment_state",
+              "state": "raining"
+            }
+          ]
         }
       ],
       "grants": [
@@ -89,8 +112,7 @@
           "type": "point",
           "point": "runtime:vanillaswamp:vanillaSwamp_slime_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_slime_online"
+          "value": 0
         }
       ],
       "grants": [

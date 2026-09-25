@@ -161,8 +161,7 @@
             "vanillanether:gilded_recovery_belt"
           ],
           "op": "gte",
-          "value": 1,
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_gilded_belt_online"
+          "value": 1
         }
       ],
       "grants": [],

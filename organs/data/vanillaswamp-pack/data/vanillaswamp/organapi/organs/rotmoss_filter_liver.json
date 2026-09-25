@@ -90,8 +90,7 @@
           "type": "point",
           "point": "runtime:vanillaswamp:vanillaSwamp_rot_window",
           "op": "gt",
-          "value": 0,
-          "custom_display_key": "message.organkubejs.condition.vanillaSwamp_rot_online"
+          "value": 0
         }
       ],
       "grants": [

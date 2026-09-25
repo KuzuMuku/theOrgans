@@ -63,9 +63,42 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaOcean_wet_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaOcean_wet_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "ocean"
+            },
+            {
+              "type": "biome_category",
+              "value": "beach"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:ocean_monument",
+                "minecraft:shipwreck",
+                "minecraft:buried_treasure",
+                "minecraft:underwater_ruin_big",
+                "minecraft:underwater_ruin_small",
+                "aquamirae:ice_maze/common",
+                "aquamirae:ice_maze/arch",
+                "aquamirae:ice_maze/spiral",
+                "aquamirae:ship",
+                "aquamirae:outpost",
+                "aquamirae:shelter"
+              ],
+              "radius_chunks": 10
+            },
+            {
+              "type": "environment_state",
+              "state": "wet"
+            },
+            {
+              "type": "environment_state",
+              "state": "raining"
+            }
+          ]
         }
       ],
       "grants": [],
@@ -86,14 +119,9 @@
       ],
       "executions": [
         {
-          "type": "target_strike",
+          "type": "kubejs_target_call",
           "config": {
-            "ops": [
-              {
-                "op": "knockback",
-                "strength": 3.0
-              }
-            ]
+            "callback": "vanillaOcean_push_target"
           },
           "point_type": "runtime",
           "point_id": "vanillaocean:countercurrent_arm_push_wet",

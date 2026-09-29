@@ -58,14 +58,18 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_deepfreeze_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_deepfreeze_online"
+          "type": "point",
+          "point": "runtime:vanillasnow:vanillaSnow_deepfreeze_online",
+          "op": "gt",
+          "value": 0
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_icecore_rhythm_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_icecore_rhythm_online"
+          "type": "inventory",
+          "items": [
+            "vanillasnow:icecore_rhythm"
+          ],
+          "op": "gte",
+          "value": 1
         }
       ],
       "grants": [],

@@ -65,9 +65,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT1_discharge_ready",
-          "custom_display_key": "message.organkubejs.condition.mekanismT1_discharge_ready"
+          "type": "point",
+          "point": "runtime:mekanismt1:mek_t1_discharge_window",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [

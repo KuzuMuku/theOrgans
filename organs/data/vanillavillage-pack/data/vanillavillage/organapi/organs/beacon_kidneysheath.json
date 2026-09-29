@@ -42,9 +42,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_has_guard",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_guard"
+          "type": "point",
+          "point": "counter:vanillavillage:village_guard_line",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [
@@ -65,9 +66,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_has_supply",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_supply"
+          "type": "point",
+          "point": "counter:vanillavillage:village_supply_line",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [],

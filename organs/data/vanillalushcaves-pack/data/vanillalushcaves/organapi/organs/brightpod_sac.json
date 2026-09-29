@@ -87,9 +87,57 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaLushCaves_glow_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_online"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "any_of",
+              "conditions": [
+                {
+                  "type": "dimid",
+                  "value_id": "minecraft:overworld"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "lush_caves"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "fungal_fen"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "bioshroom"
+                },
+                {
+                  "type": "structure",
+                  "structures": [
+                    "betterdungeons:skeleton_dungeon",
+                    "betterdungeons:zombie_dungeon"
+                  ],
+                  "radius_chunks": 8
+                }
+              ]
+            },
+            {
+              "type": "any_of",
+              "conditions": [
+                {
+                  "type": "point",
+                  "point": "runtime:vanillalushcaves:vanillaLushCaves_spore_bloom",
+                  "op": "gt",
+                  "value": 0
+                },
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillalushcaves:gloommoss_crown"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [

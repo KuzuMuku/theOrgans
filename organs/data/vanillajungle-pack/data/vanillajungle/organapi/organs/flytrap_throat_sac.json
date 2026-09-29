@@ -37,9 +37,20 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaJungle_snare_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaJungle_snare_online"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:jungle_temple"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [

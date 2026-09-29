@@ -119,9 +119,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT1_refinery_online",
-          "custom_display_key": "message.organkubejs.condition.mekanismT1_refinery_online"
+          "type": "point",
+          "point": "runtime:mekanismt1:mek_t1_refinery_cycle",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [],

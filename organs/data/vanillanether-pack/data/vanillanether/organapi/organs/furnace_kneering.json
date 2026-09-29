@@ -42,9 +42,19 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_furnace_kneering_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_furnace_kneering_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "runtime:vanillanether:vanillaNether_jump_momentum",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "movement_state",
+              "state": "sprinting"
+            }
+          ]
         }
       ],
       "grants": [

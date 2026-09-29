@@ -37,9 +37,17 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_no_crossbow_winder",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_no_crossbow_winder"
+          "type": "not",
+          "conditions": [
+            {
+              "type": "inventory",
+              "items": [
+                "vanillapillager:crossbow_string_winder"
+              ],
+              "op": "gte",
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],
@@ -74,9 +82,12 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_aux_crossbow_winder",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_crossbow_winder"
+          "type": "inventory",
+          "items": [
+            "vanillapillager:crossbow_string_winder"
+          ],
+          "op": "gte",
+          "value": 1
         }
       ],
       "grants": [],
@@ -132,8 +143,15 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
-          "callback": "common_apply_target_mark_effect",
+          "type": "target_strike",
+          "config": {
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillapillager:scout_iris_mark_request"
+              }
+            ]
+          },
           "point_type": "runtime",
           "point_id": "vanillapillager:scout_iris_mark_request",
           "consume_points": true,

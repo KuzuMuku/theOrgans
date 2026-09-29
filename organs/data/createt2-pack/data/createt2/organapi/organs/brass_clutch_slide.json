@@ -43,9 +43,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "createT2_system_online",
-          "custom_display_key": "message.organkubejs.condition.createT2_system_online"
+          "type": "point",
+          "point": "counter:createt2:torque_capacity",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [],

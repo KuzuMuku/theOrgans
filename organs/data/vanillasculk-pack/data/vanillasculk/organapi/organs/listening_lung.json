@@ -25,7 +25,8 @@
           "attribute": "minecraft:generic.movement_speed",
           "amount": 1
         }
-      ]
+      ],
+      "executions": []
     },
     {
       "conditions": [

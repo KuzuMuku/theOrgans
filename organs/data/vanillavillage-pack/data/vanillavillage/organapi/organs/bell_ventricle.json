@@ -51,9 +51,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_resource_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
+          "type": "point",
+          "point": "counter:vanillavillage:vanillaVillage_resonance",
+          "op": "gte",
+          "value": 8
         }
       ],
       "grants": [

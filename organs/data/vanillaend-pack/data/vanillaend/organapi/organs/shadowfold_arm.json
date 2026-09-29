@@ -69,9 +69,81 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaEnd_fold_ready",
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_fold_ready"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "all_of",
+              "conditions": [
+                {
+                  "type": "dimid",
+                  "value_id": "minecraft:the_end"
+                },
+                {
+                  "type": "any_of",
+                  "conditions": [
+                    {
+                      "type": "nearby_block",
+                      "blocks": [
+                        "minecraft:end_gateway",
+                        "minecraft:end_portal",
+                        "minecraft:end_portal_frame"
+                      ],
+                      "radius": 8,
+                      "vertical": 1,
+                      "value": 1
+                    },
+                    {
+                      "type": "inventory",
+                      "items": [
+                        "minecraft:ender_pearl",
+                        "minecraft:chorus_fruit",
+                        "minecraft:elytra"
+                      ],
+                      "op": "gte",
+                      "value": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "any_of",
+              "conditions": [
+                {
+                  "type": "biome_category",
+                  "value": "small_end_islands"
+                },
+                {
+                  "type": "all_of",
+                  "conditions": [
+                    {
+                      "type": "dimid",
+                      "value_id": "minecraft:the_end"
+                    },
+                    {
+                      "type": "any_of",
+                      "conditions": [
+                        {
+                          "type": "movement_state",
+                          "state": "fall_flying"
+                        },
+                        {
+                          "type": "inventory",
+                          "items": [
+                            "minecraft:ender_pearl",
+                            "minecraft:chorus_fruit",
+                            "minecraft:elytra"
+                          ],
+                          "op": "gte",
+                          "value": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [],
@@ -91,15 +163,23 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "common_apply_target_mark_effect"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillaend:vanillaEnd_mark"
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:weakness",
+                "duration_ticks": 80,
+                "amplifier": 0
+              }
+            ]
           },
           "point_type": "mark",
           "point_id": "vanillaend:vanillaEnd_mark",
-          "effect": "minecraft:weakness",
-          "duration_ticks": 80,
-          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaEnd_target_mark"
@@ -109,9 +189,41 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaEnd_air_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_air_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "small_end_islands"
+            },
+            {
+              "type": "all_of",
+              "conditions": [
+                {
+                  "type": "dimid",
+                  "value_id": "minecraft:the_end"
+                },
+                {
+                  "type": "any_of",
+                  "conditions": [
+                    {
+                      "type": "movement_state",
+                      "state": "fall_flying"
+                    },
+                    {
+                      "type": "inventory",
+                      "items": [
+                        "minecraft:ender_pearl",
+                        "minecraft:chorus_fruit",
+                        "minecraft:elytra"
+                      ],
+                      "op": "gte",
+                      "value": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [

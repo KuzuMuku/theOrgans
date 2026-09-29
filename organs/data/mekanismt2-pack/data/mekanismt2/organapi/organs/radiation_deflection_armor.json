@@ -48,9 +48,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_radiation_online",
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_radiation_online"
+          "type": "point",
+          "point": "counter:mekanismt2:mek_t2_radiation_layer",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [

@@ -119,9 +119,14 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "vanillaOcean_push_target"
+            "ops": [
+              {
+                "op": "knockback",
+                "strength": 3.0
+              }
+            ]
           },
           "point_type": "runtime",
           "point_id": "vanillaocean:countercurrent_arm_push_wet",

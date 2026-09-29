@@ -42,9 +42,21 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_temple_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:desert_pyramid",
+                "cataclysm:cursed_pyramid"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [
@@ -60,9 +72,21 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_temple_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_temple_online"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:desert_pyramid",
+                "cataclysm:cursed_pyramid"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         },
         {
           "type": "point",

@@ -103,9 +103,25 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_crimson_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_crimson_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "crimson"
+            },
+            {
+              "type": "biome_category",
+              "value": "warped"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "cataclysm:burning_arena",
+                "cataclysm:soul_black_smith"
+              ],
+              "radius_chunks": 10
+            }
+          ]
         }
       ],
       "grants": [],

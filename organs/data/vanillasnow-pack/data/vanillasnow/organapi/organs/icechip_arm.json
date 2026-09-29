@@ -56,8 +56,15 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
-          "callback": "vanillaSnow_melee_mark",
+          "type": "target_strike",
+          "config": {
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillasnow:vanillaSnow_mark"
+              }
+            ]
+          },
           "point_type": "runtime",
           "point_id": "vanillasnow:icechip_arm_mark_ready",
           "consume_points": true,

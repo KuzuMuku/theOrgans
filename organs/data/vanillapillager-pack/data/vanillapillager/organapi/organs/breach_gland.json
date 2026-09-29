@@ -70,8 +70,15 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
-          "callback": "common_apply_target_mark_effect",
+          "type": "target_strike",
+          "config": {
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillapillager:breach_gland_mark"
+              }
+            ]
+          },
           "point_type": "runtime",
           "point_id": "vanillapillager:breach_gland_mark",
           "consume_points": true,

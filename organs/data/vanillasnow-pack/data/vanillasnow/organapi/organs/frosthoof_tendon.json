@@ -108,9 +108,35 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaSnow_frostvein_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaSnow_frostvein_online"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "inventory",
+              "items": [
+                "vanillasnow:frostvein_bundle"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "organ_set",
+              "organs": [
+                "vanillasnow:frostseal_ventricle",
+                "vanillasnow:frozensoil_chest_membrane",
+                "vanillasnow:birchmarrow_liver",
+                "vanillasnow:icecrystal_lung",
+                "vanillasnow:frostlight_crown",
+                "vanillasnow:snowhide_spleen",
+                "vanillasnow:icechip_arm",
+                "vanillasnow:snowblind_iris",
+                "vanillasnow:frosthoof_tendon",
+                "vanillasnow:freezebreak_sheath",
+                "vanillasnow:frozen_maze_core"
+              ],
+              "op": "gte",
+              "value": 4
+            }
+          ]
         }
       ],
       "grants": [

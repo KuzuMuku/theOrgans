@@ -15,9 +15,17 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaEnd_purpur_nerve_cord_offline",
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_purpur_nerve_cord_offline"
+          "type": "not",
+          "conditions": [
+            {
+              "type": "inventory",
+              "items": [
+                "vanillaend:purpur_nerve_cord"
+              ],
+              "op": "gte",
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],

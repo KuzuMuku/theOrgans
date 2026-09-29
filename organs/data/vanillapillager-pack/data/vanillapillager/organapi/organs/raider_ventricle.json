@@ -101,9 +101,12 @@
           ]
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_aux_banner_sash",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_banner_sash"
+          "type": "inventory",
+          "items": [
+            "vanillapillager:raider_banner_sash"
+          ],
+          "op": "gte",
+          "value": 1
         }
       ],
       "grants": [

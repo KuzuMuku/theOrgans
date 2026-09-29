@@ -42,9 +42,28 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_high_heat",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_high_heat"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "counter:vanillapillager:vanillaPillager_resonance",
+              "op": "gt",
+              "value": 10
+            },
+            {
+              "type": "not",
+              "conditions": [
+                {
+                  "type": "inventory",
+                  "items": [
+                    "vanillapillager:wardrum_head"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [
@@ -65,9 +84,23 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_high_heat_reduced",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_high_heat_reduced"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "counter:vanillapillager:vanillaPillager_resonance",
+              "op": "gt",
+              "value": 6
+            },
+            {
+              "type": "inventory",
+              "items": [
+                "vanillapillager:wardrum_head"
+              ],
+              "op": "gte",
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [

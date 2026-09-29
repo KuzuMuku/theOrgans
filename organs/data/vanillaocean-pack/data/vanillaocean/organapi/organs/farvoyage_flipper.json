@@ -16,9 +16,43 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaOcean_has_chase",
-          "custom_display_key": "message.organkubejs.condition.vanillaOcean_has_chase"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "organ_set",
+              "organs": [
+                "vanillaocean:farvoyage_flipper",
+                "vanillaocean:tidefin_leg"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "any_of",
+              "conditions": [
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillaocean:countercurrent_arm",
+                    "vanillaocean:coralspike_fist",
+                    "vanillaocean:tidesound_fork_wrist"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                },
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillaocean:seamirror_iris",
+                    "vanillaocean:monument_refraction_eye",
+                    "vanillaocean:bubblewave_throat"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [

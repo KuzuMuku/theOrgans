@@ -38,9 +38,27 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_bastion_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_bastion_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:bastion_remnant"
+              ],
+              "radius_chunks": 10
+            },
+            {
+              "type": "nearby_block",
+              "blocks": [
+                "minecraft:gold_block",
+                "minecraft:gilded_blackstone",
+                "minecraft:blackstone"
+              ],
+              "radius": 5,
+              "vertical": 1,
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [

@@ -60,9 +60,28 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaJungle_rainforest_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaJungle_rainforest_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "dimid",
+              "value_id": "minecraft:overworld"
+            },
+            {
+              "type": "biome_category",
+              "value": "jungle"
+            },
+            {
+              "type": "biome_category",
+              "value": "bamboo"
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:jungle_temple"
+              ],
+              "radius_chunks": 8
+            }
+          ]
         }
       ],
       "grants": [

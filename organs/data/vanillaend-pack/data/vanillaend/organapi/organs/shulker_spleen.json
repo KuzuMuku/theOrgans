@@ -118,9 +118,38 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaEnd_city_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaEnd_city_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:end_city",
+                "minecraft:end_ship"
+              ],
+              "radius_chunks": 8
+            },
+            {
+              "type": "all_of",
+              "conditions": [
+                {
+                  "type": "dimid",
+                  "value_id": "minecraft:the_end"
+                },
+                {
+                  "type": "nearby_block",
+                  "blocks": [
+                    "minecraft:purpur_block",
+                    "minecraft:purpur_pillar",
+                    "minecraft:end_rod",
+                    "minecraft:end_stone_bricks"
+                  ],
+                  "radius": 7,
+                  "vertical": 1,
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [],

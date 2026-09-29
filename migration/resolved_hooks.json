@@ -1,141 +1,826 @@
 {
   "createT2_cruise_online": {
-    "type": "point",
-    "point": "runtime:kubejs:brass_cruise_online",
     "op": "gt",
+    "point": "runtime:createt2:brass_cruise_online",
+    "type": "point",
     "value": 0
   },
   "createT2_system_online": {
-    "type": "point",
-    "point": "counter:kubejs:torque_capacity",
     "op": "gt",
+    "point": "counter:createt2:torque_capacity",
+    "type": "point",
     "value": 0
   },
   "createT2_tempo_ready": {
-    "type": "point",
-    "point": "runtime:kubejs:brass_rhythm",
     "op": "gte",
+    "point": "runtime:createt2:brass_rhythm",
+    "type": "point",
     "value": 3
   },
   "mekanismT1_discharge_ready": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t1_discharge_window",
     "op": "gt",
+    "point": "runtime:mekanismt1:mek_t1_discharge_window",
+    "type": "point",
     "value": 0
   },
   "mekanismT1_flow_online": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t1_flow_cycle",
     "op": "gt",
+    "point": "runtime:mekanismt1:mek_t1_flow_cycle",
+    "type": "point",
     "value": 0
   },
   "mekanismT1_heat_online": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t1_heat_cycle",
     "op": "gt",
+    "point": "runtime:mekanismt1:mek_t1_heat_cycle",
+    "type": "point",
     "value": 0
   },
   "mekanismT1_hot_zone": {
-    "type": "nearby_block",
-    "blocks": [
-      "minecraft:lava",
-      "minecraft:magma_block",
-      "minecraft:campfire",
-      "minecraft:soul_campfire"
-    ],
-    "radius": 5
-  },
-  "mekanismT1_refinery_online": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t1_refinery_cycle",
-    "op": "gt",
-    "value": 0
-  },
-  "mekanismT1_rhythm_online": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t1_rhythm_cycle",
-    "op": "gt",
-    "value": 0
-  },
-  "mekanismT2_plasma_online": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t2_plasma_window",
-    "op": "gt",
-    "value": 0
-  },
-  "mekanismT2_protocol_online": {
-    "type": "point",
-    "point": "runtime:kubejs:mek_t2_protocol_window",
-    "op": "gt",
-    "value": 0
-  },
-  "mekanismT2_radiation_online": {
-    "type": "point",
-    "point": "counter:kubejs:mek_t2_radiation_layer",
-    "op": "gt",
-    "value": 0
-  },
-  "vanillaDesert_storm_online": {
-    "type": "point",
-    "point": "runtime:kubejs:vanillaDesert_storm_window",
-    "op": "gt",
-    "value": 0
-  },
-  "vanillaJungle_root_protocol_online": {
-    "type": "point",
-    "point": "runtime:kubejs:vanillaJungle_root_protocol",
-    "op": "gt",
-    "value": 0
-  },
-  "vanillaNether_ashvale_online": {
-    "type": "any_of",
     "conditions": [
       {
         "type": "biome_category",
-        "value": "ash"
+        "value": "desert"
       },
+      {
+        "type": "biome_category",
+        "value": "badlands"
+      },
+      {
+        "type": "biome_category",
+        "value": "nether"
+      },
+      {
+        "type": "biome_category",
+        "value": "basalt_deltas"
+      },
+      {
+        "type": "biome_category",
+        "value": "soul_sand_valley"
+      },
+      {
+        "type": "biome_category",
+        "value": "crimson_forest"
+      },
+      {
+        "type": "biome_category",
+        "value": "warped_forest"
+      },
+      {
+        "blocks": [
+          "minecraft:lava",
+          "minecraft:magma_block",
+          "minecraft:campfire",
+          "minecraft:soul_campfire"
+        ],
+        "radius": 5,
+        "type": "nearby_block",
+        "value": 1,
+        "vertical": 1
+      }
+    ],
+    "type": "any_of"
+  },
+  "mekanismT1_passive_heat_allowed": {
+    "conditions": [
+      {
+        "conditions": [
+          {
+            "op": "gt",
+            "point": "runtime:mekanismt1:mek_t1_flow_cycle",
+            "type": "point",
+            "value": 0
+          }
+        ],
+        "type": "not"
+      },
+      {
+        "conditions": [
+          {
+            "conditions": [
+              {
+                "type": "biome_category",
+                "value": "desert"
+              },
+              {
+                "type": "biome_category",
+                "value": "badlands"
+              },
+              {
+                "type": "biome_category",
+                "value": "nether"
+              },
+              {
+                "type": "biome_category",
+                "value": "basalt_deltas"
+              },
+              {
+                "type": "biome_category",
+                "value": "soul_sand_valley"
+              },
+              {
+                "type": "biome_category",
+                "value": "crimson_forest"
+              },
+              {
+                "type": "biome_category",
+                "value": "warped_forest"
+              },
+              {
+                "blocks": [
+                  "minecraft:lava",
+                  "minecraft:magma_block",
+                  "minecraft:campfire",
+                  "minecraft:soul_campfire"
+                ],
+                "radius": 5,
+                "type": "nearby_block",
+                "value": 1,
+                "vertical": 1
+              }
+            ],
+            "type": "any_of"
+          },
+          {
+            "op": "gt",
+            "point": "runtime:mekanismt1:mek_t1_heat_cycle",
+            "type": "point",
+            "value": 0
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "mekanismT1_refinery_online": {
+    "op": "gt",
+    "point": "runtime:mekanismt1:mek_t1_refinery_cycle",
+    "type": "point",
+    "value": 0
+  },
+  "mekanismT1_rhythm_online": {
+    "op": "gt",
+    "point": "runtime:mekanismt1:mek_t1_rhythm_cycle",
+    "type": "point",
+    "value": 0
+  },
+  "mekanismT2_barrier_low": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "shield:mekanismt2:mekanismT2_barrier",
+        "type": "point",
+        "value": 0
+      },
+      {
+        "op": "lt",
+        "point": "shield:mekanismt2:mekanismT2_barrier",
+        "type": "point",
+        "value": 18
+      }
+    ],
+    "type": "all_of"
+  },
+  "mekanismT2_has_chase": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "mekanismt2:energy_harvest_step_foot"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "conditions": [
+          {
+            "op": "gte",
+            "organs": [
+              "mekanismt2:deflection_prism_shoulder",
+              "mekanismt2:phase_cut_arm"
+            ],
+            "type": "organ_set",
+            "value": 1
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "mekanismt2:vector_lock_eye",
+              "mekanismt2:light_spear_tendon"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "mekanismT2_has_fuel": {
+    "conditions": [
+      {
+        "items": [
+          "mekanism:reprocessed_fissile_fragment"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      },
+      {
+        "op": "gt",
+        "point": "counter:mekanismt2:mek_t2_fuel",
+        "type": "point",
+        "value": 0
+      }
+    ],
+    "type": "any_of"
+  },
+  "mekanismT2_has_hunt": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "mekanismt2:deflection_prism_shoulder",
+          "mekanismt2:phase_cut_arm"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "mekanismt2:vector_lock_eye",
+          "mekanismt2:light_spear_tendon"
+        ],
+        "type": "organ_set",
+        "value": 1
+      }
+    ],
+    "type": "any_of"
+  },
+  "mekanismT2_plasma_online": {
+    "op": "gt",
+    "point": "runtime:mekanismt2:mek_t2_plasma_window",
+    "type": "point",
+    "value": 0
+  },
+  "mekanismT2_protocol_online": {
+    "op": "gt",
+    "point": "runtime:mekanismt2:mek_t2_protocol_window",
+    "type": "point",
+    "value": 0
+  },
+  "mekanismT2_radiation_online": {
+    "op": "gt",
+    "point": "counter:mekanismt2:mek_t2_radiation_layer",
+    "type": "point",
+    "value": 0
+  },
+  "vanillaDesert_daylight_online": {
+    "conditions": [
+      {
+        "type": "dimid",
+        "value_id": "minecraft:overworld"
+      },
+      {
+        "mode": "day",
+        "type": "time"
+      },
+      {
+        "op": "gte",
+        "type": "lightlevel",
+        "value": 12
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaDesert_night_shade_online": {
+    "conditions": [
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:overworld"
+          },
+          {
+            "mode": "day",
+            "type": "time"
+          },
+          {
+            "op": "gte",
+            "type": "lightlevel",
+            "value": 12
+          }
+        ],
+        "type": "all_of"
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaDesert_sand_vein_online": {
+    "conditions": [
+      {
+        "items": [
+          "vanilladesert:sand_vein_bundle"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanilladesert:sun_ventricle",
+          "vanilladesert:sandstone_breastplate",
+          "vanilladesert:drought_liver",
+          "vanilladesert:heatwave_lung",
+          "vanilladesert:quicksand_spleen",
+          "vanilladesert:eclipse_crown",
+          "vanilladesert:wind_erosion_arm",
+          "vanilladesert:cactus_tendon",
+          "vanilladesert:drysand_iris",
+          "vanilladesert:temple_scavenger_hand",
+          "vanilladesert:ancient_remnant_core"
+        ],
+        "type": "organ_set",
+        "value": 4
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaDesert_storm_online": {
+    "op": "gt",
+    "point": "runtime:vanilladesert:vanillaDesert_storm_window",
+    "type": "point",
+    "value": 0
+  },
+  "vanillaDesert_sundial_online": {
+    "items": [
+      "vanilladesert:sundial_axle"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaDesert_temple_online": {
+    "conditions": [
+      {
+        "type": "dimid",
+        "value_id": "minecraft:overworld"
+      },
+      {
+        "radius_chunks": 8,
+        "structures": [
+          "minecraft:desert_pyramid",
+          "cataclysm:cursed_pyramid"
+        ],
+        "type": "structure"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaDesert_transpiration_online": {
+    "items": [
+      "vanilladesert:transpiration_conduit"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaDesert_wet_online": {
+    "state": "wet",
+    "type": "environment_state"
+  },
+  "vanillaEnd_air_online": {
+    "conditions": [
+      {
+        "type": "biome_category",
+        "value": "small_end_islands"
+      },
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:the_end"
+          },
+          {
+            "conditions": [
+              {
+                "state": "fall_flying",
+                "type": "movement_state"
+              },
+              {
+                "items": [
+                  "minecraft:ender_pearl",
+                  "minecraft:chorus_fruit",
+                  "minecraft:elytra"
+                ],
+                "op": "gte",
+                "type": "inventory",
+                "value": 1
+              }
+            ],
+            "type": "any_of"
+          }
+        ],
+        "type": "all_of"
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaEnd_city_online": {
+    "conditions": [
+      {
+        "radius_chunks": 8,
+        "structures": [
+          "minecraft:end_city",
+          "minecraft:end_ship"
+        ],
+        "type": "structure"
+      },
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:the_end"
+          },
+          {
+            "blocks": [
+              "minecraft:purpur_block",
+              "minecraft:purpur_pillar",
+              "minecraft:end_rod",
+              "minecraft:end_stone_bricks"
+            ],
+            "radius": 7,
+            "type": "nearby_block",
+            "value": 1,
+            "vertical": 1
+          }
+        ],
+        "type": "all_of"
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaEnd_fold_ready": {
+    "conditions": [
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:the_end"
+          },
+          {
+            "conditions": [
+              {
+                "blocks": [
+                  "minecraft:end_gateway",
+                  "minecraft:end_portal",
+                  "minecraft:end_portal_frame"
+                ],
+                "radius": 8,
+                "type": "nearby_block",
+                "value": 1,
+                "vertical": 1
+              },
+              {
+                "items": [
+                  "minecraft:ender_pearl",
+                  "minecraft:chorus_fruit",
+                  "minecraft:elytra"
+                ],
+                "op": "gte",
+                "type": "inventory",
+                "value": 1
+              }
+            ],
+            "type": "any_of"
+          }
+        ],
+        "type": "all_of"
+      },
+      {
+        "conditions": [
+          {
+            "type": "biome_category",
+            "value": "small_end_islands"
+          },
+          {
+            "conditions": [
+              {
+                "type": "dimid",
+                "value_id": "minecraft:the_end"
+              },
+              {
+                "conditions": [
+                  {
+                    "state": "fall_flying",
+                    "type": "movement_state"
+                  },
+                  {
+                    "items": [
+                      "minecraft:ender_pearl",
+                      "minecraft:chorus_fruit",
+                      "minecraft:elytra"
+                    ],
+                    "op": "gte",
+                    "type": "inventory",
+                    "value": 1
+                  }
+                ],
+                "type": "any_of"
+              }
+            ],
+            "type": "all_of"
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaEnd_gate_online": {
+    "conditions": [
+      {
+        "type": "dimid",
+        "value_id": "minecraft:the_end"
+      },
+      {
+        "conditions": [
+          {
+            "blocks": [
+              "minecraft:end_gateway",
+              "minecraft:end_portal",
+              "minecraft:end_portal_frame"
+            ],
+            "radius": 8,
+            "type": "nearby_block",
+            "value": 1,
+            "vertical": 1
+          },
+          {
+            "items": [
+              "minecraft:ender_pearl",
+              "minecraft:chorus_fruit",
+              "minecraft:elytra"
+            ],
+            "op": "gte",
+            "type": "inventory",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaEnd_purpur_nerve_cord_offline": {
+    "conditions": [
+      {
+        "items": [
+          "vanillaend:purpur_nerve_cord"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaEnd_void_conduit_offline": {
+    "conditions": [
+      {
+        "items": [
+          "vanillaend:void_conduit"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaJungle_canopy_online": {
+    "conditions": [
+      {
+        "type": "dimid",
+        "value_id": "minecraft:overworld"
+      },
+      {
+        "conditions": [
+          {
+            "type": "biome_category",
+            "value": "jungle"
+          },
+          {
+            "type": "biome_category",
+            "value": "bamboo"
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaJungle_rainforest_online": {
+    "conditions": [
+      {
+        "type": "dimid",
+        "value_id": "minecraft:overworld"
+      },
+      {
+        "type": "biome_category",
+        "value": "jungle"
+      },
+      {
+        "type": "biome_category",
+        "value": "bamboo"
+      },
+      {
+        "radius_chunks": 8,
+        "structures": [
+          "minecraft:jungle_temple"
+        ],
+        "type": "structure"
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaJungle_root_protocol_online": {
+    "op": "gt",
+    "point": "runtime:vanillajungle:vanillaJungle_root_protocol",
+    "type": "point",
+    "value": 0
+  },
+  "vanillaJungle_snare_online": {
+    "conditions": [
+      {
+        "type": "dimid",
+        "value_id": "minecraft:overworld"
+      },
+      {
+        "radius_chunks": 8,
+        "structures": [
+          "minecraft:jungle_temple"
+        ],
+        "type": "structure"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaLushCaves_glow_online": {
+    "conditions": [
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:overworld"
+          },
+          {
+            "type": "biome_category",
+            "value": "lush_caves"
+          },
+          {
+            "type": "biome_category",
+            "value": "fungal_fen"
+          },
+          {
+            "type": "biome_category",
+            "value": "bioshroom"
+          },
+          {
+            "radius_chunks": 8,
+            "structures": [
+              "betterdungeons:skeleton_dungeon",
+              "betterdungeons:zombie_dungeon"
+            ],
+            "type": "structure"
+          }
+        ],
+        "type": "any_of"
+      },
+      {
+        "conditions": [
+          {
+            "op": "gt",
+            "point": "runtime:vanillalushcaves:vanillaLushCaves_spore_bloom",
+            "type": "point",
+            "value": 0
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "vanillalushcaves:gloommoss_crown"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaLushCaves_glow_synergy": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillalushcaves:gloommoss_crown"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "conditions": [
+          {
+            "op": "gte",
+            "organs": [
+              "vanillalushcaves:brightpod_sac"
+            ],
+            "type": "organ_set",
+            "value": 1
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "vanillalushcaves:sporeglow_lung"
+            ],
+            "type": "organ_set",
+            "value": 1
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "vanillalushcaves:mossheal_liver"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaNether_ashvale_online": {
+    "conditions": [
       {
         "type": "biome_category",
         "value": "soul"
       },
       {
-        "type": "structure",
-        "structure": "cataclysm:burning_arena",
-        "radius_chunks": 10
+        "type": "biome_category",
+        "value": "ash"
       },
       {
-        "type": "structure",
-        "structure": "cataclysm:soul_black_smith",
-        "radius_chunks": 10
+        "op": "lte",
+        "type": "lightlevel",
+        "value": 7
+      },
+      {
+        "radius_chunks": 10,
+        "structures": [
+          "cataclysm:burning_arena",
+          "cataclysm:soul_black_smith"
+        ],
+        "type": "structure"
       }
-    ]
+    ],
+    "type": "any_of"
   },
   "vanillaNether_bastion_online": {
-    "type": "any_of",
     "conditions": [
       {
-        "type": "nearby_block",
+        "radius_chunks": 10,
+        "structures": [
+          "minecraft:bastion_remnant"
+        ],
+        "type": "structure"
+      },
+      {
         "blocks": [
           "minecraft:gold_block",
           "minecraft:gilded_blackstone",
           "minecraft:blackstone"
         ],
-        "radius": 5
-      },
-      {
-        "type": "structure",
-        "structure": "minecraft:bastion_remnant",
-        "radius_chunks": 10
+        "radius": 5,
+        "type": "nearby_block",
+        "value": 1,
+        "vertical": 1
       }
-    ]
+    ],
+    "type": "any_of"
   },
   "vanillaNether_blacksmith_online": {
-    "type": "structure",
-    "structure": "cataclysm:soul_black_smith",
-    "radius_chunks": 10
+    "radius_chunks": 10,
+    "structures": [
+      "cataclysm:soul_black_smith"
+    ],
+    "type": "structure"
   },
   "vanillaNether_crimson_online": {
-    "type": "any_of",
     "conditions": [
       {
         "type": "biome_category",
@@ -146,22 +831,51 @@
         "value": "warped"
       },
       {
-        "type": "structure",
-        "structure": "cataclysm:burning_arena",
-        "radius_chunks": 10
-      },
-      {
-        "type": "structure",
-        "structure": "cataclysm:soul_black_smith",
-        "radius_chunks": 10
+        "radius_chunks": 10,
+        "structures": [
+          "cataclysm:burning_arena",
+          "cataclysm:soul_black_smith"
+        ],
+        "type": "structure"
       }
-    ]
+    ],
+    "type": "any_of"
   },
-  "vanillaNether_fortress_online": {
-    "type": "any_of",
+  "vanillaNether_ember_online": {
     "conditions": [
       {
-        "type": "nearby_block",
+        "state": "on_fire",
+        "type": "environment_state"
+      },
+      {
+        "op": "gte",
+        "point": "counter:vanillanether:vanillaNether_resonance",
+        "type": "point",
+        "value": 8
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaNether_fortress_online": {
+    "conditions": [
+      {
+        "radius_chunks": 10,
+        "structures": [
+          "minecraft:fortress"
+        ],
+        "type": "structure"
+      },
+      {
+        "radius_chunks": 10,
+        "structures": [
+          "minecraft:fortress",
+          "minecraft:bastion_remnant",
+          "cataclysm:burning_arena",
+          "cataclysm:soul_black_smith"
+        ],
+        "type": "structure"
+      },
+      {
         "blocks": [
           "minecraft:nether_bricks",
           "minecraft:red_nether_bricks",
@@ -169,111 +883,986 @@
           "minecraft:gold_block",
           "minecraft:nether_wart_block"
         ],
-        "radius": 5
+        "radius": 5,
+        "type": "nearby_block",
+        "value": 1,
+        "vertical": 1
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaNether_furnace_kneering_online": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "runtime:vanillanether:vanillaNether_jump_momentum",
+        "type": "point",
+        "value": 0
       },
       {
-        "type": "structure",
-        "structure": "minecraft:fortress",
-        "radius_chunks": 10
+        "state": "sprinting",
+        "type": "movement_state"
       }
-    ]
-  },
-  "vanillaNether_lava_online": {
-    "type": "nearby_block",
-    "blocks": [
-      "minecraft:lava",
-      "minecraft:magma_block",
-      "minecraft:basalt",
-      "minecraft:blackstone"
     ],
-    "radius": 5
+    "type": "any_of"
   },
   "vanillaNether_soul_online": {
-    "type": "any_of",
     "conditions": [
       {
         "type": "biome_category",
         "value": "soul"
       },
       {
-        "type": "nearby_block",
+        "conditions": [
+          {
+            "radius_chunks": 10,
+            "structures": [
+              "minecraft:fortress"
+            ],
+            "type": "structure"
+          },
+          {
+            "radius_chunks": 10,
+            "structures": [
+              "minecraft:fortress",
+              "minecraft:bastion_remnant",
+              "cataclysm:burning_arena",
+              "cataclysm:soul_black_smith"
+            ],
+            "type": "structure"
+          },
+          {
+            "blocks": [
+              "minecraft:nether_bricks",
+              "minecraft:red_nether_bricks",
+              "minecraft:polished_blackstone_bricks",
+              "minecraft:gold_block",
+              "minecraft:nether_wart_block"
+            ],
+            "radius": 5,
+            "type": "nearby_block",
+            "value": 1,
+            "vertical": 1
+          }
+        ],
+        "type": "any_of"
+      },
+      {
+        "radius_chunks": 10,
+        "structures": [
+          "cataclysm:soul_black_smith"
+        ],
+        "type": "structure"
+      },
+      {
         "blocks": [
           "minecraft:soul_sand",
           "minecraft:soul_soil",
           "minecraft:soul_lantern",
-          "minecraft:soul_torch",
-          "minecraft:nether_bricks",
-          "minecraft:red_nether_bricks",
-          "minecraft:polished_blackstone_bricks",
-          "minecraft:gold_block",
-          "minecraft:nether_wart_block"
+          "minecraft:soul_torch"
         ],
-        "radius": 5
-      },
-      {
-        "type": "structure",
-        "structure": "minecraft:fortress",
-        "radius_chunks": 10
-      },
-      {
-        "type": "structure",
-        "structure": "cataclysm:soul_black_smith",
-        "radius_chunks": 10
+        "radius": 5,
+        "type": "nearby_block",
+        "value": 1,
+        "vertical": 1
       }
-    ]
+    ],
+    "type": "any_of"
+  },
+  "vanillaOcean_buoy_online": {
+    "conditions": [
+      {
+        "items": [
+          "vanillaocean:tidal_buoy"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      },
+      {
+        "conditions": [
+          {
+            "conditions": [
+              {
+                "type": "biome_category",
+                "value": "ocean"
+              },
+              {
+                "type": "biome_category",
+                "value": "beach"
+              },
+              {
+                "radius_chunks": 10,
+                "structures": [
+                  "minecraft:ocean_monument",
+                  "minecraft:shipwreck",
+                  "minecraft:buried_treasure",
+                  "minecraft:underwater_ruin_big",
+                  "minecraft:underwater_ruin_small",
+                  "aquamirae:ice_maze/common",
+                  "aquamirae:ice_maze/arch",
+                  "aquamirae:ice_maze/spiral",
+                  "aquamirae:ship",
+                  "aquamirae:outpost",
+                  "aquamirae:shelter"
+                ],
+                "type": "structure"
+              },
+              {
+                "state": "wet",
+                "type": "environment_state"
+              },
+              {
+                "state": "raining",
+                "type": "environment_state"
+              }
+            ],
+            "type": "any_of"
+          },
+          {
+            "conditions": [
+              {
+                "conditions": [
+                  {
+                    "type": "biome_category",
+                    "value": "ocean"
+                  },
+                  {
+                    "type": "biome_category",
+                    "value": "beach"
+                  }
+                ],
+                "type": "any_of"
+              },
+              {
+                "blocks": [
+                  "minecraft:chest",
+                  "minecraft:barrel",
+                  "minecraft:sand",
+                  "minecraft:gravel"
+                ],
+                "radius": 4,
+                "type": "nearby_block",
+                "value": 1,
+                "vertical": 1
+              }
+            ],
+            "type": "all_of"
+          },
+          {
+            "conditions": [
+              {
+                "type": "biome_category",
+                "value": "frozen_ocean"
+              },
+              {
+                "radius_chunks": 4,
+                "structures": [
+                  "aquamirae:ice_maze/common",
+                  "aquamirae:ice_maze/arch",
+                  "aquamirae:ice_maze/spiral"
+                ],
+                "type": "structure"
+              },
+              {
+                "blocks": [
+                  "minecraft:ice",
+                  "minecraft:packed_ice",
+                  "minecraft:blue_ice",
+                  "minecraft:powder_snow"
+                ],
+                "radius": 6,
+                "type": "nearby_block",
+                "value": 1,
+                "vertical": 1
+              }
+            ],
+            "type": "any_of"
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaOcean_cold_online": {
+    "conditions": [
+      {
+        "type": "biome_category",
+        "value": "frozen_ocean"
+      },
+      {
+        "radius_chunks": 4,
+        "structures": [
+          "aquamirae:ice_maze/common",
+          "aquamirae:ice_maze/arch",
+          "aquamirae:ice_maze/spiral"
+        ],
+        "type": "structure"
+      },
+      {
+        "blocks": [
+          "minecraft:ice",
+          "minecraft:packed_ice",
+          "minecraft:blue_ice",
+          "minecraft:powder_snow"
+        ],
+        "radius": 6,
+        "type": "nearby_block",
+        "value": 1,
+        "vertical": 1
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaOcean_conduit_online": {
+    "conditions": [
+      {
+        "items": [
+          "vanillaocean:current_conduit"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaocean:tidal_ventricle",
+          "vanillaocean:saltgill_lung",
+          "vanillaocean:deepsea_liver",
+          "vanillaocean:coral_boneplate",
+          "vanillaocean:seacurrent_spleen",
+          "vanillaocean:tidepressure_crown",
+          "vanillaocean:wetgill_jowl",
+          "vanillaocean:seamirror_iris",
+          "vanillaocean:foam_kidney",
+          "vanillaocean:farvoyage_flipper",
+          "vanillaocean:kelp_spinal_cord",
+          "vanillaocean:shellbell_cochlea",
+          "vanillaocean:countercurrent_arm",
+          "vanillaocean:tidefin_leg",
+          "vanillaocean:bubblewave_throat",
+          "vanillaocean:coralspike_fist",
+          "vanillaocean:monument_refraction_eye",
+          "vanillaocean:tidesound_fork_wrist",
+          "vanillaocean:deeptide_scavenger_hand",
+          "vanillaocean:coraltide_tail",
+          "vanillaocean:dragonfrost_sac",
+          "vanillaocean:frostabyss_core"
+        ],
+        "type": "organ_set",
+        "value": 4
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaOcean_has_chase": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaocean:farvoyage_flipper",
+          "vanillaocean:tidefin_leg"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "conditions": [
+          {
+            "op": "gte",
+            "organs": [
+              "vanillaocean:countercurrent_arm",
+              "vanillaocean:coralspike_fist",
+              "vanillaocean:tidesound_fork_wrist"
+            ],
+            "type": "organ_set",
+            "value": 1
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "vanillaocean:seamirror_iris",
+              "vanillaocean:monument_refraction_eye",
+              "vanillaocean:bubblewave_throat"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaOcean_has_hunt": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaocean:countercurrent_arm",
+          "vanillaocean:coralspike_fist",
+          "vanillaocean:tidesound_fork_wrist"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaocean:seamirror_iris",
+          "vanillaocean:monument_refraction_eye",
+          "vanillaocean:bubblewave_throat"
+        ],
+        "type": "organ_set",
+        "value": 1
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaOcean_resource_online": {
+    "op": "gte",
+    "point": "counter:vanillaocean:vanillaOcean_resonance",
+    "type": "point",
+    "value": 8
+  },
+  "vanillaOcean_saltvalve_online": {
+    "conditions": [
+      {
+        "items": [
+          "vanillaocean:salt_exchange_valve"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "point": "counter:vanillaocean:vanillaOcean_resonance",
+        "type": "point",
+        "value": 35
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaPillager_aux_banner_sash": {
+    "items": [
+      "vanillapillager:raider_banner_sash"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaPillager_aux_crossbow_winder": {
+    "items": [
+      "vanillapillager:crossbow_string_winder"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaPillager_aux_plunder_knot": {
+    "items": [
+      "vanillapillager:plunder_knot"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaPillager_aux_wardrum_head": {
+    "items": [
+      "vanillapillager:wardrum_head"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaPillager_high_heat": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "counter:vanillapillager:vanillaPillager_resonance",
+        "type": "point",
+        "value": 10
+      },
+      {
+        "conditions": [
+          {
+            "items": [
+              "vanillapillager:wardrum_head"
+            ],
+            "op": "gte",
+            "type": "inventory",
+            "value": 1
+          }
+        ],
+        "type": "not"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaPillager_high_heat_reduced": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "counter:vanillapillager:vanillaPillager_resonance",
+        "type": "point",
+        "value": 6
+      },
+      {
+        "items": [
+          "vanillapillager:wardrum_head"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaPillager_nightraid_online": {
+    "conditions": [
+      {
+        "conditions": [
+          {
+            "mode": "day",
+            "type": "time"
+          }
+        ],
+        "type": "not"
+      },
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:overworld"
+          },
+          {
+            "radius_chunks": 8,
+            "structures": [
+              "minecraft:pillager_outpost",
+              "minecraft:woodland_mansion",
+              "irons_spellbooks:evoker_fort"
+            ],
+            "type": "structure"
+          }
+        ],
+        "type": "any_of"
+      },
+      {
+        "conditions": [
+          {
+            "conditions": [
+              {
+                "type": "dimid",
+                "value_id": "minecraft:overworld"
+              },
+              {
+                "radius_chunks": 8,
+                "structures": [
+                  "minecraft:pillager_outpost",
+                  "minecraft:woodland_mansion",
+                  "irons_spellbooks:evoker_fort"
+                ],
+                "type": "structure"
+              }
+            ],
+            "type": "any_of"
+          },
+          {
+            "effect": "minecraft:bad_omen",
+            "type": "status_effect"
+          },
+          {
+            "conditions": [
+              {
+                "entity": "minecraft:pillager",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "minecraft:vindicator",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "minecraft:evoker",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "minecraft:illusioner",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "minecraft:witch",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "minecraft:ravager",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "minecraft:vex",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "irons_spellbooks:summoned_vex",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              },
+              {
+                "entity": "irons_spellbooks:archevoker",
+                "op": "gt",
+                "radius": 20.0,
+                "type": "nearby_entity",
+                "value": 0
+              }
+            ],
+            "type": "any_of"
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaPillager_no_crossbow_winder": {
+    "conditions": [
+      {
+        "items": [
+          "vanillapillager:crossbow_string_winder"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaPillager_no_plunder_knot": {
+    "conditions": [
+      {
+        "items": [
+          "vanillapillager:plunder_knot"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaPillager_no_wardrum_head": {
+    "conditions": [
+      {
+        "items": [
+          "vanillapillager:wardrum_head"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaPillager_raid_online": {
+    "conditions": [
+      {
+        "conditions": [
+          {
+            "type": "dimid",
+            "value_id": "minecraft:overworld"
+          },
+          {
+            "radius_chunks": 8,
+            "structures": [
+              "minecraft:pillager_outpost",
+              "minecraft:woodland_mansion",
+              "irons_spellbooks:evoker_fort"
+            ],
+            "type": "structure"
+          }
+        ],
+        "type": "any_of"
+      },
+      {
+        "effect": "minecraft:bad_omen",
+        "type": "status_effect"
+      },
+      {
+        "conditions": [
+          {
+            "entity": "minecraft:pillager",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "minecraft:vindicator",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "minecraft:evoker",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "minecraft:illusioner",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "minecraft:witch",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "minecraft:ravager",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "minecraft:vex",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "irons_spellbooks:summoned_vex",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          },
+          {
+            "entity": "irons_spellbooks:archevoker",
+            "op": "gt",
+            "radius": 20.0,
+            "type": "nearby_entity",
+            "value": 0
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "any_of"
   },
   "vanillaPillager_surge_active": {
-    "type": "point",
-    "point": "runtime:kubejs:vanillaPillager_raid_surge",
     "op": "gt",
+    "point": "runtime:vanillapillager:vanillaPillager_raid_surge",
+    "type": "point",
     "value": 0
   },
   "vanillaSculk_high_resonance": {
-    "type": "point",
-    "point": "counter:kubejs:vanillaSculk_resonance",
     "op": "gt",
+    "point": "counter:vanillasculk:vanillaSculk_resonance",
+    "type": "point",
     "value": 10
   },
   "vanillaSnow_deepfreeze_online": {
-    "type": "point",
-    "point": "runtime:kubejs:vanillaSnow_deepfreeze_online",
     "op": "gt",
+    "point": "runtime:vanillasnow:vanillaSnow_deepfreeze_online",
+    "type": "point",
     "value": 0
   },
-  "vanillaSnow_resonance_high": {
-    "type": "point",
-    "point": "counter:kubejs:vanillaSnow_resonance",
+  "vanillaSnow_deposition_conduit_online": {
+    "items": [
+      "vanillasnow:deposition_conduit"
+    ],
     "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaSnow_frostvein_online": {
+    "conditions": [
+      {
+        "items": [
+          "vanillasnow:frostvein_bundle"
+        ],
+        "op": "gte",
+        "type": "inventory",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanillasnow:frostseal_ventricle",
+          "vanillasnow:frozensoil_chest_membrane",
+          "vanillasnow:birchmarrow_liver",
+          "vanillasnow:icecrystal_lung",
+          "vanillasnow:frostlight_crown",
+          "vanillasnow:snowhide_spleen",
+          "vanillasnow:icechip_arm",
+          "vanillasnow:snowblind_iris",
+          "vanillasnow:frosthoof_tendon",
+          "vanillasnow:freezebreak_sheath",
+          "vanillasnow:frozen_maze_core"
+        ],
+        "type": "organ_set",
+        "value": 4
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaSnow_icecore_rhythm_online": {
+    "items": [
+      "vanillasnow:icecore_rhythm"
+    ],
+    "op": "gte",
+    "type": "inventory",
+    "value": 1
+  },
+  "vanillaSnow_resonance_high": {
+    "op": "gte",
+    "point": "counter:vanillasnow:vanillaSnow_resonance",
+    "type": "point",
     "value": 40
   },
   "vanillaSnow_resonance_mid": {
-    "type": "point",
-    "point": "counter:kubejs:vanillaSnow_resonance",
     "op": "gte",
+    "point": "counter:vanillasnow:vanillaSnow_resonance",
+    "type": "point",
     "value": 20
   },
-  "vanillaSwamp_rotting_online": {
+  "vanillaSwamp_has_chase": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaswamp:frogfin_sneak_leg"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "conditions": [
+          {
+            "op": "gte",
+            "organs": [
+              "vanillaswamp:slime_thread_arm"
+            ],
+            "type": "organ_set",
+            "value": 1
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "vanillaswamp:poison_bloom_throat"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaSwamp_has_hunt": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaswamp:slime_thread_arm"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanillaswamp:poison_bloom_throat"
+        ],
+        "type": "organ_set",
+        "value": 1
+      }
+    ],
+    "type": "any_of"
+  },
+  "vanillaSwamp_resource_online": {
+    "op": "gte",
+    "point": "counter:vanillaswamp:vanillaSwamp_resonance",
     "type": "point",
-    "point": "runtime:kubejs:vanillaSwamp_rotting_window",
+    "value": 8
+  },
+  "vanillaSwamp_rotting_online": {
     "op": "gt",
+    "point": "runtime:vanillaswamp:vanillaSwamp_rotting_window",
+    "type": "point",
     "value": 0
+  },
+  "vanillaVillage_bell_ward_no_rope": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+        "type": "point",
+        "value": 0
+      },
+      {
+        "conditions": [
+          {
+            "op": "gte",
+            "organs": [
+              "vanillavillage:bell_rope_winder"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "not"
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaVillage_bell_ward_online": {
+    "op": "gt",
+    "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+    "type": "point",
+    "value": 0
+  },
+  "vanillaVillage_bell_ward_rope": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+        "type": "point",
+        "value": 0
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanillavillage:bell_rope_winder"
+        ],
+        "type": "organ_set",
+        "value": 1
+      }
+    ],
+    "type": "all_of"
+  },
+  "vanillaVillage_has_chase": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillavillage:travel_legplate"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "conditions": [
+          {
+            "op": "gte",
+            "organs": [
+              "vanillavillage:iron_guard_shoulder"
+            ],
+            "type": "organ_set",
+            "value": 1
+          },
+          {
+            "op": "gte",
+            "organs": [
+              "vanillavillage:village_iris"
+            ],
+            "type": "organ_set",
+            "value": 1
+          }
+        ],
+        "type": "any_of"
+      }
+    ],
+    "type": "all_of"
   },
   "vanillaVillage_has_guard": {
-    "type": "point",
-    "point": "counter:kubejs:village_guard_line",
     "op": "gt",
+    "point": "counter:vanillavillage:village_guard_line",
+    "type": "point",
     "value": 0
   },
+  "vanillaVillage_has_hunt": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "vanillavillage:iron_guard_shoulder"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "op": "gte",
+        "organs": [
+          "vanillavillage:village_iris"
+        ],
+        "type": "organ_set",
+        "value": 1
+      }
+    ],
+    "type": "any_of"
+  },
   "vanillaVillage_has_supply": {
-    "type": "point",
-    "point": "counter:kubejs:village_supply_line",
     "op": "gt",
+    "point": "counter:vanillavillage:village_supply_line",
+    "type": "point",
     "value": 0
   },
   "vanillaVillage_has_trade": {
-    "type": "point",
-    "point": "counter:kubejs:village_trade_flow",
     "op": "gt",
+    "point": "counter:vanillavillage:village_trade_flow",
+    "type": "point",
     "value": 0
+  },
+  "vanillaVillage_no_bell_ward": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+        "type": "point",
+        "value": 0
+      }
+    ],
+    "type": "not"
+  },
+  "vanillaVillage_resource_online": {
+    "op": "gte",
+    "point": "counter:vanillavillage:vanillaVillage_resonance",
+    "type": "point",
+    "value": 8
   }
 }

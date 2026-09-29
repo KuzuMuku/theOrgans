@@ -53,9 +53,27 @@
           "value": 1
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_night_shade_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_night_shade_online"
+          "type": "not",
+          "conditions": [
+            {
+              "type": "all_of",
+              "conditions": [
+                {
+                  "type": "dimid",
+                  "value_id": "minecraft:overworld"
+                },
+                {
+                  "type": "time",
+                  "mode": "day"
+                },
+                {
+                  "type": "lightlevel",
+                  "op": "gte",
+                  "value": 12
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [],
@@ -88,9 +106,8 @@
           "value": 1
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_wet_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_wet_online"
+          "type": "environment_state",
+          "state": "wet"
         }
       ],
       "grants": [],

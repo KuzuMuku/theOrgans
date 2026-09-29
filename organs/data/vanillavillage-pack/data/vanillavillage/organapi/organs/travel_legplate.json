@@ -71,9 +71,38 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_has_chase",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_has_chase"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "organ_set",
+              "organs": [
+                "vanillavillage:travel_legplate"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "any_of",
+              "conditions": [
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillavillage:iron_guard_shoulder"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                },
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillavillage:village_iris"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [

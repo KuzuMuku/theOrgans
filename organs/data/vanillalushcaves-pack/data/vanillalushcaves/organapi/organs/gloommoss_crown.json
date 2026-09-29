@@ -66,9 +66,46 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaLushCaves_glow_synergy",
-          "custom_display_key": "message.organkubejs.condition.vanillaLushCaves_glow_synergy"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "organ_set",
+              "organs": [
+                "vanillalushcaves:gloommoss_crown"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "any_of",
+              "conditions": [
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillalushcaves:brightpod_sac"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                },
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillalushcaves:sporeglow_lung"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                },
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillalushcaves:mossheal_liver"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [

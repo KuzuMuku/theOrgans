@@ -54,9 +54,21 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_barrier_low",
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_barrier_low"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "shield:mekanismt2:mekanismT2_barrier",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "point",
+              "point": "shield:mekanismt2:mekanismT2_barrier",
+              "op": "lt",
+              "value": 18
+            }
+          ]
         }
       ],
       "grants": [],

@@ -16,9 +16,15 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_no_bell_ward",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_no_bell_ward"
+          "type": "not",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+              "op": "gt",
+              "value": 0
+            }
+          ]
         }
       ],
       "grants": [
@@ -97,15 +103,23 @@
       ],
       "executions": [
         {
-          "type": "kubejs_target_call",
+          "type": "target_strike",
           "config": {
-            "callback": "common_apply_target_mark_effect"
+            "ops": [
+              {
+                "op": "mark",
+                "mark": "vanillavillage:vanillaVillage_mark"
+              },
+              {
+                "op": "effect",
+                "effect": "minecraft:glowing",
+                "duration_ticks": 60,
+                "amplifier": 0
+              }
+            ]
           },
           "point_type": "mark",
           "point_id": "vanillavillage:vanillaVillage_mark",
-          "effect": "minecraft:glowing",
-          "duration_ticks": 60,
-          "amplifier": 0,
           "consume_points": true,
           "max_consume": 1,
           "custom_display_key": "message.organkubejs.execution.vanillaVillage_target_mark"
@@ -115,9 +129,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_resource_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_resource_online"
+          "type": "point",
+          "point": "counter:vanillavillage:vanillaVillage_resonance",
+          "op": "gte",
+          "value": 8
         }
       ],
       "grants": [
@@ -133,9 +148,28 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_bell_ward_no_rope",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_no_rope"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "not",
+              "conditions": [
+                {
+                  "type": "organ_set",
+                  "organs": [
+                    "vanillavillage:bell_rope_winder"
+                  ],
+                  "op": "gte",
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [],
@@ -177,9 +211,23 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaVillage_bell_ward_rope",
-          "custom_display_key": "message.organkubejs.condition.vanillaVillage_bell_ward_rope"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "runtime:vanillavillage:vanillaVillage_bell_ward",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "organ_set",
+              "organs": [
+                "vanillavillage:bell_rope_winder"
+              ],
+              "op": "gte",
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],

@@ -79,9 +79,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "createT2_tempo_ready",
-          "custom_display_key": "message.organkubejs.condition.createT2_tempo_ready"
+          "type": "point",
+          "point": "runtime:createt2:brass_rhythm",
+          "op": "gte",
+          "value": 3
         }
       ],
       "grants": [],

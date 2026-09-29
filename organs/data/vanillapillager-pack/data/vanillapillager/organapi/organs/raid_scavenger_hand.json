@@ -56,9 +56,17 @@
           "value": 3
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_no_plunder_knot",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_no_plunder_knot"
+          "type": "not",
+          "conditions": [
+            {
+              "type": "inventory",
+              "items": [
+                "vanillapillager:plunder_knot"
+              ],
+              "op": "gte",
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],
@@ -149,9 +157,12 @@
           "value": 2
         },
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaPillager_aux_plunder_knot",
-          "custom_display_key": "message.organkubejs.condition.vanillaPillager_aux_plunder_knot"
+          "type": "inventory",
+          "items": [
+            "vanillapillager:plunder_knot"
+          ],
+          "op": "gte",
+          "value": 1
         }
       ],
       "grants": [],

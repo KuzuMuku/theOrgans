@@ -89,9 +89,35 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_sand_vein_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_sand_vein_online"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "inventory",
+              "items": [
+                "vanilladesert:sand_vein_bundle"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "organ_set",
+              "organs": [
+                "vanilladesert:sun_ventricle",
+                "vanilladesert:sandstone_breastplate",
+                "vanilladesert:drought_liver",
+                "vanilladesert:heatwave_lung",
+                "vanilladesert:quicksand_spleen",
+                "vanilladesert:eclipse_crown",
+                "vanilladesert:wind_erosion_arm",
+                "vanilladesert:cactus_tendon",
+                "vanilladesert:drysand_iris",
+                "vanilladesert:temple_scavenger_hand",
+                "vanilladesert:ancient_remnant_core"
+              ],
+              "op": "gte",
+              "value": 4
+            }
+          ]
         }
       ],
       "grants": [
@@ -107,9 +133,10 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaDesert_storm_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaDesert_storm_online"
+          "type": "point",
+          "point": "runtime:vanilladesert:vanillaDesert_storm_window",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [

@@ -91,9 +91,49 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT1_hot_zone",
-          "custom_display_key": "message.organkubejs.condition.mekanismT1_hot_zone"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "biome_category",
+              "value": "desert"
+            },
+            {
+              "type": "biome_category",
+              "value": "badlands"
+            },
+            {
+              "type": "biome_category",
+              "value": "nether"
+            },
+            {
+              "type": "biome_category",
+              "value": "basalt_deltas"
+            },
+            {
+              "type": "biome_category",
+              "value": "soul_sand_valley"
+            },
+            {
+              "type": "biome_category",
+              "value": "crimson_forest"
+            },
+            {
+              "type": "biome_category",
+              "value": "warped_forest"
+            },
+            {
+              "type": "nearby_block",
+              "blocks": [
+                "minecraft:lava",
+                "minecraft:magma_block",
+                "minecraft:campfire",
+                "minecraft:soul_campfire"
+              ],
+              "radius": 5,
+              "vertical": 1,
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],

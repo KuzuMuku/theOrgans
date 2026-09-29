@@ -27,11 +27,11 @@ else
   target_dir="$1"
 fi
 
-# NOTE: the packs under organs/{data,resources} are now the committed source of
-# truth for the cross-version branch — edit them directly. This script only mirrors
-# them into a game instance. It intentionally does NOT re-run convert_to_packs.py:
-# that one-shot generator (and the resolve_hooks.py second pass) already ran and
-# their output is committed; re-running would clobber hand edits.
+# NOTE: the packs under organs/{data,resources} are the committed source of truth for
+# the cross-version branch. To regenerate them from the legacy KubeJS sources, run
+# ./regenerate.bash (convert_to_packs.py -> convert_target_calls.py -> resolve_hooks.py,
+# in that order). This script only MIRRORS the committed/regenerated packs into a game
+# instance — it does NOT regenerate, so it never clobbers anything.
 
 # mirror into the game run directory (organs/ is the loader scan root)
 target_organs="$target_dir/organs"

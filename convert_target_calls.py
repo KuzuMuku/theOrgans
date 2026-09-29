@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Convert the mechanical kubejs_target_call executions to the target_strike executor.
 
-One-shot, like resolve_hooks.py: rewrites the pack JSON in place, then this script is
-kept only as a record. Each convertible callback maps to a gate (chance / mark
-requirement) plus an ordered ops[] list, faithfully reproducing the old JS target
-handler. Callbacks that spend resources, introspect event type/amount, scan nearby
-entities, or touch iron-spell are NOT here — they stay kubejs_target_call for step 7.
+Pass 2 of the regeneration pipeline (run via regenerate.bash, after convert_to_packs.py
+and before resolve_hooks.py): rewrites the pack JSON in place. Idempotent — a re-run
+finds no kubejs_target_call left and is a no-op. Each convertible callback maps to a
+gate (chance / mark requirement) plus an ordered ops[] list, faithfully reproducing the
+old JS target handler. Callbacks that spend resources, introspect event type/amount,
+scan nearby entities, or touch iron-spell are NOT here — they stay kubejs_target_call
+for the forge fallback.
 
 The executor keeps the execution's existing point_type/point_id/consume_points/
 max_consume (the request-point gate) and custom_display_key; this script only swaps

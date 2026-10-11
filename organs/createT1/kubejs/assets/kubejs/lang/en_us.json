@@ -1,7 +1,0 @@
-{
-  "message.organkubejs.execution.createT1_drive_chainsaw_cycle": "Keep the chainsaw running, extend close-range attack, and spend 4 stress; the drive halts when stress runs out",
-  "message.organkubejs.execution.createT1_power_hammer_counter": "Spend 24 stress for 2 seconds of resistance",
-  "message.organkubejs.execution.createT1_shaft_attack_gain": "Gain 2 flywheel momentum and 6 stress",
-  "message.organkubejs.execution.createT1_shaft_interrupt": "Clear flywheel momentum and inflict slowness II on yourself for 3 seconds",
-  "message.organkubejs.execution.createT1_shaft_mine_gain": "Gain 1 flywheel momentum and 4 stress"
-}

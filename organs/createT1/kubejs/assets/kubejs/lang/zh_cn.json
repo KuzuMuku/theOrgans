@@ -1,7 +1,0 @@
-{
-  "message.organkubejs.execution.createT1_drive_chainsaw_cycle": "维持传动链锯运转、延长近身攻击并消耗 4 点应力，应力不足时停机",
-  "message.organkubejs.execution.createT1_power_hammer_counter": "消耗 24 点应力换取 2 秒抗性",
-  "message.organkubejs.execution.createT1_shaft_attack_gain": "获得 2 点飞轮余势与 6 点应力",
-  "message.organkubejs.execution.createT1_shaft_interrupt": "清空飞轮余势并使自身缓慢 II 持续 3 秒",
-  "message.organkubejs.execution.createT1_shaft_mine_gain": "获得 1 点飞轮余势与 4 点应力"
-}

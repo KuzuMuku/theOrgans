@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:distillation_filter_bladder"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:oxygen",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt1:distillation_filter_bladder"
 }

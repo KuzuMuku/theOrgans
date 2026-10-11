@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:brass_stress_conduit"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "createt2:brass_stress_conduit"
 }

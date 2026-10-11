@@ -15,18 +15,6 @@ let VANILLALUSHCAVES_ORGAN_IDS = [
 ]
 
 StartupEvents.registry('item', event => {
-  Common.registerItems(event, VANILLALUSHCAVES_ORGAN_IDS)
 })
-
-Common.registerSkills([
-  {
-    id: 'kubejs:sporebloom_core',
-    nameKey: 'point.organeffects.skill.kubejs.sporebloom_core',
-    descKey: 'point.organeffects.skill.kubejs.sporebloom_core.desc',
-    cooldown: 200,
-    level: 1,
-    castEvent: 'sporebloom_core_cast'
-  }
-])
 
 })()

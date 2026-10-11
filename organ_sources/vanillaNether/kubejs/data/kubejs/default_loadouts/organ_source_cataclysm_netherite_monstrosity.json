@@ -18,19 +18,19 @@
       ],
       "2": [
         {
-          "id": "kubejs:cataclysm_magma_core"
+          "id": "vanillanether:cataclysm_magma_core"
         }
       ],
       "3": [
         {
-          "id": "kubejs:smeltfist_subcore"
+          "id": "vanillanether:smeltfist_subcore"
         }
       ]
     },
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:overload_crown"
+          "id": "vanillanether:overload_crown"
         }
       ]
     }

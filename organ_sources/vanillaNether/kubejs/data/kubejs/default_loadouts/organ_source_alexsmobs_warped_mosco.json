@@ -8,21 +8,21 @@
     "organapi:chest": {
       "0": [
         {
-          "id": "kubejs:ashvale_lung"
+          "id": "vanillanether:ashvale_lung"
         }
       ]
     },
     "organapi:abdomen": {
       "0": [
         {
-          "id": "kubejs:netherwart_liver"
+          "id": "vanillanether:netherwart_liver"
         }
       ]
     },
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:ash_iris"
+          "id": "vanillanether:ash_iris"
         }
       ]
     }

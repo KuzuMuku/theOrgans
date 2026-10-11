@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:cracking_mine_sac"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:sulfuric_acid",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt1:cracking_mine_sac"
 }

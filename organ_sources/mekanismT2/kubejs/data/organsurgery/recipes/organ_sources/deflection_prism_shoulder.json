@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:deflection_prism_shoulder"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:lithium",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt2:deflection_prism_shoulder"
 }

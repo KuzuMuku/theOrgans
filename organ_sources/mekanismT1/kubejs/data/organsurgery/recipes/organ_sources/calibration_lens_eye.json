@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:calibration_lens_eye"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:oxygen",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt1:calibration_lens_eye"
 }

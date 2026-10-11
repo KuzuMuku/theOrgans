@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:pressure_balance_brass_membrane"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "createt2:pressure_balance_brass_membrane"
 }

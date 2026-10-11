@@ -6,7 +6,7 @@ let OrganQueryService = Java.loadClass('cn.kuzuanpa.organapi.api.query.OrganQuer
 let SYSTEM_SOURCE = 'vanillaPillager_system'
 let RESOURCE_CURRENT = 'kubejs:vanillaPillager_resonance'
 let SURGE_KEY = 'kubejs:vanillaPillager_raid_surge'
-let PLUNDER_CORE_ITEM = 'kubejs:plunder_core'
+let PLUNDER_CORE_ITEM = 'vanillapillager:plunder_core'
 let MARK_POINT_KEY = OrganKubeJS.pointKey('mark', 'kubejs:vanillaPillager_mark')
 
 function entityOf(player) {

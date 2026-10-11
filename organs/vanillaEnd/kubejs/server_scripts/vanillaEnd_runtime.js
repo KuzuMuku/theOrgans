@@ -335,8 +335,8 @@ PlayerEvents.tick(event => {
     let distance = Math.sqrt(dx * dx + dy * dy + dz * dz)
     if (distance >= 5) {
       fireEndEvent(player, 'vanillaEnd:displacement', null, distance)
-      let crownOnline = isInstalled(player, 'kubejs:gategap_crown')
-      let tailboneOnline = isInstalled(player, 'kubejs:gategap_tailbone') && getCounter(player, RESOURCE.current) >= 20
+      let crownOnline = isInstalled(player, 'vanillaend:gategap_crown')
+      let tailboneOnline = isInstalled(player, 'vanillaend:gategap_tailbone') && getCounter(player, RESOURCE.current) >= 20
       if (crownOnline || tailboneOnline) {
         let surgeTicks = hasAuxiliary(player, 'purpur_nerve_cord') ? 120 : 100
         setExpiringRuntime(player, 'kubejs:vanillaEnd_travel_surge', 1, surgeTicks)

@@ -1,17 +1,17 @@
 ;(function () {
 
 let VANILLADESERT_ORGAN_IDS = [
-  "kubejs:sun_ventricle",
-  "kubejs:sandstone_breastplate",
-  "kubejs:drought_liver",
-  "kubejs:heatwave_lung",
-  "kubejs:quicksand_spleen",
-  "kubejs:eclipse_crown",
-  "kubejs:wind_erosion_arm",
-  "kubejs:cactus_tendon",
-  "kubejs:drysand_iris",
-  "kubejs:temple_scavenger_hand",
-  "kubejs:ancient_remnant_core"
+  "vanilladesert:sun_ventricle",
+  "vanilladesert:sandstone_breastplate",
+  "vanilladesert:drought_liver",
+  "vanilladesert:heatwave_lung",
+  "vanilladesert:quicksand_spleen",
+  "vanilladesert:eclipse_crown",
+  "vanilladesert:wind_erosion_arm",
+  "vanilladesert:cactus_tendon",
+  "vanilladesert:drysand_iris",
+  "vanilladesert:temple_scavenger_hand",
+  "vanilladesert:ancient_remnant_core"
 ]
 
 ServerEvents.tags('item', event => {

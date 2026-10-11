@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:slime_mana_spleen"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:nutritional_paste",
     "amount": 250
-  }
+  },
+  "organ": "vanillaswamp:slime_mana_spleen"
 }

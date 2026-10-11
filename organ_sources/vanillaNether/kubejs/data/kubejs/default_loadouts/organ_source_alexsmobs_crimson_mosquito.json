@@ -8,21 +8,21 @@
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:ash_iris"
+          "id": "vanillanether:ash_iris"
         }
       ]
     },
     "organapi:abdomen": {
       "0": [
         {
-          "id": "kubejs:ash_spleen"
+          "id": "vanillanether:ash_spleen"
         }
       ]
     },
     "organapi:chest": {
       "0": [
         {
-          "id": "kubejs:soulsand_lung_sac"
+          "id": "vanillanether:soulsand_lung_sac"
         }
       ]
     }

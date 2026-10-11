@@ -1,22 +1,22 @@
 ;(function () {
 
 let VANILLAPILLAGER_ORGAN_IDS = [
-  "kubejs:raider_ventricle",
-  "kubejs:banner_spinewheel",
-  "kubejs:outpost_chestplate",
-  "kubejs:emerald_liver",
-  "kubejs:horn_crown",
-  "kubejs:scout_iris",
-  "kubejs:loot_spleen",
-  "kubejs:breach_gland",
-  "kubejs:exile_kidneysheath",
-  "kubejs:war_drum_cochlea",
-  "kubejs:dark_arrow_throat",
-  "kubejs:raid_scavenger_hand",
-  "kubejs:skirmish_arm",
-  "kubejs:banner_spike_shoulder",
-  "kubejs:nightraid_tendon",
-  "kubejs:plunder_core"
+  "vanillapillager:raider_ventricle",
+  "vanillapillager:banner_spinewheel",
+  "vanillapillager:outpost_chestplate",
+  "vanillapillager:emerald_liver",
+  "vanillapillager:horn_crown",
+  "vanillapillager:scout_iris",
+  "vanillapillager:loot_spleen",
+  "vanillapillager:breach_gland",
+  "vanillapillager:exile_kidneysheath",
+  "vanillapillager:war_drum_cochlea",
+  "vanillapillager:dark_arrow_throat",
+  "vanillapillager:raid_scavenger_hand",
+  "vanillapillager:skirmish_arm",
+  "vanillapillager:banner_spike_shoulder",
+  "vanillapillager:nightraid_tendon",
+  "vanillapillager:plunder_core"
 ]
 
 ServerEvents.tags('item', event => {

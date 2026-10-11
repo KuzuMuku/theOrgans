@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:brass_clutch_spine"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:biodiesel",
     "amount": 250
-  }
+  },
+  "organ": "createt2:brass_clutch_spine"
 }

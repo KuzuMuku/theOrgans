@@ -23,95 +23,95 @@ let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'mekanismT2_system'
 let LINK_SOURCE = DIR_KEY + '_links'
 let SCHOOL_POWER_ATTRIBUTE = null
 let SOURCE_IDS = new Set([
-  "kubejs:quantum_shield_core",
-  "kubejs:plasma_membrane_lung",
-  "kubejs:nano_recharge_nest",
-  "kubejs:overload_phase_spine",
-  "kubejs:shield_weave_membrane",
-  "kubejs:vector_lock_eye",
-  "kubejs:nano_repair_mesh",
-  "kubejs:prism_compute_brain",
-  "kubejs:phase_cut_arm",
-  "kubejs:light_spear_tendon",
-  "kubejs:deflection_prism_shoulder",
-  "kubejs:nano_copy_gland",
-  "kubejs:energy_harvest_step_foot",
-  "kubejs:zero_loss_sampler_claw",
-  "kubejs:radiation_diffusion_core",
-  "kubejs:fission_plasma_chamber",
-  "kubejs:plasma_state_wiring",
-  "kubejs:radiation_deflection_armor",
-  "kubejs:quantum_mecha_protocol",
-  "kubejs:quantum_wire",
-  "kubejs:phase_coil",
-  "kubejs:nano_repair_line",
-  "kubejs:lockon_sensor_array",
-  "kubejs:fission_fuel_rod",
-  "kubejs:radiation_filter"
+  "mekanismt2:quantum_shield_core",
+  "mekanismt2:plasma_membrane_lung",
+  "mekanismt2:nano_recharge_nest",
+  "mekanismt2:overload_phase_spine",
+  "mekanismt2:shield_weave_membrane",
+  "mekanismt2:vector_lock_eye",
+  "mekanismt2:nano_repair_mesh",
+  "mekanismt2:prism_compute_brain",
+  "mekanismt2:phase_cut_arm",
+  "mekanismt2:light_spear_tendon",
+  "mekanismt2:deflection_prism_shoulder",
+  "mekanismt2:nano_copy_gland",
+  "mekanismt2:energy_harvest_step_foot",
+  "mekanismt2:zero_loss_sampler_claw",
+  "mekanismt2:radiation_diffusion_core",
+  "mekanismt2:fission_plasma_chamber",
+  "mekanismt2:plasma_state_wiring",
+  "mekanismt2:radiation_deflection_armor",
+  "mekanismt2:quantum_mecha_protocol",
+  "mekanismt2:quantum_wire",
+  "mekanismt2:phase_coil",
+  "mekanismt2:nano_repair_line",
+  "mekanismt2:lockon_sensor_array",
+  "mekanismt2:fission_fuel_rod",
+  "mekanismt2:radiation_filter"
 ])
 let CORELINE_IDS = new Set([
-  "kubejs:quantum_shield_core",
-  "kubejs:plasma_membrane_lung",
-  "kubejs:overload_phase_spine"
+  "mekanismt2:quantum_shield_core",
+  "mekanismt2:plasma_membrane_lung",
+  "mekanismt2:overload_phase_spine"
 ])
 let SUPPORT_IDS = new Set([
-  "kubejs:nano_repair_mesh"
+  "mekanismt2:nano_repair_mesh"
 ])
 let BARRIER_IDS = new Set([
-  "kubejs:quantum_shield_core",
-  "kubejs:shield_weave_membrane",
-  "kubejs:deflection_prism_shoulder"
+  "mekanismt2:quantum_shield_core",
+  "mekanismt2:shield_weave_membrane",
+  "mekanismt2:deflection_prism_shoulder"
 ])
 let OVERLOAD_IDS = new Set([
-  "kubejs:overload_phase_spine",
-  "kubejs:phase_cut_arm",
-  "kubejs:vector_lock_eye",
-  "kubejs:light_spear_tendon",
-  "kubejs:prism_compute_brain",
-  "kubejs:phase_coil",
-  "kubejs:fission_plasma_chamber",
-  "kubejs:quantum_mecha_protocol"
+  "mekanismt2:overload_phase_spine",
+  "mekanismt2:phase_cut_arm",
+  "mekanismt2:vector_lock_eye",
+  "mekanismt2:light_spear_tendon",
+  "mekanismt2:prism_compute_brain",
+  "mekanismt2:phase_coil",
+  "mekanismt2:fission_plasma_chamber",
+  "mekanismt2:quantum_mecha_protocol"
 ])
 let NANO_IDS = new Set([
-  "kubejs:nano_recharge_nest",
-  "kubejs:nano_repair_mesh",
-  "kubejs:nano_copy_gland",
-  "kubejs:energy_harvest_step_foot",
-  "kubejs:zero_loss_sampler_claw",
-  "kubejs:nano_repair_line"
+  "mekanismt2:nano_recharge_nest",
+  "mekanismt2:nano_repair_mesh",
+  "mekanismt2:nano_copy_gland",
+  "mekanismt2:energy_harvest_step_foot",
+  "mekanismt2:zero_loss_sampler_claw",
+  "mekanismt2:nano_repair_line"
 ])
 let LOCK_IDS = new Set([
-  "kubejs:vector_lock_eye",
-  "kubejs:prism_compute_brain",
-  "kubejs:light_spear_tendon",
-  "kubejs:lockon_sensor_array"
+  "mekanismt2:vector_lock_eye",
+  "mekanismt2:prism_compute_brain",
+  "mekanismt2:light_spear_tendon",
+  "mekanismt2:lockon_sensor_array"
 ])
 let MANA_IDS = new Set([])
 let SPELL_IDS = new Set([])
 let CROWN_IDS = new Set([
-  "kubejs:prism_compute_brain"
+  "mekanismt2:prism_compute_brain"
 ])
 let ARMOR_IDS = new Set([
-  "kubejs:shield_weave_membrane",
-  "kubejs:radiation_deflection_armor"
+  "mekanismt2:shield_weave_membrane",
+  "mekanismt2:radiation_deflection_armor"
 ])
 let MOVEMENT_IDS = new Set([
-  "kubejs:energy_harvest_step_foot"
+  "mekanismt2:energy_harvest_step_foot"
 ])
 let MELEE_IDS = new Set([
-  "kubejs:deflection_prism_shoulder",
-  "kubejs:phase_cut_arm"
+  "mekanismt2:deflection_prism_shoulder",
+  "mekanismt2:phase_cut_arm"
 ])
 let RANGED_IDS = new Set([
-  "kubejs:vector_lock_eye",
-  "kubejs:light_spear_tendon"
+  "mekanismt2:vector_lock_eye",
+  "mekanismt2:light_spear_tendon"
 ])
 let RESOURCE_IDS = new Set([
-  "kubejs:zero_loss_sampler_claw",
-  "kubejs:nano_copy_gland",
-  "kubejs:quantum_wire",
-  "kubejs:fission_fuel_rod",
-  "kubejs:radiation_filter"
+  "mekanismt2:zero_loss_sampler_claw",
+  "mekanismt2:nano_copy_gland",
+  "mekanismt2:quantum_wire",
+  "mekanismt2:fission_fuel_rod",
+  "mekanismt2:radiation_filter"
 ])
 
 let entityOf = Common.entityOf

@@ -59,88 +59,88 @@ let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'vanillaOcean_system'
 let LINK_SOURCE = DIR_KEY + '_links'
 let SCHOOL_POWER_ATTRIBUTE = "irons_spellbooks:nature_spell_power"
 let SOURCE_IDS = new Set([
-  "kubejs:tidal_ventricle",
-  "kubejs:saltgill_lung",
-  "kubejs:deepsea_liver",
-  "kubejs:coral_boneplate",
-  "kubejs:seacurrent_spleen",
-  "kubejs:tidepressure_crown",
-  "kubejs:wetgill_jowl",
-  "kubejs:seamirror_iris",
-  "kubejs:foam_kidney",
-  "kubejs:farvoyage_flipper",
-  "kubejs:kelp_spinal_cord",
-  "kubejs:shellbell_cochlea",
-  "kubejs:countercurrent_arm",
-  "kubejs:tidefin_leg",
-  "kubejs:bubblewave_throat",
-  "kubejs:coralspike_fist",
-  "kubejs:monument_refraction_eye",
-  "kubejs:tidesound_fork_wrist",
-  "kubejs:deeptide_scavenger_hand",
-  "kubejs:coraltide_tail",
-  "kubejs:dragonfrost_sac",
-  "kubejs:frostabyss_core"
+  "vanillaocean:tidal_ventricle",
+  "vanillaocean:saltgill_lung",
+  "vanillaocean:deepsea_liver",
+  "vanillaocean:coral_boneplate",
+  "vanillaocean:seacurrent_spleen",
+  "vanillaocean:tidepressure_crown",
+  "vanillaocean:wetgill_jowl",
+  "vanillaocean:seamirror_iris",
+  "vanillaocean:foam_kidney",
+  "vanillaocean:farvoyage_flipper",
+  "vanillaocean:kelp_spinal_cord",
+  "vanillaocean:shellbell_cochlea",
+  "vanillaocean:countercurrent_arm",
+  "vanillaocean:tidefin_leg",
+  "vanillaocean:bubblewave_throat",
+  "vanillaocean:coralspike_fist",
+  "vanillaocean:monument_refraction_eye",
+  "vanillaocean:tidesound_fork_wrist",
+  "vanillaocean:deeptide_scavenger_hand",
+  "vanillaocean:coraltide_tail",
+  "vanillaocean:dragonfrost_sac",
+  "vanillaocean:frostabyss_core"
 ])
 let CORELINE_IDS = new Set([
-  "kubejs:tidal_ventricle",
-  "kubejs:kelp_spinal_cord",
-  "kubejs:coraltide_tail",
-  "kubejs:frostabyss_core"
+  "vanillaocean:tidal_ventricle",
+  "vanillaocean:kelp_spinal_cord",
+  "vanillaocean:coraltide_tail",
+  "vanillaocean:frostabyss_core"
 ])
 let SUPPORT_IDS = new Set([
-  "kubejs:wetgill_jowl",
-  "kubejs:shellbell_cochlea"
+  "vanillaocean:wetgill_jowl",
+  "vanillaocean:shellbell_cochlea"
 ])
 let TIDE_IDS = new Set([
-  "kubejs:tidal_ventricle",
-  "kubejs:saltgill_lung",
-  "kubejs:foam_kidney"
+  "vanillaocean:tidal_ventricle",
+  "vanillaocean:saltgill_lung",
+  "vanillaocean:foam_kidney"
 ])
 let TEMPLE_IDS = new Set([
-  "kubejs:monument_refraction_eye",
-  "kubejs:coral_boneplate",
-  "kubejs:seamirror_iris"
+  "vanillaocean:monument_refraction_eye",
+  "vanillaocean:coral_boneplate",
+  "vanillaocean:seamirror_iris"
 ])
 let SALVAGE_IDS = new Set([
-  "kubejs:seacurrent_spleen",
-  "kubejs:deeptide_scavenger_hand"
+  "vanillaocean:seacurrent_spleen",
+  "vanillaocean:deeptide_scavenger_hand"
 ])
 let WET_IDS = new Set([
-  "kubejs:wetgill_jowl",
-  "kubejs:farvoyage_flipper",
-  "kubejs:tidefin_leg",
-  "kubejs:foam_kidney"
+  "vanillaocean:wetgill_jowl",
+  "vanillaocean:farvoyage_flipper",
+  "vanillaocean:tidefin_leg",
+  "vanillaocean:foam_kidney"
 ])
 let MANA_IDS = new Set([
-  "kubejs:deepsea_liver"
+  "vanillaocean:deepsea_liver"
 ])
 let SPELL_IDS = new Set([
-  "kubejs:saltgill_lung"
+  "vanillaocean:saltgill_lung"
 ])
 let CROWN_IDS = new Set([
-  "kubejs:tidepressure_crown"
+  "vanillaocean:tidepressure_crown"
 ])
 let ARMOR_IDS = new Set([
-  "kubejs:coral_boneplate"
+  "vanillaocean:coral_boneplate"
 ])
 let MOVEMENT_IDS = new Set([
-  "kubejs:farvoyage_flipper",
-  "kubejs:tidefin_leg"
+  "vanillaocean:farvoyage_flipper",
+  "vanillaocean:tidefin_leg"
 ])
 let MELEE_IDS = new Set([
-  "kubejs:countercurrent_arm",
-  "kubejs:coralspike_fist",
-  "kubejs:tidesound_fork_wrist"
+  "vanillaocean:countercurrent_arm",
+  "vanillaocean:coralspike_fist",
+  "vanillaocean:tidesound_fork_wrist"
 ])
 let RANGED_IDS = new Set([
-  "kubejs:seamirror_iris",
-  "kubejs:monument_refraction_eye",
-  "kubejs:bubblewave_throat"
+  "vanillaocean:seamirror_iris",
+  "vanillaocean:monument_refraction_eye",
+  "vanillaocean:bubblewave_throat"
 ])
 let RESOURCE_IDS = new Set([
-  "kubejs:seacurrent_spleen",
-  "kubejs:deeptide_scavenger_hand"
+  "vanillaocean:seacurrent_spleen",
+  "vanillaocean:deeptide_scavenger_hand"
 ])
 let AUX_ITEM_IDS = [
   "kubejs:current_conduit",

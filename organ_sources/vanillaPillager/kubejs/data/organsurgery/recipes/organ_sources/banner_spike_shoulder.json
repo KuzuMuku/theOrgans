@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:banner_spike_shoulder"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "vanillapillager:banner_spike_shoulder"
 }

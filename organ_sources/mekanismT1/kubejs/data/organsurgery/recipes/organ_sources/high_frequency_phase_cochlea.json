@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:high_frequency_phase_cochlea"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:lithium",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt1:high_frequency_phase_cochlea"
 }

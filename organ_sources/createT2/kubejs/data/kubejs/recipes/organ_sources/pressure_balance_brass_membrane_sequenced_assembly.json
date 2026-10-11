@@ -123,8 +123,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:pressure_balance_brass_membrane",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt2:pressure_balance_brass_membrane"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

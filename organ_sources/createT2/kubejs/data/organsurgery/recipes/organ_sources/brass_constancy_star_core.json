@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:brass_constancy_star_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "createt2:brass_constancy_star_core"
 }

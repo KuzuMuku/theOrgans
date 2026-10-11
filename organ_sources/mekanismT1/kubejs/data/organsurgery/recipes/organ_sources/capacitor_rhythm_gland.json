@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:capacitor_rhythm_gland"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:hydrogen",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt1:capacitor_rhythm_gland"
 }

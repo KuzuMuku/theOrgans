@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:stress_pick"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:plant_oil",
     "amount": 250
-  }
+  },
+  "organ": "createt1:stress_pick"
 }

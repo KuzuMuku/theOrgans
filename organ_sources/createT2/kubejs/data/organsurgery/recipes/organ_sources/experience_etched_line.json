@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:experience_etched_line"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "createt2:experience_etched_line"
 }

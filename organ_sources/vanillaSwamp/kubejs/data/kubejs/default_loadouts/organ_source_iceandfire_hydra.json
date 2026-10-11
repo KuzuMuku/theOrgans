@@ -18,7 +18,7 @@
       ],
       "2": [
         {
-          "id": "kubejs:witchbog_crown"
+          "id": "vanillaswamp:witchbog_crown"
         }
       ]
     },
@@ -50,12 +50,12 @@
       ],
       "5": [
         {
-          "id": "kubejs:silt_poison_heart"
+          "id": "vanillaswamp:silt_poison_heart"
         }
       ],
       "6": [
         {
-          "id": "kubejs:hydra_venom_core"
+          "id": "vanillaswamp:hydra_venom_core"
         }
       ]
     },

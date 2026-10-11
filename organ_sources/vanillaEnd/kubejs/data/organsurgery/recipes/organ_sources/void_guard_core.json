@@ -24,10 +24,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:void_guard_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "irons_spellbooks:timeless_slurry",
     "amount": 250
-  }
+  },
+  "organ": "vanillaend:void_guard_core"
 }

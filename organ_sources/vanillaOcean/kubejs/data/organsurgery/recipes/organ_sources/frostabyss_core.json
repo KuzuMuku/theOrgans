@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:frostabyss_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:water",
     "amount": 1000
-  }
+  },
+  "organ": "vanillaocean:frostabyss_core"
 }

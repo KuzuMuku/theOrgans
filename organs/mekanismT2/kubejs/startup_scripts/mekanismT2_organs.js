@@ -29,50 +29,6 @@ let MEKANISMT2_ORGAN_IDS = [
 ]
 
 StartupEvents.registry('item', event => {
-  Common.registerItems(event, MEKANISMT2_ORGAN_IDS)
 })
-
-Common.registerSkills([
-  {
-    id: 'kubejs:phase_cut_arm',
-    nameKey: 'point.organeffects.skill.kubejs.phase_cut_arm',
-    descKey: 'point.organeffects.skill.kubejs.phase_cut_arm.desc',
-    cooldown: 90,
-    level: 1,
-    castEvent: 'phase_cut_arm_cast'
-  },
-  {
-    id: 'kubejs:light_spear_tendon',
-    nameKey: 'point.organeffects.skill.kubejs.light_spear_tendon',
-    descKey: 'point.organeffects.skill.kubejs.light_spear_tendon.desc',
-    cooldown: 110,
-    level: 1,
-    castEvent: 'light_spear_tendon_cast'
-  },
-  {
-    id: 'kubejs:nano_copy_gland',
-    nameKey: 'point.organeffects.skill.kubejs.nano_copy_gland',
-    descKey: 'point.organeffects.skill.kubejs.nano_copy_gland.desc',
-    cooldown: 180,
-    level: 1,
-    castEvent: 'nano_copy_gland_cast'
-  },
-  {
-    id: 'kubejs:fission_plasma_chamber',
-    nameKey: 'point.organeffects.skill.kubejs.fission_plasma_chamber',
-    descKey: 'point.organeffects.skill.kubejs.fission_plasma_chamber.desc',
-    cooldown: 240,
-    level: 1,
-    castEvent: 'fission_plasma_chamber_cast'
-  },
-  {
-    id: 'kubejs:quantum_mecha_protocol',
-    nameKey: 'point.organeffects.skill.kubejs.quantum_mecha_protocol',
-    descKey: 'point.organeffects.skill.kubejs.quantum_mecha_protocol.desc',
-    cooldown: 300,
-    level: 1,
-    castEvent: 'quantum_mecha_protocol_cast'
-  }
-])
 
 })()

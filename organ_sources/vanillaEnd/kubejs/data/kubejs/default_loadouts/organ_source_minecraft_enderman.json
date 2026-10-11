@@ -36,19 +36,19 @@
       ],
       "4": [
         {
-          "id": "kubejs:ender_lung"
+          "id": "vanillaend:ender_lung"
         }
       ],
       "5": [
         {
-          "id": "kubejs:voidabyss_kidneysheath"
+          "id": "vanillaend:voidabyss_kidneysheath"
         }
       ]
     },
     "organapi:abdomen": {
       "0": [
         {
-          "id": "kubejs:enderwart_liver"
+          "id": "vanillaend:enderwart_liver"
         }
       ]
     }

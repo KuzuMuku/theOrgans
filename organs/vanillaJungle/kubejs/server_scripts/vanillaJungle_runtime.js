@@ -29,27 +29,27 @@ let PROTOCOL_POINT = 'kubejs:vanillaJungle_root_protocol'
 let PROTOCOL_DURATION = 160
 let MARK_POINT_ID = 'kubejs:vanillaJungle_mark'
 let SOURCE_IDS = new Set([
-  'kubejs:buttress_ventricle',
-  'kubejs:mossbark_carapace',
-  'kubejs:rainforest_water_sac',
-  'kubejs:temple_moss_spine',
-  'kubejs:stranglevine_arm',
-  'kubejs:flytrap_throat_sac',
-  'kubejs:jaguar_crouch_tendon',
-  'kubejs:orchid_spellbud_lung',
-  'kubejs:cocoa_marow_liver',
-  'kubejs:sporeweb_crown',
-  'kubejs:ancient_resonance_core',
-  'kubejs:wooden_sap_conduit',
-  'kubejs:root_anchor_silk',
-  'kubejs:aerial_root_breathing_tube',
-  'kubejs:vine_bind_bundle'
+  'vanillajungle:buttress_ventricle',
+  'vanillajungle:mossbark_carapace',
+  'vanillajungle:rainforest_water_sac',
+  'vanillajungle:temple_moss_spine',
+  'vanillajungle:stranglevine_arm',
+  'vanillajungle:flytrap_throat_sac',
+  'vanillajungle:jaguar_crouch_tendon',
+  'vanillajungle:orchid_spellbud_lung',
+  'vanillajungle:cocoa_marow_liver',
+  'vanillajungle:sporeweb_crown',
+  'vanillajungle:ancient_resonance_core',
+  'vanillajungle:wooden_sap_conduit',
+  'vanillajungle:root_anchor_silk',
+  'vanillajungle:aerial_root_breathing_tube',
+  'vanillajungle:vine_bind_bundle'
 ])
 let SNARE_IDS = new Set([
-  'kubejs:stranglevine_arm',
-  'kubejs:flytrap_throat_sac',
-  'kubejs:jaguar_crouch_tendon',
-  'kubejs:vine_bind_bundle'
+  'vanillajungle:stranglevine_arm',
+  'vanillajungle:flytrap_throat_sac',
+  'vanillajungle:jaguar_crouch_tendon',
+  'vanillajungle:vine_bind_bundle'
 ])
 let STILL_TICKS = new Map()
 let SAP_AWAY_TICKS = new Map()

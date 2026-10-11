@@ -45,7 +45,7 @@
       ],
       "5": [
         {
-          "id": "kubejs:buttress_ventricle"
+          "id": "vanillajungle:buttress_ventricle"
         }
       ]
     },
@@ -67,7 +67,7 @@
       ],
       "3": [
         {
-          "id": "kubejs:rainforest_water_sac"
+          "id": "vanillajungle:rainforest_water_sac"
         }
       ]
     },
@@ -88,7 +88,7 @@
     "organapi:left_arm": {
       "0": [
         {
-          "id": "kubejs:stranglevine_arm"
+          "id": "vanillajungle:stranglevine_arm"
         }
       ]
     }

@@ -39,17 +39,17 @@ let SYSTEM_SOURCE = RESOURCE.system
 let LINK_SOURCE = DIR_KEY + '_links'
 let DEEP_FREEZE_KEY = 'kubejs:vanillaSnow_deepfreeze_online'
 let SOURCE_IDS = new Set([
-  'kubejs:frostseal_ventricle',
-  'kubejs:frozensoil_chest_membrane',
-  'kubejs:birchmarrow_liver',
-  'kubejs:icecrystal_lung',
-  'kubejs:frostlight_crown',
-  'kubejs:snowhide_spleen',
-  'kubejs:icechip_arm',
-  'kubejs:snowblind_iris',
-  'kubejs:frosthoof_tendon',
-  'kubejs:freezebreak_sheath',
-  'kubejs:frozen_maze_core'
+  'vanillasnow:frostseal_ventricle',
+  'vanillasnow:frozensoil_chest_membrane',
+  'vanillasnow:birchmarrow_liver',
+  'vanillasnow:icecrystal_lung',
+  'vanillasnow:frostlight_crown',
+  'vanillasnow:snowhide_spleen',
+  'vanillasnow:icechip_arm',
+  'vanillasnow:snowblind_iris',
+  'vanillasnow:frosthoof_tendon',
+  'vanillasnow:freezebreak_sheath',
+  'vanillasnow:frozen_maze_core'
 ])
 let AUX_ITEM_IDS = new Set([
   'kubejs:deposition_conduit',

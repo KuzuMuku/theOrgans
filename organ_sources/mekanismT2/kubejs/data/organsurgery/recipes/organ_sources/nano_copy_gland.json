@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:nano_copy_gland"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:chlorine",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt2:nano_copy_gland"
 }

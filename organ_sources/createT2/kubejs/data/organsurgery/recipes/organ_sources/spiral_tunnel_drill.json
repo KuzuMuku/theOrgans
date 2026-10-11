@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:spiral_tunnel_drill"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:plant_oil",
     "amount": 500
-  }
+  },
+  "organ": "createt2:spiral_tunnel_drill"
 }

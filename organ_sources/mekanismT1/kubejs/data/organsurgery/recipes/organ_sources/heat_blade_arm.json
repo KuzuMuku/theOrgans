@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:heat_blade_arm"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:steam",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt1:heat_blade_arm"
 }

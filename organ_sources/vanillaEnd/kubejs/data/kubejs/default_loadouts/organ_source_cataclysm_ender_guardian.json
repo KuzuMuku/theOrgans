@@ -13,21 +13,21 @@
       ],
       "1": [
         {
-          "id": "kubejs:void_guard_core"
+          "id": "vanillaend:void_guard_core"
         }
       ]
     },
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:shadow_throat_sac"
+          "id": "vanillaend:shadow_throat_sac"
         }
       ]
     },
     "organapi:left_arm": {
       "0": [
         {
-          "id": "kubejs:shadowfold_arm"
+          "id": "vanillaend:shadowfold_arm"
         }
       ]
     }

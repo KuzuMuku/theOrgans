@@ -50,17 +50,17 @@ let hasMatching = Common.hasMatching
 let addEffect = Common.addEffect
 
 let SOURCE_IDS = new Set([
-  'kubejs:mossglow_core',
-  'kubejs:calcite_breastbone',
-  'kubejs:sporeglow_lung',
-  'kubejs:mossheal_liver',
-  'kubejs:sporebud_gland',
-  'kubejs:hangingroot_arm',
-  'kubejs:mycelium_sole',
-  'kubejs:brightpod_sac',
-  'kubejs:sporebed_spleen',
-  'kubejs:gloommoss_crown',
-  'kubejs:sporebloom_core'
+  'vanillalushcaves:mossglow_core',
+  'vanillalushcaves:calcite_breastbone',
+  'vanillalushcaves:sporeglow_lung',
+  'vanillalushcaves:mossheal_liver',
+  'vanillalushcaves:sporebud_gland',
+  'vanillalushcaves:hangingroot_arm',
+  'vanillalushcaves:mycelium_sole',
+  'vanillalushcaves:brightpod_sac',
+  'vanillalushcaves:sporebed_spleen',
+  'vanillalushcaves:gloommoss_crown',
+  'vanillalushcaves:sporebloom_core'
 ])
 let BRIDGE_IDS = new Set([
   'kubejs:mycelium_bridge'
@@ -75,19 +75,19 @@ let ROOT_NETWORK_IDS = new Set([
   'kubejs:root_network'
 ])
 let MOVEMENT_IDS = new Set([
-  'kubejs:mycelium_sole'
+  'vanillalushcaves:mycelium_sole'
 ])
 let CROWN_IDS = new Set([
-  'kubejs:gloommoss_crown'
+  'vanillalushcaves:gloommoss_crown'
 ])
 let MANA_IDS = new Set([
-  'kubejs:brightpod_sac'
+  'vanillalushcaves:brightpod_sac'
 ])
 let SPELL_IDS = new Set([
-  'kubejs:sporeglow_lung'
+  'vanillalushcaves:sporeglow_lung'
 ])
 let RECOVERY_IDS = new Set([
-  'kubejs:mossheal_liver'
+  'vanillalushcaves:mossheal_liver'
 ])
 
 let FLOWERS = global.vanillaLushCavesFlowers || (global.vanillaLushCavesFlowers = {})
@@ -131,7 +131,7 @@ function clearFlower(player) {
 
 function refreshFlowerState(player, state) {
   let installed = installedSourceIds(player)
-  if (installed.indexOf('kubejs:sporebloom_core') < 0) {
+  if (installed.indexOf('vanillalushcaves:sporebloom_core') < 0) {
     return false
   }
   let bridges = countMatching(installed, BRIDGE_IDS)
@@ -243,7 +243,7 @@ OrganKubejsEvents.predicate('vanillaLushCaves_glow_online', event => {
   if (!event.player) {
     return lushPredicateResult(event, false)
   }
-  let online = homeMatch(event.player) && (getRuntimePoint(event.player, 'kubejs:vanillaLushCaves_spore_bloom') > 0 || installedSourceIds(event.player).indexOf('kubejs:gloommoss_crown') >= 0)
+  let online = homeMatch(event.player) && (getRuntimePoint(event.player, 'kubejs:vanillaLushCaves_spore_bloom') > 0 || installedSourceIds(event.player).indexOf('vanillalushcaves:gloommoss_crown') >= 0)
   return lushPredicateResult(event, online)
 })
 
@@ -266,7 +266,7 @@ OrganKubejsEvents.skillCast('sporebloom_core_cast', event => {
   }
   let entity = entityOf(player)
   let installed = installedSourceIds(player)
-  if (installed.indexOf('kubejs:sporebloom_core') < 0) {
+  if (installed.indexOf('vanillalushcaves:sporebloom_core') < 0) {
     return false
   }
   let bridges = countMatching(installed, BRIDGE_IDS)

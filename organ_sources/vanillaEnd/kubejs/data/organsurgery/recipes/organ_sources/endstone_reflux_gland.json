@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:endstone_reflux_gland"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "irons_spellbooks:timeless_slurry",
     "amount": 250
-  }
+  },
+  "organ": "vanillaend:endstone_reflux_gland"
 }

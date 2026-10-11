@@ -18,19 +18,19 @@
       ],
       "2": [
         {
-          "id": "kubejs:mossglow_core"
+          "id": "vanillalushcaves:mossglow_core"
         }
       ]
     },
     "organapi:left_arm": {
       "0": [
         {
-          "id": "kubejs:inferno_shoulderplate"
+          "id": "vanillanether:inferno_shoulderplate"
         }
       ],
       "1": [
         {
-          "id": "kubejs:sacrifice_fire_fist"
+          "id": "vanillanether:sacrifice_fire_fist"
         }
       ]
     }

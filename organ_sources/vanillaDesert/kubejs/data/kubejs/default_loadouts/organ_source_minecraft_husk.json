@@ -59,7 +59,7 @@
       ],
       "1": [
         {
-          "id": "kubejs:wind_erosion_arm"
+          "id": "vanilladesert:wind_erosion_arm"
         }
       ]
     },
@@ -78,7 +78,7 @@
       ],
       "1": [
         {
-          "id": "kubejs:cactus_tendon"
+          "id": "vanilladesert:cactus_tendon"
         }
       ]
     },

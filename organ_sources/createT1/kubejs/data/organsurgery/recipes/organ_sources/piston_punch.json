@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:piston_punch"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "createt1:piston_punch"
 }

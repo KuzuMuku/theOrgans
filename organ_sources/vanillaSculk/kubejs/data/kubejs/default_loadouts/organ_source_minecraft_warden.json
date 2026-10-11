@@ -28,27 +28,27 @@
       ],
       "4": [
         {
-          "id": "kubejs:abyss_hunter_membrane"
+          "id": "vanillasculk:abyss_hunter_membrane"
         }
       ],
       "5": [
         {
-          "id": "kubejs:echo_core"
+          "id": "vanillasculk:echo_core"
         }
       ],
       "6": [
         {
-          "id": "kubejs:listening_lung"
+          "id": "vanillasculk:listening_lung"
         }
       ],
       "7": [
         {
-          "id": "kubejs:resonance_spine"
+          "id": "vanillasculk:resonance_spine"
         }
       ],
       "8": [
         {
-          "id": "kubejs:resonant_kidneysheath"
+          "id": "vanillasculk:resonant_kidneysheath"
         }
       ]
     },
@@ -65,22 +65,22 @@
       ],
       "2": [
         {
-          "id": "kubejs:deepheart_remnant"
+          "id": "vanillasculk:deepheart_remnant"
         }
       ],
       "3": [
         {
-          "id": "kubejs:echo_marrow"
+          "id": "vanillasculk:echo_marrow"
         }
       ],
       "4": [
         {
-          "id": "kubejs:gloomshell_spleen"
+          "id": "vanillasculk:gloomshell_spleen"
         }
       ],
       "5": [
         {
-          "id": "kubejs:gloomvein_liver"
+          "id": "vanillasculk:gloomvein_liver"
         }
       ]
     },
@@ -101,7 +101,7 @@
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:darkvision_iris"
+          "id": "vanillasculk:darkvision_iris"
         }
       ]
     }

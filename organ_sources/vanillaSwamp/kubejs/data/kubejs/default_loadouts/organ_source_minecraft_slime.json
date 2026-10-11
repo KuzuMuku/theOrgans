@@ -18,21 +18,21 @@
       ],
       "2": [
         {
-          "id": "kubejs:slime_shell"
+          "id": "vanillaswamp:slime_shell"
         }
       ]
     },
     "organapi:abdomen": {
       "0": [
         {
-          "id": "kubejs:rotmoss_filter_liver"
+          "id": "vanillaswamp:rotmoss_filter_liver"
         }
       ]
     },
     "organapi:left_arm": {
       "0": [
         {
-          "id": "kubejs:slime_thread_arm"
+          "id": "vanillaswamp:slime_thread_arm"
         }
       ]
     }

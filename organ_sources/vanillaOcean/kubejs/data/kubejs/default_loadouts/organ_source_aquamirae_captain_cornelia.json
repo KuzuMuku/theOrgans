@@ -18,7 +18,7 @@
       ],
       "2": [
         {
-          "id": "kubejs:seamirror_iris"
+          "id": "vanillaocean:seamirror_iris"
         }
       ]
     },
@@ -45,12 +45,12 @@
       ],
       "4": [
         {
-          "id": "kubejs:tidal_ventricle"
+          "id": "vanillaocean:tidal_ventricle"
         }
       ],
       "5": [
         {
-          "id": "kubejs:frostabyss_core"
+          "id": "vanillaocean:frostabyss_core"
         }
       ]
     },
@@ -79,7 +79,7 @@
       ],
       "1": [
         {
-          "id": "kubejs:coralspike_fist"
+          "id": "vanillaocean:coralspike_fist"
         }
       ]
     },

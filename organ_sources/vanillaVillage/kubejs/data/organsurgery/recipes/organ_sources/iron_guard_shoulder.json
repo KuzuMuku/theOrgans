@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:iron_guard_shoulder"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:lava",
     "amount": 250
-  }
+  },
+  "organ": "vanillavillage:iron_guard_shoulder"
 }

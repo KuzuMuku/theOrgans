@@ -123,8 +123,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:lubrication_reflux_gland",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt2:lubrication_reflux_gland"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

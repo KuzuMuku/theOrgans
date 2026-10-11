@@ -1,26 +1,26 @@
 ;(function () {
 
 let VANILLAVILLAGE_ORGAN_IDS = [
-  "kubejs:bell_ventricle",
-  "kubejs:trade_spinewheel",
-  "kubejs:order_sternum",
-  "kubejs:profession_liver",
-  "kubejs:prestige_crown",
-  "kubejs:ledger_lung",
-  "kubejs:field_spleen",
-  "kubejs:repair_reflux_gland",
-  "kubejs:beacon_kidneysheath",
-  "kubejs:watchbell_cochlea",
-  "kubejs:village_iris",
-  "kubejs:offering_gland",
-  "kubejs:iron_guard_shoulder",
-  "kubejs:travel_legplate",
-  "kubejs:trade_scavenger_hand",
+  "vanillavillage:bell_ventricle",
+  "vanillavillage:trade_spinewheel",
+  "vanillavillage:order_sternum",
+  "vanillavillage:profession_liver",
+  "vanillavillage:prestige_crown",
+  "vanillavillage:ledger_lung",
+  "vanillavillage:field_spleen",
+  "vanillavillage:repair_reflux_gland",
+  "vanillavillage:beacon_kidneysheath",
+  "vanillavillage:watchbell_cochlea",
+  "vanillavillage:village_iris",
+  "vanillavillage:offering_gland",
+  "vanillavillage:iron_guard_shoulder",
+  "vanillavillage:travel_legplate",
+  "vanillavillage:trade_scavenger_hand",
   "kubejs:village_ledger",
   "kubejs:bell_rope_winder",
   "kubejs:holy_path_relay",
   "kubejs:mending_suture",
-  "kubejs:village_bell_core"
+  "vanillavillage:village_bell_core"
 ]
 
 ServerEvents.tags('item', event => {

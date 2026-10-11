@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:micro_windmill"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "createt1:micro_windmill"
 }

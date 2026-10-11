@@ -216,7 +216,8 @@ function installedSourceIds(player) {
     if (!stack || stack.isEmpty()) {
       continue
     }
-    found.push(String(BuiltInRegistries.ITEM.getKey(stack.getItem())))
+    let __id = Java.loadClass('cn.kuzuanpa.organapi.platform.Platform').itemIdentity().getOrganId(stack)
+    found.push(__id ? String(__id) : String(BuiltInRegistries.ITEM.getKey(stack.getItem())))
   }
   return found
 }

@@ -24,10 +24,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:frozen_maze_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:water",
     "amount": 1000
-  }
+  },
+  "organ": "vanillasnow:frozen_maze_core"
 }

@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:quantum_shield_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:hydrogen",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt2:quantum_shield_core"
 }

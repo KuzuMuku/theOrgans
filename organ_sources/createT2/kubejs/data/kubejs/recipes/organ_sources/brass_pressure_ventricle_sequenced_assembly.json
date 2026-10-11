@@ -139,8 +139,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:brass_pressure_ventricle",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt2:brass_pressure_ventricle"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

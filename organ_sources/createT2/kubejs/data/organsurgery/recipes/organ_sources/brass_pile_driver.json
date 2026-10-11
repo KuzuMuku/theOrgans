@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:brass_pile_driver"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:biodiesel",
     "amount": 500
-  }
+  },
+  "organ": "createt2:brass_pile_driver"
 }

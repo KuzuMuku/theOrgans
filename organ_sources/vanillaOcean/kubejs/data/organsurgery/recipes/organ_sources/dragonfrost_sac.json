@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:dragonfrost_sac"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:water",
     "amount": 1000
-  }
+  },
+  "organ": "vanillaocean:dragonfrost_sac"
 }

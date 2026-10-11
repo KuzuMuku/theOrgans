@@ -218,10 +218,10 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellDamageEvent', e
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', event => {
   let victim = event.getEntity()
   if (victim instanceof PlayerClass) {
-    if (hasInstalled(victim, 'kubejs:return_spine_furnace') && inventoryCount(victim, 'kubejs:void_conduit') > 0) {
+    if (hasInstalled(victim, 'vanillaend:return_spine_furnace') && inventoryCount(victim, 'kubejs:void_conduit') > 0) {
       addResonance(victim, 1)
     }
-    if (hasInstalled(victim, 'kubejs:endgate_lung') && inventoryCount(victim, 'kubejs:void_conduit') > 0) {
+    if (hasInstalled(victim, 'vanillaend:endgate_lung') && inventoryCount(victim, 'kubejs:void_conduit') > 0) {
       addResonance(victim, 1)
     }
   }

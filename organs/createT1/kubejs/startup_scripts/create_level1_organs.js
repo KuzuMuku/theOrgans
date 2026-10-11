@@ -22,49 +22,6 @@ let CREATE_LEVEL1_SKILL_COOLDOWNS = {
 }
 
 StartupEvents.registry('item', event => {
-  Common.registerItems(event, CREATE_LEVEL1_ORGANS)
 })
 
-Common.registerSkills([
-  {
-    id: 'kubejs:piston_punch',
-    nameKey: 'point.organeffects.skill.kubejs.piston_punch',
-    descKey: 'point.organeffects.skill.kubejs.piston_punch.desc',
-    cooldown: CREATE_LEVEL1_SKILL_COOLDOWNS.piston_punch,
-    level: 1,
-    castEvent: 'piston_punch_cast'
-  },
-  {
-    id: 'kubejs:spring_ram',
-    nameKey: 'point.organeffects.skill.kubejs.spring_ram',
-    descKey: 'point.organeffects.skill.kubejs.spring_ram.desc',
-    cooldown: CREATE_LEVEL1_SKILL_COOLDOWNS.spring_ram,
-    level: 1,
-    castEvent: 'spring_ram_cast'
-  },
-  {
-    id: 'kubejs:drive_chainsaw',
-    nameKey: 'point.organeffects.skill.kubejs.drive_chainsaw',
-    descKey: 'point.organeffects.skill.kubejs.drive_chainsaw.desc',
-    cooldown: CREATE_LEVEL1_SKILL_COOLDOWNS.drive_chainsaw,
-    level: 1,
-    castEvent: 'drive_chainsaw_cast'
-  },
-  {
-    id: 'kubejs:stress_pick',
-    nameKey: 'point.organeffects.skill.kubejs.stress_pick',
-    descKey: 'point.organeffects.skill.kubejs.stress_pick.desc',
-    cooldown: CREATE_LEVEL1_SKILL_COOLDOWNS.stress_pick,
-    level: 1,
-    castEvent: 'stress_pick_cast'
-  },
-  {
-    id: 'kubejs:crushing_gears',
-    nameKey: 'point.organeffects.skill.kubejs.crushing_gears',
-    descKey: 'point.organeffects.skill.kubejs.crushing_gears.desc',
-    cooldown: CREATE_LEVEL1_SKILL_COOLDOWNS.crushing_gears,
-    level: 1,
-    castEvent: 'crushing_gears_cast'
-  }
-])
 })()

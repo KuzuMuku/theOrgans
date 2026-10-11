@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:ratchet_breach_shoulder"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:biodiesel",
     "amount": 250
-  }
+  },
+  "organ": "createt2:ratchet_breach_shoulder"
 }

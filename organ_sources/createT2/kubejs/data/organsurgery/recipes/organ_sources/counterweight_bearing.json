@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:counterweight_bearing"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "createt2:counterweight_bearing"
 }

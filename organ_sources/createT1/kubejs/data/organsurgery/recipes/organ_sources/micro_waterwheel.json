@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:micro_waterwheel"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:water",
     "amount": 500
-  }
+  },
+  "organ": "createt1:micro_waterwheel"
 }

@@ -36,53 +36,53 @@ let FUEL_ITEM = 'mekanism:reprocessed_fissile_fragment'
 let FUEL_COUNTER_KEY = 'kubejs:mek_t2_fuel'
 
 let SOURCE_IDS = new Set([
-  "kubejs:quantum_shield_core",
-  "kubejs:plasma_membrane_lung",
-  "kubejs:nano_recharge_nest",
-  "kubejs:overload_phase_spine",
-  "kubejs:shield_weave_membrane",
-  "kubejs:vector_lock_eye",
-  "kubejs:nano_repair_mesh",
-  "kubejs:prism_compute_brain",
-  "kubejs:phase_cut_arm",
-  "kubejs:light_spear_tendon",
-  "kubejs:deflection_prism_shoulder",
-  "kubejs:nano_copy_gland",
-  "kubejs:energy_harvest_step_foot",
-  "kubejs:zero_loss_sampler_claw",
-  "kubejs:radiation_diffusion_core",
-  "kubejs:fission_plasma_chamber",
-  "kubejs:plasma_state_wiring",
-  "kubejs:radiation_deflection_armor",
-  "kubejs:quantum_mecha_protocol",
-  "kubejs:quantum_wire",
-  "kubejs:phase_coil",
-  "kubejs:nano_repair_line",
-  "kubejs:lockon_sensor_array",
-  "kubejs:fission_fuel_rod",
-  "kubejs:radiation_filter"
+  "mekanismt2:quantum_shield_core",
+  "mekanismt2:plasma_membrane_lung",
+  "mekanismt2:nano_recharge_nest",
+  "mekanismt2:overload_phase_spine",
+  "mekanismt2:shield_weave_membrane",
+  "mekanismt2:vector_lock_eye",
+  "mekanismt2:nano_repair_mesh",
+  "mekanismt2:prism_compute_brain",
+  "mekanismt2:phase_cut_arm",
+  "mekanismt2:light_spear_tendon",
+  "mekanismt2:deflection_prism_shoulder",
+  "mekanismt2:nano_copy_gland",
+  "mekanismt2:energy_harvest_step_foot",
+  "mekanismt2:zero_loss_sampler_claw",
+  "mekanismt2:radiation_diffusion_core",
+  "mekanismt2:fission_plasma_chamber",
+  "mekanismt2:plasma_state_wiring",
+  "mekanismt2:radiation_deflection_armor",
+  "mekanismt2:quantum_mecha_protocol",
+  "mekanismt2:quantum_wire",
+  "mekanismt2:phase_coil",
+  "mekanismt2:nano_repair_line",
+  "mekanismt2:lockon_sensor_array",
+  "mekanismt2:fission_fuel_rod",
+  "mekanismt2:radiation_filter"
 ])
 let CORE_IDS = new Set([
-  "kubejs:quantum_shield_core",
-  "kubejs:plasma_membrane_lung",
-  "kubejs:overload_phase_spine"
+  "mekanismt2:quantum_shield_core",
+  "mekanismt2:plasma_membrane_lung",
+  "mekanismt2:overload_phase_spine"
 ])
 let SHIELD_WEAVE_IDS = new Set([
-  "kubejs:shield_weave_membrane"
+  "mekanismt2:shield_weave_membrane"
 ])
 let RADIATION_IDS = new Set([
-  "kubejs:radiation_diffusion_core",
-  "kubejs:radiation_filter"
+  "mekanismt2:radiation_diffusion_core",
+  "mekanismt2:radiation_filter"
 ])
 let PLASMA_IDS = new Set([
-  "kubejs:fission_plasma_chamber",
-  "kubejs:plasma_state_wiring"
+  "mekanismt2:fission_plasma_chamber",
+  "mekanismt2:plasma_state_wiring"
 ])
 let FISSION_FUEL_IDS = new Set([
-  "kubejs:fission_fuel_rod"
+  "mekanismt2:fission_fuel_rod"
 ])
 let PROTOCOL_IDS = new Set([
-  "kubejs:quantum_mecha_protocol"
+  "mekanismt2:quantum_mecha_protocol"
 ])
 let RADIATION_BLOCKS = [
   "mekanism:radioactive_waste_barrel",

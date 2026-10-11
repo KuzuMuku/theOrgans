@@ -28,17 +28,17 @@
       ],
       "4": [
         {
-          "id": "kubejs:sensor_subbrain"
+          "id": "vanillasculk:sensor_subbrain"
         }
       ],
       "5": [
         {
-          "id": "kubejs:tremor_tail"
+          "id": "vanillasculk:tremor_tail"
         }
       ],
       "6": [
         {
-          "id": "kubejs:warden_boneplate"
+          "id": "vanillasculk:warden_boneplate"
         }
       ]
     },
@@ -71,12 +71,12 @@
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:sensor_throat_sac"
+          "id": "vanillasculk:sensor_throat_sac"
         }
       ],
       "1": [
         {
-          "id": "kubejs:silent_arrow_gland"
+          "id": "vanillasculk:silent_arrow_gland"
         }
       ]
     }

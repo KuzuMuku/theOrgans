@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:industrial_energy_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:hydrogen",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt1:industrial_energy_core"
 }

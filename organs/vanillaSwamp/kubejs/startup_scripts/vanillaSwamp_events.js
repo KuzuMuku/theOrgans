@@ -128,7 +128,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingDeathEvent', e
     return
   }
 
-  if (playerInstalled(player, 'kubejs:hydra_venom_core') && getRuntimePoint(player, 'kubejs:vanillaSwamp_rotting_window') > 0) {
+  if (playerInstalled(player, 'vanillaswamp:hydra_venom_core') && getRuntimePoint(player, 'kubejs:vanillaSwamp_rotting_window') > 0) {
     addResource(player, 5)
   }
 

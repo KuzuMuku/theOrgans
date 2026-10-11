@@ -122,8 +122,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:drive_chainsaw",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt1:drive_chainsaw"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

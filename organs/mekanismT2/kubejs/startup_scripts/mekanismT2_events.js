@@ -11,12 +11,12 @@ let RESOURCE_CURRENT = 'kubejs:mek_energy'
 let SHIELD_ID = 'kubejs:mekanismT2_barrier'
 let RADIATION_KEY = 'kubejs:mek_t2_radiation_layer'
 let CORE_IDS = new Set([
-  'kubejs:quantum_shield_core',
-  'kubejs:plasma_membrane_lung',
-  'kubejs:overload_phase_spine'
+  'mekanismt2:quantum_shield_core',
+  'mekanismt2:plasma_membrane_lung',
+  'mekanismt2:overload_phase_spine'
 ])
 let DEFLECTION_IDS = new Set([
-  'kubejs:radiation_deflection_armor'
+  'mekanismt2:radiation_deflection_armor'
 ])
 
 function entityOf(player) {

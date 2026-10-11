@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:crushing_gears"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "createt1:crushing_gears"
 }

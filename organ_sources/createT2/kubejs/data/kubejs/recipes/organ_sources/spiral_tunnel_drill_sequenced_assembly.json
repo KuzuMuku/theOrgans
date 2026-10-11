@@ -139,8 +139,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:spiral_tunnel_drill",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt2:spiral_tunnel_drill"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

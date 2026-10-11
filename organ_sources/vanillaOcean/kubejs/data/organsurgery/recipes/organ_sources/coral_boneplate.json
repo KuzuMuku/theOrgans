@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:coral_boneplate"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:water",
     "amount": 500
-  }
+  },
+  "organ": "vanillaocean:coral_boneplate"
 }

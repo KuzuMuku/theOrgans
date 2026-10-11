@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:brass_pressure_ventricle"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:biodiesel",
     "amount": 500
-  }
+  },
+  "organ": "createt2:brass_pressure_ventricle"
 }

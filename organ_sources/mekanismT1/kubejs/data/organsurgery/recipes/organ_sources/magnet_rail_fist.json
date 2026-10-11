@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:magnet_rail_fist"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:sodium",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt1:magnet_rail_fist"
 }

@@ -19,47 +19,47 @@ let RESOURCE = {
 let SYSTEM_SOURCE = RESOURCE.system
 
 let SOURCE_IDS = new Set([
-  'kubejs:industrial_energy_core',
-  'kubejs:heat_pump_lung',
-  'kubejs:gas_reflux_sac',
-  'kubejs:high_frequency_phase_cochlea',
-  'kubejs:heat_conductive_boneplate',
-  'kubejs:capacitor_rhythm_gland',
-  'kubejs:distillation_filter_bladder',
-  'kubejs:calibration_lens_eye',
-  'kubejs:heat_blade_arm',
-  'kubejs:magnet_rail_fist',
-  'kubejs:overheat_diffusion_shoulder',
-  'kubejs:cracking_mine_sac',
-  'kubejs:refining_recovery_gland',
-  'kubejs:magnet_rail_leg_bolt',
-  'kubejs:energy_loop_core'
+  'mekanismt1:industrial_energy_core',
+  'mekanismt1:heat_pump_lung',
+  'mekanismt1:gas_reflux_sac',
+  'mekanismt1:high_frequency_phase_cochlea',
+  'mekanismt1:heat_conductive_boneplate',
+  'mekanismt1:capacitor_rhythm_gland',
+  'mekanismt1:distillation_filter_bladder',
+  'mekanismt1:calibration_lens_eye',
+  'mekanismt1:heat_blade_arm',
+  'mekanismt1:magnet_rail_fist',
+  'mekanismt1:overheat_diffusion_shoulder',
+  'mekanismt1:cracking_mine_sac',
+  'mekanismt1:refining_recovery_gland',
+  'mekanismt1:magnet_rail_leg_bolt',
+  'mekanismt1:energy_loop_core'
 ])
 
 let HEAT_IDS = new Set([
-  'kubejs:heat_pump_lung',
-  'kubejs:heat_conductive_boneplate',
-  'kubejs:heat_blade_arm',
-  'kubejs:overheat_diffusion_shoulder'
+  'mekanismt1:heat_pump_lung',
+  'mekanismt1:heat_conductive_boneplate',
+  'mekanismt1:heat_blade_arm',
+  'mekanismt1:overheat_diffusion_shoulder'
 ])
 
 let RHYTHM_IDS = new Set([
-  'kubejs:high_frequency_phase_cochlea',
-  'kubejs:capacitor_rhythm_gland',
-  'kubejs:calibration_lens_eye',
-  'kubejs:magnet_rail_leg_bolt'
+  'mekanismt1:high_frequency_phase_cochlea',
+  'mekanismt1:capacitor_rhythm_gland',
+  'mekanismt1:calibration_lens_eye',
+  'mekanismt1:magnet_rail_leg_bolt'
 ])
 
 let REFINERY_IDS = new Set([
-  'kubejs:gas_reflux_sac',
-  'kubejs:distillation_filter_bladder',
-  'kubejs:cracking_mine_sac',
-  'kubejs:refining_recovery_gland'
+  'mekanismt1:gas_reflux_sac',
+  'mekanismt1:distillation_filter_bladder',
+  'mekanismt1:cracking_mine_sac',
+  'mekanismt1:refining_recovery_gland'
 ])
 
 let OVERHEAT_IDS = new Set([
-  'kubejs:overheat_diffusion_shoulder',
-  'kubejs:heat_conductive_boneplate'
+  'mekanismt1:overheat_diffusion_shoulder',
+  'mekanismt1:heat_conductive_boneplate'
 ])
 
 let INFRASTRUCTURE_IDS = [
@@ -222,7 +222,7 @@ OrganKubejsEvents.predicate('mekanismT1_heat_blade_ready', event => {
     return predicateResult(event, false)
   }
   let installed = installedSourceIds(event.player)
-  return predicateResult(event, hasMatching(installed, new Set(['kubejs:heat_blade_arm']))
+  return predicateResult(event, hasMatching(installed, new Set(['mekanismt1:heat_blade_arm']))
     && getRuntimePoint(event.player, RESOURCE.heat) > 0
     && energyReady(event.player, 2))
 })

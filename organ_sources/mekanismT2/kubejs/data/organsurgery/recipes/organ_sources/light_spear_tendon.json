@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:light_spear_tendon"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:oxygen",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt2:light_spear_tendon"
 }

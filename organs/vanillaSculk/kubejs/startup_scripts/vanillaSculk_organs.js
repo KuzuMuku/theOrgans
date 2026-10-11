@@ -30,18 +30,6 @@ let VANILLASCULK_ORGAN_IDS = [
 ]
 
 StartupEvents.registry('item', event => {
-  Common.registerItems(event, VANILLASCULK_ORGAN_IDS)
 })
-
-Common.registerSkills([
-  {
-    id: 'kubejs:warden_core',
-    nameKey: 'point.organeffects.skill.kubejs.warden_core',
-    descKey: 'point.organeffects.skill.kubejs.warden_core.desc',
-    cooldown: 200,
-    level: 1,
-    castEvent: 'warden_core_cast'
-  }
-])
 
 })()

@@ -24,10 +24,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:freezebreak_sheath"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:water",
     "amount": 1000
-  }
+  },
+  "organ": "vanillasnow:freezebreak_sheath"
 }

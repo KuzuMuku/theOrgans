@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:overload_phase_spine"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:sodium",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt2:overload_phase_spine"
 }

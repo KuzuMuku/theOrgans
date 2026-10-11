@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:plasma_membrane_lung"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:steam",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt2:plasma_membrane_lung"
 }

@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:obsidian_chest_cavity"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:lava",
     "amount": 500
-  }
+  },
+  "organ": "vanillanether:obsidian_chest_cavity"
 }

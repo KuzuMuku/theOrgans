@@ -32,6 +32,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:travel_legplate"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "vanillavillage:travel_legplate"
 }

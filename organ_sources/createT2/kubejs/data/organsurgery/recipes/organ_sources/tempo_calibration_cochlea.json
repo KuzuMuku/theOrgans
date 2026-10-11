@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:tempo_calibration_cochlea"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "createdieselgenerators:ethanol",
     "amount": 250
-  }
+  },
+  "organ": "createt2:tempo_calibration_cochlea"
 }

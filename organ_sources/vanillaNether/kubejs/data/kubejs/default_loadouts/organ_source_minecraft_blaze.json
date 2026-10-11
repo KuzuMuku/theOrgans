@@ -20,14 +20,14 @@
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:ash_iris"
+          "id": "vanillanether:ash_iris"
         }
       ]
     },
     "organapi:abdomen": {
       "0": [
         {
-          "id": "kubejs:ember_liver"
+          "id": "vanillanether:ember_liver"
         }
       ]
     }

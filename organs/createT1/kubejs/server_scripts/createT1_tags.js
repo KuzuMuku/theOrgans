@@ -1,16 +1,16 @@
 ;(function () {
 
 let CREATE_LEVEL1_ORGANS = [
-  'kubejs:andesite_alloy_heart',
-  'kubejs:piston_punch',
-  'kubejs:power_hammer',
-  'kubejs:spring_ram',
-  'kubejs:drive_chainsaw',
-  'kubejs:stress_pick',
-  'kubejs:crushing_gears',
-  'kubejs:micro_waterwheel',
-  'kubejs:micro_windmill',
-  'kubejs:torque_driveshaft'
+  'createt1:andesite_alloy_heart',
+  'createt1:piston_punch',
+  'createt1:power_hammer',
+  'createt1:spring_ram',
+  'createt1:drive_chainsaw',
+  'createt1:stress_pick',
+  'createt1:crushing_gears',
+  'createt1:micro_waterwheel',
+  'createt1:micro_windmill',
+  'createt1:torque_driveshaft'
 ]
 
 ServerEvents.tags('item', event => {

@@ -1,4 +1,0 @@
-{
-  "vanillaJungle_marked_online": "reads per-entity mark (getMark/findNearbyMarkedEntities) — no declarative primitive",
-  "vanillaJungle_rooted_online": "home && stillFor>=60 — no still-timer primitive"
-}

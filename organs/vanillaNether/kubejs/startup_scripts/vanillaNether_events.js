@@ -101,7 +101,8 @@ function hasNetherOrgan(player, organId) {
     if (!stack || stack.isEmpty()) {
       continue
     }
-    if (String(BuiltInRegistries.ITEM.getKey(stack.getItem())) === organId) {
+    let __id = Java.loadClass('cn.kuzuanpa.organapi.platform.Platform').itemIdentity().getOrganId(stack)
+    if (__id && String(__id) === organId) {
       return true
     }
   }
@@ -281,7 +282,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', ev
       let stacks = Math.min(3, getRuntimeValue(entity, SMELTFIST_STACKS) + 1)
       setRuntimeValue(entity, SMELTFIST_STACKS, stacks, 100)
     }
-    if (hasNetherOrgan(entity, 'kubejs:obsidian_chest_cavity') && isFireDamage(source)) {
+    if (hasNetherOrgan(entity, 'vanillanether:obsidian_chest_cavity') && isFireDamage(source)) {
       event.setAmount(Number(event.getAmount()) * 0.8)
     }
   }

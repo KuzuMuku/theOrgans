@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:drysand_iris"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:lava",
     "amount": 250
-  }
+  },
+  "organ": "vanilladesert:drysand_iris"
 }

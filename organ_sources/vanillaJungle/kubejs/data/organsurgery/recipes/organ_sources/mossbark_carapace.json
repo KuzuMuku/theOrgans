@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:mossbark_carapace"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "vanillajungle:mossbark_carapace"
 }

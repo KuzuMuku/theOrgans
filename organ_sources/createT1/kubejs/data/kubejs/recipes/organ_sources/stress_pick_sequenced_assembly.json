@@ -123,8 +123,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:stress_pick",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt1:stress_pick"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

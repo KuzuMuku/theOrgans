@@ -139,8 +139,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:micro_waterwheel",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt1:micro_waterwheel"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

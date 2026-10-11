@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:energy_loop_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:hydrogen",
     "amount": 500
-  }
+  },
+  "organ": "mekanismt1:energy_loop_core"
 }

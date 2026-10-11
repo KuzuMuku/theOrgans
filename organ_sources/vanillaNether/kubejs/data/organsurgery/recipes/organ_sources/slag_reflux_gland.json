@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:slag_reflux_gland"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:lava",
     "amount": 250
-  }
+  },
+  "organ": "vanillanether:slag_reflux_gland"
 }

@@ -20,7 +20,7 @@
     "organapi:left_leg": {
       "0": [
         {
-          "id": "kubejs:endleap_tendon"
+          "id": "vanillaend:endleap_tendon"
         }
       ]
     }

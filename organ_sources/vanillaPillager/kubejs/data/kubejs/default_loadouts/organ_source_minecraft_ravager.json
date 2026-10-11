@@ -45,7 +45,7 @@
       ],
       "5": [
         {
-          "id": "kubejs:raider_ventricle"
+          "id": "vanillapillager:raider_ventricle"
         }
       ]
     },
@@ -74,7 +74,7 @@
       ],
       "1": [
         {
-          "id": "kubejs:nightraid_tendon"
+          "id": "vanillapillager:nightraid_tendon"
         }
       ]
     },
@@ -88,7 +88,7 @@
     "organapi:left_arm": {
       "0": [
         {
-          "id": "kubejs:skirmish_arm"
+          "id": "vanillapillager:skirmish_arm"
         }
       ]
     }

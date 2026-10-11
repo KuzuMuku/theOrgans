@@ -122,8 +122,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:piston_punch",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt1:piston_punch"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

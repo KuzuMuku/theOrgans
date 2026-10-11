@@ -47,77 +47,77 @@ let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'vanillaSwamp_system'
 let LINK_SOURCE = DIR_KEY + '_links'
 let SCHOOL_POWER_ATTRIBUTE = "irons_spellbooks:nature_spell_power"
 let SOURCE_IDS = new Set([
-  "kubejs:silt_poison_heart",
-  "kubejs:rotmoss_filter_liver",
-  "kubejs:bog_rot_sac",
-  "kubejs:slime_shell",
-  "kubejs:slime_thread_arm",
-  "kubejs:poison_bloom_throat",
-  "kubejs:frogfin_sneak_leg",
-  "kubejs:sporebog_lung",
-  "kubejs:slime_mana_spleen",
-  "kubejs:witchbog_crown",
-  "kubejs:hydra_venom_core",
+  "vanillaswamp:silt_poison_heart",
+  "vanillaswamp:rotmoss_filter_liver",
+  "vanillaswamp:bog_rot_sac",
+  "vanillaswamp:slime_shell",
+  "vanillaswamp:slime_thread_arm",
+  "vanillaswamp:poison_bloom_throat",
+  "vanillaswamp:frogfin_sneak_leg",
+  "vanillaswamp:sporebog_lung",
+  "vanillaswamp:slime_mana_spleen",
+  "vanillaswamp:witchbog_crown",
+  "vanillaswamp:hydra_venom_core",
   "kubejs:mud_vein_conduit",
   "kubejs:rot_hyphae",
-  "kubejs:swamp_gas_bladder",
+  "vanillaswamp:swamp_gas_bladder",
   "kubejs:rot_pump"
 ])
 let CORELINE_IDS = new Set([
-  "kubejs:silt_poison_heart",
-  "kubejs:hydra_venom_core"
+  "vanillaswamp:silt_poison_heart",
+  "vanillaswamp:hydra_venom_core"
 ])
 let SUPPORT_IDS = new Set([
-  "kubejs:bog_rot_sac"
+  "vanillaswamp:bog_rot_sac"
 ])
 let VENOM_IDS = new Set([
-  "kubejs:silt_poison_heart",
-  "kubejs:bog_rot_sac",
-  "kubejs:poison_bloom_throat",
-  "kubejs:hydra_venom_core"
+  "vanillaswamp:silt_poison_heart",
+  "vanillaswamp:bog_rot_sac",
+  "vanillaswamp:poison_bloom_throat",
+  "vanillaswamp:hydra_venom_core"
 ])
 let SLIME_IDS = new Set([
-  "kubejs:slime_shell",
-  "kubejs:slime_thread_arm",
-  "kubejs:frogfin_sneak_leg",
-  "kubejs:slime_mana_spleen"
+  "vanillaswamp:slime_shell",
+  "vanillaswamp:slime_thread_arm",
+  "vanillaswamp:frogfin_sneak_leg",
+  "vanillaswamp:slime_mana_spleen"
 ])
 let ROT_IDS = new Set([
-  "kubejs:rotmoss_filter_liver",
-  "kubejs:sporebog_lung",
-  "kubejs:witchbog_crown"
+  "vanillaswamp:rotmoss_filter_liver",
+  "vanillaswamp:sporebog_lung",
+  "vanillaswamp:witchbog_crown"
 ])
 let MIRE_IDS = new Set([
-  "kubejs:silt_poison_heart",
-  "kubejs:slime_shell",
-  "kubejs:frogfin_sneak_leg"
+  "vanillaswamp:silt_poison_heart",
+  "vanillaswamp:slime_shell",
+  "vanillaswamp:frogfin_sneak_leg"
 ])
 let MANA_IDS = new Set([
-  "kubejs:rotmoss_filter_liver"
+  "vanillaswamp:rotmoss_filter_liver"
 ])
 let SPELL_IDS = new Set([
-  "kubejs:sporebog_lung"
+  "vanillaswamp:sporebog_lung"
 ])
 let CROWN_IDS = new Set([
-  "kubejs:witchbog_crown"
+  "vanillaswamp:witchbog_crown"
 ])
 let ARMOR_IDS = new Set([
-  "kubejs:slime_shell"
+  "vanillaswamp:slime_shell"
 ])
 let MOVEMENT_IDS = new Set([
-  "kubejs:frogfin_sneak_leg"
+  "vanillaswamp:frogfin_sneak_leg"
 ])
 let MELEE_IDS = new Set([
-  "kubejs:slime_thread_arm"
+  "vanillaswamp:slime_thread_arm"
 ])
 let RANGED_IDS = new Set([
-  "kubejs:poison_bloom_throat"
+  "vanillaswamp:poison_bloom_throat"
 ])
 let RESOURCE_IDS = new Set([
-  "kubejs:slime_mana_spleen"
+  "vanillaswamp:slime_mana_spleen"
 ])
 let HYDRA_CORE_IDS = new Set([
-  "kubejs:hydra_venom_core"
+  "vanillaswamp:hydra_venom_core"
 ])
 let MUD_CONDUIT_IDS = new Set([
   "kubejs:mud_vein_conduit"
@@ -126,7 +126,7 @@ let ROT_HYPHAE_IDS = new Set([
   "kubejs:rot_hyphae"
 ])
 let GAS_BLADDER_IDS = new Set([
-  "kubejs:swamp_gas_bladder"
+  "vanillaswamp:swamp_gas_bladder"
 ])
 let ROT_PUMP_IDS = new Set([
   "kubejs:rot_pump"

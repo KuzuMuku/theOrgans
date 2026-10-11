@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:vector_lock_eye"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:lithium",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt2:vector_lock_eye"
 }

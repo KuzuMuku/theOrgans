@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:spring_ram"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "createt1:spring_ram"
 }

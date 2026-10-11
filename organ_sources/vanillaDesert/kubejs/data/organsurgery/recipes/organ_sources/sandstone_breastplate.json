@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:sandstone_breastplate"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "create:honey",
     "amount": 250
-  }
+  },
+  "organ": "vanilladesert:sandstone_breastplate"
 }

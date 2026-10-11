@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:shield_weave_membrane"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:chlorine",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt2:shield_weave_membrane"
 }

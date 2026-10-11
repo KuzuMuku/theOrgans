@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:calcite_breastbone"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "tag": "forge:milk",
     "amount": 1000
-  }
+  },
+  "organ": "vanillalushcaves:calcite_breastbone"
 }

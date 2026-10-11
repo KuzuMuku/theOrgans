@@ -1,20 +1,20 @@
 ;(function () {
 
 let VANILLASWAMP_ORGAN_IDS = [
-  "kubejs:silt_poison_heart",
-  "kubejs:rotmoss_filter_liver",
-  "kubejs:bog_rot_sac",
-  "kubejs:slime_shell",
-  "kubejs:slime_thread_arm",
-  "kubejs:poison_bloom_throat",
-  "kubejs:frogfin_sneak_leg",
-  "kubejs:sporebog_lung",
-  "kubejs:slime_mana_spleen",
-  "kubejs:witchbog_crown",
-  "kubejs:hydra_venom_core",
+  "vanillaswamp:silt_poison_heart",
+  "vanillaswamp:rotmoss_filter_liver",
+  "vanillaswamp:bog_rot_sac",
+  "vanillaswamp:slime_shell",
+  "vanillaswamp:slime_thread_arm",
+  "vanillaswamp:poison_bloom_throat",
+  "vanillaswamp:frogfin_sneak_leg",
+  "vanillaswamp:sporebog_lung",
+  "vanillaswamp:slime_mana_spleen",
+  "vanillaswamp:witchbog_crown",
+  "vanillaswamp:hydra_venom_core",
   "kubejs:mud_vein_conduit",
   "kubejs:rot_hyphae",
-  "kubejs:swamp_gas_bladder",
+  "vanillaswamp:swamp_gas_bladder",
   "kubejs:rot_pump"
 ]
 

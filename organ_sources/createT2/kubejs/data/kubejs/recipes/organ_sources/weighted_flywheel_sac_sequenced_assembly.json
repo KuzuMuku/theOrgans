@@ -139,8 +139,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:weighted_flywheel_sac",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt2:weighted_flywheel_sac"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

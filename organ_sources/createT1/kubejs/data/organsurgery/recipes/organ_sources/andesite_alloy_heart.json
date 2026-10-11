@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:andesite_alloy_heart"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "createt1:andesite_alloy_heart"
 }

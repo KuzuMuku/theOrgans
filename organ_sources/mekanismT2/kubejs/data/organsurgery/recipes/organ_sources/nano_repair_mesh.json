@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:nano_repair_mesh"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "mekanism:lithium",
     "amount": 250
-  }
+  },
+  "organ": "mekanismt2:nano_repair_mesh"
 }

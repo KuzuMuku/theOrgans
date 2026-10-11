@@ -48,59 +48,59 @@ let SYSTEM_SOURCE = RESOURCE ? RESOURCE.system : 'vanillaVillage_system'
 let LINK_SOURCE = DIR_KEY + '_links'
 let SCHOOL_POWER_ATTRIBUTE = "irons_spellbooks:holy_spell_power"
 let SOURCE_IDS = new Set([
-  "kubejs:bell_ventricle",
-  "kubejs:trade_spinewheel",
-  "kubejs:order_sternum",
-  "kubejs:profession_liver",
-  "kubejs:prestige_crown",
-  "kubejs:ledger_lung",
-  "kubejs:field_spleen",
-  "kubejs:repair_reflux_gland",
-  "kubejs:beacon_kidneysheath",
-  "kubejs:watchbell_cochlea",
-  "kubejs:village_iris",
-  "kubejs:offering_gland",
-  "kubejs:iron_guard_shoulder",
-  "kubejs:travel_legplate",
-  "kubejs:trade_scavenger_hand",
-  "kubejs:village_bell_core"
+  "vanillavillage:bell_ventricle",
+  "vanillavillage:trade_spinewheel",
+  "vanillavillage:order_sternum",
+  "vanillavillage:profession_liver",
+  "vanillavillage:prestige_crown",
+  "vanillavillage:ledger_lung",
+  "vanillavillage:field_spleen",
+  "vanillavillage:repair_reflux_gland",
+  "vanillavillage:beacon_kidneysheath",
+  "vanillavillage:watchbell_cochlea",
+  "vanillavillage:village_iris",
+  "vanillavillage:offering_gland",
+  "vanillavillage:iron_guard_shoulder",
+  "vanillavillage:travel_legplate",
+  "vanillavillage:trade_scavenger_hand",
+  "vanillavillage:village_bell_core"
 ])
 let CORELINE_IDS = new Set([
-  "kubejs:bell_ventricle",
-  "kubejs:trade_spinewheel"
+  "vanillavillage:bell_ventricle",
+  "vanillavillage:trade_spinewheel"
 ])
 let SUPPORT_IDS = new Set([
-  "kubejs:beacon_kidneysheath",
-  "kubejs:watchbell_cochlea",
-  "kubejs:offering_gland"
+  "vanillavillage:beacon_kidneysheath",
+  "vanillavillage:watchbell_cochlea",
+  "vanillavillage:offering_gland"
 ])
 let MANA_IDS = new Set([
-  "kubejs:profession_liver"
+  "vanillavillage:profession_liver"
 ])
 let SPELL_IDS = new Set([
-  "kubejs:ledger_lung"
+  "vanillavillage:ledger_lung"
 ])
 let CROWN_IDS = new Set([
-  "kubejs:prestige_crown"
+  "vanillavillage:prestige_crown"
 ])
 let ARMOR_IDS = new Set([
-  "kubejs:order_sternum"
+  "vanillavillage:order_sternum"
 ])
 let MOVEMENT_IDS = new Set([
-  "kubejs:travel_legplate"
+  "vanillavillage:travel_legplate"
 ])
 let MELEE_IDS = new Set([
-  "kubejs:iron_guard_shoulder"
+  "vanillavillage:iron_guard_shoulder"
 ])
 let RANGED_IDS = new Set([
-  "kubejs:village_iris"
+  "vanillavillage:village_iris"
 ])
 let RESOURCE_IDS = new Set([
-  "kubejs:field_spleen",
-  "kubejs:trade_scavenger_hand"
+  "vanillavillage:field_spleen",
+  "vanillavillage:trade_scavenger_hand"
 ])
 let CORE_IDS = new Set([
-  "kubejs:village_bell_core"
+  "vanillavillage:village_bell_core"
 ])
 let VILLAGE_LEDGER_IDS = new Set([
   "kubejs:village_ledger"

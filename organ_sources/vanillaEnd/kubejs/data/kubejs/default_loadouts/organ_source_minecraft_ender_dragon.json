@@ -30,21 +30,21 @@
     "organapi:abdomen": {
       "0": [
         {
-          "id": "kubejs:dragonbreath_liver"
+          "id": "vanillaend:dragonbreath_liver"
         }
       ]
     },
     "organapi:left_arm": {
       "0": [
         {
-          "id": "kubejs:foldgate_fist"
+          "id": "vanillaend:foldgate_fist"
         }
       ]
     },
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:gategap_crown"
+          "id": "vanillaend:gategap_crown"
         }
       ]
     }

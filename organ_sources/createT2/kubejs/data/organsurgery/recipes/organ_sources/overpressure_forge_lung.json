@@ -28,10 +28,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:overpressure_forge_lung"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "minecraft:lava",
     "amount": 500
-  }
+  },
+  "organ": "createt2:overpressure_forge_lung"
 }

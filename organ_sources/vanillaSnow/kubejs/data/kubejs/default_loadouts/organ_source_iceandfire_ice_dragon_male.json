@@ -28,14 +28,14 @@
       ],
       "4": [
         {
-          "id": "kubejs:frostseal_ventricle"
+          "id": "vanillasnow:frostseal_ventricle"
         }
       ]
     },
     "organapi:head": {
       "0": [
         {
-          "id": "kubejs:frostlight_crown"
+          "id": "vanillasnow:frostlight_crown"
         }
       ]
     }

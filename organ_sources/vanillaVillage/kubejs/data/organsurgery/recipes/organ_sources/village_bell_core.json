@@ -24,10 +24,11 @@
     }
   ],
   "result": {
-    "item": "kubejs:village_bell_core"
+    "item": "organapi:organ_item"
   },
   "fluid": {
     "fluid": "irons_spellbooks:timeless_slurry",
     "amount": 250
-  }
+  },
+  "organ": "vanillavillage:village_bell_core"
 }

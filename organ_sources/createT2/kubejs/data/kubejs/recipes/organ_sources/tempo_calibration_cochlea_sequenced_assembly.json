@@ -139,8 +139,11 @@
   ],
   "results": [
     {
-      "item": "kubejs:tempo_calibration_cochlea",
-      "chance": 70.0
+      "item": "organapi:organ_item",
+      "chance": 70.0,
+      "nbt": {
+        "OrganId": "createt2:tempo_calibration_cochlea"
+      }
     },
     {
       "item": "kubejs:failed_surgical_mass",

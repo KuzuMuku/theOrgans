@@ -28,6 +28,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:drive_chainsaw"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "createt1:drive_chainsaw"
 }

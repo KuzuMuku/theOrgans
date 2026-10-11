@@ -32,6 +32,7 @@
     }
   ],
   "result": {
-    "item": "kubejs:trade_spinewheel"
-  }
+    "item": "organapi:organ_item"
+  },
+  "organ": "vanillavillage:trade_spinewheel"
 }

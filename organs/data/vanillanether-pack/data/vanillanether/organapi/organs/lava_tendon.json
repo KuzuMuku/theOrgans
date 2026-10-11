@@ -38,9 +38,48 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "vanillaNether_lava_online",
-          "custom_display_key": "message.organkubejs.condition.vanillaNether_lava_online"
+          "type": "any_of",
+          "conditions": [
+            {
+              "type": "environment_state",
+              "state": "in_lava"
+            },
+            {
+              "type": "all_of",
+              "conditions": [
+                {
+                  "type": "home",
+                  "biome_keywords": [
+                    "nether",
+                    "basalt",
+                    "soul",
+                    "crimson",
+                    "warped"
+                  ],
+                  "structures": [
+                    "minecraft:fortress",
+                    "minecraft:bastion_remnant",
+                    "cataclysm:burning_arena",
+                    "cataclysm:soul_black_smith"
+                  ],
+                  "structure_radius": 10
+                },
+                {
+                  "type": "nearby_block",
+                  "blocks": [
+                    "minecraft:lava",
+                    "minecraft:flowing_lava",
+                    "minecraft:magma_block",
+                    "minecraft:blackstone",
+                    "minecraft:basalt"
+                  ],
+                  "radius": 5,
+                  "vertical": 1,
+                  "value": 1
+                }
+              ]
+            }
+          ]
         }
       ],
       "grants": [

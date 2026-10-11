@@ -46,7 +46,7 @@
   "message.organkubejs.execution.vanillaSculk_ancient_step_quiet": "按共振程度开启 3 至 9 秒的静默窗口",
   "message.organkubejs.execution.vanillaSculk_crown_mark_vibration": "按回响耳蜗的概率给目标施加标记",
   "message.organkubejs.execution.vanillaSculk_melee_mark": "有 25% 概率给目标施加标记",
-  "message.organkubejs.execution.vanillaSculk_throat_mark_vibration": "在低振幅振动事件时给目标施加标记",
+  "message.organkubejs.execution.vanillaSculk_throat_mark_vibration": "给目标施加标记",
   "point.organeffects.attribute.irons_spellbooks.cast_time_reduction": "施法时间缩减",
   "point.organeffects.attribute.irons_spellbooks.cast_time_reduction.desc": "缩短法术施法时间",
   "point.organeffects.attribute.irons_spellbooks.casting_movespeed": "施法移速",

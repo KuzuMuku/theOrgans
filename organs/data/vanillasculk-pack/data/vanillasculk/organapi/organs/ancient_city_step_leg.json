@@ -17,6 +17,12 @@
       "conditions": [
         {
           "type": "static"
+        },
+        {
+          "type": "point",
+          "point": "counter:vanillasculk:vanillaSculk_resonance",
+          "op": "gt",
+          "value": 0
         }
       ],
       "grants": [
@@ -49,13 +55,14 @@
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "callback": "vanillaSculk_ancient_step_quiet",
+          "type": "set_runtime",
+          "window": "runtime:vanillasculk:vanillaSculk_quiet_window",
+          "value": 1,
+          "duration_ticks": "min(180, max(60, floor(point('counter:vanillasculk:vanillaSculk_resonance') * 2)))",
           "point_type": "runtime",
           "point_id": "vanillasculk:ancient_city_step_quiet_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSculk_ancient_step_quiet"
+          "max_consume": 1
         }
       ]
     }

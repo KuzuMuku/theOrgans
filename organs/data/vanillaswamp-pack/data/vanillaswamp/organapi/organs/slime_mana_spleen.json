@@ -99,33 +99,23 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "biome_category",
-              "value": "swamp"
-            },
-            {
-              "type": "biome_category",
-              "value": "mangrove"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:swamp_hut",
-                "iceandfire:hydra_cave"
-              ],
-              "radius_chunks": 8
-            },
-            {
-              "type": "environment_state",
-              "state": "wet"
-            },
-            {
-              "type": "environment_state",
-              "state": "raining"
-            }
-          ]
+          "type": "home",
+          "biome_keywords": [
+            "swamp",
+            "mangrove"
+          ],
+          "structures": [
+            "minecraft:swamp_hut",
+            "iceandfire:hydra_cave"
+          ],
+          "structure_radius": 8,
+          "extra": "wet"
+        },
+        {
+          "type": "point",
+          "point": "counter:vanillaswamp:vanillaSwamp_resonance",
+          "op": "gte",
+          "value": 2
         }
       ],
       "grants": [],
@@ -140,7 +130,14 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillaswamp:vanillaSwamp_resonance",
+              "amount": 2,
+              "source": "vanillaSwamp_system"
+            }
+          ],
           "actions": []
         },
         {
@@ -153,21 +150,44 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillaswamp:vanillaSwamp_resonance",
+              "amount": 2,
+              "source": "vanillaSwamp_system"
+            }
+          ],
           "actions": []
         }
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "config": {
-            "callback": "vanillaSwamp_spend_bonus_loot"
-          },
+          "type": "grant_items",
+          "rolls": 2,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:slime_ball",
+              "count": 2,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:lily_pad",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:spider_eye",
+              "count": 1,
+              "weight": 1
+            }
+          ],
           "point_type": "runtime",
           "point_id": "vanillaswamp:slime_mana_spleen_bonus_loot",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSwamp_spend_bonus_loot"
+          "max_consume": 1
         }
       ]
     }

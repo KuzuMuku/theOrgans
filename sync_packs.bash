@@ -43,7 +43,7 @@ for side in data resources; do
   for pack in "$src"/*-pack; do
     [ -d "$pack" ] || continue
     name="$(basename "$pack")"
-    rm -rf "$target_organs/$side/$name"
+    rm -rf "$target_organs/$side/$name/"
     cp -r "$pack" "$target_organs/$side/$name"
   done
 done

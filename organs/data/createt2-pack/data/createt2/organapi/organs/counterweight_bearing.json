@@ -33,7 +33,7 @@
         },
         {
           "type": "counter",
-          "id": "createt2:torque_capacity",
+          "id": "organcreate:torque_capacity",
           "amount": 10
         }
       ],

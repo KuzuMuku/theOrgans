@@ -155,8 +155,7 @@
           "point_type": "runtime",
           "point_id": "vanillapillager:scout_iris_mark_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaPillager_target_mark"
+          "max_consume": 1
         }
       ]
     }

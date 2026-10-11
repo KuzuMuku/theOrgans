@@ -35,7 +35,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt2:torque",
+              "id": "organcreate:torque",
               "amount": 1,
               "source": "kubejs_level2_system"
             }
@@ -50,7 +50,7 @@
       "conditions": [
         {
           "type": "point",
-          "point": "counter:createt2:torque_capacity",
+          "point": "counter:organcreate:torque_capacity",
           "op": "gt",
           "value": 0
         }
@@ -62,7 +62,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt2:torque",
+              "id": "organcreate:torque",
               "amount": 5,
               "source": "kubejs_level2_system"
             }
@@ -89,7 +89,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt2:torque",
+              "id": "organcreate:torque",
               "amount": 5,
               "source": "kubejs_level2_system"
             }

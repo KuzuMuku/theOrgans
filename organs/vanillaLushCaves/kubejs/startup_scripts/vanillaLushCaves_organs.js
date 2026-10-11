@@ -11,11 +11,7 @@ let VANILLALUSHCAVES_ORGAN_IDS = [
   "brightpod_sac",
   "sporebed_spleen",
   "gloommoss_crown",
-  "sporebloom_core",
-  "mycelium_bridge",
-  "spore_conduit",
-  "glow_bed",
-  "root_network"
+  "sporebloom_core"
 ]
 
 StartupEvents.registry('item', event => {

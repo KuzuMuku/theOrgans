@@ -107,37 +107,32 @@
               ]
             },
             {
-              "type": "any_of",
+              "type": "biome_category",
+              "value": "small_end_islands"
+            },
+            {
+              "type": "all_of",
               "conditions": [
                 {
-                  "type": "biome_category",
-                  "value": "small_end_islands"
+                  "type": "dimid",
+                  "value_id": "minecraft:the_end"
                 },
                 {
-                  "type": "all_of",
+                  "type": "any_of",
                   "conditions": [
                     {
-                      "type": "dimid",
-                      "value_id": "minecraft:the_end"
+                      "type": "movement_state",
+                      "state": "fall_flying"
                     },
                     {
-                      "type": "any_of",
-                      "conditions": [
-                        {
-                          "type": "movement_state",
-                          "state": "fall_flying"
-                        },
-                        {
-                          "type": "inventory",
-                          "items": [
-                            "minecraft:ender_pearl",
-                            "minecraft:chorus_fruit",
-                            "minecraft:elytra"
-                          ],
-                          "op": "gte",
-                          "value": 1
-                        }
-                      ]
+                      "type": "inventory",
+                      "items": [
+                        "minecraft:ender_pearl",
+                        "minecraft:chorus_fruit",
+                        "minecraft:elytra"
+                      ],
+                      "op": "gte",
+                      "value": 1
                     }
                   ]
                 }
@@ -181,8 +176,7 @@
           "point_type": "mark",
           "point_id": "vanillaend:vanillaEnd_mark",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaEnd_target_mark"
+          "max_consume": 1
         }
       ]
     },

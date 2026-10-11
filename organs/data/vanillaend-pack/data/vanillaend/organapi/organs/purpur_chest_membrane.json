@@ -100,37 +100,32 @@
               ]
             },
             {
-              "type": "any_of",
+              "type": "biome_category",
+              "value": "small_end_islands"
+            },
+            {
+              "type": "all_of",
               "conditions": [
                 {
-                  "type": "biome_category",
-                  "value": "small_end_islands"
+                  "type": "dimid",
+                  "value_id": "minecraft:the_end"
                 },
                 {
-                  "type": "all_of",
+                  "type": "any_of",
                   "conditions": [
                     {
-                      "type": "dimid",
-                      "value_id": "minecraft:the_end"
+                      "type": "movement_state",
+                      "state": "fall_flying"
                     },
                     {
-                      "type": "any_of",
-                      "conditions": [
-                        {
-                          "type": "movement_state",
-                          "state": "fall_flying"
-                        },
-                        {
-                          "type": "inventory",
-                          "items": [
-                            "minecraft:ender_pearl",
-                            "minecraft:chorus_fruit",
-                            "minecraft:elytra"
-                          ],
-                          "op": "gte",
-                          "value": 1
-                        }
-                      ]
+                      "type": "inventory",
+                      "items": [
+                        "minecraft:ender_pearl",
+                        "minecraft:chorus_fruit",
+                        "minecraft:elytra"
+                      ],
+                      "op": "gte",
+                      "value": 1
                     }
                   ]
                 }
@@ -179,26 +174,20 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "dimid",
-              "value_id": "minecraft:the_end"
-            },
-            {
-              "type": "biome_category",
-              "value": "the_end"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:end_city",
-                "minecraft:end_gateway",
-                "minecraft:end_ship"
-              ],
-              "radius_chunks": 10
-            }
-          ]
+          "type": "home",
+          "dimension_home": true,
+          "dimensions": [
+            "minecraft:the_end"
+          ],
+          "biome_keywords": [
+            "the_end"
+          ],
+          "structures": [
+            "minecraft:end_city",
+            "minecraft:end_gateway",
+            "minecraft:end_ship"
+          ],
+          "structure_radius": 10
         }
       ],
       "grants": [

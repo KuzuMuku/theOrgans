@@ -1,9 +1,4 @@
 {
-  "createT2_high_load": "dynamic threshold: current >= max(16, floor(capacity*0.75)) — needs point-vs-formula compare",
-  "mekanismT1_heat_blade_ready": "energyReady dynamic threshold inside the AND — needs point-vs-point compare",
-  "mekanismT2_radiation_source_nearby": "reads getLinkCounter (syncOnline) — intentional forge cross-ref",
-  "mekanismT2_sync_online": "reads getLinkCounter — intentional forge cross-ref (link counter written by hook)",
   "vanillaJungle_marked_online": "reads per-entity mark (getMark/findNearbyMarkedEntities) — no declarative primitive",
-  "vanillaJungle_rooted_online": "home && stillFor>=60 — no still-timer primitive",
-  "vanillaNether_lava_online": "entity.isInLava() branch — no in_lava environment_state primitive"
+  "vanillaJungle_rooted_online": "home && stillFor>=60 — no still-timer primitive"
 }

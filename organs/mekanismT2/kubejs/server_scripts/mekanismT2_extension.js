@@ -25,8 +25,6 @@ let LINK_SOURCE = DIR_KEY + '_links'
 let SHIELD_SOURCE = 'mekanismT2_shield'
 let SHIELD_KEY = Common.pointKey('shield', 'kubejs:mekanismT2_barrier')
 let SHIELD_ID = 'kubejs:mekanismT2_barrier'
-let LINK_STORE_KEY = 'mekanismT2_sync_links'
-let LINK_COUNTER_KEY = 'kubejs:mekanismT2_sync_link'
 let RADIATION_KEY = 'kubejs:mek_t2_radiation_layer'
 let PLASMA_KEY = 'kubejs:mek_t2_plasma_window'
 let PROTOCOL_KEY = 'kubejs:mek_t2_protocol_window'
@@ -138,10 +136,11 @@ function stateReady(player) {
 }
 
 function syncOnline(player) {
-  if (!player || !hasMatching(installedSourceIds(player), CORE_IDS)) {
-    return false
-  }
-  return getLinkCounter(player, LINK_COUNTER_KEY) > 0
+  // The quantum sync cube is now a standalone Java block (organmekanism) that feeds
+  // counter:organmekanism:mek_energy directly. "Sync online" therefore just means the
+  // player carries a Mekanism core organ; energy availability is enforced separately by
+  // resourceReady(player, cost) against the Java-fed energy pool.
+  return !!player && hasMatching(installedSourceIds(player), CORE_IDS)
 }
 
 function shieldReady(player, amount) {
@@ -231,66 +230,6 @@ function fireMekEvent(player, type, target, amount) {
     builder.amount(Number(amount))
   }
   RuntimeEffectService.fireEvent(entity, builder.build())
-}
-
-function syncLinkEntry(block) {
-  return String(block.getDimension()) + '|' + block.getX() + '|' + block.getY() + '|' + block.getZ()
-}
-
-function appendSyncLink(player, block) {
-  let entry = syncLinkEntry(block)
-  let data = entityOf(player).persistentData
-  let links = data.getList(LINK_STORE_KEY, 8)
-  for (let i = 0; i < links.size(); i++) {
-    if (links.getString(i) === entry) {
-      return
-    }
-  }
-  links.add(links.size(), StringTag.valueOf(entry))
-  data.put(LINK_STORE_KEY, links)
-}
-
-function removeSyncLink(player, block) {
-  let entry = syncLinkEntry(block)
-  let data = entityOf(player).persistentData
-  let links = data.getList(LINK_STORE_KEY, 8)
-  for (let i = links.size() - 1; i >= 0; i--) {
-    if (links.getString(i) === entry) {
-      links.remove(i)
-      data.put(LINK_STORE_KEY, links)
-      return
-    }
-  }
-}
-
-function activeSyncCount(player) {
-  let entity = entityOf(player)
-  if (!entity || !entity.server) {
-    return 0
-  }
-  let server = entity.server
-  let links = entity.persistentData.getList(LINK_STORE_KEY, 8)
-  let count = 0
-  for (let i = 0; i < links.size(); i++) {
-    let parts = String(links.getString(i)).split('|')
-    if (parts.length !== 4) {
-      continue
-    }
-    let location = ResourceLocation.tryParse(parts[0])
-    let level = location ? server.getLevel(ResourceKey.create(Registries.DIMENSION, location)) : null
-    if (!level) {
-      continue
-    }
-    let pos = new BlockPos(parseInt(parts[1], 10), parseInt(parts[2], 10), parseInt(parts[3], 10))
-    if (!level.isLoaded(pos)) {
-      continue
-    }
-    let blockId = String(BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos).getBlock()))
-    if (blockId === 'kubejs:quantum_sync_cube') {
-      count++
-    }
-  }
-  return count
 }
 
 function consumeInventoryItem(player, itemId, amount) {
@@ -487,12 +426,6 @@ PlayerEvents.tick(event => {
   }
   let windowCache = global.mekanismT2WindowCache || (global.mekanismT2WindowCache = new Map())
   let entity = entityOf(player)
-  let count = activeSyncCount(player)
-  let previous = getLinkCounter(player, LINK_COUNTER_KEY)
-  setLinkCounter(player, LINK_COUNTER_KEY, count)
-  if (previous !== count) {
-    refreshPlayerState(player)
-  }
   let windowState = [
     getOepRuntime(player, PLASMA_KEY),
     getOepRuntime(player, PROTOCOL_KEY),
@@ -506,7 +439,6 @@ PlayerEvents.tick(event => {
     refreshPlayerState(player)
   }
   if (entity.tickCount % 20 === 0) {
-    let capacity = getCounter(player, RESOURCE.capacity)
     let fuelCache = global.mekanismT2FuelCache || (global.mekanismT2FuelCache = new Map())
     let fuelCap = countMatching(installedSourceIds(player), FISSION_FUEL_IDS) * 2
     let previousFuelCap = fuelCache.get(entityCacheId(entity))
@@ -516,16 +448,15 @@ PlayerEvents.tick(event => {
     }
     fuelCache.set(entityCacheId(entity), fuelCap)
     setCounter(player, FUEL_COUNTER_KEY, Math.min(fuelCap, getCounter(player, FUEL_COUNTER_KEY)))
-    if (count > 0 && capacity > 0) {
-      addResource(player, count * 4)
-      setCounter(player, RESOURCE.current, Math.min(capacity, getCounter(player, RESOURCE.current)))
-    }
-    if (count <= 0 && getCounter(player, RADIATION_KEY) > 0) {
+    // Energy is now produced by the standalone organMekanism quantum sync cube block
+    // (counter:organmekanism:mek_energy). The KubeJS fallback no longer scans the world
+    // or injects energy; it only decays radiation once the stored energy runs out.
+    if (getCounter(player, RESOURCE.current) <= 0 && getCounter(player, RADIATION_KEY) > 0) {
       consumeRadiation(player, 1)
     }
   }
   if (entity.tickCount % 80 === 0) {
-    if (count > 0
+    if (syncOnline(player)
         && hasMatching(installedSourceIds(player), RADIATION_IDS)
         && hasNearbyBlock(entity, RADIATION_BLOCKS, 8)
         && resourceReady(player, 2)) {
@@ -533,32 +464,6 @@ PlayerEvents.tick(event => {
       addRadiation(player, 1)
     }
   }
-})
-
-BlockEvents.placed(event => {
-  let block = event.block
-  if (!block || block.getId() !== 'kubejs:quantum_sync_cube') {
-    return
-  }
-  let player = event.player || event.entity
-  if (!player || !(entityOf(player) instanceof PlayerClass)) {
-    return
-  }
-  appendSyncLink(player, block)
-  refreshPlayerState(player)
-})
-
-BlockEvents.broken(event => {
-  let block = event.block
-  if (!block || block.getId() !== 'kubejs:quantum_sync_cube') {
-    return
-  }
-  let player = event.player || event.entity
-  if (!player || !(entityOf(player) instanceof PlayerClass)) {
-    return
-  }
-  removeSyncLink(player, block)
-  refreshPlayerState(player)
 })
 
 })()

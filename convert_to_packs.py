@@ -44,6 +44,23 @@ RES_OUT = ORGANS / "resources"
 # we emit the matching <ns>: datapack tag file below, so it self-resolves.
 NS_VALUE_KEYS = {"id", "item", "point_id", "skill_name", "point", "block_tag"}
 
+# The shared Create torque / Mekanism energy counters are now produced by the
+# standalone organCreate / organMekanism Java mods (torque_platform / quantum_sync_cube
+# blocks), not by per-biome KubeJS. Their point ids are pinned to those mods' fixed
+# namespaces regardless of which biome pack an organ lives in, so every create/mek tier
+# reads one unified pool (counter:organcreate:torque, counter:organmekanism:mek_energy).
+UNIFIED_POINT_NS = {
+    "torque": "organcreate",
+    "torque_capacity": "organcreate",
+    "mek_energy": "organmekanism",
+    "mek_energy_capacity": "organmekanism",
+}
+
+
+def ns_for_point(local, ns):
+    """Return the pinned mod namespace for a unified counter local-name, else the pack ns."""
+    return UNIFIED_POINT_NS.get(local.split(".", 1)[0], ns)
+
 MIGRATION = ROOT / "migration"
 PRED_SPEC = json.loads((MIGRATION / "predicate_spec.json").read_text(encoding="utf-8"))
 BIOME_JS = json.loads((MIGRATION / "biome_constants.json").read_text(encoding="utf-8"))
@@ -63,16 +80,25 @@ FALLBACKS = {}
 
 
 def rewrite_ns(value, ns):
-    """kubejs:foo -> <ns>:foo (only rewrites the kubejs namespace)."""
+    """kubejs:foo -> <ns>:foo (only rewrites the kubejs namespace).
+
+    Unified counter ids (torque / mek_energy …) are pinned to their owning mod's
+    namespace instead of the per-biome ns, so every create/mek tier shares one pool.
+    """
     if isinstance(value, str) and value.startswith("kubejs:"):
-        return ns + ":" + value[len("kubejs:"):]
+        local = value[len("kubejs:"):]
+        return ns_for_point(local, ns) + ":" + local
     return value
 
 
 def rewrite_point_key(value, ns):
-    """point keys look like '<type>:kubejs:foo' -> '<type>:<ns>:foo'."""
+    """point keys look like '<type>:kubejs:foo' -> '<type>:<ns>:foo'.
+
+    Unified counter ids are pinned to their owning mod's namespace (see rewrite_ns).
+    """
     if isinstance(value, str) and ":kubejs:" in value:
-        return value.replace(":kubejs:", ":" + ns + ":", 1)
+        prefix, local = value.split(":kubejs:", 1)
+        return prefix + ":" + ns_for_point(local, ns) + ":" + local
     return value
 
 
@@ -105,33 +131,36 @@ def build_home_condition(biome):
     KubeJS structure_radius is already in CHUNKS (passed straight to
     findNearestMapStructure as radiusChunks), matching the declarative ``structure``
     condition's ``radius_chunks`` 1:1 (engine clamps to 1..32).
-    Returns None if no HOME data (caller falls back to hook).
+
+    Emits ONE compact ``home`` node carrying the activation set inline. The engine's
+    ``home`` condition handler (OrganEffectsExtensionApi.buildHomeBranches) expands these
+    exact fields back into the same dimid/biome_category/structure/environment_state/
+    nearby_block OR at eval time, so this is behaviour-identical to the old exploded
+    any_of while collapsing N nodes to 1. Returns None if no HOME data / nothing to
+    match (caller falls back to hook).
     """
     h = HOME_JS.get(biome)
     if not h:
         return None
-    branches = []
-    if h.get("dimension_home"):
-        for dim in h.get("dimensions", []):
-            branches.append({"type": "dimid", "value_id": dim})
-    for kw in h.get("biome_keywords", []):
-        branches.append({"type": "biome_category", "value": kw})
+    node = {"type": "home"}
+    dims = h.get("dimensions", [])
+    if h.get("dimension_home") and dims:
+        node["dimension_home"] = True
+        node["dimensions"] = list(dims)
+    kws = h.get("biome_keywords", [])
+    if kws:
+        node["biome_keywords"] = list(kws)
     structs = h.get("structures", [])
     if structs:
-        radius_chunks = max(1, min(32, h.get("structure_radius", 8)))
-        branches.append({"type": "structure", "structures": list(structs),
-                         "radius_chunks": radius_chunks})
+        node["structures"] = list(structs)
+        node["structure_radius"] = max(1, min(32, h.get("structure_radius", 8)))
     extra = h.get("extra")
-    if extra == "wet":
-        branches.append({"type": "environment_state", "state": "wet"})
-        branches.append({"type": "environment_state", "state": "raining"})
-    elif extra == "snow":
-        branches.append({"type": "environment_state", "state": "raining"})
-        branches.append({"type": "nearby_block", "blocks": list(SNOW_GROUND_BLOCKS),
-                         "radius": 5, "vertical": 1, "value": 1})
-    if not branches:
+    if extra in ("wet", "snow"):
+        node["extra"] = extra
+    # a home node with no activating field matches nothing -> fall back to hook
+    if len(node) == 1:
         return None
-    return {"type": "any_of", "conditions": branches}
+    return node
 
 
 def is_opaque_type(t):
@@ -347,6 +376,9 @@ def rewrite_lang_keys(lang, ns):
         new_key = key
         if key.startswith("item.kubejs."):
             new_key = "item." + ns + "." + key[len("item.kubejs."):]
+        elif key.startswith("point.organeffects.") and ".kubejs." in key:
+            prefix, suffix = key.split(".kubejs.", 1)
+            new_key = prefix + "." + ns_for_point(suffix, ns) + "." + suffix
         elif key.startswith("point.organeffects."):
             new_key = key.replace(".kubejs.", "." + ns + ".", 1)
         out[new_key] = val

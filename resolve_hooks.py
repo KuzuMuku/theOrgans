@@ -48,6 +48,13 @@ COMMON_JS = ORGANS / "common" / "kubejs" / "server_scripts" / "00_organ_common.j
 ZONE_BLOCK_RADIUS = 5
 ZONE_STRUCT_RADIUS_CHUNKS = 10
 
+# Exact membership of the vanilla #minecraft:raiders entity tag. When a countNearby
+# roster equals this set we emit one tag-based nearby_entity node instead of six.
+_RAIDERS_TAG_MEMBERS = {
+    "minecraft:pillager", "minecraft:vindicator", "minecraft:evoker",
+    "minecraft:illusioner", "minecraft:witch", "minecraft:ravager",
+}
+
 # void-kit helper (End): inventoryCount([...]) > 0
 VOID_KIT_ITEMS = ["minecraft:ender_pearl", "minecraft:chorus_fruit", "minecraft:elytra"]
 
@@ -250,7 +257,10 @@ def substitute_locals(expr, locals_):
         new = expr
         for name, val in locals_.items():
             wrapped = ('(' + val + ')') if (' && ' in val or ' || ' in val) else val
-            new = re.sub(r'\b' + re.escape(name) + r'\b', wrapped, new)
+            # match the bare local only — never a `.name` property access (e.g. the
+            # `current` in `RESOURCE.current`), which would otherwise recursively expand
+            # a local whose value contains its own name as a key suffix.
+            new = re.sub(r'(?<![\w.])' + re.escape(name) + r'(?![\w])', wrapped, new)
         if new == expr:
             break
         expr = new
@@ -414,6 +424,33 @@ def _mk_point(biome, ns, getter, key_tok, op, num):
     return {"type": "point", "point": key, "op": OP_MAP.get(op, "gte"), "value": int(num)}
 
 
+def _resource_point_key(biome, ns, field, ptype="counter"):
+    """Resolve RESOURCE.<field> (e.g. current/capacity) to a namespaced point key."""
+    key = _BIOMES[biome]["RESOURCE"].get(field)
+    if not key:
+        return None
+    return C.rewrite_point_key(ptype + ":" + key, ns)
+
+
+def _js_formula_to_expr(formula, biome, ns):
+    """Convert a JS numeric RHS (Math.* + point getters) into an organEffects formula
+    string the `point` condition can evaluate: strip the `Math.` prefix and rewrite each
+    getCounter/getRuntimePoint/... read to point('<namespaced key>'). Returns None if any
+    getter cannot be resolved or a non-arithmetic token survives."""
+    s = re.sub(r'\bMath\.', '', formula.strip())
+
+    def repl(m):
+        key = point_key(_BIOMES, biome, ns, m.group(1), m.group(2))
+        return "point('%s')" % key if key else m.group(0)
+
+    s = re.sub(r'(?:[A-Za-z_]\w*\.)?(getRuntimePoint|getOepRuntime|getShieldPoint|getCounter)\(\s*[^,]+,\s*' + KEY + r'\s*\)', repl, s)
+    if re.search(r'\bget(?:Counter|RuntimePoint|OepRuntime|ShieldPoint)\b', s):
+        return None  # an unresolved getter survived — bail to the forge fallback
+    if not re.fullmatch(r"[\d\s+\-*/%().,':A-Za-z_]*", s):
+        return None  # stray token (comparison, bracket, …) → not a pure arithmetic formula
+    return s.strip()
+
+
 def compile_leaf(expr, biome, ns, seen=None):
     seen = seen or set()
     expr = _strip_outer_parens(expr.strip())
@@ -429,6 +466,24 @@ def compile_leaf(expr, biome, ns, seen=None):
     m = re.fullmatch(r'(?:[A-Za-z_]\w*\.)?(getRuntimePoint|getOepRuntime|getShieldPoint|getCounter)\([^,]+,\s*' + KEY + r'\s*\)\s*' + CMP + r'\s*(\d+)', expr)
     if m:
         return _mk_point(biome, ns, m.group(1), m.group(2), m.group(3), m.group(4))
+    # dynamic-threshold point comparison: getter(player, KEY) OP <formula>, where the RHS
+    # references capacity/other counters (e.g. createT2 high_load: current >= max(16,
+    # floor(capacity*0.75))). The `point` condition now evaluates a formula threshold.
+    m = re.fullmatch(r'(?:[A-Za-z_]\w*\.)?(getRuntimePoint|getOepRuntime|getShieldPoint|getCounter)\([^,]+,\s*' + KEY + r'\s*\)\s*' + CMP + r'\s*(.+)', expr)
+    if m:
+        key = point_key(_BIOMES, biome, ns, m.group(1), m.group(2))
+        formula = _js_formula_to_expr(m.group(4), biome, ns)
+        if key is not None and formula is not None:
+            value = int(formula) if re.fullmatch(r'\d+', formula) else formula
+            return {"type": "point", "point": key, "op": OP_MAP.get(m.group(3), "gte"), "value": value}
+    # energyReady(player, N) == current >= min(capacity, floor(N)) (mekanism energy gate)
+    m = re.fullmatch(r'(?:[A-Za-z_]\w*\.)?energyReady\([^,]+,\s*(\d+)\s*\)', expr)
+    if m:
+        cur = _resource_point_key(biome, ns, "current")
+        cap = _resource_point_key(biome, ns, "capacity")
+        if cur and cap:
+            return {"type": "point", "point": cur, "op": "gte",
+                    "value": "min(point('%s'), %d)" % (cap, int(m.group(1)))}
     # organ_set
     m = re.fullmatch(r'(?:[A-Za-z_]\w*\.)?hasMatching\([^,]+,\s*([A-Za-z_]\w*|new Set\(\[[^\]]*\]\))\s*\)', expr)
     if m:
@@ -487,6 +542,8 @@ def _compile_leaf_world(expr, biome, ns, seen):
         return {"type": "movement_state", "state": MOVEMENT[m.group(1)]}
     if re.search(r'\.isOnFire\(\)', expr):
         return {"type": "environment_state", "state": "on_fire"}
+    if re.search(r'\.isInLava\(\)', expr):
+        return {"type": "environment_state", "state": "in_lava"}
     if re.search(r'\.isInWater\(\)', expr):
         return {"type": "environment_state", "state": "in_water"}
     if re.fullmatch(r'(?:Common\.)?isWet\(\s*(?:event\.)?player\s*\)', expr):
@@ -497,8 +554,21 @@ def _compile_leaf_world(expr, biome, ns, seen):
         ids = _BIOMES[biome]["sets"].get(m.group(1)) or _BIOMES[biome]["arrays"].get(m.group(1))
         if not ids:
             return None
+        radius = float(m.group(2))
+        # Collapse the vanilla raider roster into the #minecraft:raiders entity tag: when
+        # the id set CONTAINS all six tag members, replace those six with one tag-based
+        # nearby_entity node and keep any extras (vex / irons_spellbooks summons) as their
+        # own nodes. The engine's nearby_entity supports entity_tag, and the tag membership
+        # equals exactly those six ids, so this is faithful.
+        idset = set(ids)
+        if _RAIDERS_TAG_MEMBERS <= idset:
+            subs = [{"type": "nearby_entity", "entity_tag": "minecraft:raiders",
+                     "op": "gt", "value": 0, "radius": radius}]
+            subs += [{"type": "nearby_entity", "entity": i, "op": "gt", "value": 0,
+                      "radius": radius} for i in ids if i not in _RAIDERS_TAG_MEMBERS]
+            return subs[0] if len(subs) == 1 else {"type": "any_of", "conditions": subs}
         subs = [{"type": "nearby_entity", "entity": i, "op": "gt", "value": 0,
-                 "radius": float(m.group(2))} for i in ids]
+                 "radius": radius} for i in ids]
         return subs[0] if len(subs) == 1 else {"type": "any_of", "conditions": subs}
     # dimension
     m = re.fullmatch(r'dimensionId\([^)]*\)\s*===?\s*\'([^\']+)\'', expr)
@@ -753,6 +823,39 @@ def _cond_kind(c):
     return "world"
 
 
+def normalize_node(node):
+    """Idempotent structural simplification of condition trees.
+
+    Flattens nested same-type ``any_of``/``all_of`` (``a||(b||c)`` → one any_of),
+    de-duplicates identical siblings, and unwraps single-child combinators. Pure
+    semantics-preserving; non-combinator nodes pass through untouched. Runs over
+    EVERY organ so pre-existing nesting is tidied too — a positive side effect of
+    the home-condition compaction.
+    """
+    if isinstance(node, list):
+        return [normalize_node(v) for v in node]
+    if not isinstance(node, dict):
+        return node
+    t = node.get("type")
+    if t in ("any_of", "all_of"):
+        flat = []
+        seen = set()
+        for child in node.get("conditions", []):
+            child = normalize_node(child)
+            members = child.get("conditions", []) if isinstance(child, dict) and child.get("type") == t else [child]
+            for mem in members:
+                key = json.dumps(mem, ensure_ascii=False, sort_keys=True)
+                if key not in seen:
+                    seen.add(key)
+                    flat.append(mem)
+        if len(flat) == 1:
+            return flat[0]
+        out = dict(node)
+        out["conditions"] = flat
+        return out
+    return {k: normalize_node(v) for k, v in node.items()}
+
+
 def main(argv):
     dry_run = "--dry-run" in argv
     global COMMON_FUNCS, _BIOMES
@@ -773,6 +876,7 @@ def main(argv):
         data = json.loads(f.read_text(encoding="utf-8"))
         before = json.dumps(data, ensure_ascii=False, sort_keys=True)
         data = rewrite_node(data, table, stats)
+        data = normalize_node(data)
         after = json.dumps(data, ensure_ascii=False, sort_keys=True)
         if before != after:
             changed += 1

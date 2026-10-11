@@ -10,9 +10,12 @@ scan nearby entities, or touch iron-spell are NOT here — they stay kubejs_targ
 for the forge fallback.
 
 The executor keeps the execution's existing point_type/point_id/consume_points/
-max_consume (the request-point gate) and custom_display_key; this script only swaps
-the type to `target_strike` and injects `config.chance` / `config.require_mark` /
-`config.require_no_mark` / `config.ops`.
+max_consume (the request-point gate); this script swaps the type to `target_strike`
+and injects `config.chance` / `config.require_mark` / `config.require_no_mark` /
+`config.ops`. The legacy `custom_display_key` (message.organkubejs.*) is DROPPED:
+target_strike is data-driven, so OrganEffectDisplayBuilder describes it from its own
+fields, and keeping the mask would hide that (and render as a raw key on neoforge,
+where organKubejs lang is absent). Mirrors the 45f62cb non-opaque mask-strip policy.
 """
 import json
 import re
@@ -101,7 +104,7 @@ def convert_execution(execution):
                 eff["amplifier"] = execution["amplifier"]
             ops.append(eff)
         new = {"type": "target_strike", "config": {"ops": ops}}
-        for k in ("point_type", "point_id", "consume_points", "max_consume", "custom_display_key"):
+        for k in ("point_type", "point_id", "consume_points", "max_consume"):
             if k in execution:
                 new[k] = execution[k]
         return new, None
@@ -117,7 +120,7 @@ def convert_execution(execution):
     for k in ("chance", "require_mark", "require_no_mark"):
         if k in gate:
             new["config"][k] = gate[k]
-    for k in ("point_type", "point_id", "consume_points", "max_consume", "custom_display_key"):
+    for k in ("point_type", "point_id", "consume_points", "max_consume"):
         if k in execution:
             new[k] = execution[k]
     return new, spec.get("gate_condition")

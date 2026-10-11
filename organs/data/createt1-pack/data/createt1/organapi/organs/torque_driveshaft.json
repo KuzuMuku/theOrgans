@@ -22,7 +22,7 @@
       "grants": [
         {
           "type": "counter",
-          "id": "createt1:torque_capacity",
+          "id": "organcreate:torque_capacity",
           "amount": 50
         }
       ],

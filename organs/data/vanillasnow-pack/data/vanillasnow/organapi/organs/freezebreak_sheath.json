@@ -78,19 +78,27 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillasnow:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
           "actions": []
         }
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "callback": "vanillaSnow_freezebreak_guard_self",
+          "type": "apply_mob_effect",
+          "effect": "minecraft:resistance",
+          "duration_ticks": 80,
+          "amplifier": 0,
           "point_type": "runtime",
           "point_id": "vanillasnow:freezebreak_sheath_guard_self",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSnow_freezebreak_guard_self"
+          "max_consume": 1
         }
       ]
     },
@@ -133,8 +141,7 @@
           "point_type": "runtime",
           "point_id": "vanillasnow:freezebreak_sheath_guard_retal",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSnow_freezebreak_guard_retal"
+          "max_consume": 1
         }
       ]
     },
@@ -153,6 +160,12 @@
           "point": "counter:vanillasnow:vanillaSnow_resonance",
           "op": "gte",
           "value": 40
+        },
+        {
+          "type": "point",
+          "point": "counter:vanillasnow:vanillaSnow_resonance",
+          "op": "gte",
+          "value": 2
         }
       ],
       "grants": [],
@@ -170,19 +183,36 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillasnow:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
           "actions": []
         }
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "callback": "vanillaSnow_deposition_conduit",
+          "type": "apply_mob_effect",
+          "effect": "minecraft:resistance",
+          "duration_ticks": 60,
+          "amplifier": 0,
           "point_type": "runtime",
           "point_id": "vanillasnow:deposition_conduit_ready",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSnow_deposition_conduit"
+          "max_consume": 1
+        },
+        {
+          "type": "shorten_effect",
+          "effect": "minecraft:slowness",
+          "amount": 20,
+          "point_type": "runtime",
+          "point_id": "vanillasnow:deposition_conduit_ready",
+          "consume_points": true,
+          "max_consume": 1
         }
       ]
     }

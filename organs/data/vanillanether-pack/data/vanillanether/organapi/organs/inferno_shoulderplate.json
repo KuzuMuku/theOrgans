@@ -75,8 +75,7 @@
           "point_type": "runtime",
           "point_id": "vanillanether:inferno_shoulderplate_burst",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaNether_inferno_shoulderplate_burst"
+          "max_consume": 1
         }
       ]
     }

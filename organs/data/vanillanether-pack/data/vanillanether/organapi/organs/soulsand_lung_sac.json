@@ -55,39 +55,34 @@
               "value": "soul"
             },
             {
-              "type": "any_of",
-              "conditions": [
-                {
-                  "type": "structure",
-                  "structures": [
-                    "minecraft:fortress"
-                  ],
-                  "radius_chunks": 10
-                },
-                {
-                  "type": "structure",
-                  "structures": [
-                    "minecraft:fortress",
-                    "minecraft:bastion_remnant",
-                    "cataclysm:burning_arena",
-                    "cataclysm:soul_black_smith"
-                  ],
-                  "radius_chunks": 10
-                },
-                {
-                  "type": "nearby_block",
-                  "blocks": [
-                    "minecraft:nether_bricks",
-                    "minecraft:red_nether_bricks",
-                    "minecraft:polished_blackstone_bricks",
-                    "minecraft:gold_block",
-                    "minecraft:nether_wart_block"
-                  ],
-                  "radius": 5,
-                  "vertical": 1,
-                  "value": 1
-                }
-              ]
+              "type": "structure",
+              "structures": [
+                "minecraft:fortress"
+              ],
+              "radius_chunks": 10
+            },
+            {
+              "type": "structure",
+              "structures": [
+                "minecraft:fortress",
+                "minecraft:bastion_remnant",
+                "cataclysm:burning_arena",
+                "cataclysm:soul_black_smith"
+              ],
+              "radius_chunks": 10
+            },
+            {
+              "type": "nearby_block",
+              "blocks": [
+                "minecraft:nether_bricks",
+                "minecraft:red_nether_bricks",
+                "minecraft:polished_blackstone_bricks",
+                "minecraft:gold_block",
+                "minecraft:nether_wart_block"
+              ],
+              "radius": 5,
+              "vertical": 1,
+              "value": 1
             },
             {
               "type": "structure",

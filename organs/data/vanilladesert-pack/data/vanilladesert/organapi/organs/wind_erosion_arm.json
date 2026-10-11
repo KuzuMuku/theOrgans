@@ -65,8 +65,7 @@
           "point_type": "runtime",
           "point_id": "vanilladesert:wind_erosion_arm_mark_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaDesert_melee_mark"
+          "max_consume": 1
         }
       ]
     },
@@ -138,8 +137,7 @@
           "point_type": "runtime",
           "point_id": "vanilladesert:wind_erosion_arm_mark_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaDesert_melee_mark"
+          "max_consume": 1
         }
       ]
     },

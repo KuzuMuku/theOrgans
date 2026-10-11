@@ -54,9 +54,14 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_sync_online",
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_sync_online"
+          "type": "organ_set",
+          "organs": [
+            "mekanismt2:quantum_shield_core",
+            "mekanismt2:plasma_membrane_lung",
+            "mekanismt2:overload_phase_spine"
+          ],
+          "op": "gte",
+          "value": 1
         }
       ],
       "grants": [],

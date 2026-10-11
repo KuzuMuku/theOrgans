@@ -28,7 +28,7 @@
         },
         {
           "type": "counter",
-          "id": "mekanismt1:mek_energy_capacity",
+          "id": "organmekanism:mek_energy_capacity",
           "amount": 30
         }
       ],
@@ -55,49 +55,44 @@
               "type": "any_of",
               "conditions": [
                 {
-                  "type": "any_of",
-                  "conditions": [
-                    {
-                      "type": "biome_category",
-                      "value": "desert"
-                    },
-                    {
-                      "type": "biome_category",
-                      "value": "badlands"
-                    },
-                    {
-                      "type": "biome_category",
-                      "value": "nether"
-                    },
-                    {
-                      "type": "biome_category",
-                      "value": "basalt_deltas"
-                    },
-                    {
-                      "type": "biome_category",
-                      "value": "soul_sand_valley"
-                    },
-                    {
-                      "type": "biome_category",
-                      "value": "crimson_forest"
-                    },
-                    {
-                      "type": "biome_category",
-                      "value": "warped_forest"
-                    },
-                    {
-                      "type": "nearby_block",
-                      "blocks": [
-                        "minecraft:lava",
-                        "minecraft:magma_block",
-                        "minecraft:campfire",
-                        "minecraft:soul_campfire"
-                      ],
-                      "radius": 5,
-                      "vertical": 1,
-                      "value": 1
-                    }
-                  ]
+                  "type": "biome_category",
+                  "value": "desert"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "badlands"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "nether"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "basalt_deltas"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "soul_sand_valley"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "crimson_forest"
+                },
+                {
+                  "type": "biome_category",
+                  "value": "warped_forest"
+                },
+                {
+                  "type": "nearby_block",
+                  "blocks": [
+                    "minecraft:lava",
+                    "minecraft:magma_block",
+                    "minecraft:campfire",
+                    "minecraft:soul_campfire"
+                  ],
+                  "radius": 5,
+                  "vertical": 1,
+                  "value": 1
                 },
                 {
                   "type": "point",
@@ -126,7 +121,7 @@
             },
             {
               "type": "counter",
-              "id": "mekanismt1:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 1,
               "source": "kubejs_mek_system"
             }
@@ -157,7 +152,7 @@
             },
             {
               "type": "counter",
-              "id": "mekanismt1:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }
@@ -176,7 +171,7 @@
             },
             {
               "type": "counter",
-              "id": "mekanismt1:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }

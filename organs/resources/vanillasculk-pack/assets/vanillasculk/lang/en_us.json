@@ -46,7 +46,7 @@
   "message.organkubejs.execution.vanillaSculk_ancient_step_quiet": "Open a 3 to 9 second silence window depending on resonance",
   "message.organkubejs.execution.vanillaSculk_crown_mark_vibration": "Mark the target with the echo cochlea probability",
   "message.organkubejs.execution.vanillaSculk_melee_mark": "25% chance to mark the target",
-  "message.organkubejs.execution.vanillaSculk_throat_mark_vibration": "Mark the target on low-amplitude vibration events",
+  "message.organkubejs.execution.vanillaSculk_throat_mark_vibration": "Mark the target",
   "point.organeffects.attribute.irons_spellbooks.cast_time_reduction": "Cast Time Reduction",
   "point.organeffects.attribute.irons_spellbooks.cast_time_reduction.desc": "Reduces spell cast time.",
   "point.organeffects.attribute.irons_spellbooks.casting_movespeed": "Casting Movement Speed",

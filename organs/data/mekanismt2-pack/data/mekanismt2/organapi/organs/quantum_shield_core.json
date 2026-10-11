@@ -42,7 +42,7 @@
         },
         {
           "type": "counter",
-          "id": "mekanismt2:mek_energy_capacity",
+          "id": "organmekanism:mek_energy_capacity",
           "amount": 160
         }
       ],

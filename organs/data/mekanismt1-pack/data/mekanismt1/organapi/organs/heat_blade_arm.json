@@ -17,9 +17,29 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT1_heat_blade_ready",
-          "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_blade_ready"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "organ_set",
+              "organs": [
+                "mekanismt1:heat_blade_arm"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "point",
+              "point": "runtime:mekanismt1:mek_t1_heat_cycle",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "point",
+              "point": "counter:organmekanism:mek_energy",
+              "op": "gte",
+              "value": "min(point('counter:organmekanism:mek_energy_capacity'), 2)"
+            }
+          ]
         }
       ],
       "grants": [
@@ -81,9 +101,29 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT1_heat_blade_ready",
-          "custom_display_key": "message.organkubejs.condition.mekanismT1_heat_blade_ready"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "organ_set",
+              "organs": [
+                "mekanismt1:heat_blade_arm"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "point",
+              "point": "runtime:mekanismt1:mek_t1_heat_cycle",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "point",
+              "point": "counter:organmekanism:mek_energy",
+              "op": "gte",
+              "value": "min(point('counter:organmekanism:mek_energy_capacity'), 2)"
+            }
+          ]
         }
       ],
       "grants": [],

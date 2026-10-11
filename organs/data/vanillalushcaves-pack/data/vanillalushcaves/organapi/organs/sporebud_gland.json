@@ -69,33 +69,21 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "dimid",
-              "value_id": "minecraft:overworld"
-            },
-            {
-              "type": "biome_category",
-              "value": "lush_caves"
-            },
-            {
-              "type": "biome_category",
-              "value": "fungal_fen"
-            },
-            {
-              "type": "biome_category",
-              "value": "bioshroom"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "betterdungeons:skeleton_dungeon",
-                "betterdungeons:zombie_dungeon"
-              ],
-              "radius_chunks": 8
-            }
-          ]
+          "type": "home",
+          "dimension_home": true,
+          "dimensions": [
+            "minecraft:overworld"
+          ],
+          "biome_keywords": [
+            "lush_caves",
+            "fungal_fen",
+            "bioshroom"
+          ],
+          "structures": [
+            "betterdungeons:skeleton_dungeon",
+            "betterdungeons:zombie_dungeon"
+          ],
+          "structure_radius": 8
         }
       ],
       "grants": [

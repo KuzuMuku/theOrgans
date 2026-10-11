@@ -50,33 +50,17 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "biome_category",
-              "value": "swamp"
-            },
-            {
-              "type": "biome_category",
-              "value": "mangrove"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:swamp_hut",
-                "iceandfire:hydra_cave"
-              ],
-              "radius_chunks": 8
-            },
-            {
-              "type": "environment_state",
-              "state": "wet"
-            },
-            {
-              "type": "environment_state",
-              "state": "raining"
-            }
-          ]
+          "type": "home",
+          "biome_keywords": [
+            "swamp",
+            "mangrove"
+          ],
+          "structures": [
+            "minecraft:swamp_hut",
+            "iceandfire:hydra_cave"
+          ],
+          "structure_radius": 8,
+          "extra": "wet"
         }
       ],
       "grants": [

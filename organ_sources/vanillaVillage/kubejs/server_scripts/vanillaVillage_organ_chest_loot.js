@@ -5,11 +5,6 @@ LootJS.modifiers(event => {
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:ledger_lung'))
     })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:village_ledger'))
-    })
   event.addLootTableModifier('ctov:chests/village/village_smith')
     .pool(pool => {
       pool.rolls(1)
@@ -34,11 +29,6 @@ LootJS.modifiers(event => {
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:ledger_lung'))
     })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:village_ledger'))
-    })
   event.addLootTableModifier('minecraft:chests/village/village_plains_house')
     .pool(pool => {
       pool.rolls(1)
@@ -55,11 +45,6 @@ LootJS.modifiers(event => {
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:watchbell_cochlea'))
     })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:bell_rope_winder'))
-    })
   event.addLootTableModifier('minecraft:chests/village/village_temple')
     .pool(pool => {
       pool.rolls(1)
@@ -71,41 +56,16 @@ LootJS.modifiers(event => {
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:offering_gland'))
     })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:holy_path_relay'))
-    })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:mending_suture'))
-    })
   event.addLootTableModifier('minecraft:chests/village/village_toolsmith')
     .pool(pool => {
       pool.rolls(1)
       pool.randomChance(0.1)
       pool.addLoot(LootEntry.of('kubejs:order_sternum'))
     })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:bell_rope_winder'))
-    })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('kubejs:mending_suture'))
-    })
   event.addLootTableModifier('irons_spellbooks:chests/priest_house')
     .pool(pool => {
       pool.rolls(1)
       pool.randomChance(0.12)
       pool.addLoot(LootEntry.of('kubejs:village_bell_core'))
-    })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.2)
-      pool.addLoot(LootEntry.of('kubejs:holy_path_relay'))
     })
 })

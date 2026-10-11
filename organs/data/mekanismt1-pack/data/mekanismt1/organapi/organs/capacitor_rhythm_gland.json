@@ -28,7 +28,7 @@
         },
         {
           "type": "counter",
-          "id": "mekanismt1:mek_energy_capacity",
+          "id": "organmekanism:mek_energy_capacity",
           "amount": 20
         }
       ],

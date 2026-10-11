@@ -168,7 +168,6 @@
    "item.kubejs.plasma_state_wiring" : "等离子态线路",
    "item.kubejs.radiation_deflection_armor" : "辐射偏折装甲",
    "item.kubejs.quantum_mecha_protocol" : "量子机甲协议",
-   "block.kubejs.quantum_sync_cube" : "量子同步方块",
    "message.organkubejs.condition.mekanismT2_sync_online" : "量子同步方块正在为机甲供能",
    "message.organkubejs.condition.mekanismT2_radiation_online" : "辐射层处于激活状态",
    "message.organkubejs.condition.mekanismT2_radiation_source_nearby" : "身处裂变或放射性废物源附近",

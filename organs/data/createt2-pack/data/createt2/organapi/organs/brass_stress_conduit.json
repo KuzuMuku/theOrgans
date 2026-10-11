@@ -33,7 +33,7 @@
         },
         {
           "type": "counter",
-          "id": "createt2:torque_capacity",
+          "id": "organcreate:torque_capacity",
           "amount": 10
         }
       ],
@@ -44,7 +44,7 @@
       "conditions": [
         {
           "type": "point",
-          "point": "counter:createt2:torque_capacity",
+          "point": "counter:organcreate:torque_capacity",
           "op": "gt",
           "value": 0
         }
@@ -56,7 +56,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt2:torque",
+              "id": "organcreate:torque",
               "amount": 2,
               "source": "kubejs_level2_system"
             }

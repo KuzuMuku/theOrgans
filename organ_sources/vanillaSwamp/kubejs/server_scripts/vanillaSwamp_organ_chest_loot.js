@@ -18,21 +18,6 @@ LootJS.modifiers(event => {
     .pool(pool => {
       pool.rolls(1)
       pool.randomChance(0.05)
-      pool.addLoot(LootEntry.of('kubejs:mud_vein_conduit'))
-    })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.05)
-      pool.addLoot(LootEntry.of('kubejs:rot_hyphae'))
-    })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.05)
       pool.addLoot(LootEntry.of('kubejs:swamp_gas_bladder'))
-    })
-    .pool(pool => {
-      pool.rolls(1)
-      pool.randomChance(0.05)
-      pool.addLoot(LootEntry.of('kubejs:rot_pump'))
     })
 })

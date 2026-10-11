@@ -121,8 +121,7 @@
           "point_type": "mark",
           "point_id": "vanillavillage:vanillaVillage_mark",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaVillage_target_mark"
+          "max_consume": 1
         }
       ]
     },

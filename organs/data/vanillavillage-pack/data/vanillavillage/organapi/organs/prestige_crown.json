@@ -76,22 +76,17 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:village_plains",
-                "minecraft:village_desert",
-                "minecraft:village_savanna",
-                "minecraft:village_snowy",
-                "minecraft:village_taiga",
-                "irons_spellbooks:priest_house",
-                "irons_spellbooks:priest_house_taiga"
-              ],
-              "radius_chunks": 8
-            }
-          ]
+          "type": "home",
+          "structures": [
+            "minecraft:village_plains",
+            "minecraft:village_desert",
+            "minecraft:village_savanna",
+            "minecraft:village_snowy",
+            "minecraft:village_taiga",
+            "irons_spellbooks:priest_house",
+            "irons_spellbooks:priest_house_taiga"
+          ],
+          "structure_radius": 8
         },
         {
           "type": "organ_set",
@@ -115,22 +110,17 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:village_plains",
-                "minecraft:village_desert",
-                "minecraft:village_savanna",
-                "minecraft:village_snowy",
-                "minecraft:village_taiga",
-                "irons_spellbooks:priest_house",
-                "irons_spellbooks:priest_house_taiga"
-              ],
-              "radius_chunks": 8
-            }
-          ]
+          "type": "home",
+          "structures": [
+            "minecraft:village_plains",
+            "minecraft:village_desert",
+            "minecraft:village_savanna",
+            "minecraft:village_snowy",
+            "minecraft:village_taiga",
+            "irons_spellbooks:priest_house",
+            "irons_spellbooks:priest_house_taiga"
+          ],
+          "structure_radius": 8
         },
         {
           "type": "organ_set",

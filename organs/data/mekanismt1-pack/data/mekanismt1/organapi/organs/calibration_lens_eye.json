@@ -84,8 +84,7 @@
           "point_type": "runtime",
           "point_id": "mekanismt1:calibration_lens_eye_mark_request",
           "consume_points": false,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.mekanismT1_calibration_mark"
+          "max_consume": 1
         }
       ]
     }

@@ -27,7 +27,7 @@
         },
         {
           "type": "counter",
-          "id": "mekanismt2:mek_energy_capacity",
+          "id": "organmekanism:mek_energy_capacity",
           "amount": 20
         }
       ],
@@ -48,7 +48,7 @@
           "consume_points": [
             {
               "type": "counter",
-              "id": "mekanismt2:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }
@@ -75,7 +75,7 @@
           "consume_points": [
             {
               "type": "counter",
-              "id": "mekanismt2:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 1,
               "source": "kubejs_mek_system"
             }
@@ -101,7 +101,7 @@
           "consume_points": [
             {
               "type": "counter",
-              "id": "mekanismt2:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }

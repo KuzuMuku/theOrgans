@@ -69,8 +69,7 @@
           "point_type": "runtime",
           "point_id": "vanillasnow:snowblind_iris_focus",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSnow_ranged_mark"
+          "max_consume": 1
         }
       ]
     }

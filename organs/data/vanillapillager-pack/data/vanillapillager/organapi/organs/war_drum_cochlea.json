@@ -45,94 +45,49 @@
           "type": "any_of",
           "conditions": [
             {
-              "type": "any_of",
-              "conditions": [
-                {
-                  "type": "dimid",
-                  "value_id": "minecraft:overworld"
-                },
-                {
-                  "type": "structure",
-                  "structures": [
-                    "minecraft:pillager_outpost",
-                    "minecraft:woodland_mansion",
-                    "irons_spellbooks:evoker_fort"
-                  ],
-                  "radius_chunks": 8
-                }
-              ]
+              "type": "home",
+              "dimension_home": true,
+              "dimensions": [
+                "minecraft:overworld"
+              ],
+              "structures": [
+                "minecraft:pillager_outpost",
+                "minecraft:woodland_mansion",
+                "irons_spellbooks:evoker_fort"
+              ],
+              "structure_radius": 8
             },
             {
               "type": "status_effect",
               "effect": "minecraft:bad_omen"
             },
             {
-              "type": "any_of",
-              "conditions": [
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:pillager",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:vindicator",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:evoker",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:illusioner",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:witch",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:ravager",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:vex",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "irons_spellbooks:summoned_vex",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "irons_spellbooks:archevoker",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                }
-              ]
+              "type": "nearby_entity",
+              "entity_tag": "minecraft:raiders",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
+            },
+            {
+              "type": "nearby_entity",
+              "entity": "minecraft:vex",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
+            },
+            {
+              "type": "nearby_entity",
+              "entity": "irons_spellbooks:summoned_vex",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
+            },
+            {
+              "type": "nearby_entity",
+              "entity": "irons_spellbooks:archevoker",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
             }
           ]
         },
@@ -177,94 +132,49 @@
           "type": "any_of",
           "conditions": [
             {
-              "type": "any_of",
-              "conditions": [
-                {
-                  "type": "dimid",
-                  "value_id": "minecraft:overworld"
-                },
-                {
-                  "type": "structure",
-                  "structures": [
-                    "minecraft:pillager_outpost",
-                    "minecraft:woodland_mansion",
-                    "irons_spellbooks:evoker_fort"
-                  ],
-                  "radius_chunks": 8
-                }
-              ]
+              "type": "home",
+              "dimension_home": true,
+              "dimensions": [
+                "minecraft:overworld"
+              ],
+              "structures": [
+                "minecraft:pillager_outpost",
+                "minecraft:woodland_mansion",
+                "irons_spellbooks:evoker_fort"
+              ],
+              "structure_radius": 8
             },
             {
               "type": "status_effect",
               "effect": "minecraft:bad_omen"
             },
             {
-              "type": "any_of",
-              "conditions": [
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:pillager",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:vindicator",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:evoker",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:illusioner",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:witch",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:ravager",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "minecraft:vex",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "irons_spellbooks:summoned_vex",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                },
-                {
-                  "type": "nearby_entity",
-                  "entity": "irons_spellbooks:archevoker",
-                  "op": "gt",
-                  "value": 0,
-                  "radius": 20.0
-                }
-              ]
+              "type": "nearby_entity",
+              "entity_tag": "minecraft:raiders",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
+            },
+            {
+              "type": "nearby_entity",
+              "entity": "minecraft:vex",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
+            },
+            {
+              "type": "nearby_entity",
+              "entity": "irons_spellbooks:summoned_vex",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
+            },
+            {
+              "type": "nearby_entity",
+              "entity": "irons_spellbooks:archevoker",
+              "op": "gt",
+              "value": 0,
+              "radius": 20.0
             }
           ]
         },

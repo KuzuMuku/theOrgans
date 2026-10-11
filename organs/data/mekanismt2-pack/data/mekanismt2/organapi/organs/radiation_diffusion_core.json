@@ -42,9 +42,14 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_sync_online",
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_sync_online"
+          "type": "organ_set",
+          "organs": [
+            "mekanismt2:quantum_shield_core",
+            "mekanismt2:plasma_membrane_lung",
+            "mekanismt2:overload_phase_spine"
+          ],
+          "op": "gte",
+          "value": 1
         }
       ],
       "grants": [
@@ -84,9 +89,32 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "mekanismT2_radiation_source_nearby",
-          "custom_display_key": "message.organkubejs.condition.mekanismT2_radiation_source_nearby"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "organ_set",
+              "organs": [
+                "mekanismt2:quantum_shield_core",
+                "mekanismt2:plasma_membrane_lung",
+                "mekanismt2:overload_phase_spine"
+              ],
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "type": "nearby_block",
+              "blocks": [
+                "mekanism:radioactive_waste_barrel",
+                "mekanismgenerators:fission_reactor_casing",
+                "mekanismgenerators:fission_fuel_assembly",
+                "mekanismgenerators:fission_reactor_logic_adapter",
+                "mekanismgenerators:fission_reactor_port"
+              ],
+              "radius": 8,
+              "vertical": 1,
+              "value": 1
+            }
+          ]
         }
       ],
       "grants": [],

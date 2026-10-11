@@ -168,7 +168,6 @@
    "item.kubejs.plasma_state_wiring" : "Plasma State Wiring",
    "item.kubejs.radiation_deflection_armor" : "Radiation Deflection Armor",
    "item.kubejs.quantum_mecha_protocol" : "Quantum Mecha Protocol",
-   "block.kubejs.quantum_sync_cube" : "Quantum Sync Cube",
    "message.organkubejs.condition.mekanismT2_sync_online" : "while a linked Quantum Sync Cube is powering the mech",
    "message.organkubejs.condition.mekanismT2_radiation_online" : "while radiation layers are active",
    "message.organkubejs.condition.mekanismT2_radiation_source_nearby" : "while standing near a fission or waste radiation source",

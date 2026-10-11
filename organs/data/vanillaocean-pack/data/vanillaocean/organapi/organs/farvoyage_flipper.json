@@ -90,42 +90,26 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "biome_category",
-              "value": "ocean"
-            },
-            {
-              "type": "biome_category",
-              "value": "beach"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:ocean_monument",
-                "minecraft:shipwreck",
-                "minecraft:buried_treasure",
-                "minecraft:underwater_ruin_big",
-                "minecraft:underwater_ruin_small",
-                "aquamirae:ice_maze/common",
-                "aquamirae:ice_maze/arch",
-                "aquamirae:ice_maze/spiral",
-                "aquamirae:ship",
-                "aquamirae:outpost",
-                "aquamirae:shelter"
-              ],
-              "radius_chunks": 10
-            },
-            {
-              "type": "environment_state",
-              "state": "wet"
-            },
-            {
-              "type": "environment_state",
-              "state": "raining"
-            }
-          ]
+          "type": "home",
+          "biome_keywords": [
+            "ocean",
+            "beach"
+          ],
+          "structures": [
+            "minecraft:ocean_monument",
+            "minecraft:shipwreck",
+            "minecraft:buried_treasure",
+            "minecraft:underwater_ruin_big",
+            "minecraft:underwater_ruin_small",
+            "aquamirae:ice_maze/common",
+            "aquamirae:ice_maze/arch",
+            "aquamirae:ice_maze/spiral",
+            "aquamirae:ship",
+            "aquamirae:outpost",
+            "aquamirae:shelter"
+          ],
+          "structure_radius": 10,
+          "extra": "wet"
         }
       ],
       "grants": [

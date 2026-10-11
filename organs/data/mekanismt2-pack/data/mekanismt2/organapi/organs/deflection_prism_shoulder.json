@@ -46,7 +46,7 @@
           "consume_points": [
             {
               "type": "counter",
-              "id": "mekanismt2:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }
@@ -118,8 +118,7 @@
           "point_type": "mark",
           "point_id": "mekanismt2:mekanismT2_mark",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.mekanismT2_target_mark"
+          "max_consume": 1
         }
       ]
     }

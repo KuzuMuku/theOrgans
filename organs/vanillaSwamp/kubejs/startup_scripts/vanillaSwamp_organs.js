@@ -12,10 +12,7 @@ let VANILLASWAMP_ORGAN_IDS = [
   "slime_mana_spleen",
   "witchbog_crown",
   "hydra_venom_core",
-  "mud_vein_conduit",
-  "rot_hyphae",
-  "swamp_gas_bladder",
-  "rot_pump"
+  "swamp_gas_bladder"
 ]
 
 StartupEvents.registry('item', event => {

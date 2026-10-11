@@ -59,15 +59,61 @@
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "config": {
-            "callback": "vanillaNether_grant_ash_spleen_loot"
-          },
+          "type": "grant_items",
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:blaze_powder",
+              "count": 1,
+              "weight": 6
+            },
+            {
+              "item": "minecraft:blaze_rod",
+              "count": 1,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:ghast_tear",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:magma_cream",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "item": "minecraft:wither_skeleton_skull",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "alexsmobs:blood_sac",
+              "count": 1,
+              "weight": 5
+            },
+            {
+              "item": "alexsmobs:mosquito_proboscis",
+              "count": 1,
+              "weight": 3
+            },
+            {
+              "item": "alexsmobs:hemolymph_sac",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "item": "alexsmobs:warped_muscle",
+              "count": 1,
+              "weight": 3
+            }
+          ],
           "point_type": "runtime",
           "point_id": "vanillanether:ash_spleen_loot_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaNether_grant_ash_spleen_loot"
+          "max_consume": 1
         }
       ]
     },
@@ -142,15 +188,61 @@
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "config": {
-            "callback": "vanillaNether_grant_ash_spleen_loot"
-          },
+          "type": "grant_items",
+          "rolls": 1,
+          "unique": false,
+          "drop_if_full": true,
+          "items": [
+            {
+              "item": "minecraft:blaze_powder",
+              "count": 1,
+              "weight": 6
+            },
+            {
+              "item": "minecraft:blaze_rod",
+              "count": 1,
+              "weight": 3
+            },
+            {
+              "item": "minecraft:ghast_tear",
+              "count": 1,
+              "weight": 2
+            },
+            {
+              "item": "minecraft:magma_cream",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "item": "minecraft:wither_skeleton_skull",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "item": "alexsmobs:blood_sac",
+              "count": 1,
+              "weight": 5
+            },
+            {
+              "item": "alexsmobs:mosquito_proboscis",
+              "count": 1,
+              "weight": 3
+            },
+            {
+              "item": "alexsmobs:hemolymph_sac",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "item": "alexsmobs:warped_muscle",
+              "count": 1,
+              "weight": 3
+            }
+          ],
           "point_type": "runtime",
           "point_id": "vanillanether:ash_spleen_crimson_bonus_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaNether_grant_ash_spleen_loot"
+          "max_consume": 1
         }
       ]
     }

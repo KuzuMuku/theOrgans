@@ -39,7 +39,7 @@
       "conditions": [
         {
           "type": "point",
-          "point": "counter:mekanismt2:mek_energy",
+          "point": "counter:organmekanism:mek_energy",
           "op": "gte",
           "value": 8
         }

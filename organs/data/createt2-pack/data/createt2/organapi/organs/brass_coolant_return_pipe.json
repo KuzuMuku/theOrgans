@@ -38,9 +38,21 @@
     {
       "conditions": [
         {
-          "type": "kubejs_hook",
-          "callback": "createT2_high_load",
-          "custom_display_key": "message.organkubejs.condition.createT2_high_load"
+          "type": "all_of",
+          "conditions": [
+            {
+              "type": "point",
+              "point": "counter:organcreate:torque_capacity",
+              "op": "gt",
+              "value": 0
+            },
+            {
+              "type": "point",
+              "point": "counter:organcreate:torque",
+              "op": "gte",
+              "value": "max(16, floor(point('counter:organcreate:torque_capacity') * 0.75))"
+            }
+          ]
         }
       ],
       "grants": [],
@@ -53,7 +65,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt2:torque",
+              "id": "organcreate:torque",
               "amount": 1,
               "source": "kubejs_level2_system"
             }
@@ -83,7 +95,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt2:torque",
+              "id": "organcreate:torque",
               "amount": 1,
               "source": "kubejs_level2_system"
             }

@@ -47,32 +47,20 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "dimid",
-              "value_id": "deeperdarker:otherside"
-            },
-            {
-              "type": "biome_category",
-              "value": "deep_dark"
-            },
-            {
-              "type": "biome_category",
-              "value": "deepdark"
-            },
-            {
-              "type": "biome_category",
-              "value": "sculk"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:ancient_city"
-              ],
-              "radius_chunks": 8
-            }
-          ]
+          "type": "home",
+          "dimension_home": true,
+          "dimensions": [
+            "deeperdarker:otherside"
+          ],
+          "biome_keywords": [
+            "deep_dark",
+            "deepdark",
+            "sculk"
+          ],
+          "structures": [
+            "minecraft:ancient_city"
+          ],
+          "structure_radius": 8
         }
       ],
       "grants": [],

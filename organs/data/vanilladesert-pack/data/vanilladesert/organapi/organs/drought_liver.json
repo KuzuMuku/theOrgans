@@ -42,25 +42,16 @@
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "biome_category",
-              "value": "desert"
-            },
-            {
-              "type": "biome_category",
-              "value": "badlands"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:desert_pyramid",
-                "cataclysm:cursed_pyramid"
-              ],
-              "radius_chunks": 8
-            }
-          ]
+          "type": "home",
+          "biome_keywords": [
+            "desert",
+            "badlands"
+          ],
+          "structures": [
+            "minecraft:desert_pyramid",
+            "cataclysm:cursed_pyramid"
+          ],
+          "structure_radius": 8
         },
         {
           "type": "point",

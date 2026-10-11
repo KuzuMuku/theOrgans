@@ -53,7 +53,7 @@
           "consume_points": [
             {
               "type": "counter",
-              "id": "mekanismt2:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 1,
               "source": "kubejs_mek_system"
             }

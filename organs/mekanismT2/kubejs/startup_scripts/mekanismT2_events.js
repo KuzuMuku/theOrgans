@@ -10,7 +10,6 @@ let SYSTEM_SOURCE = 'kubejs_mek_system'
 let RESOURCE_CURRENT = 'kubejs:mek_energy'
 let SHIELD_ID = 'kubejs:mekanismT2_barrier'
 let RADIATION_KEY = 'kubejs:mek_t2_radiation_layer'
-let LINK_COUNTER_KEY = 'kubejs:mekanismT2_sync_link'
 let CORE_IDS = new Set([
   'kubejs:quantum_shield_core',
   'kubejs:plasma_membrane_lung',
@@ -68,10 +67,10 @@ function hasMatching(installed, wanted) {
 }
 
 function syncOnline(player) {
-  if (!player || !hasMatching(installedSourceIds(player), CORE_IDS)) {
-    return false
-  }
-  return getCounter(player, LINK_COUNTER_KEY) > 0
+  // Sync power now comes from the standalone organMekanism cube (energy pool); the
+  // link-counter world-scan is gone. Require only a core organ here; energy sufficiency
+  // is enforced by resourceReady below.
+  return !!player && hasMatching(installedSourceIds(player), CORE_IDS)
 }
 
 function resourceReady(player, amount) {

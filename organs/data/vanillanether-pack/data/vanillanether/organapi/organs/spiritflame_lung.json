@@ -82,8 +82,7 @@
           "point_type": "runtime",
           "point_id": "vanillanether:spiritflame_lung_ignite_request",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaNether_spiritflame_lung_ignite"
+          "max_consume": 1
         }
       ]
     },

@@ -111,8 +111,7 @@
           "point_type": "mark",
           "point_id": "vanillaswamp:vanillaSwamp_mark",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSwamp_target_mark"
+          "max_consume": 1
         }
       ]
     },

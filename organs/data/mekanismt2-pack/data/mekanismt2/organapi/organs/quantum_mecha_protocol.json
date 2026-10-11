@@ -107,8 +107,7 @@
           "point_type": "runtime",
           "point_id": "mekanismt2:mek_t2_protocol_strike",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.mekanismT2_protocol_strike"
+          "max_consume": 1
         }
       ]
     }

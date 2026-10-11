@@ -32,15 +32,6 @@ StartupEvents.registry('item', event => {
   Common.registerItems(event, MEKANISMT2_ORGAN_IDS)
 })
 
-StartupEvents.registry('block', event => {
-  event.create('quantum_sync_cube')
-    .textureAll('minecraft:block/obsidian')
-    .hardness(5.0)
-    .resistance(6.0)
-    .requiresTool()
-    .tagBlock('minecraft:mineable/pickaxe')
-})
-
 Common.registerSkills([
   {
     id: 'kubejs:phase_cut_arm',

@@ -5,9 +5,26 @@
     "type": "point",
     "value": 0
   },
+  "createT2_high_load": {
+    "conditions": [
+      {
+        "op": "gt",
+        "point": "counter:organcreate:torque_capacity",
+        "type": "point",
+        "value": 0
+      },
+      {
+        "op": "gte",
+        "point": "counter:organcreate:torque",
+        "type": "point",
+        "value": "max(16, floor(point('counter:organcreate:torque_capacity') * 0.75))"
+      }
+    ],
+    "type": "all_of"
+  },
   "createT2_system_online": {
     "op": "gt",
-    "point": "counter:createt2:torque_capacity",
+    "point": "counter:organcreate:torque_capacity",
     "type": "point",
     "value": 0
   },
@@ -28,6 +45,37 @@
     "point": "runtime:mekanismt1:mek_t1_flow_cycle",
     "type": "point",
     "value": 0
+  },
+  "mekanismT1_flow_ready": {
+    "op": "gte",
+    "point": "counter:organmekanism:mek_energy",
+    "type": "point",
+    "value": "min(point('counter:organmekanism:mek_energy_capacity'), 20)"
+  },
+  "mekanismT1_heat_blade_ready": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "mekanismt1:heat_blade_arm"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "op": "gt",
+        "point": "runtime:mekanismt1:mek_t1_heat_cycle",
+        "type": "point",
+        "value": 0
+      },
+      {
+        "op": "gte",
+        "point": "counter:organmekanism:mek_energy",
+        "type": "point",
+        "value": "min(point('counter:organmekanism:mek_energy_capacity'), 2)"
+      }
+    ],
+    "type": "all_of"
   },
   "mekanismT1_heat_online": {
     "op": "gt",
@@ -276,6 +324,44 @@
     "point": "counter:mekanismt2:mek_t2_radiation_layer",
     "type": "point",
     "value": 0
+  },
+  "mekanismT2_radiation_source_nearby": {
+    "conditions": [
+      {
+        "op": "gte",
+        "organs": [
+          "mekanismt2:quantum_shield_core",
+          "mekanismt2:plasma_membrane_lung",
+          "mekanismt2:overload_phase_spine"
+        ],
+        "type": "organ_set",
+        "value": 1
+      },
+      {
+        "blocks": [
+          "mekanism:radioactive_waste_barrel",
+          "mekanismgenerators:fission_reactor_casing",
+          "mekanismgenerators:fission_fuel_assembly",
+          "mekanismgenerators:fission_reactor_logic_adapter",
+          "mekanismgenerators:fission_reactor_port"
+        ],
+        "radius": 8,
+        "type": "nearby_block",
+        "value": 1,
+        "vertical": 1
+      }
+    ],
+    "type": "all_of"
+  },
+  "mekanismT2_sync_online": {
+    "op": "gte",
+    "organs": [
+      "mekanismt2:quantum_shield_core",
+      "mekanismt2:plasma_membrane_lung",
+      "mekanismt2:overload_phase_spine"
+    ],
+    "type": "organ_set",
+    "value": 1
   },
   "vanillaDesert_daylight_online": {
     "conditions": [
@@ -624,28 +710,19 @@
     "type": "all_of"
   },
   "vanillaJungle_rainforest_online": {
-    "conditions": [
-      {
-        "type": "dimid",
-        "value_id": "minecraft:overworld"
-      },
-      {
-        "type": "biome_category",
-        "value": "jungle"
-      },
-      {
-        "type": "biome_category",
-        "value": "bamboo"
-      },
-      {
-        "radius_chunks": 8,
-        "structures": [
-          "minecraft:jungle_temple"
-        ],
-        "type": "structure"
-      }
+    "biome_keywords": [
+      "jungle",
+      "bamboo"
     ],
-    "type": "any_of"
+    "dimension_home": true,
+    "dimensions": [
+      "minecraft:overworld"
+    ],
+    "structure_radius": 8,
+    "structures": [
+      "minecraft:jungle_temple"
+    ],
+    "type": "home"
   },
   "vanillaJungle_root_protocol_online": {
     "op": "gt",
@@ -672,33 +749,21 @@
   "vanillaLushCaves_glow_online": {
     "conditions": [
       {
-        "conditions": [
-          {
-            "type": "dimid",
-            "value_id": "minecraft:overworld"
-          },
-          {
-            "type": "biome_category",
-            "value": "lush_caves"
-          },
-          {
-            "type": "biome_category",
-            "value": "fungal_fen"
-          },
-          {
-            "type": "biome_category",
-            "value": "bioshroom"
-          },
-          {
-            "radius_chunks": 8,
-            "structures": [
-              "betterdungeons:skeleton_dungeon",
-              "betterdungeons:zombie_dungeon"
-            ],
-            "type": "structure"
-          }
+        "biome_keywords": [
+          "lush_caves",
+          "fungal_fen",
+          "bioshroom"
         ],
-        "type": "any_of"
+        "dimension_home": true,
+        "dimensions": [
+          "minecraft:overworld"
+        ],
+        "structure_radius": 8,
+        "structures": [
+          "betterdungeons:skeleton_dungeon",
+          "betterdungeons:zombie_dungeon"
+        ],
+        "type": "home"
       },
       {
         "conditions": [
@@ -906,6 +971,50 @@
     ],
     "type": "any_of"
   },
+  "vanillaNether_lava_online": {
+    "conditions": [
+      {
+        "state": "in_lava",
+        "type": "environment_state"
+      },
+      {
+        "conditions": [
+          {
+            "biome_keywords": [
+              "nether",
+              "basalt",
+              "soul",
+              "crimson",
+              "warped"
+            ],
+            "structure_radius": 10,
+            "structures": [
+              "minecraft:fortress",
+              "minecraft:bastion_remnant",
+              "cataclysm:burning_arena",
+              "cataclysm:soul_black_smith"
+            ],
+            "type": "home"
+          },
+          {
+            "blocks": [
+              "minecraft:lava",
+              "minecraft:flowing_lava",
+              "minecraft:magma_block",
+              "minecraft:blackstone",
+              "minecraft:basalt"
+            ],
+            "radius": 5,
+            "type": "nearby_block",
+            "value": 1,
+            "vertical": 1
+          }
+        ],
+        "type": "all_of"
+      }
+    ],
+    "type": "any_of"
+  },
   "vanillaNether_soul_online": {
     "conditions": [
       {
@@ -982,42 +1091,26 @@
       {
         "conditions": [
           {
-            "conditions": [
-              {
-                "type": "biome_category",
-                "value": "ocean"
-              },
-              {
-                "type": "biome_category",
-                "value": "beach"
-              },
-              {
-                "radius_chunks": 10,
-                "structures": [
-                  "minecraft:ocean_monument",
-                  "minecraft:shipwreck",
-                  "minecraft:buried_treasure",
-                  "minecraft:underwater_ruin_big",
-                  "minecraft:underwater_ruin_small",
-                  "aquamirae:ice_maze/common",
-                  "aquamirae:ice_maze/arch",
-                  "aquamirae:ice_maze/spiral",
-                  "aquamirae:ship",
-                  "aquamirae:outpost",
-                  "aquamirae:shelter"
-                ],
-                "type": "structure"
-              },
-              {
-                "state": "wet",
-                "type": "environment_state"
-              },
-              {
-                "state": "raining",
-                "type": "environment_state"
-              }
+            "biome_keywords": [
+              "ocean",
+              "beach"
             ],
-            "type": "any_of"
+            "extra": "wet",
+            "structure_radius": 10,
+            "structures": [
+              "minecraft:ocean_monument",
+              "minecraft:shipwreck",
+              "minecraft:buried_treasure",
+              "minecraft:underwater_ruin_big",
+              "minecraft:underwater_ruin_small",
+              "aquamirae:ice_maze/common",
+              "aquamirae:ice_maze/arch",
+              "aquamirae:ice_maze/spiral",
+              "aquamirae:ship",
+              "aquamirae:outpost",
+              "aquamirae:shelter"
+            ],
+            "type": "home"
           },
           {
             "conditions": [
@@ -1333,42 +1426,32 @@
         "type": "not"
       },
       {
+        "dimension_home": true,
+        "dimensions": [
+          "minecraft:overworld"
+        ],
+        "structure_radius": 8,
+        "structures": [
+          "minecraft:pillager_outpost",
+          "minecraft:woodland_mansion",
+          "irons_spellbooks:evoker_fort"
+        ],
+        "type": "home"
+      },
+      {
         "conditions": [
           {
-            "type": "dimid",
-            "value_id": "minecraft:overworld"
-          },
-          {
-            "radius_chunks": 8,
+            "dimension_home": true,
+            "dimensions": [
+              "minecraft:overworld"
+            ],
+            "structure_radius": 8,
             "structures": [
               "minecraft:pillager_outpost",
               "minecraft:woodland_mansion",
               "irons_spellbooks:evoker_fort"
             ],
-            "type": "structure"
-          }
-        ],
-        "type": "any_of"
-      },
-      {
-        "conditions": [
-          {
-            "conditions": [
-              {
-                "type": "dimid",
-                "value_id": "minecraft:overworld"
-              },
-              {
-                "radius_chunks": 8,
-                "structures": [
-                  "minecraft:pillager_outpost",
-                  "minecraft:woodland_mansion",
-                  "irons_spellbooks:evoker_fort"
-                ],
-                "type": "structure"
-              }
-            ],
-            "type": "any_of"
+            "type": "home"
           },
           {
             "effect": "minecraft:bad_omen",
@@ -1377,42 +1460,7 @@
           {
             "conditions": [
               {
-                "entity": "minecraft:pillager",
-                "op": "gt",
-                "radius": 20.0,
-                "type": "nearby_entity",
-                "value": 0
-              },
-              {
-                "entity": "minecraft:vindicator",
-                "op": "gt",
-                "radius": 20.0,
-                "type": "nearby_entity",
-                "value": 0
-              },
-              {
-                "entity": "minecraft:evoker",
-                "op": "gt",
-                "radius": 20.0,
-                "type": "nearby_entity",
-                "value": 0
-              },
-              {
-                "entity": "minecraft:illusioner",
-                "op": "gt",
-                "radius": 20.0,
-                "type": "nearby_entity",
-                "value": 0
-              },
-              {
-                "entity": "minecraft:witch",
-                "op": "gt",
-                "radius": 20.0,
-                "type": "nearby_entity",
-                "value": 0
-              },
-              {
-                "entity": "minecraft:ravager",
+                "entity_tag": "minecraft:raiders",
                 "op": "gt",
                 "radius": 20.0,
                 "type": "nearby_entity",
@@ -1490,22 +1538,17 @@
   "vanillaPillager_raid_online": {
     "conditions": [
       {
-        "conditions": [
-          {
-            "type": "dimid",
-            "value_id": "minecraft:overworld"
-          },
-          {
-            "radius_chunks": 8,
-            "structures": [
-              "minecraft:pillager_outpost",
-              "minecraft:woodland_mansion",
-              "irons_spellbooks:evoker_fort"
-            ],
-            "type": "structure"
-          }
+        "dimension_home": true,
+        "dimensions": [
+          "minecraft:overworld"
         ],
-        "type": "any_of"
+        "structure_radius": 8,
+        "structures": [
+          "minecraft:pillager_outpost",
+          "minecraft:woodland_mansion",
+          "irons_spellbooks:evoker_fort"
+        ],
+        "type": "home"
       },
       {
         "effect": "minecraft:bad_omen",
@@ -1514,42 +1557,7 @@
       {
         "conditions": [
           {
-            "entity": "minecraft:pillager",
-            "op": "gt",
-            "radius": 20.0,
-            "type": "nearby_entity",
-            "value": 0
-          },
-          {
-            "entity": "minecraft:vindicator",
-            "op": "gt",
-            "radius": 20.0,
-            "type": "nearby_entity",
-            "value": 0
-          },
-          {
-            "entity": "minecraft:evoker",
-            "op": "gt",
-            "radius": 20.0,
-            "type": "nearby_entity",
-            "value": 0
-          },
-          {
-            "entity": "minecraft:illusioner",
-            "op": "gt",
-            "radius": 20.0,
-            "type": "nearby_entity",
-            "value": 0
-          },
-          {
-            "entity": "minecraft:witch",
-            "op": "gt",
-            "radius": 20.0,
-            "type": "nearby_entity",
-            "value": 0
-          },
-          {
-            "entity": "minecraft:ravager",
+            "entity_tag": "minecraft:raiders",
             "op": "gt",
             "radius": 20.0,
             "type": "nearby_entity",

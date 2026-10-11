@@ -28,7 +28,7 @@
           "add_points": [
             {
               "type": "counter",
-              "id": "createt1:torque",
+              "id": "organcreate:torque",
               "amount": 1,
               "source": "kubejs_level1_system"
             }

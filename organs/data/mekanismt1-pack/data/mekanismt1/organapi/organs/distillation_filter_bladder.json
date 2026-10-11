@@ -39,7 +39,7 @@
             },
             {
               "type": "counter",
-              "id": "mekanismt1:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }
@@ -58,7 +58,7 @@
             },
             {
               "type": "counter",
-              "id": "mekanismt1:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }
@@ -77,7 +77,7 @@
             },
             {
               "type": "counter",
-              "id": "mekanismt1:mek_energy",
+              "id": "organmekanism:mek_energy",
               "amount": 2,
               "source": "kubejs_mek_system"
             }

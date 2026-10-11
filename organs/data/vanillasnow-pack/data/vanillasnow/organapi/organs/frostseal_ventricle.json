@@ -68,75 +68,50 @@
               "duration_ticks": 2
             }
           ],
-          "consume_points": [],
+          "consume_points": [
+            {
+              "type": "counter",
+              "id": "vanillasnow:vanillaSnow_resonance",
+              "amount": 2,
+              "source": "vanillaSnow_system"
+            }
+          ],
           "actions": []
         }
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "callback": "vanillaSnow_frostseal_heal",
+          "type": "heal",
+          "amount": 1.0,
           "point_type": "runtime",
           "point_id": "vanillasnow:frostseal_ventricle_heal_ready",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSnow_frostseal_heal"
+          "max_consume": 1
         }
       ]
     },
     {
       "conditions": [
         {
-          "type": "any_of",
-          "conditions": [
-            {
-              "type": "dimid",
-              "value_id": "minecraft:overworld"
-            },
-            {
-              "type": "biome_category",
-              "value": "snow"
-            },
-            {
-              "type": "biome_category",
-              "value": "frozen"
-            },
-            {
-              "type": "biome_category",
-              "value": "ice_spikes"
-            },
-            {
-              "type": "biome_category",
-              "value": "grove"
-            },
-            {
-              "type": "structure",
-              "structures": [
-                "minecraft:igloo",
-                "aquamirae:ship",
-                "aquamirae:outpost",
-                "aquamirae:shelter"
-              ],
-              "radius_chunks": 8
-            },
-            {
-              "type": "environment_state",
-              "state": "raining"
-            },
-            {
-              "type": "nearby_block",
-              "blocks": [
-                "minecraft:snow_block",
-                "minecraft:powder_snow",
-                "minecraft:ice",
-                "minecraft:packed_ice",
-                "minecraft:blue_ice"
-              ],
-              "radius": 5,
-              "vertical": 1,
-              "value": 1
-            }
-          ]
+          "type": "home",
+          "dimension_home": true,
+          "dimensions": [
+            "minecraft:overworld"
+          ],
+          "biome_keywords": [
+            "snow",
+            "frozen",
+            "ice_spikes",
+            "grove"
+          ],
+          "structures": [
+            "minecraft:igloo",
+            "aquamirae:ship",
+            "aquamirae:outpost",
+            "aquamirae:shelter"
+          ],
+          "structure_radius": 8,
+          "extra": "snow"
         }
       ],
       "grants": [],
@@ -160,13 +135,13 @@
       ],
       "executions": [
         {
-          "type": "kubejs_call",
-          "callback": "vanillaSnow_frostseal_suppress",
+          "type": "shorten_effect",
+          "effect": "minecraft:slowness",
+          "amount": 20,
           "point_type": "runtime",
           "point_id": "vanillasnow:frostseal_ventricle_suppress_ready",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaSnow_frostseal_suppress"
+          "max_consume": 1
         }
       ]
     }

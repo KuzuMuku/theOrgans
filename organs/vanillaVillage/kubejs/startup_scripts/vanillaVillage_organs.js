@@ -16,10 +16,6 @@ let VANILLAVILLAGE_ORGAN_IDS = [
   "iron_guard_shoulder",
   "travel_legplate",
   "trade_scavenger_hand",
-  "village_ledger",
-  "bell_rope_winder",
-  "holy_path_relay",
-  "mending_suture",
   "village_bell_core"
 ]
 

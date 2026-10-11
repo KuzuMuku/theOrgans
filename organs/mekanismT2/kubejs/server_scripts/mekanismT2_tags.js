@@ -31,8 +31,4 @@ let MEKANISMT2_ORGAN_IDS = [
 ServerEvents.tags('item', event => {
   Common.addItemsToTag(event, 'organapi:organs', MEKANISMT2_ORGAN_IDS)
 })
-
-ServerEvents.tags('block', event => {
-  event.add('minecraft:mineable/pickaxe', 'kubejs:quantum_sync_cube')
-})
 })()

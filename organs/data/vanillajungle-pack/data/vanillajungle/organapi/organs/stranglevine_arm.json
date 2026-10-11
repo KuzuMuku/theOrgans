@@ -122,8 +122,7 @@
           "point_type": "runtime",
           "point_id": "vanillajungle:stranglevine_arm_snare_pulse",
           "consume_points": true,
-          "max_consume": 1,
-          "custom_display_key": "message.organkubejs.execution.vanillaJungle_stranglevine_snare"
+          "max_consume": 1
         }
       ]
     }

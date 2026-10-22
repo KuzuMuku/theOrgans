@@ -4,7 +4,7 @@
 
 ## 仓库结构
 
-- `packs/{data,resources}/*-pack/` —— 数据驱动的器官包，**权威来源**（服务端定义 + 客户端资源）。
+- `packs/{data,resources}/*-pack/` —— 数据驱动的器官包。
   由 `sync_packs.bash` 部署到实例的 `<gameDir>/organs/` 目录（实例扫描约定路径）。
 - `kubejs/` —— 合并后的 forge-only KubeJS 回退内容：技能、掉落/来源、运行时 hook、标签、辅助物品。
   脚本按 `startup_scripts/<群系>/`、`server_scripts/<群系>/`（`common/` 为共享 helper）组织，

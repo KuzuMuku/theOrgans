@@ -1,15 +1,15 @@
 LootJS.modifiers(event => {
   let snowOrgans = [
-    'organapi:organ_item{OrganId:"vanillasnow:frostseal_ventricle"}',
-    'organapi:organ_item{OrganId:"vanillasnow:frozensoil_chest_membrane"}',
-    'organapi:organ_item{OrganId:"vanillasnow:birchmarrow_liver"}',
-    'organapi:organ_item{OrganId:"vanillasnow:icecrystal_lung"}',
-    'organapi:organ_item{OrganId:"vanillasnow:frostlight_crown"}',
-    'organapi:organ_item{OrganId:"vanillasnow:snowhide_spleen"}',
-    'organapi:organ_item{OrganId:"vanillasnow:icechip_arm"}',
-    'organapi:organ_item{OrganId:"vanillasnow:snowblind_iris"}',
-    'organapi:organ_item{OrganId:"vanillasnow:frosthoof_tendon"}',
-    'organapi:organ_item{OrganId:"vanillasnow:freezebreak_sheath"}'
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:frostseal_ventricle"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:frozensoil_chest_membrane"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:birchmarrow_liver"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:icecrystal_lung"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:frostlight_crown"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:snowhide_spleen"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:icechip_arm"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:snowblind_iris"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:frosthoof_tendon"}),
+    Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:freezebreak_sheath"})
   ]
   let snowAux = [
     'kubejs:deposition_conduit',
@@ -41,17 +41,17 @@ LootJS.modifiers(event => {
     .pool(pool => {
       pool.rolls(1)
       pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('organapi:organ_item{OrganId:"vanillasnow:frozensoil_chest_membrane"}'))
+      pool.addLoot(LootEntry.of(Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:frozensoil_chest_membrane"})))
     })
     .pool(pool => {
       pool.rolls(1)
       pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('organapi:organ_item{OrganId:"vanillasnow:icechip_arm"}'))
+      pool.addLoot(LootEntry.of(Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:icechip_arm"})))
     })
     .pool(pool => {
       pool.rolls(1)
       pool.randomChance(0.1)
-      pool.addLoot(LootEntry.of('organapi:organ_item{OrganId:"vanillasnow:snowblind_iris"}'))
+      pool.addLoot(LootEntry.of(Item.of('organapi:organ_item').withNBT({OrganId:"vanillasnow:snowblind_iris"})))
     })
 
   addSnowLoot('aquamirae:chests/maze_camp_chest', 0.05)
